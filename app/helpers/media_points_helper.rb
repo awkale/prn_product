@@ -1,0 +1,2 @@
+module MediaPointsHelper
+end

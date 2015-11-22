@@ -1,0 +1,2 @@
+class MediaPointsController < ApplicationController
+end
