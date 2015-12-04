@@ -1,0 +1,7 @@
+<ul>
+<%= @media_points.each do |mp| %>
+  <li><%= mp.name %> / <%= link_to 'Show', mp %> / <%= link_to 'Edit', edit_media_point_path %></li>
+<% end %>
+</ul>
+
+<p><%= link_to 'New Media Point', new_media_point_path %></p>
