@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-6">
-  <h1>Media Points</h1>
+  <h2>Media Points</h2>
     <ol>
     <% @media_points.each do |mp| %>
       <li><%= link_to mp.name, mp %> / <%= link_to 'Edit', edit_media_point_path(mp) %></li>

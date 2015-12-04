@@ -4,6 +4,8 @@ class MediaPointProductsController < ApplicationController
   end
   def new
     @media_point_product = MediaPointProduct.new
+    @media_point_product.media_point_id = params[:media_point_id]
+    @media_point = MediaPoint.find(params[:media_point_id])
   end
 
   def show

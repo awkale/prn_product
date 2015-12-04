@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+MediaPointProduct.create(media_point_id: '1', product_id: '1')
+MediaPointProduct.create(media_point_id: '1', product_id: '2')
+MediaPointProduct.create(media_point_id: '2', product_id: '2')
