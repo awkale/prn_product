@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-6">
+  <h1>Products</h1>
+    <ol>
+    <% @products.each do |product| %>
+      <li><%= link_to product.name, product %> / <%= link_to 'Edit', edit_media_point_path(product) %></li>
+    <% end %>
+    </ol>
+
+    <p><%= link_to 'New Product', new_product_path %></p>
+  </div>
+</div>

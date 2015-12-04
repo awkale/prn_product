@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151122205223) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "media_point_products", force: :cascade do |t|
     t.integer  "media_point_id"
     t.integer  "product_id"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20151122205223) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "media_point_products", ["media_point_id"], name: "index_media_point_products_on_media_point_id"
-  add_index "media_point_products", ["product_id"], name: "index_media_point_products_on_product_id"
+  add_index "media_point_products", ["media_point_id"], name: "index_media_point_products_on_media_point_id", using: :btree
+  add_index "media_point_products", ["product_id"], name: "index_media_point_products_on_product_id", using: :btree
 
   create_table "media_points", force: :cascade do |t|
     t.string   "name"
@@ -44,4 +47,6 @@ ActiveRecord::Schema.define(version: 20151122205223) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "media_point_products", "media_points"
+  add_foreign_key "media_point_products", "products"
 end

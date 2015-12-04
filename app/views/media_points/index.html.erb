@@ -1,7 +1,12 @@
-<ul>
-<%= @media_points.each do |mp| %>
-  <li><%= mp.name %> / <%= link_to 'Show', mp %> / <%= link_to 'Edit', edit_media_point_path %></li>
-<% end %>
-</ul>
+<div class="row">
+  <div class="col-sm-6">
+  <h1>Media Points</h1>
+    <ol>
+    <% @media_points.each do |mp| %>
+      <li><%= link_to mp.name, mp %> / <%= link_to 'Edit', edit_media_point_path(mp) %></li>
+    <% end %>
+    </ol>
 
-<p><%= link_to 'New Media Point', new_media_point_path %></p>
+    <p><%= link_to 'New Media Point', new_media_point_path %></p>
+  </div>
+</div>

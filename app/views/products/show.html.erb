@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-6">
+  <h2><%= @product.name %> <%= link_to 'Edit Product', edit_product_path, { :class=>"btn btn-default btn-sm btn-link" } %></h2>
+  <dl class="">
+    <dt>Description:</dt>
+    <dd><%= @product.description %></dd>
+    <dt>Code:</dt>
+    <dd><%= @product.code %></dd>
+    <dt>Base Price:</dt>
+    <dd><%= @product.base_price %></dd>
+    <dt>Length Price:</dt>
+    <dd><%= @product.length_price %></dd>
+  </dl>
+  </div>
+  <div class="col-sm-6">
+    <%= link_to 'Edit Product', edit_product_path, { :class=>"btn btn-default" } %>
+    <%= link_to 'View All Products', products_path, { :class=>"btn btn-default" } %>
+
+  </div>
+</div>

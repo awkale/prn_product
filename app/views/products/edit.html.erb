@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>Edit <%= @product.name %></h1>
+
+      <%= simple_form_for @product do |form| %>
+        <%= form.error_notification %>
+        <%= form.input :name, placeholder: 'Product' %>
+        <%= form.input :description, placeholder: 'Description'%>
+        <%= form.input :code, placeholder: 'Code'%>
+        <%= form.input :base_price, placeholder: 'Base Price'%>
+        <%= form.input :length_price, placeholder: 'Length Price'%>
+        <%= form.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
