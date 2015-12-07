@@ -3,7 +3,7 @@
   <h1>Products</h1>
     <ol>
     <% @products.each do |product| %>
-      <li><%= link_to product.name, product %> / <%= link_to 'Edit', edit_media_point_path(product) %></li>
+      <li><%= link_to product.name, product %> / <%= link_to 'Edit', edit_media_point_path(product) %> <!-- / <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>--></li>
     <% end %>
     </ol>
 
