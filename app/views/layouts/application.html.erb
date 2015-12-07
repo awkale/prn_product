@@ -7,14 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-    <div class="col-sm-12"><h1><%= link_to 'PRN Product Database', root_path  %></h1>
+  <div class="page-wrap">
+    <header class="main-header">
+      <section class="nav-junior no-margin">
+        <%= render "nav_junior" %>
+      </section>
+      <section class="nav-main no-margin hidden-xs">
+        <%= render "nav_main" %>
+      </section>
+    </header><!-- /header -->
+    <main role="main" id="main" class="">
+      <div class="container">
+        <div class="row">
+        <div class="col-sm-12"><h1><%= link_to 'PRN Product Database', root_path  %></h1>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="container">
-    <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main><!-- /main -->
+    <%= render "footer" %>
   </div>
 </body>
 </html>
