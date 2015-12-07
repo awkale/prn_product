@@ -1,0 +1,80 @@
+/**********/
+/* Colors */
+/**********/
+.swatch {
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+}
+.swatches {
+  overflow: auto;
+}
+
+#primary-colors .swatch {
+// .swatches:first-of-type .swatch {
+  &:nth-of-type(1) {
+    background-color: $brand-primary;
+  }
+  &:nth-of-type(2) {
+    background-color: $brand-alternative;
+  }
+  &:nth-of-type(3) {
+    background-color: $brand-secondary;
+  }
+  &:nth-of-type(4) {
+    background-color: #8cc9cf;
+  }
+  &:nth-of-type(5) {
+    background-color: $brand-secondary-lighter;
+  }
+  &:nth-of-type(6) {
+    background-color: #d8a534;
+  }
+  &:nth-of-type(7) {
+    background-color: $brand-accent;
+  }
+  &:nth-of-type(8) {
+    background-color: #e8bb57;
+  }
+  &:nth-of-type(9) {
+    background-color: $brand-action;
+  }
+  &:nth-of-type(10) {
+    background-color: #db7423;
+  }
+}
+
+#secondary-colors .swatch {
+  &:nth-of-type(1) {
+    background-color: #c82100;
+  }
+  &:nth-of-type(2) {
+    background-color: #8db11f;
+  }
+  &:nth-of-type(3) {
+    background-color: #8560a8;
+  }
+}
+
+#grayscale .swatch {
+  &:nth-of-type(1) {
+    background-color: $gray-base;
+  }
+  &:nth-of-type(2) {
+    background-color: $gray;
+  }
+  &:nth-of-type(3) {
+    background-color: $gray-light;
+  }
+  &:nth-of-type(4) {
+    background-color: #d7d7d7;
+  }
+  &:nth-of-type(5) {
+    background-color: $gray-lighter;
+  }
+  &:nth-of-type(6) {
+    background-color: $gray-lightest;
+  }
+}

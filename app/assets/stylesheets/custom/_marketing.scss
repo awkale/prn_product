@@ -1,0 +1,401 @@
+.solutions {
+  .nav-subnav {
+    margin-bottom: 0;
+  }
+  .theme-icons, .intro, .products, .products-grid, .thought-leadership, .next-step {
+    border-bottom: 3px solid $gray-lighter;
+    margin-bottom: 0;
+
+    p {
+      @media (max-width: $screen-sm) {
+        text-align: left;
+      }
+    }
+  }
+  .theme-icons {
+    @media (max-width: $screen-sm) {
+      border-bottom: none;
+    }
+  }
+  .intro h2 {
+    font-family: $font-family-serif;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+  }
+  p {
+    font-size: 1.3em;
+    line-height: 1.5;
+  }
+  .jumbotron {
+    height: 550px;
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    margin-bottom: 0;
+    text-align: center;
+    border-bottom: none;
+    // background-image: url("../images/marketing/solutions_overview_hero_image.jpg");
+    // background-size: cover;
+    // background-position: center;
+    color: #fff;
+    justify-content: center;
+    resize: vertical;
+
+    @media (max-width: $screen-sm) {
+      height: 200px;
+    }
+
+    figure {
+      // height: 550px;
+      // position: relative;
+    }
+
+    .jumbo-image {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      top: 0;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    i {
+      font-size: 4.5em;
+      margin-bottom: 10px;
+    }
+    h1 {
+      text-transform: uppercase;
+      font-size: 36px;
+      margin-bottom: 20px;
+      @media (max-width: $screen-sm) {
+        font-size: 24px;
+      }
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 5px;
+      @media (max-width: $screen-sm) {
+        font-size: 14px;
+      }
+    }
+  }
+  .marketing, .pr-communications, .ir-compliance, .agency {
+    .jumbotron {
+      height: 360px;
+    }
+  }
+  .video-play {
+    color: #fff;
+    opacity: .8;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .video-close {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    i {
+      color: #fff;
+      font-size: 3em;
+      &:hover {
+        color: $brand-secondary;
+      }
+    }
+  }
+  .video-container {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2050;
+    top: 0;
+    background: rgba(0,0,0,.8);
+    video.marketing-video {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .products-grid {
+    h3 a {
+      color: $text-color;
+      &:hover {
+        color: $link-hover-color-release;
+      }
+    }
+    .card {
+      width: calc(50% - 20px);
+      float: left;
+      margin: 10px;
+    }
+  }
+  .card-stacking {
+    .resources {
+      padding: 10px;
+      a {
+        color: $text-color;
+        &:hover {
+          color: $link-hover-color-release;
+        }
+      }
+    }
+    .resource-text {
+    }
+    .resource-object {
+      width: 150px;
+      margin-top: 4px;
+      margin-left: 6px;
+    }
+    p {
+      font-size: $font-size-base;
+    }
+    .solution-type {
+      color: $gray-light;
+      font-size: 85%;
+    }
+  }
+
+  .products, .thought-leadership {
+    position: relative;
+    h2 {
+      text-transform: none;
+      a {
+        padding-top: $padding-small-vertical;
+        font-family: $font-family-sans-serif;
+        font-size: $font-size-medium;
+        font-weight: 500;
+      }
+    }
+    h3, h4 {
+      margin-top: 0;
+    }
+    h4 {
+      color: $gray;
+      font-weight: normal;
+    }
+  }
+  .thought-leadership {
+    padding-bottom: 50px;
+    @media (max-width: $screen-sm) {
+      h4 {
+        margin-top: 20px;
+      }
+    }
+  }
+  a.blog-title {
+    color: $gray-dark;
+  }
+  .intro, .products, .tailored-solution {
+    p {
+      color: $gray;
+      margin-bottom: 1em;
+    }
+  }
+  .product {
+    padding-top: 150px;
+    @media (max-width: $screen-sm) {
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+    @media (max-width: $screen-xs-max) {
+      figure {
+        position: static;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .product-info {
+    width: 100%;
+    max-width: 28.125em;
+    margin: 100px auto;
+    @media (max-width: $screen-xs-max) {
+      margin: 0 auto 30px;
+    }
+  }
+  .product.targeting {
+    min-height: 1060px;
+    @media (max-width: $screen-xs-max) {
+      min-height: 0;
+    }
+  }
+  .laptop {
+
+  }
+  .imac {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.theme-icons {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @media (max-width: $screen-sm) {
+    border-bottom: none;
+  }
+  .carousel-indicators {
+    position: relative;
+    margin-bottom: 0;
+    display: inline-block;
+    width: 100%;
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    ul {
+    }
+    li {
+      position: relative;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 0;
+      width: 122px;
+      height: 171px;
+      border: none;
+      text-indent: 0;
+
+      @media (max-width: $screen-sm) {
+        width: 100%;
+        height: 30px;
+        border-bottom: 2px solid $gray-light;
+      }
+      &.active,
+      &:hover {
+        background-color: $brand-secondary-lighter;
+        color: $brand-secondary;
+      }
+    }
+    li + li {
+      margin-left: 60px;
+      @media (max-width: $screen-sm) {
+        margin-left: 0;
+      }
+    }
+    @media (min-width: $screen-sm) {
+      li + li::before {
+        content: "\f105";
+        font-family: FontAwesome;
+        font-size: 40%;
+        position: absolute;
+        left: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $gray-light;
+        font-size: 3em;
+      }
+    }
+    i {
+      vertical-align: middle;
+      font-size: 8em;
+      line-height: 1.2
+    }
+    .caption {
+      display: block;
+      line-height: 1;
+      font-size: 1.2em;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+  }
+  color: $brand-action;
+  text-align: center;
+}
+
+.next-step {
+  background-color: $gray-lightest;
+  text-align: center;
+  padding-bottom: 50px;
+  padding-top: 30px;
+  i {
+    font-size: 8em;
+    color: $brand-action;
+  }
+}
+.tailored-solution {
+  text-align: center;
+  li + li {
+    margin-left: 90px;
+    @media (max-width: $screen-md-max) {
+      margin-left: 50px;
+    }
+    @media (max-width: $screen-sm-max) {
+      margin-left: 40px;
+    }
+    @media (max-width: $screen-sm) {
+      margin-left: 0;
+    }
+  }
+  i {
+    font-size: 8em;
+    @media (max-width: $screen-sm-max) {
+      font-size: 4.5em;
+    }
+    color: $brand-secondary;
+  }
+  h4 {
+    margin-top: 50px;
+    color: $gray-dark;
+  }
+  @media (max-width: $screen-sm) {
+    h3, p {
+      text-align: left;
+    }
+    li {
+      width: 49%;
+      font-size: 12px;
+    }
+  }
+}
+
+.solutions-options {
+  background-color: $gray-lightest;
+  padding-bottom: 20px;
+  h3 {
+    text-align: center;
+  }
+  button {
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+}
+.social {
+  font-size: .5rem;
+  i {
+    color: $gray;
+  }
+  li + li {
+    margin-left: 30px;
+  }
+}
+.footer-fixed-mkt {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 500;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  background-color: rgba( $brand-primary, .7 );
+  text-align: center;
+  color: #fff;
+  .call-us {
+    display: block;
+   a {
+    color: #fff;
+  }
+}
+}
+.call-us {
+  margin-left: 15px;
+}
+
+

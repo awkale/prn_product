@@ -1,0 +1,20 @@
+// styleguide specific styles here
+#sg-colors pre,
+#sg-buttons-links pre {
+  margin-top: 0;
+}
+.locate-code {
+  border: solid 1px $brand-secondary;
+  margin-top: -40px;
+}
+
+#sg-nav {
+  position: fixed;
+  top: 5%;
+  border: 1px solid $brand-primary;
+  a:hover {
+    color: $brand-primary;
+  }
+}
+
+.row {margin-bottom: 20px;}

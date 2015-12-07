@@ -1,0 +1,72 @@
+//
+// Buttons
+// --------------------------------------------------
+
+.btn:active, .btn.active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-default:hover,
+.btn-default:active {
+  color: darken($btn-default-color, 27%);
+  background: #fff;
+  border-color: darken($btn-default-color, 27%);
+}
+
+.btn-secondary {
+  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+
+.btn-secondary-fill {
+  @include button-variant($btn-secondary-fill-color, $btn-secondary-fill-bg, $btn-secondary-fill-border);
+}
+
+.adv-search {
+  margin-top: $padding-small-vertical;
+  font-size: ceil($font-size-base * 0.85);
+  padding-right: ($padding-base-horizontal * 3);
+  padding-left: ($padding-base-horizontal * 3);
+}
+
+.stacking-card-btn {
+  display: block;
+  font-size: $font-size-medium;
+  padding-right: ($padding-base-horizontal * 2);
+  padding-left: ($padding-base-horizontal * 2);
+  margin: -20px auto 20px;
+}
+
+.trending-category-btn {
+  float: left;
+  padding-top: $padding-large-horizontal;
+  padding-bottom: $padding-large-horizontal;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  @include button-variant($gray-darker, #fff, $gray-light);
+  font-size: $font-size-base;
+}
+
+.illustration-promos .btn {
+  display: block;
+  margin: $line-height-computed auto;
+  padding-right:$padding-large-horizontal * 2;
+  padding-left:$padding-large-horizontal * 2;
+  color: #fff;
+  border-color: #fff;
+}
+
+.illustration-top .btn {
+  background-color: $brand-secondary;
+}
+.illustration-left .btn {
+  background-color: #8cc9cf;
+}
+
+.illustration-right .btn {
+  background-color: #e8bb57;
+}
+
+.lang-switch {
+  display: inline-block;
+}

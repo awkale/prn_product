@@ -1,0 +1,86 @@
+// Header Mobile
+.header-mobile {
+  min-height: 40px;
+  font-size: 1.5em;
+  color: $gray-lighter;
+  background: $brand-primary;
+  border-bottom: 0;
+  .container {
+    position: relative;
+  }
+  .nav > li {
+    float: left;
+  }
+
+  .navbar-nav {
+    margin-top: 0;
+    margin-bottom: 0;
+    & > li {
+      position: static;
+      &.open a {
+        background: $gray-lighter;
+        &:focus {
+          background: $gray-lighter;
+        }
+        i {
+          color: $brand-primary;
+        }
+      }
+      li > a {
+        padding: 9px;
+      }
+      i {
+        color: $gray-lighter;
+      }
+    }
+    ul.dropdown-menu {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      color: $brand-primary;
+      background: $gray-lighter;
+      border-bottom: 1px solid $brand-primary;
+      border-radius: 0px;
+      &.contact {
+        padding: 12px 10px 11px;
+        p {
+          margin: 0;
+          line-height: 1;
+        }
+      }
+      &.search {
+        padding: 0;
+      }
+    }
+  }
+  .input-group {
+    width: 100%;
+    input {
+      width:100%;
+      padding: 11px 10px 7px;
+      background: none;
+      border: none;
+      -webkit-appearance: none;
+    }
+  }
+
+  .navbar-brand {
+    height: 40px;
+    padding: 10px;
+    &:hover,
+    &:focus {
+      background: none;
+    }
+  }
+
+  .navbar-right {
+    float: right!important;
+  }
+  .navbar-left {
+    float: left!important;
+  }
+  .nav-mobile-button {
+    color: $gray-lighter;
+  }
+}

@@ -1,0 +1,252 @@
+//
+// Navbars
+// --------------------------------------------------
+
+
+// Wrapper and base class
+//
+// Provide a static navbar from which we expand to create full-width, fixed, and
+// other navbar variations.
+.nav-main {
+  .navbar {
+    border: none;
+  }
+  .navbar-default {
+    font-weight: bold;
+
+    .navbar-brand {
+      width: 150px;
+      padding: 5px 10px;
+    }
+
+    .navbar-nav {
+      > li > a {
+        bottom: -3px;
+        border-bottom: 3px solid transparent;
+
+        &:hover,
+        &:focus {
+          border-color: $brand-secondary;
+          background-color: $navbar-default-brand-hover-bg;
+        }
+      }
+      > .active > a {
+        &,
+        &:hover,
+        &:focus {
+          border-bottom: 3px solid $brand-secondary;
+        }
+      }
+    }
+  }
+}
+
+.nav-junior {
+  .navbar {
+    min-height: $navbar-junior-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+    margin-bottom: $navbar-margin-bottom;
+    border: 0;
+
+    // Prevent floats from breaking the navbar
+    @include clearfix;
+
+    @media (min-width: $grid-float-breakpoint) {
+      border-radius: $navbar-border-radius;
+    }
+  }
+
+  .navbar-nav {
+    margin: ($navbar-junior-padding-vertical / 2) (-$navbar-padding-horizontal);
+
+    > li > a {
+      padding-top:    10px;
+      padding-bottom: 10px;
+      line-height: $line-height-computed;
+    }
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      // Dropdowns get custom display when collapsed
+      .open .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        > li > a,
+        .dropdown-header {
+          padding: 5px 15px 5px 25px;
+        }
+        > li > a {
+          line-height: $line-height-computed;
+          &:hover,
+          &:focus {
+            background-image: none;
+          }
+        }
+      }
+    }
+
+    // Uncollapse the nav
+    @media (min-width: $grid-float-breakpoint) {
+      float: left;
+      margin: 0;
+
+      > li {
+        float: left;
+        > a {
+          padding-top:    $navbar-junior-padding-vertical;
+          padding-bottom: $navbar-junior-padding-vertical;
+        }
+      }
+    }
+  }
+}
+// Default navbar
+.navbar-junior {
+  background-color: $navbar-junior-bg;
+  border-color: $navbar-junior-border;
+  font-size: 12px;
+
+  .navbar-brand {
+    color: $navbar-junior-brand-color;
+    &:hover,
+    &:focus {
+      color: $navbar-junior-brand-hover-color;
+      background-color: $navbar-junior-brand-hover-bg;
+    }
+  }
+
+  .navbar-text {
+    color: $navbar-junior-color;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: $gray-light;
+
+      &:hover,
+      &:focus {
+        color: $navbar-junior-link-hover-color;
+        background-color: $navbar-junior-link-hover-bg;
+      }
+    }
+    > li.bg-brand-secondary {
+      padding-left: 20px;
+      padding-right: 20px;
+      &:hover {
+        background: $brand-secondary-light;
+      }
+      > a {
+        color: #fff;
+        &:hover,
+        &:focus {
+          background: transparent;
+        }
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-junior-link-active-color;
+        background-color: $navbar-junior-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-junior-link-disabled-color;
+        background-color: $navbar-junior-link-disabled-bg;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    border-color: $navbar-junior-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: $navbar-junior-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: $navbar-junior-toggle-icon-bar-bg;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $navbar-junior-border;
+  }
+
+  // Dropdown menu items
+  .navbar-nav {
+    // Remove background color from open dropdown
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $navbar-junior-link-active-bg;
+        color: $navbar-junior-link-active-color;
+      }
+    }
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      // Dropdowns get custom display when collapsed
+      .open .dropdown-menu {
+        > li > a {
+          color: $navbar-junior-link-color;
+          &:hover,
+          &:focus {
+            color: $navbar-junior-link-hover-color;
+            background-color: $navbar-junior-link-hover-bg;
+          }
+        }
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $navbar-junior-link-active-color;
+            background-color: $navbar-junior-link-active-bg;
+          }
+        }
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $navbar-junior-link-disabled-color;
+            background-color: $navbar-junior-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+
+
+  // Links in navbars
+  //
+  // Add a class to ensure links outside the navbar nav are colored correctly.
+
+  .navbar-link {
+    color: $navbar-junior-link-color;
+    &:hover {
+      color: $navbar-junior-link-hover-color;
+    }
+  }
+
+  .btn-link {
+    color: $navbar-junior-link-color;
+    &:hover,
+    &:focus {
+      color: $navbar-junior-link-hover-color;
+    }
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: $navbar-junior-link-disabled-color;
+      }
+    }
+  }
+}
