@@ -1,5 +1,15 @@
 <div class="row">
-  <div class="col-sm-6">
-    <h2>Add Products to <%= @media_point.name %></h2>
+  <div class="col-sm-8">
+    <h2>Add Products to <%= @media_point.media_point_name %></h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <%= simple_form_for @media_point_product do |form| %>
+      <%= form.error_notification %>
+      <%= form.association :media_point, disabled: true, placeholder: 'Media Point' %>
+      <%= form.association :product, placeholder: 'Product' %>
+      <%= form.button :submit %>
+    <% end %>
   </div>
 </div>

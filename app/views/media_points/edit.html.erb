@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-sm-6">
-    <h1>Edit <%= @media_point.name %></h1>
+    <h1>Edit <%= @media_point.media_point_name %></h1>
 
     <%= simple_form_for @media_point do |form| %>
       <%= form.error_notification %>
-      <%= form.input :name, placeholder: 'Media Point' %>
+      <%= form.input :media_point_name, placeholder: 'Media Point' %>
       <%= form.input :category, placeholder: 'Category'%>
       <%= form.input :sub_category, placeholder: 'Sub Category'%>
       <%= form.input :city, placeholder: 'City'%>

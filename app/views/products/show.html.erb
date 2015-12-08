@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-6">
-  <h2><%= @product.name %> <%= link_to 'Edit Product', edit_product_path, { :class=>"btn btn-default btn-sm btn-link" } %></h2>
+  <h2><%= @product.product_name %> <%= link_to 'Edit Product', edit_product_path, { :class=>"btn btn-default btn-sm btn-link" } %></h2>
   <dl class="">
     <dt>Description:</dt>
     <dd><%= @product.description %></dd>
@@ -17,7 +17,7 @@
     <ol>
       <% @product.media_points.each do |p_mp| %>
       <li>
-        <%= link_to p_mp.name, media_point_path(p_mp) %> /
+        <%= link_to p_mp.media_point_name, media_point_path(p_mp) %> /
         <%= link_to 'Edit', edit_media_point_path(p_mp) %>
       </li>
       <% end %>
