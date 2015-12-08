@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-sm-6">
-  <h2>Media Points</h2>
+  <h2>Media Points <%= link_to 'New Media Point', new_media_point_path, { :class => "btn btn-default btn-sm btn-link"} %></h2>
     <ol>
     <% @media_points.each do |mp| %>
       <li><%= link_to mp.media_point_name, mp %> / <%= link_to 'Edit', edit_media_point_path(mp) %></li>
     <% end %>
     </ol>
 
-    <p><%= link_to 'New Media Point', new_media_point_path %></p>
+    <p></p>
   </div>
 </div>
