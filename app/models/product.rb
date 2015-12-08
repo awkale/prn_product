@@ -3,6 +3,9 @@ class Product < ActiveRecord::Base
   has_many :media_point_products
   has_many :media_points,
             through: :media_point_products
+  validates :product_name, presence: true
+  validates :base_price, numericality: true
+  validates :length_price, numericality: true
 
   # accepts_nested_attributes_for :media_point_products
             # :reject_if => :all_blank,
