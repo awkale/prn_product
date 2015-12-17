@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-6">
-    <h2><%= @user.email %></h2>
+    <h2><%= @user.email %> <%= link_to 'Edit', edit_user_path, { :class=>"btn btn-default btn-sm btn-link" } %></h2>
     <dl class="">
       <dt>First name:</dt>
       <dd><%= @user.first_name %></dd>
@@ -8,6 +8,10 @@
       <dd><%= @user.last_name %></dd>
       <dt>Created:</dt>
       <dd><%= @user.created_at %></dd>
+      <dt>Last sign in:</dt>
+      <dd><%= @user.last_sign_in_at %></dd>
+      <dt>Updated:</dt>
+      <dd><%= @user.updated_at %></dd>
     </dl>
   </div>
 </div>
