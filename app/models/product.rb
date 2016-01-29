@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
   validates :base_price, numericality: true
   validates :length_price, numericality: true
 
+  default_scope { order('product_name') }
+
   # accepts_nested_attributes_for :media_point_products
             # :reject_if => :all_blank,
             # :allow_destroy => true
