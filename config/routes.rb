@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :products
   resources :media_point_products
   get '/listing' => "listing#index"
+  devise_for :admins
   devise_for :users
   resources :users
 end
