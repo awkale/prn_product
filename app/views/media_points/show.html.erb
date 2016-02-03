@@ -23,7 +23,7 @@
       <% @media_point.products.each do |mp_p|%>
       <li>
         <%= link_to mp_p.product_name, product_path(mp_p) %> <% if current_user.admin %>/
-        <%= link_to 'Edit',  edit_media_point_product_path(mp_p) %><% end %>
+        <%= link_to 'Edit',  edit_product_path(mp_p) %><% end %>
       </li>
       <% end %>
     </ol>
