@@ -7,7 +7,7 @@
   <div class="col-sm-4">
     <%= simple_form_for @media_point_product do |form| %>
       <%= form.error_notification %>
-      <%= form.association :media_point, disabled: true, placeholder: 'Media Point', label_method: :media_point_name %>
+      <%= form.association :media_point, disabled: true, placeholder: 'Recipient', label_method: :media_point_name %>
       <%= form.association :product, placeholder: 'Product', label_method: :product_name %>
       <%= form.button :submit, "Add" %>
     <% end %>
