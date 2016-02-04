@@ -6,7 +6,8 @@
       <%= form.error_notification %>
       <%= form.association :media_point, placeholder: 'Media Point' %>
       <%= form.association :product, placeholder: 'Product' %>
-      <%= form.button :submit %>
+      <%= form.button :submit, {:class=>"btn btn-secondary"} %>
+      <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
     <% end %>
   </div>
 </div>

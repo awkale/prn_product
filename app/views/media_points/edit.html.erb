@@ -10,7 +10,8 @@
       <%= form.input :city, placeholder: 'City'%>
       <%= form.input :state, placeholder: 'State' %>
       <%= form.input :country, as: :country, priority: ['US', 'CA'] %>
-      <%= form.button :submit %>
+      <%= form.button :submit, {:class=>"btn btn-secondary"} %>
+      <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
     <% end %>
   </div>
 </div>

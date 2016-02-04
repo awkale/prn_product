@@ -10,7 +10,8 @@
         <%= form.input :code, placeholder: 'Code'%>
         <%= form.input :base_price, placeholder: 'Base Price'%>
         <%= form.input :length_price, placeholder: 'Length Price'%>
-        <%= form.button :submit %>
+        <%= form.button :submit, {:class=>"btn btn-secondary"} %>
+        <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
       <% end %>
     </div>
   </div>

@@ -8,7 +8,8 @@
       <%= form.input :category, placeholder: 'Category'%>
       <%= form.input :sub_category, placeholder: 'Sub Category'%>
       <%= form.input :city, placeholder: 'City'%>
-      <%= form.button :submit %>
+      <%= form.button :submit, {:class=>"btn btn-secondary"} %>
+      <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
     <% end %>
   </div>
 </div>
