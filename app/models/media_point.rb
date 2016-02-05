@@ -1,6 +1,6 @@
 class MediaPoint < ActiveRecord::Base
 
-  has_many :media_point_products
+  has_many :media_point_products, dependent: :destroy
   has_many :products,
             through: :media_point_products
   validates :media_point_name, presence: true

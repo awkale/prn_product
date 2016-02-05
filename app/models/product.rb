@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
 
-  has_many :media_point_products
+  has_many :media_point_products, dependent: :destroy
   has_many :media_points,
             through: :media_point_products
   validates :product_name, presence: true

@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col-sm-6">
-  <h2><%= @product.product_name %> <% if current_user.admin %><%= link_to 'Edit Product', edit_product_path, { :class=>"btn btn-default btn-sm btn-link" } %><% end %></h2>
-  <dl class="">
-    <dt>Description:</dt>
-    <dd><%= @product.description %></dd>
-    <dt>Code:</dt>
-    <dd><%= @product.code %></dd>
-    <dt>Base Price:</dt>
-    <dd><%= @product.base_price %></dd>
-    <dt>Length Price:</dt>
-    <dd><%= @product.length_price %></dd>
-  </dl>
+    <h2><%= @product.product_name %> <% if current_user.admin %><%= link_to 'Edit Product', edit_product_path, { :class=>"btn btn-sm btn-link" } %><% end %></h2>
+    <dl class="">
+      <dt>Description:</dt>
+      <dd><%= @product.description %></dd>
+      <dt>Code:</dt>
+      <dd><%= @product.code %></dd>
+      <dt>Base Price:</dt>
+      <dd><%= @product.base_price %></dd>
+      <dt>Length Price:</dt>
+      <dd><%= @product.length_price %></dd>
+    </dl>
   </div>
   <div class="col-sm-6">
     <h2>Related Recipients</h2>
@@ -27,6 +27,6 @@
 <hr>
 <div class="row">
    <div class="col-sm-6">
-    <%= link_to 'View All Product', products_path, { :class=>"btn btn-default" } %>
+    <%= link_to 'Delete Product', product_path, method: :delete, data: { confirm: "you sure?" }, :class=>"btn btn-danger" %>
    </div>
  </div>
