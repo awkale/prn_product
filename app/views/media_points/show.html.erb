@@ -32,6 +32,6 @@
 <hr>
 <div class="row">
    <div class="col-sm-6">
-    <%= link_to 'View Recipients', media_points_path, { :class=>"btn btn-default" } %>
+    <%= link_to 'Delete Recipient', media_point_path, method: :delete, data: { confirm: "you sure?" }, :class=>"btn btn-danger" %>
    </div>
  </div>
