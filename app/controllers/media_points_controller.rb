@@ -44,7 +44,7 @@ class MediaPointsController < ApplicationController
 
   private
   def media_point_params
-    params.require(:media_point).permit(:media_point_name, :category, :sub_category, :city, :state, :country, :industry, product_attributes: [:product_name, media_point_products: [:media_point_id, :product_id]])
+    params.require(:media_point).permit(:media_point_name, :category, :sub_category, :city, :state, :country, :industry, product_attributes: [:product_name, media_point_products: [:media_point_id, :product_id]], channel_attributes: [:channel_name, media_point_channels: [:media_point_id, :channel_id]])
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201012538) do
+ActiveRecord::Schema.define(version: 20160208222915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,22 @@ ActiveRecord::Schema.define(version: 20160201012538) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
+
+  create_table "channels", force: :cascade do |t|
+    t.string   "channel_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "media_point_channels", force: :cascade do |t|
+    t.integer  "media_point_id"
+    t.integer  "channel_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "media_point_channels", ["channel_id"], name: "index_media_point_channels_on_channel_id", using: :btree
+  add_index "media_point_channels", ["media_point_id"], name: "index_media_point_channels_on_media_point_id", using: :btree
 
   create_table "media_point_products", force: :cascade do |t|
     t.integer  "media_point_id"
@@ -83,6 +99,8 @@ ActiveRecord::Schema.define(version: 20160201012538) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "media_point_channels", "channels"
+  add_foreign_key "media_point_channels", "media_points"
   add_foreign_key "media_point_products", "media_points"
   add_foreign_key "media_point_products", "products"
 end

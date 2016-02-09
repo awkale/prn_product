@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :media_points
   resources :products
+  resources :channels
   resources :media_point_products
   get '/listing' => "listing#index"
   devise_for :admins

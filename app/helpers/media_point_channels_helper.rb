@@ -1,0 +1,2 @@
+module MediaPointChannelsHelper
+end

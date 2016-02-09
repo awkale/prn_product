@@ -5,6 +5,9 @@ class MediaPoint < ActiveRecord::Base
             through: :media_point_products
   validates :media_point_name, presence: true
 
+  has_many :media_point_channels, dependent: :destroy
+  has_many :channels, through: :media_point_channels
+
   default_scope { order('media_point_name') }
   # accepts_nested_attributes_for :media_point_products
                                 # :reject_if => :all_blank,
