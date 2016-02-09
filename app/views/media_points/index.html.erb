@@ -3,7 +3,7 @@
   <h2>Recipients <% if current_user.admin %><%= link_to 'New Recipient', new_media_point_path, { :class => "btn btn-sm btn-link"} %><% end %></h2>
     <ol>
     <% @media_points.each do |mp| %>
-      <li><%= link_to mp.media_point_name, mp %> <% if current_user.admin %>/ <%= link_to 'Edit', edit_media_point_path(mp) %><% end %></li>
+      <li><%= mp.id %> <%= link_to mp.media_point_name, mp %> <% if current_user.admin %>/ <%= link_to 'Edit', edit_media_point_path(mp) %><% end %></li>
     <% end %>
     </ol>
 
