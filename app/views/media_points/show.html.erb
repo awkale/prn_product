@@ -16,7 +16,7 @@
     <dt>Country:</dt>
     <dd><%= @media_point.country %></dd>
   </dl>
-  <h3>Channel</h3>
+  <h3>Channel(s)</h3>
   <ol>
   <% @media_point.channels.each do |c|  %>
     <li><%= link_to c.channel_name, channel_path(c) %></li>
