@@ -61,7 +61,6 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
   gem 'simple_bdd'
   gem 'shoulda-matchers'
-  gem 'spring'
 end
 
 group :development do
