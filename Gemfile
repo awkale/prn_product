@@ -49,6 +49,19 @@ gem 'delayed_job_active_record'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'better_errors'
+  gem 'capybara-webkit'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'database_cleaner'
+  gem 'letter_opener'
+  gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails', '~> 0.3.2'
+  gem 'simple_bdd'
+  gem 'shoulda-matchers'
+  gem 'spring'
 end
 
 group :development do
