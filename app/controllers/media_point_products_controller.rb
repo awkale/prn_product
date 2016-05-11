@@ -13,9 +13,9 @@ class MediaPointProductsController < ApplicationController
   end
 
   def create
-    @media_point_product = MediaPointProduct.new(params[:media_point_id])
+    @media_point_product = MediaPointProduct.new(media_point_product_params)
     if @media_point_product.save
-      redirect_to root_path
+      redirect_to @media_point_product.media_point
     else
       render :new
     end
