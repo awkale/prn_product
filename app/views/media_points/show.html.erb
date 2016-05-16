@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-8">
     <h2><%= @media_point.media_point_name %> <% if current_user.admin %><%= link_to 'Edit Recipient', edit_media_point_path, { :class=>"btn btn-sm btn-link" } %><% end %></h2>
     <div class="row">
       <div class="col-sm-6">
@@ -30,7 +30,7 @@
       <% end %>
     </ol>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <h2>Related Products <% if current_user.admin %><%= link_to 'Add Product', new_media_point_product_path(media_point_id: @media_point.id), { :class=>"btn btn-sm btn-link" } %><% end %></h2>
     <ol>
       <% @media_point.products.each do |mp_p|%>

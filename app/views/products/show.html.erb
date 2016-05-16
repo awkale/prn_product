@@ -1,18 +1,18 @@
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-8">
     <h2><%= @product.product_name %> <% if current_user.admin %><%= link_to 'Edit Product', edit_product_path, { :class=>"btn btn-sm btn-link" } %><% end %></h2>
     <dl class="dl-horizontal">
       <dt>Description:</dt>
       <dd><%= simple_format(@product.description) %></dd>
       <dt>Code:</dt>
       <dd><%= @product.code %></dd>
-      <dt>Base Price:</dt>
+      <dt>Base Price ($):</dt>
       <dd><%= @product.base_price %></dd>
-      <dt>Length Price:</dt>
+      <dt>Length Price ($):</dt>
       <dd><%= @product.length_price %></dd>
     </dl>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <h2>Related Recipients</h2>
     <ol>
       <% @product.media_points.each do |p_mp| %>
