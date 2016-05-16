@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415191735) do
+ActiveRecord::Schema.define(version: 20160516151303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20160415191735) do
   create_table "media_points", force: :cascade do |t|
     t.string   "media_point_name"
     t.string   "category"
-    t.string   "sub_category"
+    t.text     "description"
     t.string   "city"
     t.string   "country"
     t.string   "industry"

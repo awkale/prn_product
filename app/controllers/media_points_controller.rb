@@ -29,7 +29,7 @@ class MediaPointsController < ApplicationController
   def update
     @media_point = MediaPoint.find(params[:id])
 
-    media_point_params = params.require(:media_point).permit(:media_point_name, :category, :sub_category, :city, :state, :country, :industry, :audience_size)
+    media_point_params = params.require(:media_point).permit(:media_point_name, :category, :description, :city, :state, :country, :industry, :audience_size)
     @media_point.update_attributes(media_point_params)
 
     redirect_to media_point_path(id: @media_point.id)
@@ -44,7 +44,7 @@ class MediaPointsController < ApplicationController
 
   private
   def media_point_params
-    params.require(:media_point).permit(:media_point_name, :category, :sub_category, :city, :state, :country, :industry, :audience_size, product_attributes: [:product_name, media_point_products: [:media_point_id, :product_id]], channel_attributes: [:channel_name, media_point_channels: [:media_point_id, :channel_id]])
+    params.require(:media_point).permit(:media_point_name, :category, :description, :city, :state, :country, :industry, :audience_size, product_attributes: [:product_name, media_point_products: [:media_point_id, :product_id]], channel_attributes: [:channel_name, media_point_channels: [:media_point_id, :channel_id]])
   end
 
 end
