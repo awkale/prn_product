@@ -37,6 +37,10 @@ gem 'font-awesome-sass'
 
 gem 'delayed_job_active_record'
 
+gem 'pry'
+gem 'pry-nav'
+gem 'pry-rails', '~> 0.3.2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -56,9 +60,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'letter_opener'
   gem 'rspec-rails'
-  gem 'pry'
-  gem 'pry-nav'
-  gem 'pry-rails', '~> 0.3.2'
   gem 'simple_bdd'
   gem 'shoulda-matchers'
 end
