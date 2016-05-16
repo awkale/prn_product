@@ -7,6 +7,10 @@ class MediaPointChannelsController < ApplicationController
 
   end
 
+  def show
+    @media_point_channel = MediaPointChannel.find(params[:id])
+  end
+
   private
   def media_point_channel_params
     params.require(:media_point_channel).permit(:media_point_id, :channel_id)

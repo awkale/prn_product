@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-sm-6">
     <h2><%= @channel.channel_name %> <% if current_user.admin %><%= link_to 'Edit Channel', edit_channel_path, {:class => "btn btn-sm btn-link"} %><% end %></h2>
-
-    <dl>
-      <dt></dt>
-      <dd></dd>
-    </dl>
+    <ul>
+    <% @channel.media_points.each do |c_p| %>
+      <li><%= link_to c_p.media_point_name, media_point_path(c_p) %></li>
+    <% end %>
+    </ul>
   </div>
 </div>
 <hr>
