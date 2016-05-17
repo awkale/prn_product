@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-sm-8">
+    <h2><%= @recipient.recipient_name %> <% if current_user.admin %><%= link_to 'Edit Recipient', edit_recipient_path, { :class=>"btn btn-sm btn-link" } %><% end %></h2>
+    <div class="row">
+      <div class="col-sm-6">
+        <dl class="dl-horizontal">
+          <dt>Category:</dt>
+          <dd><%= @recipient.category %></dd>
+          <dt>Description:</dt>
+          <dd><%= @recipient.description %></dd>
+        </dl>
+      </div>
+      <div class="col-sm-6">
+        <dl class="dl-horizontal">
+          <dt>City:</dt>
+          <dd><%= @recipient.city %></dd>
+          <dt>State:</dt>
+          <dd><%= @recipient.state %></dd>
+          <dt>Country:</dt>
+          <dd><%= @recipient.country %></dd>
+        </dl>
+      </div>
+    </div>
+    <h3>Channel(s)</h3>
+    <ol>
+      <% @recipient.channels.each do |c|  %>
+      <li><%= link_to c.channel_name, channel_path(c) %></li>
+      <% end %>
+    </ol>
+  </div>
+  <div class="col-sm-4">
+    <h2>Related Products <% if current_user.admin %><%= link_to 'Add Product', new_distribution_path(recipient_id: @recipient.id), { :class=>"btn btn-sm btn-link" } %><% end %></h2>
+    <ol>
+      <% @recipient.products.each do |mp_p|%>
+      <li>
+        <%= link_to mp_p.product_name, product_path(mp_p) %> <% if current_user.admin %>/
+        <%= link_to 'Edit',  edit_product_path(mp_p) %><% end %>
+      </li>
+      <% end %>
+    </ol>
+  </div>
+</div>
+<hr>
+<div class="row">
+ <div class="col-sm-2 col-sm-offset-10">
+  <% if current_user.admin %><%= link_to 'Delete Recipient', recipient_path, method: :delete, data: { confirm: "Are you sure? This can not be undone." }, :class=>"btn btn-danger btn-sm pull-right" %><% end %>
+</div>
+</div>

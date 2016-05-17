@@ -42,7 +42,7 @@ class ChannelsController < ApplicationController
 
   private
   def channel_params
-    params.require(:channel).permit(:channel_name, media_point_attributes: [:media_point_name,media_point_channels: [:media_point_id, :channel_id]])
+    params.require(:channel).permit(:channel_name, recipient_attributes: [:recipient_name,recipient_channels: [:recipient_id, :channel_id]])
   end
 
 end

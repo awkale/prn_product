@@ -1,8 +1,12 @@
 class Product < ActiveRecord::Base
 
+  has_many :distributions, dependent: :destroy
+  has_many :recipients, through: :distributions
+
   has_many :media_point_products, dependent: :destroy
   has_many :media_points,
             through: :media_point_products
+
   validates :product_name, presence: true
   validates :base_price, numericality: true
   validates :length_price, numericality: true

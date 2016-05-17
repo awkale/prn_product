@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516151303) do
+ActiveRecord::Schema.define(version: 20160517214748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 20160516151303) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "distributions", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "distributions", ["product_id"], name: "index_distributions_on_product_id", using: :btree
+  add_index "distributions", ["recipient_id"], name: "index_distributions_on_recipient_id", using: :btree
 
   create_table "media_point_channels", force: :cascade do |t|
     t.integer  "media_point_id"
@@ -95,6 +105,28 @@ ActiveRecord::Schema.define(version: 20160516151303) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "recipient_channels", force: :cascade do |t|
+    t.integer  "channel_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "recipient_channels", ["channel_id"], name: "index_recipient_channels_on_channel_id", using: :btree
+  add_index "recipient_channels", ["recipient_id"], name: "index_recipient_channels_on_recipient_id", using: :btree
+
+  create_table "recipients", force: :cascade do |t|
+    t.string   "recipient_name"
+    t.string   "alternate_name"
+    t.string   "category"
+    t.text     "description"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -120,8 +152,12 @@ ActiveRecord::Schema.define(version: 20160516151303) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "distributions", "products"
+  add_foreign_key "distributions", "recipients"
   add_foreign_key "media_point_channels", "channels"
   add_foreign_key "media_point_channels", "media_points"
   add_foreign_key "media_point_products", "media_points"
   add_foreign_key "media_point_products", "products"
+  add_foreign_key "recipient_channels", "channels"
+  add_foreign_key "recipient_channels", "recipients"
 end

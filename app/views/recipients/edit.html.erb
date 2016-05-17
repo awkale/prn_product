@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h2>Edit <%= @recipient.recipient_name %></h2>
+
+    <%= simple_form_for @recipient do |form| %>
+      <%= form.error_notification %>
+      <%= form.input :recipient_name, placeholder: 'Recipient', label: 'Recipient Name' %>
+      <%= form.input :alternate_name, placeholder: 'Alternate Name' %>
+      <%= form.input :category, placeholder: 'Category'%>
+      <%= form.input :description, placeholder: 'Description'%>
+      <%= form.input :city, placeholder: 'City'%>
+      <%= form.input :state, placeholder: 'State' %>
+      <%= form.input :country, as: :country, priority: ['US', 'CA'] %>
+      <%= form.button :submit, 'Update Recipient', {:class=>"btn btn-secondary"} %>
+      <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
+    <% end %>
+  </div>
+</div>

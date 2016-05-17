@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-sm-6">
+  <h2>Recipients <% if current_user.admin %><%= link_to 'New Recipient', new_recipient_path, { :class => "btn btn-sm btn-link"} %><% end %></h2>
+    <ol>
+    <% @recipients.each do |mp| %>
+      <li><%= link_to mp.recipient_name, mp %> <% if current_user.admin %>/ <%= link_to 'Edit', edit_recipient_path(mp) %><% end %></li>
+    <% end %>
+    </ol>
+
+  </div>
+</div>
