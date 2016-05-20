@@ -1,3 +1,10 @@
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
 // Header Mobile
 .header-mobile {
   min-height: 40px;

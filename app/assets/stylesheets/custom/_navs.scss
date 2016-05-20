@@ -14,6 +14,7 @@
 .nav-main {
   width: 100%;
   border-bottom: 3px solid $gray-lighter;
+  background-color: #fff;
 }
 .nav-junior {
   background-color: $brand-primary;
@@ -239,7 +240,7 @@
       top: -50px;
       box-shadow: none;
     }
-    
+
   }
   .navbar-nav {
     & > li > a {
@@ -479,7 +480,7 @@ nav#nav-mobile {
     a {margin-left: 58px;}
   }
   .mm-navbar a.panel-link {
-    color: $gray-lighter; 
+    color: $gray-lighter;
     background: $gray;
     border-right: 1px solid $brand-primary;
     border-bottom: 1px solid $brand-primary;
@@ -493,7 +494,7 @@ nav#nav-mobile {
   }
 
   .mm-panel {
-    
+
     .mm-navbar {
       border-color: $brand-primary;
     }
