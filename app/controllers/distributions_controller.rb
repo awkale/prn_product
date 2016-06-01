@@ -1,6 +1,6 @@
 class DistributionsController < ApplicationController
   def index
-    @distributions = Distribution.includes(:product).order('products.product_name ASC').page(params[:page])
+    @distributions = Distribution.includes(:product, :recipient).order('products.product_name ASC', 'recipients.recipient_name ASC').page(params[:page])
   end
 
   def new
