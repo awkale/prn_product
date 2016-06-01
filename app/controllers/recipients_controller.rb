@@ -1,6 +1,6 @@
 class RecipientsController < ApplicationController
   def index
-    @recipients = Recipient.all
+    @recipients = Recipient.order(:recipient_name).page(params[:page])
   end
 
   def new

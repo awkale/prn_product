@@ -1,6 +1,6 @@
 class DistributionsController < ApplicationController
   def index
-    @distributions = Distribution.all
+    @distributions = Distribution.order(:product_id).page(params[:page])
   end
 
   def new
