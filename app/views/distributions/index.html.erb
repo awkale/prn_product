@@ -5,6 +5,6 @@
       <li><%= distribution.product.product_name%> / <%= distribution.recipient.recipient_name %> /<%= link_to 'Delete Association', distribution_path(distribution), method: :delete, data: { confirm: "Are you sure? This can not be undone." }, :class=>"btn btn-link btn-sm" %></li>
     <% end %>
     </ol>
-    <%= paginate @distributions %>
+    <%= paginate @distributions, :theme => 'bootstrap' %>
   </div>
 </div>
