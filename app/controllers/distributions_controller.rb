@@ -1,6 +1,6 @@
 class DistributionsController < ApplicationController
   def index
-    @distributions = Distributions.all
+    @distributions = Distribution.all
   end
 
   def new
@@ -35,9 +35,16 @@ class DistributionsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    @distribution = Distribution.find(params[:id])
+    @distribution.destroy
+
+    redirect_to distributions_path
+  end
+
   private
   def distribution_params
-    params.require(:distribution).permit(:recipient_id, :product_id)
+    params.require(:distribution).permit(:recipient_id, :product_id, product_attributes: [:product_name])
   end
 
 end
