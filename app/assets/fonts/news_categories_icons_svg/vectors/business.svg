@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="111px" height="111px"
+	 viewBox="0 0 111 111" enable-background="new 0 0 111 111" xml:space="preserve">
+<title>business_icon</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1" sketch:type="MSPage">
+	<g id="news_category_icons" transform="translate(-701.000000, -234.000000)" sketch:type="MSArtboardGroup">
+		<g id="business_icon" transform="translate(702.000000, 235.000000)" sketch:type="MSLayerGroup">
+			<g sketch:type="MSShapeGroup">
+				<rect id="Rectangle-1" x="29" y="39.573" fill="none" stroke="#000000" stroke-width="2" width="51" height="36.72"/>
+				<path id="Path-1-Copy-2" fill="none" stroke="#000000" stroke-width="2" d="M29,53.634c0,0,5.419,7.212,12.766,7.419
+					c7.838,0.221,8.323,0.102,8.323,0.102"/>
+				<path id="Path-1-Copy-3" fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="bevel" d="M80,54.533
+					c0,0-5.419,7.211-12.766,7.418c-7.838,0.221-8.323,0.102-8.323,0.102"/>
+				<ellipse id="Oval-1" fill="none" stroke="#000000" stroke-width="2" cx="54.613" cy="61.787" rx="3.854" ry="3.854"/>
+				<circle id="Oval-26" fill="none" stroke="#000000" stroke-width="2" cx="54.5" cy="54.5" r="54.5"/>
+				<path id="Path-110" fill="none" stroke="#000000" stroke-width="2" d="M42.123,40.104v-6.652h24.915v6.657"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

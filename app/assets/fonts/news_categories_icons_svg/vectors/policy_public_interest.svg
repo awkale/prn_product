@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="111px" height="111px" viewBox="0 0 111 111" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>policy_and_public_interest_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="news_category_icons" sketch:type="MSArtboardGroup" transform="translate(-1144.000000, -550.000000)" stroke="#000000" stroke-width="2">
+            <g id="policy_and_public_interest_icon" sketch:type="MSLayerGroup" transform="translate(1079.000000, 551.000000)">
+                <g transform="translate(66.000000, 0.000000)" sketch:type="MSShapeGroup">
+                    <g id="document" transform="translate(40.571456, 30.000000)">
+                        <path d="M0.770789539,42.0023292 C1.19305455,42.4679516 1.73918397,42.681835 2.37164313,42.681835 L33.9645732,42.681835 C34.5557442,42.681835 35.1018736,42.4679516 35.5654268,42.0023292 C35.9876918,41.5764551 36.1978859,41.0237651 36.1978859,40.3877931 L36.1978859,15.36343 L23.4342221,15.36343 C22.8017629,15.36343 22.2537568,15.1514393 21.8333685,14.6839242 C21.3698153,14.2599428 21.1596212,13.7072529 21.1596212,13.0693881 L21.1596212,0.196633081 L2.37164313,0.196633081 C1.73918397,0.196633081 1.19305455,0.408623753 0.770789539,0.834497871 C0.307236389,1.30201301 0.0970422485,1.85470298 0.0970422485,2.44903397 L0.0970422485,40.3877931 C0.0970422485,41.0237651 0.307236389,41.5764551 0.770789539,42.0023292 L0.770789539,42.0023292 Z" id="Fill-112"></path>
+                        <path d="M21.4480093,0.191777807 L36.2160458,15.1088967" id="Line-Copy" stroke-linecap="round"></path>
+                    </g>
+                    <g id="hammer" transform="translate(46.468219, 67.056945) rotate(45.000000) translate(-46.468219, -67.056945) translate(34.968219, 47.556945)">
+                        <rect id="Rectangle-12" x="0.210585813" y="7.28306304e-13" width="21.9009245" height="11.390784"></rect>
+                        <path d="M15.8786797,1.18840751 L15.8786797,10.2884075" id="Line-Copy-2" stroke-linecap="square"></path>
+                        <path d="M6.6862915,1.40402429 L6.6862915,10.5040243" id="Line-Copy-4" stroke-linecap="square"></path>
+                        <path d="M11,11.0699168 L11,37.8930824" id="Line-Copy-3" stroke-linecap="round"></path>
+                    </g>
+                    <circle id="Oval-26" cx="54.5" cy="54.5" r="54.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
