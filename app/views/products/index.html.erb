@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row products index">
   <div class="col-sm-8">
     <h2>Products <% if current_user.admin %><%= link_to 'New Product', new_product_path, { :class => "btn btn-sm btn-link"}  %><% end %></h2>
     <%= paginate @products, :theme => 'bootstrap' %>

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row recipients index">
   <div class="col-sm-8">
     <h2>Recipients <% if current_user.admin %><%= link_to 'New Recipient', new_recipient_path, { :class => "btn btn-sm btn-link"} %><% end %></h2>
     <%= paginate @recipients, :theme => 'bootstrap' %>
