@@ -1,12 +1,12 @@
 <div class="row">
-  <div class="col-sm-6">
-  <h2>Products <% if current_user.admin %><%= link_to 'New Product', new_product_path, { :class => "btn btn-sm btn-link"}  %><% end %></h2>
+  <div class="col-sm-8">
+    <h2>Products <% if current_user.admin %><%= link_to 'New Product', new_product_path, { :class => "btn btn-sm btn-link"}  %><% end %></h2>
+    <%= paginate @products, :theme => 'bootstrap' %>
     <ol>
-    <% @products.each do |product| %>
+      <% @products.each do |product| %>
       <li><%= link_to product.product_name, product %> <% if current_user.admin %>/ <%= link_to 'edit', edit_product_path(product) %><% end %> </li>
-    <% end %>
+      <% end %>
     </ol>
-
     <%= paginate @products, :theme => 'bootstrap' %>
   </div>
 </div>
