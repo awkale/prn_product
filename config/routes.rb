@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :recipients
   resources :media_point_products
   resources :distributions
+  resources :categories
   get '/listing' => "listing#index"
   devise_for :admins
   devise_for :users

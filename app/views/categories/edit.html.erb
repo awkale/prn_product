@@ -1,0 +1,12 @@
+<div class="row category edit">
+  <div class="col-sm-8">
+    <h2>Edit <%= @category.category %></h2>
+
+    <%= simple_form_for @category do |cat| %>
+      <%= cat.error_notification %>
+      <%= cat.input :category, placeholder: 'Category' %>
+      <%= cat.button :submit, 'Update Category', {:class => "btn btn-secondary"} %>
+      <%= link_to "Cancel", :back, { :class => "btn btn-default"} %>
+    <% end %>
+  </div>
+</div>
