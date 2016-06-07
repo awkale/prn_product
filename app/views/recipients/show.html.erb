@@ -6,6 +6,8 @@
     <div class="row">
       <div class="col-sm-6">
         <dl class="dl-horizontal">
+          <dt>Category:</dt>
+          <dd><%= @recipient.category.present? ? @recipient.category.name : "" %></dd>
           <dt>Description:</dt>
           <dd><%= @recipient.description %></dd>
         </dl>

@@ -27,7 +27,6 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    category_params = params.require(:category).permit(:category)
     @category.update_attributes(category_params)
 
     redirect_to categories_path
@@ -44,6 +43,6 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
   def category_params
-    params.require(:category).permit(:category)
+    params.require(:category).permit(:name)
   end
 end
