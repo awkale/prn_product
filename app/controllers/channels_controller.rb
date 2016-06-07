@@ -1,4 +1,5 @@
 class ChannelsController < ApplicationController
+  before_action :find_channel, :only => [:show, :edit, :update, :destroy]
   def index
     @channels = Channel.all
   end
@@ -8,7 +9,7 @@ class ChannelsController < ApplicationController
   end
 
   def show
-    @channel = Channel.find(params[:id])
+    # @recipients = @channel.recipients.page(params[:page]).per(10)
   end
 
   def create
@@ -21,12 +22,9 @@ class ChannelsController < ApplicationController
   end
 
   def edit
-    @channel = Channel.find(params[:id])
   end
 
   def update
-    @channel = Channel.find(params[:id])
-
     channel_params = params.require(:channel).permit(:channel_name)
     @channel.update_attributes(channel_params)
 
@@ -34,13 +32,15 @@ class ChannelsController < ApplicationController
   end
 
   def destroy
-    @channel = Channel.find(params[:id])
     @product.destroy
 
     redirect_to channels_path
   end
 
   private
+  def find_channel
+    @channel = Channel.find(params[:id])
+  end
   def channel_params
     params.require(:channel).permit(:channel_name, recipient_attributes: [:recipient_name,recipient_channels: [:recipient_id, :channel_id]])
   end
