@@ -3,7 +3,7 @@
     <h2>Categories <% if current_user.admin %><%= link_to 'New Category', new_category_path, { :class => "btn btn-sm bnt-link" } %><% end %></h2>
     <ol>
       <% @categories.each do |cat| %>
-      <li><%= cat.category %>
+      <li><%= cat.name %>
         <% if current_user.admin %>
         / <%= link_to 'Edit', edit_category_path(cat) %>
         / <%= link_to 'Delete', category_path(cat), method: :delete, data: { confirm: "Are you sure? This con not be undone."} %>
