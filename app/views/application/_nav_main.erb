@@ -18,7 +18,6 @@
           <% if current_user.admin %>
           <li class="<%= 'active' if params[:controller] == 'categories' %>"><%= link_to 'Categories', categories_path %></li>
           <li class="<%= 'active' if params[:controller] == 'subjects' %>"><%= link_to 'Subjects', subjects_path %></li>
-          <li class="<%= 'active' if params[:controller] == 'distributions' %>"><%= link_to 'Distributions', distributions_path %></li>
           <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to 'Users', users_path %></li>
           <% end %>
           <% else %>
