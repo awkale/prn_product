@@ -6,6 +6,7 @@
       <%= form.error_notification %>
       <%= form.input :first_name, placeholder: 'First Name' %>
       <%= form.input :last_name, placeholder: 'Last Name' %>
+      <%= form.input :admin, placeholder: 'Admin rights' %>
       <%= form.button :submit, {:class=>"btn btn-secondary"} %>
       <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
     <% end %>

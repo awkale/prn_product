@@ -1,11 +1,17 @@
 <div class="row">
+  <h2><%= @user.email %> <%= link_to 'Edit', edit_user_path, { :class=>"btn btn-sm btn-link" } %></h2>
   <div class="col-sm-6">
-    <h2><%= @user.email %> <%= link_to 'Edit', edit_user_path, { :class=>"btn btn-sm btn-link" } %></h2>
-    <dl class="">
+    <dl class="dl-horizontal">
       <dt>First name:</dt>
       <dd><%= @user.first_name %></dd>
       <dt>Last name:</dt>
       <dd><%= @user.last_name %></dd>
+      <dt>Admin:</dt>
+      <dd><%= @user.admin %></dd>
+    </dl>
+  </div>
+  <div class="col-sm-6">
+    <dl>
       <dt>Created:</dt>
       <dd><%= @user.created_at %></dd>
       <dt>Last sign in:</dt>
