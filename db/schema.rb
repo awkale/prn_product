@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607223915) do
+ActiveRecord::Schema.define(version: 20160608182449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,39 +67,6 @@ ActiveRecord::Schema.define(version: 20160607223915) do
 
   add_index "distributions", ["product_id"], name: "index_distributions_on_product_id", using: :btree
   add_index "distributions", ["recipient_id"], name: "index_distributions_on_recipient_id", using: :btree
-
-  create_table "media_point_channels", force: :cascade do |t|
-    t.integer  "media_point_id"
-    t.integer  "channel_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  add_index "media_point_channels", ["channel_id"], name: "index_media_point_channels_on_channel_id", using: :btree
-  add_index "media_point_channels", ["media_point_id"], name: "index_media_point_channels_on_media_point_id", using: :btree
-
-  create_table "media_point_products", force: :cascade do |t|
-    t.integer  "media_point_id"
-    t.integer  "product_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  add_index "media_point_products", ["media_point_id"], name: "index_media_point_products_on_media_point_id", using: :btree
-  add_index "media_point_products", ["product_id"], name: "index_media_point_products_on_product_id", using: :btree
-
-  create_table "media_points", force: :cascade do |t|
-    t.string   "media_point_name"
-    t.string   "category"
-    t.text     "description"
-    t.string   "city"
-    t.string   "country"
-    t.string   "industry"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "state"
-    t.integer  "audience_size"
-  end
 
   create_table "products", force: :cascade do |t|
     t.string   "product_name"
@@ -176,10 +143,6 @@ ActiveRecord::Schema.define(version: 20160607223915) do
 
   add_foreign_key "distributions", "products"
   add_foreign_key "distributions", "recipients"
-  add_foreign_key "media_point_channels", "channels"
-  add_foreign_key "media_point_channels", "media_points"
-  add_foreign_key "media_point_products", "media_points"
-  add_foreign_key "media_point_products", "products"
   add_foreign_key "recipient_channels", "channels"
   add_foreign_key "recipient_channels", "recipients"
   add_foreign_key "recipient_subjects", "recipients"
