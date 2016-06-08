@@ -10,6 +10,12 @@
   <%= form.input :city, placeholder: 'City'%>
   <%= form.input :state, placeholder: 'State' %>
   <%= form.input :country, as: :country, priority: ['US', 'CA'] %>
-  <%= form.button :submit, 'Update Recipient', {:class=>"btn btn-secondary"} %>
+  <div class="form-group">
+  <label for="recipient_subject_id">Subject</label>
+  <%= form.collection_select :subject_ids, Subject.order(:subject_name), :id, :subject_name, {prompt: 'Choose a category'}, {class: "form-control chosen-select", :multiple => true } %>
+  </div>
+  <%= form.button :submit, {:class=>"btn btn-secondary"} %>
   <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
+
+
 <% end %>

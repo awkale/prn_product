@@ -1,10 +1,10 @@
-<div class="row category new">
+<div class="row subject new">
   <div class="col-sm-8">
-    <h2>New Category</h2>
+    <h2>New subject</h2>
 
-    <%= simple_form_for @category do |cat| %>
+    <%= simple_form_for @subject do |cat| %>
       <%= cat.error_notification %>
-      <%= cat.input :name, placeholder: 'Category' %>
+      <%= cat.input :subject_name, placeholder: 'subject' %>
       <%= cat.button :submit, {:class => "btn btn-secondary"} %>
       <%= link_to "Canel", :back, {:class => "btn btn-default"} %>
     <% end %>

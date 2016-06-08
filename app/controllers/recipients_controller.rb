@@ -44,7 +44,33 @@ class RecipientsController < ApplicationController
   end
 
   def recipient_params
-    params.require(:recipient).permit(:recipient_name, :alternate_name, :description, :city, :state, :country, :category_id, :subject_id, subject_attributes: [:subject_id, :subject_name], category_attributes: [:category_id,:name], product_attributes: [:product_name, recipient_products: [:recipient_id, :product_id]], channel_attributes: [:channel_name, recipient_channels: [:recipient_id, :channel_id]])
+    params.require(:recipient).permit(
+      :recipient_name,
+      :alternate_name,
+      :description,
+      :city,
+      :state,
+      :country,
+      :category_id,
+      subject_ids: [],
+      subject_attributes: [
+        :id,
+        :subject_name],
+      category_attributes: [
+        :id,
+        :name],
+      product_attributes: [
+        :id,
+        :product_name,
+        recipient_products: [
+          :recipient_id,
+          :product_id]],
+      channel_attributes: [
+        :channel_name,
+        recipient_channels: [
+          :recipient_id,
+          :channel_id]]
+    )
   end
 
 

@@ -1,0 +1,12 @@
+<div class="row subject edit">
+  <div class="col-sm-8">
+    <h2>Edit <%= @subject.subject_name %></h2>
+
+    <%= simple_form_for @subject do |cat| %>
+      <%= cat.error_notification %>
+      <%= cat.input :subject_name, placeholder: 'subject' %>
+      <%= cat.button :submit, 'Update subject', {:class => "btn btn-secondary"} %>
+      <%= link_to "Cancel", :back, { :class => "btn btn-default"} %>
+    <% end %>
+  </div>
+</div>

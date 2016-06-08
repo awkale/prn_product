@@ -33,7 +33,9 @@
       <div class="col-sm-6">
         <dl class="dl-horizontal">
           <dt>Subject:</dt>
-          <dd></dd>
+          <% @recipient.subjects.each do |sub| %>
+          <dd><%= sub.subject_name %></dd>
+          <% end %>
         </dl>
       </div>
     </div>

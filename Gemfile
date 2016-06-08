@@ -43,6 +43,11 @@ gem 'pry-rails', '~> 0.3.2'
 
 gem 'kaminari'
 
+gem 'compass-rails'
+gem 'chosen-rails'
+
+gem 'jquery-turbolinks'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

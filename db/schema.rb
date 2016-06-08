@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607152233) do
+ActiveRecord::Schema.define(version: 20160607223915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,16 @@ ActiveRecord::Schema.define(version: 20160607152233) do
   add_index "recipient_channels", ["channel_id"], name: "index_recipient_channels_on_channel_id", using: :btree
   add_index "recipient_channels", ["recipient_id"], name: "index_recipient_channels_on_recipient_id", using: :btree
 
+  create_table "recipient_subjects", force: :cascade do |t|
+    t.integer  "subject_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "recipient_subjects", ["recipient_id"], name: "index_recipient_subjects_on_recipient_id", using: :btree
+  add_index "recipient_subjects", ["subject_id"], name: "index_recipient_subjects_on_subject_id", using: :btree
+
   create_table "recipients", force: :cascade do |t|
     t.string   "recipient_name"
     t.string   "alternate_name"
@@ -131,6 +141,12 @@ ActiveRecord::Schema.define(version: 20160607152233) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "category_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "subject_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -166,4 +182,6 @@ ActiveRecord::Schema.define(version: 20160607152233) do
   add_foreign_key "media_point_products", "products"
   add_foreign_key "recipient_channels", "channels"
   add_foreign_key "recipient_channels", "recipients"
+  add_foreign_key "recipient_subjects", "recipients"
+  add_foreign_key "recipient_subjects", "subjects"
 end
