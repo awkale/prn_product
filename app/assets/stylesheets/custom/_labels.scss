@@ -1,0 +1,54 @@
+//
+// Labels
+// --------------------------------------------------
+
+.form-group label {
+  font-weight: normal;
+}
+
+.warning-label,
+.error-label {
+  display: none;
+}
+.form-group--attached.has-error label.error-label,
+.form-group--attached.has-warning label {
+  margin-top: $padding-large-vertical;
+  margin-left: $padding-large-horizontal;
+  font-weight: bold;
+}
+
+.tokenfield .token,
+.label-kw {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid $gray-light;
+  border-radius: $border-radius-base;
+  margin-right: ($padding-small-horizontal / 2);
+  margin-bottom: ($padding-small-horizontal / 2);
+  color: $text-color;
+  font-size: $font-size-base;
+  font-weight: normal;
+  i {
+    color: $gray-light;
+    margin-right: ($padding-small-horizontal / 2);
+  }
+}
+
+.tokenfield .token {
+  padding: .2em .6em .3em;
+}
+.tokenfield .token .close {
+  float: left;
+  font-family: $font-family-sans-serif;
+  margin-left: 0;
+  padding-right: 0;
+  line-height: 100%;
+  opacity: 1;
+  text-shadow: none;
+}
+
+.tokenfield .token .token-label {
+  float: right;
+  padding-left: 0;
+  line-height: 1;
+}

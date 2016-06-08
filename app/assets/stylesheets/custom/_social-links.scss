@@ -8,8 +8,10 @@
     margin-left: 0;
   }
   li {
+    width: 75px;
     margin-right: 5px;
     padding: 0;
+    text-align: center;
     &:last-child {
       margin-right: 0;
     }
@@ -42,7 +44,7 @@
   a {
     color: #fff;
     font-size: 20px;
-    padding: 0 27px;
+    padding: 0 26px;
     display: inline-block;
     @media (max-width: $screen-xs-max) {
       font-size: 14px;
@@ -53,9 +55,9 @@
     }
   }
   i {
-  line-height: 1.85;
-  @media (max-width: $screen-xs-max) {
-    line-height: 2.25;
-  }
+    line-height: 1.85;
+    @media (max-width: $screen-xs-max) {
+      line-height: 2.25;
+    }
   }
 }

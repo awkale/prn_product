@@ -1,0 +1,17 @@
+.well--has-footer {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.well + .well.well--footer {
+  background: $gray-lighter;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  box-shadow: none;
+}
+
+.home-page .well {
+  @media (max-width: $screen-xs-max) {
+    margin-bottom: 0;
+  }
+}

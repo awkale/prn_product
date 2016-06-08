@@ -1,20 +1,3 @@
-/*doc
----
-title: Typography
-name: typography
-category: Base CSS
----
-These are the heading sizes that you can use site wide.
-```html_example_table
-<h1>h1 36px</h1>
-<h2>h2 25px</h2>
-<h3>h3 20px</h3>
-<h4>h4 18px</h4>
-<h5>h5 16px</h5>
-<p>This is an example of our base font style 16px. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-```
-*/
-
 //
 // Typography
 // --------------------------------------------------
@@ -23,16 +6,22 @@ These are the heading sizes that you can use site wide.
 // Headings
 // -------------------------
 
-h1 {
+h1,
+.h1 {
   font-family: $font-family-serif;
   margin-top: 0;
-  small{
+  @include headline('h1');
+  small {
     display: block;
     font-family: $font-family-sans-serif;
     font-size: 50%;
     line-height: 1.3em;
     padding-top: 5px;
     color: $gray;
+    hyphens: manual;
+    @media (max-width: $screen-xs) {
+      font-size: 75%;
+    }
   }
   &.home {
     font-family: $font-family-serif;
@@ -45,18 +34,140 @@ h1 {
   }
   .page-desc & {
     text-transform: uppercase;
-    @include word-wrap;
     small {
       text-transform: none;
     }
   }
 }
-h2, h3, h4, h5, h6{
- font-family: $font-family-sans-serif;
- small {
-  display: block;
-  color: $gray;
- }
+
+h2,
+.h2 {
+  font-family: $font-family-serif;
+  @include headline('h2');
+  small {
+    display: block;
+    color: $gray;
+    @media (max-width: $screen-xs) {
+      font-size: 75%;
+    }
+  }
+  & + .sub {
+    margin-top: ($padding-large-vertical * 1.5);
+    margin-bottom: ($padding-large-vertical * 2);
+    font-size: $font-size-h4;
+    color: $gray-light;
+  }
+}
+
+h3,
+.h3 {
+  @include headline('h3');
+}
+
+h4,
+.h4 {
+  @include headline('h4');
+}
+
+h5,
+.h5 {
+  @include headline('h5');
+}
+
+h6,
+.h6 {
+  @include headline('h6');
+}
+
+h2, h3, h4, h5, h6 {
+  a {
+    color: $text-color;
+    &:hover {
+      color: $link-color;
+    }
+  }
+  small {
+    display: block;
+    color: $gray;
+  }
+}
+
+h3, h4, h5, h6 {
+  font-family: $font-family-sans-serif;
+}
+
+// News
+.masonry h3,
+.news-releases h3 {
+  @include headline('h4');
+}
+
+.card-stacking {
+  h3 {
+    margin-bottom: 0;
+    font-size: $font-size-base;
+    small {
+      font-size: 85%;
+      line-height: 1;
+      margin-bottom: $padding-small-vertical;
+    }
+  }
+}
+
+.top-stories {
+  h3 {
+    @include headline('h6');
+  }
+  h4 {
+    @include headline('h6');
+  }
+}
+
+.featured-resources {
+  h3 {
+    @include headline('h6');
+    margin: 0;
+  }
+}
+.featured-solutions {
+  h3 {
+    @include headline('h4');
+  }
+}
+
+.solutions-for-you {
+  h3 {
+    margin-top: 0;
+  }
+}
+.trending-news h4 {
+  @include headline('h6')
+}
+
+// Contact Us
+.contact-us h4 {
+  @include headline('h6');
+}
+
+.sub-head {
+  font-size: $font-size-h5;
+}
+
+// Body text
+// -------------------------
+
+.word-break {
+  @include word-wrap;
+}
+
+.word-break-all {
+  word-break: break-all;
+}
+
+.news-releases main p a:not(.prnews_a) {
+  @media (max-width: $screen-xs-max) {
+    @include word-wrap;
+  }
 }
 
 article {
@@ -93,7 +204,8 @@ article {
 
 // Links
 a.latest-topic,
-a.news-release {
+a.news-release,
+a.resource {
   color: $link-color-release;
   text-decoration: none;
 
@@ -127,12 +239,20 @@ a.news-release {
 
 .release-body {
   p,
-  section li {
+  ol li,
+  ul li {
     font-size: $font-size-medium;
     line-height: 1.8;
   }
-  p:not(.prnews_p) {
+  p,
+  ol,
+  ul {
     margin-bottom: 35px;
+  }
+  table p {
+    margin-bottom: 0;
+    line-height: $release-line-height;
+    font-size: $font-size-base;
   }
 }
 
@@ -162,54 +282,130 @@ p#continue-jump:before {
 
 .section-header {
   position: relative;
-  padding-bottom: $padding-large-vertical;
+  padding-bottom: ($padding-large-vertical * .7);
   font-family: $font-family-serif;
-  border-bottom: solid 10px $brand-primary;
+  border-bottom: solid 5px $brand-primary;
+  @media (max-width: $screen-sm) {
+    border-width: 4px;
+  }
   a {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding-top: $padding-small-vertical;
-    font-family: $font-family-sans-serif;
-    font-size: $font-size-medium;
-    font-weight: 500;
-    @media (min-width: $screen-lg) {
-      float: right;
+    i {
+      font-size: .6em;
     }
+  }
+  a:hover,
+  a:focus {
+    color: $link-color;
+    text-decoration: none;
   }
   small {
     color: $gray-dark;
   }
 }
 
-.hero-release {
-  h3 {
-    font-size: $font-size-h1;
-    line-height: $headings-line-height;
+.panel-header {
+  font-family: $font-family-serif;
+}
+
+.pdp-case-studies,
+.solutions-page-desc {
+  h2 {
+    font-family: $font-family-serif;
     small {
-      line-height: ceil($headings-line-height * 1.65);
+      font-family: $font-family-sans-serif;
+      font-size: 75%;
+      margin-top: 20px;
+      line-height: 1.8;
     }
-  }
-  p {
-    font-size: 120%;
-    padding-bottom: $padding-large-vertical * 1.5;
   }
 }
 
-.card {
-  h3 {
+.pdp-features h3 {
+  @include headline('h2');
+  font-weight: normal;
+  margin-top: 0;
+}
+
+@media (min-width: $screen-sm) {
+  .hero-release {
+    h3 {
+      font-size: $font-size-h1;
+      line-height: $headings-line-height;
+
+      small {
+        line-height: ceil($headings-line-height * 1.65);
+      }
+    }
+    p {
+      font-size: 120%;
+      padding-bottom: $padding-large-vertical * 1.5;
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .hero-release {
+    h3 {
+      line-height: 1.5;
+
+      small {
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+.card,
+.abstract {
+  h3, h4 {
     margin-top: 0;
     line-height: $release-line-height;
   }
   small { line-height: $release-line-height; }
-  p {
-    line-height: $release-line-height;
+}
+
+.card p,
+p.abstract {
+  font-size: $abstract-font-size;
+  line-height: $abstract-line-height;
+  color: $abstract-color;
+}
+
+h3 small,
+h4 small,
+h5 small,
+h6 small,
+.meta {
+  margin-bottom: 0;
+  font-size: $meta-font-size;
+  line-height: $meta-line-height;
+  color: $meta-color;
+  text-transform: uppercase;
+  a {
+    color: $meta-color;
+    text-decoration: underline;
+    &:hover,
+    &:focus {
+      color: $link-color;
+    }
   }
 }
 
 .latest-topics-list {
   h3 {
     font-size: 24px;
+  }
+}
+
+.overlay {
+  h3, p {
+    color: #fff;
+  }
+  h3 {
+    @include headline('h4');
+  }
+  h4 {
+    @include headline('h5')
   }
 }
 
@@ -241,3 +437,8 @@ p#continue-jump:before {
 
 @include bg-variant('.bg-brand-accent', $state-brand-accent);
 
+
+// Search
+.search-criteria span {
+  font-weight: bold;
+}

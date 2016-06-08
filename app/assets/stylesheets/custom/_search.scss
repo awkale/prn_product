@@ -1,0 +1,216 @@
+.nav-cover {
+  display: none;
+  position: fixed;
+  top: 50px;
+  background: #fff;
+  width: 100%;
+  height: 87px;
+}
+.modal-qs-search {
+  button.close[data-dismiss="modal"] {
+    margin-top: ($padding-large-vertical * 3);
+    opacity: 1;
+    i {
+      color: $gray;
+    }
+  }
+  .modal-dialog {
+    margin-top: ($padding-large-vertical * 5.4);
+  }
+  .modal-header {
+    border: none;
+    margin-bottom: ($padding-large-vertical * 2)
+  }
+  .modal-content {
+    background: none;
+    box-shadow: none;
+    border: none;
+  }
+}
+.search-bar {
+  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+    margin-right: -1px;
+  }
+  .form-control {
+    height: auto;
+    border-color: $gray-light;
+  }
+  .form-control {
+    z-index: 3;
+    height: 52px;
+    border-right: transparent;
+    font-size: 24px;
+    color: #000;
+    box-shadow: none;
+    &::-ms-clear {
+      display: none;
+    }
+  }
+  .btn-search {
+    height: 52px;
+    background: $brand-secondary;
+    border-color: $brand-secondary;
+    font-size: 16px;
+    color: #fff;
+    transition: all 100ms ease-in;
+
+    i {
+      margin-left: $padding-large-vertical;
+    }
+    &:disabled {
+      opacity: 1;
+      background-color: #fff;
+      border-color: $gray-light;
+      border-left-color: #fff;
+      color: $brand-secondary;
+    }
+  }
+}
+.modal-qs-search.qs-show-results {
+  .form-control {
+    border-bottom-left-radius: 0;
+    border-color: $brand-secondary;
+  }
+  .btn-search  {
+    border-bottom-right-radius: 0;
+  }
+  .qs-results-container {
+    display: block;
+  }
+}
+
+.qs-pending {
+  display: none;
+  padding: 2px 20px 10px;
+  p {
+    margin-top: ($padding-large-vertical * 1.6);
+    margin-left: $padding-small-horizontal;
+  }
+}
+.qs-show-results.qs-results-pending {
+  .qs-pending {
+    display: block;
+  }
+}
+
+.qs-no-results {
+  padding: 0 $padding-large-vertical $padding-large-vertical;
+}
+
+.qs-results-container {
+  display: none;
+  background: #fff;
+  padding-top: $padding-large-vertical;
+  border: 1px solid $gray-light;
+  border-top: none;
+  border-bottom-left-radius: $border-radius-base;
+  border-bottom-right-radius: $border-radius-base;
+  .qs-results {
+    border-bottom: 1px solid $gray-light;
+    ul {
+      padding-left: 0;
+      padding-bottom: $padding-large-vertical;
+      margin-bottom: 0;
+      list-style: none;
+      a {
+        color: $gray-base;
+        &.hovered {
+          color: $link-color;
+          text-decoration: none;
+          li {
+            background-color: $gray-lightest;
+          }
+          h4 {
+            color: $gray-base;
+          }
+        }
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
+      }
+      li {
+        padding: 5px 15px;
+        h4 {
+          margin: 0;
+        }
+        h4 span {
+          margin-left: $padding-small-horizontal;
+          font-size: $font-size-base;
+          color: $link-color;
+          font-weight: normal;
+        }
+      }
+      .meta {
+        margin-left: $padding-large-horizontal;
+      }
+    }
+  }
+}
+
+.qs-as {
+  display: inline-block;
+  float: right;
+  padding: 10px;
+}
+
+.qs-error .alert {
+  margin: 5px 0;
+}
+
+.ui-autocomplete {
+  background: #fff;
+  max-height: 200px;
+  overflow-y: scroll;
+  border-radius-bottom-left: $border-radius-base;
+  border-radius-bottom-right: $border-radius-base;
+  border: 1px solid $gray-light;
+}
+.ui-menu .ui-state-focus, .ui-menu .ui-state-active {
+  margin: 0;
+  background-color: $gray-lightest;
+}
+
+.ui-autocomplete-input {
+  text-overflow: ellipsis;
+}
+
+.filters {
+  border-bottom: 2px solid $gray-lighter;
+  @media (max-width: $screen-xs-max) {
+    padding: 0 $padding-large-vertical;
+    border-bottom: none;
+  }
+  button:hover,
+  button:focus {
+    text-decoration: none;
+  }
+  .filter-option {
+    color: $text-color;
+  }
+}
+
+.search-results-meta {
+  margin-bottom: 0;
+}
+
+.search-results-text__no-results {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  i {
+    margin-right: 8px;
+  }
+}
+
+.media {
+  i {
+    padding-left: 5px;
+  }
+}
+
+.anchor[name="validation-fail"] {
+  display: block;
+  visibility: hidden;
+  position: relative;
+  top: -50px;
+}

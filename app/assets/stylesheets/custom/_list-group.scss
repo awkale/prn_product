@@ -1,0 +1,21 @@
+// Individual list items
+//
+// Use on `li`s or `div`s within the `.list-group` parent.
+
+.search-results-text .list-group-item {
+  border: none;
+  border-top: 1px solid $list-group-border;
+  padding: 0;
+  a {
+    display: inline-block;
+    width: 100%;
+    padding: 8px 5px;
+    color: $text-color;
+    &:hover,
+    &:focus {
+      background-color: $gray-lighter;
+      color: $brand-alternative;
+      text-decoration: none;
+    }
+  }
+}

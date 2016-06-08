@@ -21,6 +21,7 @@
       position: relative;
     }
     .info-overlay {
+      z-index: 95;
       @include gradient-vertical(rgba(0,0,0,0) , rgba(0,0,0,0.65) , 50%, 100%);
       position:absolute;
       &:before {
@@ -36,30 +37,33 @@
        padding: 8px;
        opacity: .7;
        z-index: 110;
-      }
-      &:hover:before {
-        opacity: 1;
-      }
+     }
+     &:hover:before {
+      opacity: 1;
     }
-    .video-icon {
-      width:50px;
-      height:50px;
-      position: absolute;
-      top:50%;
-      left:50%;
-      z-index: 300;
-      border:0px !important;
-      @include translate(-50%,-50%);
-      @media (min-width: $screen-md) and (max-width: $screen-md-max) {
-        width:40px;
-        height:40px;
-      }
-      @media screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-        width:30px;
-        height:30px;
-      }
+    img {
+      z-index: 90;
     }
   }
+  .video-icon {
+    width:50px;
+    height:50px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    z-index: 300;
+    border:0px !important;
+    @include translate(-50%,-50%);
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+      width:40px;
+      height:40px;
+    }
+    @media screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      width:30px;
+      height:30px;
+    }
+  }
+}
   figcaption {
     padding: 10px;
     font-size: 80%;
@@ -68,18 +72,16 @@
   }
 }
 .gallery-social {
+  position: absolute;
   z-index: 100;
-  margin: -40px 0 10px;
-  display: inherit;
+  margin-top: -35px;
+  display: inline-block;
   ul {
-    margin-left: -20px;
-    padding-left: 35px;
-    @media screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-      padding-left: 25px;
-    }
+    margin-left: 10px;
+    padding-left: 0;
     li {
       display: inline-block;
-      margin: 0 5px 0 0;
+      margin-right: 5px;
       @media screen and (min-width: $screen-sm) {
         &.hidden-xs {
           display: inline-block !important;
@@ -264,11 +266,20 @@
   float: left;
   border: 1px solid #fff;
   opacity: .25;
-  padding: 4px 5px 8px 11px;
+  padding-top: 5px!important;
   margin-right: 15px;
+  font-size: 22px;
 }
-.ekko-lightbox a:hover {
+.ekko-lightbox-nav-overlay a.bt-angle-left {
+  padding-left: 9px;
+}
+.ekko-lightbox-nav-overlay a.bt-angle-right {
+  padding-left: 11px;
+}
+.ekko-lightbox a:hover,
+.ekko-lightbox a:focus {
   color: #fff;
+  text-decoration: none;
 }
 .ekko-lightbox-nav-overlay a:empty {
   width: 35px;
@@ -294,23 +305,24 @@
   }
 }
 .gallery-carousel-main {
-  height: 360px;
   .gallery-cell {
     width: 100%;
-    height: 100%;
     img {
-      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
     }
   }
   figure {
     margin: 0 auto;
-    min-height: 350px;
+    min-height: 400px;
     .image {
-      height: 250px;
+      height: 300px;
       @media (max-width: $screen-xs-max) {
         height: 170px;
         .youtube-carousel {
-          width: 250px;
+          width: 300px;
           height: auto;
           margin: 0 auto;
         }
@@ -318,7 +330,7 @@
       &.infographic {
         .info-overlay {
           width: 400px;
-          height: 250px;
+          height: 300px;
           @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
             left: 97px;
           }
@@ -330,7 +342,8 @@
           }
         }
         img {
-          width: 400px;
+          // TODO: why?
+          // width: 400px;
           height: auto;
           @media (max-width: $screen-xs-max) {
             height: 170px;
@@ -344,9 +357,9 @@
       border: 0;
       padding: 0;
       margin: 0 auto;
-      height: 250px;
+      max-height: 300px;
       @media (max-width: $screen-xs-max) {
-        height: 170px;
+        max-height: 170px;
       }
     }
     @media (max-width: $screen-sm) {
@@ -355,12 +368,19 @@
   }
   figcaption {
     font-size:100%;
+    min-height: 150px;
   }
 }
 .gallery-carousel-nav {
+  .img-responsive {
+    height: 80px;
+    margin-right: 10px;
+  }
+  .video {
+    margin-right: 10px;
     .img-responsive {
-      height: 80px;
-      margin-right: 10px;
+      margin-right: 0;
+    }
   }
 }
 .gallery-cell.is-selected.is-nav-selected {
@@ -375,104 +395,96 @@
 // Gallery static
 // --------------------------------------------------
 .static-gallery {
-  .col-sm-8 {
-    .image {
-      height: auto;
-      @media screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-        height: 360px;
-      }
-      @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
-        height: 440px;
-      }
-      @media screen and (min-width: $screen-lg) {
-        height: 550px;
-      }
+  .static-gallery--one {
+    a {
+      display: block;
     }
   }
-  .col-sm-6 {
-    .image {
-      height: auto;
-      @media screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-        height: 270px;
-      }
-      @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
-        height: 330px;
-      }
-      @media screen and (min-width: $screen-lg) {
-        height: 420px;
-      }
+  .static-gallery--two {
+    a {
+      display: block;
     }
   }
-  .col-sm-8, .col-sm-6 {
-    .infographic {
-      img {
-        width: 400px;
-        height: auto;
-      }
-      .info-overlay {
-        width: 400px;
-        height: 100%;
-        position: absolute;
-      }
-    }
-  }
-  .col-sm-8 {
-    .infographic {
-      .info-overlay {
-        @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-          left: 34px;
-        }
-        @media (min-width: $screen-md) and (max-width: $screen-md-max) {
-          left: 104px;
-        }
-        @media (min-width: $screen-lg) {
-          left: 174px;
-        }
-      }
-    }
-  }
-  .col-sm-6 {
-    .infographic {
-      .info-overlay {
-        @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-          left: 0;
-          width: 100%;
-        }
-        @media (min-width: $screen-md) and (max-width: $screen-md-max) {
-          left: 24px;
-        }
-        @media (min-width: $screen-lg) {
-          left: 76px;
-        }
-      }
+  @media (max-width: $screen-xs-max) {
+    .static-gallery--two:not(:last-child) {
+        margin-bottom: $padding-large-vertical;
     }
   }
   figure {
+    .img-ratio-element img {
+      @media (max-width: $screen-xs-max) {
+        max-height: none;
+      }
+    }
+
+    // hover effects
+    a:hover img {
+      @include scale(1.05);
+    }
+    a:hover .img-parent-fixed img {
+      -webkit-transform: translate(-50%, -50%) scale(1.05);
+      -ms-transform: translate(-50%, -50%) scale(1.05);
+      -o-transform: translate(-50%, -50%) scale(1.05);
+      transform: translate(-50%, -50%) scale(1.05);
+      @media (max-width: $screen-xs-max) {
+        -webkit-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+      }
+    }
+    a:hover .img-parent-fixed.infographic img {
+       -webkit-transform: translateX(-50%) scale(1.05);
+      -ms-transform: translateX(-50%) scale(1.05);
+      -o-transform: translateX(-50%) scale(1.05);
+      transform: translateX(-50%) scale(1.05);
+      @media (max-width: $screen-xs-max) {
+        -webkit-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+      }
+    }
     .image {
       @include transition(max-width .5s ease-out);
     }
     img {
       margin: 0 auto;
       @include transition(all .25s ease);
-      &:hover {
-        @include scale(1.05);
+    }
+
+    @media (max-width: $screen-xs-max) {
+      .img-parent-fixed.infographic {
+        position: static;
+        max-height: none;
+        .img-ratio-sizer {
+          display: none;
+        }
+        .img-ratio-element {
+          position: static;
+        }
       }
     }
     .infographic {
-      @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-        height: 270px;
-      }
-      @media (min-width: $screen-md) and (max-width: $screen-md-max) {
-        height: 360px;
-      }
-      @media (min-width: $screen-lg) {
-        height: 450px;
-      }
       .info-overlay {
         width: 100%;
         height: 100%;
         left: 0;
+        @media (max-width: $screen-xs-max) {
+          display: none;
+        }
       }
+    }
+  }
+  .tile .infographic {
+    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      height: 270px;
+    }
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+      height: 360px;
+    }
+    @media (min-width: $screen-lg) {
+      height: 450px;
     }
   }
 }
@@ -493,62 +505,94 @@
     margin-right: -90px;
     margin-left: 30px;
   }
-  @media (max-width: $screen-sm) {
-    float:none!important;
+}
+
+@media (max-width: $screen-sm) {
+  .flickity-prev-next-button {
+    top: 30%;
   }
 }
+
 .inline-gallery {
   background: none;
   width: 100%;
   min-height: 220px;
   margin: 0px auto 10px auto;
   display: block;
-  border:none;
+  border: none;
   .masonry {
     figure {
       .info-overlay:before {
         @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-           bottom: 40px;
+          bottom: 40px;
         }
       }
     }
   }
+  .col-sm-12 > figure {
+    margin: 0 auto 20px;
+    border: 1px solid $gray-lighter; // for releases with <3 assets
+  }
   figure {
     margin: 0 auto;
+    a:hover .video img {
+      @include scale(1.05);
+    }
     &.inline-video {
       .social {
         margin: -80px 0 50px;
+      }
+    }
+    &:hover {
+      img.gallery-thumb {
+      @include scale(1.05);
       }
     }
     .image {
       @include transition(max-width .5s ease-out);
       img.gallery-thumb {
         display: block;
-        width: 100%;
+        max-width: 100%;
         padding: 0;
-        margin: 0;
+        margin: 0 auto;
         @include transition(all .5s ease);
-        &:hover {
-          @include scale(1.05);
-        }
       }
     }
     .infographic {
-        @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-          max-height: 270px;
-        }
-        @media (min-width: $screen-md) and (max-width: $screen-md-max) {
-          max-height: 360px;
-        }
-        @media (min-width: $screen-lg) {
-          max-height: 450px;
-        }
-        .info-overlay {
-          width: 100%;
-          height: 100%;
-          left: 0;
+      @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+        max-height: 420px;
+      }
+      @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+        max-height: 560px;
+      }
+      @media (min-width: $screen-lg) {
+        max-height: 700px;
+      }
+      img.gallery-thumb {
+        width: auto;
+        margin: 0 auto;
+        max-width: 100%;
+      }
+      .info-overlay {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        @media (max-width: $screen-xs-max) {
+          display: none;
         }
       }
+    }
+  }
+  .tile .infographic {
+    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      max-height: 210px;
+    }
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+      max-height: 280px;
+    }
+    @media (min-width: $screen-lg) {
+      max-height: 350px;
+    }
   }
   .gallery-social {
     @media screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
@@ -556,9 +600,7 @@
     }
     ul {
       margin-bottom: 10px;
-      @media screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-        margin-bottom: 0;
-      }
+      margin-left: 8px;
       li {
         display: inline-block;
         margin: 0 5px 0 0;

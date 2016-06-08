@@ -1,0 +1,32 @@
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.alert-muted {
+  @include alert-variant($alert-muted-bg, $alert-muted-border, $alert-muted-text);
+}
+
+.alert-dismissable {
+  .close {
+    opacity: 1;
+    text-shadow: none;
+    &:hover,
+    &:focus {
+      color: inherit;
+      opacity: .9;
+    }
+  }
+}
+
+.header-mobile .alert {
+  margin-bottom: 0;
+}
+
+.alert-link {
+	text-decoration: underline;
+}

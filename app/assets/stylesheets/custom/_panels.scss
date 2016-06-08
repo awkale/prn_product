@@ -51,7 +51,7 @@
 
 //jump-to
 .jump-to {
-  background: #DCDCDC;
+  background: $gray-lighter;
   padding: 11px 20px;
   margin-bottom:-1px;
   .form-control {
@@ -74,5 +74,59 @@
   }
   button {
     text-transform: uppercase;
+  }
+}
+
+// Search
+.search-panels {
+  .panel {
+    box-shadow: none;
+    a i {
+      color: $text-color;
+    }
+  }
+}
+.search-criteria {
+  ul {
+    padding: 0;
+    list-style-type: none;
+    li i {
+      cursor: pointer;
+      margin-right: 4px;
+    }
+  }
+}
+
+.panel-search {
+  box-shadow: none;
+  a {
+    color: $text-color;
+    &:hover {
+      color: $brand-secondary;
+    }
+  }
+  @media (max-width: $screen-xs-max) {
+    @include panel-variant($gray-light, $panel-default-text, transparent, $gray-light);
+    .panel-heading {
+      border-bottom: 0;
+      padding: 7px 10px;
+      i {
+        margin-top: 3px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+// Contact Us
+.contact-us {
+  .tab-content {
+    padding: 20px 0;
+  }
+  .panel-heading {
+    padding: 10px 0;
+  }
+  .panel-body {
+    padding: 15px 0;
   }
 }

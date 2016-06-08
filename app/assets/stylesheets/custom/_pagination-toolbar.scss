@@ -2,38 +2,16 @@
 .pagination-bar {
   height:60px;
   border-top: solid 1px #d7d7d7;
-  border-bottom: solid 1px #d7d7d7;
   @media (max-width: $screen-xs-max) {
     height: auto;
   }
-  .form-control {
-    display: inline-block;
-    width: 75px;
-  }
-  .page-list {
-    text-align:right; 
-  }
-  .quantity {
-    & > div {
-      display: inline-block;
-      float: left;
-      &.release-quantity {
-        @media (max-width: $screen-md) {
-          margin-top: $padding-large-vertical;
-        }
-      }
-      @media (max-width: $screen-xs-max) {
-        display: block;
-        float: none;
-      }
-    }
+  .bs-caret {
+    color: $brand-secondary;
   }
   .quantity,
   .page-list {
-    padding: 12px 20px;
-    @media (max-width: $screen-xs-max) {
-      padding: 12px 0;
-    }
+    padding-top: 12px;
+    padding-bottom: 12px;
     label,
     select {
       margin-right: 7px;
@@ -47,29 +25,9 @@
     .pagination {
       margin: 0;
     }
-    ul.pagination {
-      & > li > a {
-        color: $gray-base;
-      }
-      border-radius: 0px;
-      border-color: #d7d7d7;
-      & > li > a:hover,
-      & > .active > a {
-        background: #d7d7d7;
-        border-color: #d7d7d7;
-        &:focus {
-          color: $gray-base;
-          background: #d7d7d7;
-        }
-      }
-      & > li > a:focus {
-        color:#fff;
-        background:#18A7B5;
-      }
-    }
-    @media (max-width: $screen-xs-max) {
-      text-align: left; 
-    }
+  }
+  .page-list {
+    margin-left: 20px;
   }
   .quantity {
     @media (max-width: $screen-xs-max) {
@@ -89,6 +47,9 @@
       margin-right: 10px;
     }
   }
+  nav {
+    display: inline-block;
+  }
 }
 .no-border .pagination-bar {
   border:none;
@@ -97,7 +58,6 @@
 .no-border {
   .quantity,
   .page-list {
-    padding: 12px 0;
+    padding: 0;
   }
 }
-

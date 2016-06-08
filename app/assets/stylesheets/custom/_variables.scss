@@ -655,6 +655,19 @@ $state-danger-text:              $brand-danger;
 $state-danger-bg:                $brand-danger;
 $state-danger-border:            $brand-danger;
 
+// TODO refactor with above
+$form-success-bg:            $state-success-bg;
+$form-success-text:          #fff;
+$form-success-border:        $state-success-border;
+
+$form-warning-bg:            $state-warning-bg;
+$form-warning-text:          $text-color;
+$form-warning-border:        $state-warning-border;
+
+$form-error-bg:             $state-danger-bg;
+$form-error-text:           #fff;
+$form-error-border:         $state-danger-border;
+
 $state-brand-secondary:          $brand-secondary;
 $state-brand-secondary-lighter:  $brand-secondary-light;
 $state-brand-action:             $brand-action;
@@ -809,7 +822,7 @@ $progress-bar-color:          #fff;
 $progress-border-radius:      $border-radius-base;
 
 // Default progress bar color
-$progress-bar-bg:             $brand-primary;
+$progress-bar-bg:             $brand-alternative;
 // Success progress bar color
 $progress-bar-success-bg:     $brand-success;
 // Warning progress bar color

@@ -1,5 +1,5 @@
 .prev-next-article {
-  z-index: 500;
+  z-index: 601;
   position: relative;
   .prev {
     left: 0;
@@ -9,6 +9,12 @@
     }
     p {
       margin-right: 20px;
+    }
+    i {
+      float: left;
+      margin: 34px 15px 12px 10px;
+      font-size: 32px;
+      display: inline-block;
     }
   }
   .next {
@@ -20,6 +26,12 @@
     }
     p {
       margin-left: 20px;
+    }
+    i {
+      float: right;
+      margin: 34px 10px 0;
+      font-size: 32px;
+      display: inline-block;
     }
   }
   .prev,
@@ -47,21 +59,6 @@
       max-height: 70px;
       width: auto;
 
-      display: inline-block;
-    }
-    .fa-angle-right {
-      float: right;
-      margin: 12px 10px 0;
-      font-size: 50px;
-      line-height: 72px;
-      display: inline-block;
-
-    }
-    .fa-angle-left {
-      float: left;
-      margin: 12px 15px 12px 10px;
-      font-size: 50px;
-      line-height: 72px;
       display: inline-block;
     }
     .caption {

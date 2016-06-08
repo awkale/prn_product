@@ -1,16 +1,9 @@
-header {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 100;
-}
-
 // Header Mobile
-.header-mobile {
-  min-height: 40px;
+.header-mobile.navbar-default {
+  min-height: 60px;
   font-size: 1.5em;
-  color: $gray-lighter;
-  background: $brand-primary;
+  color: #fff;
+  background: $gray-base;
   border-bottom: 0;
   .container {
     position: relative;
@@ -22,15 +15,19 @@ header {
   .navbar-nav {
     margin-top: 0;
     margin-bottom: 0;
+    & > li > a {
+      padding-top: 19px;
+      padding-bottom: 19px;
+    }
     & > li {
       position: static;
       &.open a {
-        background: $gray-lighter;
+        background: #fff;
         &:focus {
-          background: $gray-lighter;
+          background: #fff;
         }
         i {
-          color: $brand-primary;
+          color: $brand-secondary;
         }
       }
       li > a {
@@ -42,15 +39,15 @@ header {
     }
     ul.dropdown-menu {
       position: absolute;
-      top: 40px;
+      top: 60px;
       left: 0;
       right: 0;
-      color: $brand-primary;
-      background: $gray-lighter;
-      border-bottom: 1px solid $brand-primary;
-      border-radius: 0px;
+      color: $gray-base;
+      background: #fff;
+      border-bottom: 1px solid $brand-secondary;
+      border-radius: 0;
       &.contact {
-        padding: 12px 10px 11px;
+        padding: 23px 10px 22px;
         p {
           margin: 0;
           line-height: 1;
@@ -65,7 +62,7 @@ header {
     width: 100%;
     input {
       width:100%;
-      padding: 11px 10px 7px;
+      padding: 21px 10px 17px;
       background: none;
       border: none;
       -webkit-appearance: none;
@@ -73,8 +70,8 @@ header {
   }
 
   .navbar-brand {
-    height: 40px;
-    padding: 10px;
+    height: 60px;
+    padding: 20px 10px;
     &:hover,
     &:focus {
       background: none;
