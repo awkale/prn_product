@@ -25,7 +25,6 @@ class ChannelsController < ApplicationController
   end
 
   def update
-    channel_params = params.require(:channel).permit(:channel_name)
     @channel.update_attributes(channel_params)
 
     redirect_to channel_path(id: @channel.id)
@@ -42,7 +41,13 @@ class ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
   end
   def channel_params
-    params.require(:channel).permit(:channel_name, recipient_attributes: [:recipient_name,recipient_channels: [:recipient_id, :channel_id]])
+    params.require(:channel).permit(
+      :channel_name,
+      recipient_ids: [],
+      recipient_attributes: [
+        :id,
+        :recipient_name]
+    )
   end
 
 end

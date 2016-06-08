@@ -1,0 +1,14 @@
+<%= simple_form_for @channel do |form| %>
+<%= form.error_notification %>
+<div class="col-sm-6">
+  <%= form.input :channel_name, placeholder: 'Channel' %>
+</div>
+<div class="col-sm-6">
+  <div class="form-group">
+    <label for="recipient_product_ids">Associated Recipients</label>
+    <%= form.collection_select :recipient_ids, Recipient.order(:recipient_name), :id, :recipient_name, {prompt: 'Choose a recipient'}, {class: "form-control chosen-select", :multiple => true } %>
+  </div>
+</div>
+<%= form.button :submit, {:class => "btn btn-secondary pull-right"} %>
+<%= link_to "Cancel", :back, {:class => "btn btn-default pull-right mr-sm"} %>
+<% end %>

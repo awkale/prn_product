@@ -17,6 +17,10 @@
   <%= form.input :city, placeholder: 'City'%>
   <%= form.input :state, placeholder: 'State' %>
   <%= form.input :country, as: :country, priority: ['US', 'CA'] %>
+  <div class="form-group">
+    <label for="recipient_channel_ids">Associated Channel</label>
+    <%= form.collection_select :channel_ids, Channel.order(:channel_name), :id, :channel_name, {prompt: 'Choose a channel'}, {class: "form-control chosen-select", :multiple => true } %>
+  </div>
 </div>
 <div class="col-sm-12">
   <%= form.button :submit, {:class=>"btn btn-primary pull-right"} %>
