@@ -1,21 +1,25 @@
 <%= simple_form_for @recipient do |form| %>
-  <%= form.error_notification %>
+<%= form.error_notification %>
+<div class="col-sm-6">
   <%= form.input :recipient_name, placeholder: 'Recipient', label: 'Recipient Name' %>
   <%= form.input :alternate_name, placeholder: 'Alternate Name' %>
   <div class="form-group">
-  <label for="recipient_category_id">Category</label>
-  <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: 'Choose a category'}, {class: "form-control"}%>
+    <label for="recipient_category_id">Category</label>
+    <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: 'Choose a category'}, {class: "form-control chosen-select"}%>
   </div>
+  <div class="form-group">
+    <label for="recipient_subject_id">Subject</label>
+    <%= form.collection_select :subject_ids, Subject.order(:subject_name), :id, :subject_name, {prompt: 'Choose a category'}, {class: "form-control chosen-select", :multiple => true } %>
+  </div>
+</div>
+<div class="col-sm-6">
   <%= form.input :description, placeholder: 'Description'%>
   <%= form.input :city, placeholder: 'City'%>
   <%= form.input :state, placeholder: 'State' %>
   <%= form.input :country, as: :country, priority: ['US', 'CA'] %>
-  <div class="form-group">
-  <label for="recipient_subject_id">Subject</label>
-  <%= form.collection_select :subject_ids, Subject.order(:subject_name), :id, :subject_name, {prompt: 'Choose a category'}, {class: "form-control chosen-select", :multiple => true } %>
-  </div>
-  <%= form.button :submit, {:class=>"btn btn-secondary"} %>
-  <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
-
-
+</div>
+<div class="col-sm-12">
+  <%= form.button :submit, {:class=>"btn btn-primary pull-right"} %>
+  <%= link_to "Cancel", :back, {:class=>"btn btn-default pull-right mr-sm"} %>
+</div>
 <% end %>

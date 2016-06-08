@@ -1,18 +1,4 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6">
-      <h2>Edit <%= @product.product_name %></h2>
-
-      <%= simple_form_for @product do |form| %>
-        <%= form.error_notification %>
-        <%= form.input :product_name, placeholder: 'Product' %>
-        <%= form.input :description, placeholder: 'Description'%>
-        <%= form.input :code, placeholder: 'Code'%>
-        <%= form.input :base_price, placeholder: 'Base Price ($)', label: 'Base Price ($)'%>
-        <%= form.input :length_price, placeholder: 'Length Price ($)', label: 'Length Price ($)'%>
-        <%= form.button :submit, {:class=>"btn btn-secondary"} %>
-        <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
-      <% end %>
-    </div>
-  </div>
+<div class="row">
+  <h2>Edit <%= @product.product_name %></h2>
+  <%= render 'form' %>
 </div>
