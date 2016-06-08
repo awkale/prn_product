@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :find_product, :only => [:show, :edit, :update, :destroy]
+
   def index
     @products = Product.order(:product_name).page(params[:page])
   end
@@ -8,39 +10,39 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path
+      redirect_to products_path, notice: "Successfully created product."
     else
       render :new
     end
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
-
-    product_params = params.require(:product).permit(:product_name, :description, :code, :base_price, :length_price)
-    @product.update_attributes(product_params)
-
-    redirect_to product_path(id: @product.id)
+    if @product.update_attributes(product_params)
+      redirect_to product_path(id: @product.id), notice: "Successfully updated product."
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
 
-    redirect_to products_path
+    redirect_to products_path, notice: "Successfully deleted product."
   end
 
   private
+  def find_product
+    @product = Product.find(params[:id])
+  end
+
   def product_params
     params.require(:product).permit(:product_name, :description, :code, :base_price, :length_price)
   end
