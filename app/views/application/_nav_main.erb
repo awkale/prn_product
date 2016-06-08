@@ -14,12 +14,10 @@
           <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to 'Products', products_path %></li>
           <li class="<%= 'active' if params[:controller] == 'recipients' %>"><%= link_to 'Recipients',recipients_path %></li>
           <li class="<%= 'active' if params[:controller] == 'channels' %>"><%= link_to 'Channels',channels_path %></li>
-          <% if current_user.admin %>
           <li class="<%= 'active' if params[:controller] == 'categories' %>"><%= link_to 'Categories', categories_path %></li>
           <li class="<%= 'active' if params[:controller] == 'subjects' %>"><%= link_to 'Subjects', subjects_path %></li>
           <li class="<%= 'active' if params[:controller] == 'distributions' %>"><%= link_to 'Distributions', distributions_path %></li>
           <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to 'Users', users_path %></li>
-          <% end %>
         </ul>
         <!-- <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Search</a></li>
