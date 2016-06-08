@@ -59,17 +59,14 @@ class RecipientsController < ApplicationController
       category_attributes: [
         :id,
         :name],
+      product_ids: [],
       product_attributes: [
         :id,
-        :product_name,
-        recipient_products: [
-          :recipient_id,
-          :product_id]],
+        :product_name],
+      channel_ids: [],
       channel_attributes: [
-        :channel_name,
-        recipient_channels: [
-          :recipient_id,
-          :channel_id]]
+        :id,
+        :channel_name]
     )
   end
 

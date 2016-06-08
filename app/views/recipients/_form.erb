@@ -8,15 +8,19 @@
     <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: 'Choose a category'}, {class: "form-control chosen-select"}%>
   </div>
   <div class="form-group">
-    <label for="recipient_subject_id">Subject</label>
-    <%= form.collection_select :subject_ids, Subject.order(:subject_name), :id, :subject_name, {prompt: 'Choose a category'}, {class: "form-control chosen-select", :multiple => true } %>
+    <label for="recipient_subject_ids">Subject</label>
+    <%= form.collection_select :subject_ids, Subject.order(:subject_name), :id, :subject_name, {prompt: 'Choose a subject'}, {class: "form-control chosen-select", :multiple => true } %>
   </div>
+  <%= form.input :description, placeholder: 'Description'%>
 </div>
 <div class="col-sm-6">
-  <%= form.input :description, placeholder: 'Description'%>
   <%= form.input :city, placeholder: 'City'%>
   <%= form.input :state, placeholder: 'State' %>
   <%= form.input :country, as: :country, priority: ['US', 'CA'] %>
+  <div class="form-group">
+    <label for="recipient_product_ids">Associated Product</label>
+    <%= form.collection_select :product_ids, Product.order(:product_name), :id, :product_name, {prompt: 'Choose a product'}, {class: "form-control chosen-select", :multiple => true } %>
+  </div>
   <div class="form-group">
     <label for="recipient_channel_ids">Associated Channel</label>
     <%= form.collection_select :channel_ids, Channel.order(:channel_name), :id, :channel_name, {prompt: 'Choose a channel'}, {class: "form-control chosen-select", :multiple => true } %>

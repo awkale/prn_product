@@ -47,7 +47,7 @@
     </ol>
   </div>
   <div class="col-sm-4">
-    <h2>Related Products <% if current_user.admin %><%= link_to 'Add Product', new_distribution_path(recipient_id: @recipient.id), { :class=>"btn btn-sm btn-link" } %><% end %></h2>
+    <h2>Related Products</h2>
     <ol>
       <% @recipient.products.each do |mp_p|%>
       <li>
