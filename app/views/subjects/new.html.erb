@@ -1,7 +1,6 @@
 <div class="row subject new">
   <div class="col-sm-8">
-    <h2>New subject</h2>
-
+    <h2 class="section-header">New subject</h2>
     <%= simple_form_for @subject do |cat| %>
       <%= cat.error_notification %>
       <%= cat.input :subject_name, placeholder: 'subject' %>

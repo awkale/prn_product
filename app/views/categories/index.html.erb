@@ -1,6 +1,6 @@
 <div class="row categories index">
   <div class="col-sm-8">
-    <h2>Categories <% if current_user.admin %><%= link_to 'New Category', new_category_path, { :class => "btn btn-sm bnt-link" } %><% end %></h2>
+    <h2 class="section-header">Categories <% if current_user.admin %><%= link_to 'New Category', new_category_path, { :class => "btn btn-sm btn-link pull-right" } %><% end %></h2>
     <ol>
       <% @categories.each do |cat| %>
       <li><%= cat.name %>

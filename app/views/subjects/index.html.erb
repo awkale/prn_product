@@ -1,6 +1,6 @@
 <div class="row subjects index">
   <div class="col-sm-8">
-    <h2>Subjects <% if current_user.admin %><%= link_to 'New Subject', new_subject_path, { :class => "btn btn-sm bnt-link" } %><% end %></h2>
+    <h2 class="section-header">Subjects <% if current_user.admin %><%= link_to 'New Subject', new_subject_path, { :class => "btn btn-sm btn-link pull-right" } %><% end %></h2>
     <ol>
       <% @subjects.each do |sub| %>
       <li><%= sub.subject_name %>
