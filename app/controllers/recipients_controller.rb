@@ -1,5 +1,6 @@
 class RecipientsController < ApplicationController
   before_action :find_recipient, :only => [:show, :edit, :update, :destroy]
+  layout 'page'
 
   def index
     @recipients = Recipient.order(:recipient_name).page(params[:page])

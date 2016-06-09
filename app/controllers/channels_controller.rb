@@ -1,5 +1,7 @@
 class ChannelsController < ApplicationController
   before_action :find_channel, :only => [:show, :edit, :update, :destroy]
+  layout 'page'
+
   def index
     @channels = Channel.all
   end
