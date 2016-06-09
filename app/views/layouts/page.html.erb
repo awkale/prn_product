@@ -10,20 +10,19 @@
   <div class="page-wrap">
     <header class="main-header">
       <section class="nav-junior no-margin">
-        <%= render "nav_junior" %>
+        <%= render 'nav_junior' %>
       </section>
       <section class="nav-main no-margin">
-        <%= render "nav_main" %>
+        <%= render 'nav_main' %>
       </section>
     </header><!-- /header -->
     <main role="main" id="main" class="">
       <div class="container">
-      <h1 class="mt-lg"><%= link_to 'PR Newswire Distribution', root_path %></h1>
         <%= render 'alerts' %>
         <%= yield %>
       </div>
     </main><!-- /main -->
-    <%= render "footer" %>
+    <%= render 'footer' %>
   </div>
 </body>
 </html>
