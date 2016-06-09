@@ -5,8 +5,8 @@
     <%= simple_form_for @category do |cat| %>
       <%= cat.error_notification %>
       <%= cat.input :name, placeholder: 'Category' %>
-      <%= cat.button :submit, {:class => "btn btn-secondary"} %>
-      <%= link_to "Cancel", :back, {:class => "btn btn-default"} %>
+      <%= cat.button :submit %>
+      <%= link_to "Cancel", :back, {:class => "btn btn-default pull-right mr-sm"} %>
     <% end %>
   </div>
 </div>

@@ -9,6 +9,6 @@
     <%= form.collection_select :recipient_ids, Recipient.order(:recipient_name), :id, :recipient_name, {prompt: 'Choose a recipient'}, {class: "form-control chosen-select", :multiple => true } %>
   </div>
 </div>
-<%= form.button :submit, {:class => "btn btn-secondary pull-right"} %>
+<%= form.button :submit %>
 <%= link_to "Cancel", :back, {:class => "btn btn-default pull-right mr-sm"} %>
 <% end %>
