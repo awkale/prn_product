@@ -13,15 +13,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update_attributes(user_params)
-
-    redirect_to user_path(id: @user.id)
+    if @user.update_attributes(user_params)
+      redirect_to user_path(id: @user.id), notice: "Successfully updated user."
+    else
+      render :edit
+    end
   end
 
   def destroy
     @user.destroy
 
-    redirect_to users_path
+    redirect_to users_path, notice: "Successfully deleted user."
   end
 
   private
