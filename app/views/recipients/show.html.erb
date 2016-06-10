@@ -1,6 +1,7 @@
+<h1><%= @recipient.recipient_name %></h1>
 <div class="row">
   <div class="col-sm-8">
-    <h2 class="section-header"><%= @recipient.recipient_name %> <% if current_user.admin %><%= link_to 'Edit Recipient', edit_recipient_path, { :class=>"btn btn-sm btn-link pull-right" } %><% end %>
+    <h2 class="section-header h4">Recipient details <% if current_user.admin %><%= link_to 'Edit Recipient', edit_recipient_path, { :class=>"btn btn-sm btn-link pull-right" } %><% end %>
       <% unless @recipient.alternate_name.blank? %><small><em>(<%= @recipient.alternate_name %>)</em></small><% end %>
     </h2>
     <div class="row">
@@ -39,7 +40,7 @@
         </dl>
       </div>
     </div>
-    <h3 class="section-header"><%= 'Channel'.pluralize(@recipient.channels.count) %></h3>
+    <h2 class="section-header h4"><%= 'Channel'.pluralize(@recipient.channels.count) %></h2>
     <ol>
       <% @recipient.channels.each do |c|  %>
       <li><%= link_to c.channel_name, channel_path(c) %></li>
@@ -47,7 +48,7 @@
     </ol>
   </div>
   <div class="col-sm-4">
-    <h3 class="section-header">Related <%= 'Product'.pluralize(@recipient.products.count) %></h3>
+    <h2 class="section-header h4">Related <%= 'Product'.pluralize(@recipient.products.count) %></h2>
     <ol>
       <% @recipient.products.each do |mp_p|%>
       <li>
@@ -60,7 +61,7 @@
 </div>
 <hr>
 <div class="row">
- <div class="col-sm-2 col-sm-offset-10">
+  <div class="col-sm-2 col-sm-offset-10">
   <% if current_user.admin %><%= link_to 'Delete Recipient', recipient_path, method: :delete, data: { confirm: "Are you sure? This can not be undone." }, :class=>"btn btn-danger btn-sm pull-right" %><% end %>
-</div>
+  </div>
 </div>
