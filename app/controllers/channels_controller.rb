@@ -33,7 +33,7 @@ class ChannelsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
+    @channel.destroy
 
     redirect_to channels_path
   end
