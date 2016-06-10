@@ -6,8 +6,8 @@
   <%= form.input :code, placeholder: 'Code'%>
   </div>
   <div class="col-sm-6">
-  <%= form.input :base_price, placeholder: 'Base Price ($)', label: 'Base Price ($)'%>
-  <%= form.input :length_price, placeholder: 'Length Price ($)', label: 'Length Price ($)'%>
+  <%= form.input :base_price, placeholder: 'Base Price ($)', label: 'Base Price ($)', input_html: {value: form.object.base_price || '0'}%>
+  <%= form.input :length_price, placeholder: 'Length Price ($)', label: 'Length Price ($)', input_html: {value: form.object.length_price || '0'} %>
   <div class="form-group">
     <label for="recipient_product_ids">Associated Recipients</label>
     <%= form.collection_select :recipient_ids, Recipient.order(:recipient_name), :id, :recipient_name, {prompt: 'Choose a recipient'}, {class: "form-control chosen-select", :multiple => true } %>
