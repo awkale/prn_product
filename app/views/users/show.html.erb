@@ -24,3 +24,9 @@
     </dl>
   </div>
 </div>
+<hr>
+<div class="row">
+  <div class="col-sm-2 col-sm-offset-10">
+  <% if current_user.admin %><%= link_to 'Delete User', user_path, method: :delete, data: { confirm: "Are you sure? This can not be undone." }, :class=>"btn btn-danger btn-sm pull-right" %><% end %>
+  </div>
+</div>
