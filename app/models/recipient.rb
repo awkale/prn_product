@@ -9,6 +9,9 @@ class Recipient < ActiveRecord::Base
   has_many :recipient_subjects, dependent: :destroy
   has_many :subjects, through: :recipient_subjects
 
+  has_many :recipient_industries, dependent: :destroy
+  has_many :industries, through: :recipient_industries
+
   belongs_to :category
 
   accepts_nested_attributes_for :products, reject_if: proc { |attributes| attributes['product_name'].blank? }

@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery_ujs
@@ -20,3 +21,5 @@
 //= require chosen-jquery
 //= require scaffold
 //= require turbolinks
+//= require jquery.ui.nestedSortable
+//= require sortable_tree/initializer

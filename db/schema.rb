@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608182449) do
+ActiveRecord::Schema.define(version: 20160620215843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,21 @@ ActiveRecord::Schema.define(version: 20160608182449) do
   add_index "distributions", ["product_id"], name: "index_distributions_on_product_id", using: :btree
   add_index "distributions", ["recipient_id"], name: "index_distributions_on_recipient_id", using: :btree
 
+  create_table "industries", force: :cascade do |t|
+    t.string   "industry_name"
+    t.integer  "parent_id"
+    t.integer  "lft",                        null: false
+    t.integer  "rgt",                        null: false
+    t.integer  "depth",          default: 0, null: false
+    t.integer  "children_count", default: 0, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "industries", ["lft"], name: "index_industries_on_lft", using: :btree
+  add_index "industries", ["parent_id"], name: "index_industries_on_parent_id", using: :btree
+  add_index "industries", ["rgt"], name: "index_industries_on_rgt", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "product_name"
     t.text     "description"
@@ -87,6 +102,16 @@ ActiveRecord::Schema.define(version: 20160608182449) do
 
   add_index "recipient_channels", ["channel_id"], name: "index_recipient_channels_on_channel_id", using: :btree
   add_index "recipient_channels", ["recipient_id"], name: "index_recipient_channels_on_recipient_id", using: :btree
+
+  create_table "recipient_industries", force: :cascade do |t|
+    t.integer  "recipient_id"
+    t.integer  "industry_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "recipient_industries", ["industry_id"], name: "index_recipient_industries_on_industry_id", using: :btree
+  add_index "recipient_industries", ["recipient_id"], name: "index_recipient_industries_on_recipient_id", using: :btree
 
   create_table "recipient_subjects", force: :cascade do |t|
     t.integer  "subject_id"
@@ -145,6 +170,8 @@ ActiveRecord::Schema.define(version: 20160608182449) do
   add_foreign_key "distributions", "recipients"
   add_foreign_key "recipient_channels", "channels"
   add_foreign_key "recipient_channels", "recipients"
+  add_foreign_key "recipient_industries", "industries"
+  add_foreign_key "recipient_industries", "recipients"
   add_foreign_key "recipient_subjects", "recipients"
   add_foreign_key "recipient_subjects", "subjects"
 end

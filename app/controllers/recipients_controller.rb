@@ -67,7 +67,11 @@ class RecipientsController < ApplicationController
       channel_ids: [],
       channel_attributes: [
         :id,
-        :channel_name]
+        :channel_name],
+      industry_ids: [],
+      industry_attributes: [
+        :id,
+        :industry_name],
     )
   end
 

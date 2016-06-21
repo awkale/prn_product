@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   resources :distributions
   resources :categories
   resources :subjects
+  resources :industries do
+    collection do
+      get :manage
+
+      # required for Sortable GUI server side actions
+      post :rebuild
+    end
+  end
   get '/listing' => "listing#index"
   devise_for :admins
   devise_for :users
