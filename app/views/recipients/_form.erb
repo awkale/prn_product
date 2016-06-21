@@ -26,17 +26,17 @@
 </div>
 <div class="row">
   <div class="col-sm-6">
-    <h2 class="section-header h4">Related <%= 'Product'.pluralize(@recipient.products.count) %></h2>
-    <div class="form-group">
-      <label for="recipient_product_ids">Associated Product</label>
-      <%= form.collection_select :product_ids, Product.order(:product_name), :id, :product_name, {prompt: 'Choose a product'}, {class: "form-control chosen-select", :multiple => true } %>
-    </div>
-  </div>
-  <div class="col-sm-6">
     <h2 class="section-header h4"><%= 'Channel'.pluralize(@recipient.channels.count) %></h2>
     <div class="form-group">
       <label for="recipient_channel_ids">Associated Channel</label>
       <%= form.collection_select :channel_ids, Channel.order(:channel_name), :id, :channel_name, {prompt: 'Choose a channel'}, {class: "form-control chosen-select", :multiple => true } %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <h2 class="section-header h4">Related <%= 'Product'.pluralize(@recipient.products.count) %></h2>
+    <div class="form-group">
+      <label for="recipient_product_ids">Associated Product</label>
+      <%= form.collection_select :product_ids, Product.order(:product_name), :id, :product_name, {prompt: 'Choose a product'}, {class: "form-control chosen-select", :multiple => true } %>
     </div>
   </div>
 </div>
