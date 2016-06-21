@@ -15,6 +15,7 @@
 *= require tree
 *= require sortable_tree
 *= require nested_options
+*= require industries
 */
 
 
@@ -27,7 +28,9 @@
 @import "bootstrap-chosen";
 @import "custom";
 
-@import "prn-fonts.scss";
+@import "prn-fonts";
+@import "black-tie";
+
 
 @media (min-width: $screen-sm) {
   header {

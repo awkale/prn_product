@@ -1,3 +1,65 @@
 // Place all the styles related to the Industries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sortable_tree ol {
+  margin: 0 0 0 30px;
+  padding: 0 0 0 32px;
+}
+
+.sortable_tree .handle {
+  background: none;
+  font-family: 'Black Tie';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  padding-left: 5px;
+  margin: 0 10px 0 0;
+  &:after {
+    content: '\f068';
+  }
+}
+
+.sortable_tree .handle:hover {
+  background: none;
+}
+
+.sortable_tree .controls a.edit {
+  background: none;
+  font-family: 'Black Tie';
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  padding-left: 5px;
+  margin: 0 10px 0 0;
+  &:after {
+    content: '\F025';
+  }
+}
+
+.sortable_tree .controls a.edit:hover {
+  background: none;
+}
+
+.sortable_tree .controls a.delete {
+  background: none;
+  font-family: 'Black Tie';
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  padding-left: 5px;
+  margin: 0 10px 0 0;
+  &:after {
+    content: '\F00C';
+  }
+}
+
+.sortable_tree .controls a.delete:hover {
+  background: none;
+}
