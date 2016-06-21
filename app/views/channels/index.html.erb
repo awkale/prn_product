@@ -1,10 +1,24 @@
 <div class="row channels index">
   <div class="col-sm-8">
     <h2 class="section-header">Channels <% if current_user.admin %> <%= link_to 'New Channel', new_channel_path, { :class => "btn btn-sm btn-link pull-right"} %><% end %></h2>
-    <ol>
-    <% @channels.each do |c| %>
-      <li><%= link_to c.channel_name, c %> <% if current_user.admin %>/ <%= link_to  'Edit', edit_channel_path(c)%><% end %></li>
-    <% end %>
-    </ol>
+    <table class="table table-striped">
+      <tbody>
+        <% @channels.each do |c| %>
+        <tr>
+          <td><%= link_to c.channel_name, c %></td>
+          <td>
+            <% if current_user.admin %>
+            <%= link_to  'Edit', edit_channel_path(c)%>
+            <% end %>
+          </td>
+          <td>
+            <% if current_user.admin %>
+            <%= link_to  'Delete', channel_path(c), method: :delete, data: {confirm: "Are you sure? This con not be undone."} %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
