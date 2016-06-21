@@ -1,0 +1,11 @@
+<h1><%= @subject.subject_name %></h1>
+<div class="row">
+  <div class="col-sm-8">
+    <h2 class="section-header h4">Related recipients <% if current_user.admin %><%= link_to 'Edit Subject', edit_subject_path, {:class => "btn btn-sm btn-link pull-right"} %><% end %></h2>
+    <ol>
+    <% @subject.recipients.each do |i_r| %>
+      <li><%= link_to i_r.recipient_name, recipient_path(i_r) %></li>
+    <% end %>
+    </ol>
+  </div>
+</div>

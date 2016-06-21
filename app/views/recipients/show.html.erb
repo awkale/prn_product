@@ -9,9 +9,7 @@
     </h2>
     <div class="row">
       <div class="col-sm-6">
-        <dl class="dl-horizontal">
-          <dt>Category:</dt>
-          <dd><%= @recipient.category.present? ? link_to(@recipient.category.name, @recipient.category) : "" %></dd>
+        <dl class="">
           <dt>Description:</dt>
           <dd><%= @recipient.description %></dd>
         </dl>
@@ -29,7 +27,9 @@
     </div>
     <div class="row">
       <div class="col-sm-6">
-        <dl class="dl-horizontal">
+        <dl class="">
+          <dt>Category:</dt>
+          <dd><%= @recipient.category.present? ? link_to(@recipient.category.name, @recipient.category) : "" %></dd>
           <dt>Industry:</dt>
           <% @recipient.industries.each do |ind| %>
           <dd><%= link_to(ind.industry_name, ind) %></dd>
@@ -37,10 +37,10 @@
         </dl>
       </div>
       <div class="col-sm-6">
-        <dl class="dl-horizontal">
+        <dl class="">
           <dt>Subject:</dt>
           <% @recipient.subjects.each do |sub| %>
-          <dd><%= sub.subject_name %></dd>
+          <dd><%= link_to(sub.subject_name, sub) %></dd>
           <% end %>
         </dl>
       </div>
