@@ -2,7 +2,7 @@
   <%= @recipient.recipient_name %>
   <% unless @recipient.alternate_name.blank? %><small><em>(<%= @recipient.alternate_name %>)</em></small><% end %>
 </h1>
-<div class="row">
+<div class="row recipient show">
   <div class="col-sm-8">
     <h2 class="section-header h4">Recipient details <% if current_user.admin %><%= link_to 'Edit Recipient', edit_recipient_path, { :class=>"btn btn-sm btn-link pull-right" } %><% end %>
 

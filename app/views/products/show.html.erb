@@ -1,17 +1,25 @@
 <h1><%= @product.product_name %></h1>
-<div class="row">
+<div class="row product show">
   <div class="col-sm-8">
     <h2 class="section-header h4">Product details <% if current_user.admin %><%= link_to 'Edit Product', edit_product_path, { :class=>"btn btn-sm btn-link pull-right" } %><% end %></h2>
-    <dl class="dl-horizontal">
-      <dt>Description:</dt>
-      <dd><%= simple_format(@product.description) %></dd>
-      <dt>Code:</dt>
-      <dd><%= @product.code %></dd>
-      <dt>Base Price ($):</dt>
-      <dd><%= @product.base_price %></dd>
-      <dt>Length Price ($):</dt>
-      <dd><%= @product.length_price %></dd>
-    </dl>
+    <div class="row">
+      <div class="col-sm-8">
+        <dl class="">
+          <dt>Description:</dt>
+          <dd><%= simple_format(@product.description) %></dd>
+        </dl>
+      </div>
+      <div class="col-sm-4">
+        <dl class="dl-horizontal">
+          <dt>Code:</dt>
+          <dd><%= @product.code %></dd>
+          <dt>Base Price ($):</dt>
+          <dd><%= @product.base_price %></dd>
+          <dt>Length Price ($):</dt>
+          <dd><%= @product.length_price %></dd>
+        </dl>
+      </div>
+    </div>
   </div>
   <div class="col-sm-4">
     <h2 class="section-header h4">Related <%= 'Recipient'.pluralize(@product.recipients.count) %> </h2>
@@ -27,7 +35,7 @@
 </div>
 <hr>
 <div class="row">
-   <div class="col-sm-2 col-sm-offset-10">
-    <% if current_user.admin %><%= link_to 'Delete Product', product_path, method: :delete, data: { confirm: "Are you sure? This can not be undone." }, :class=>"btn btn-danger btn-sm pull-right" %><% end %>
-   </div>
- </div>
+ <div class="col-sm-2 col-sm-offset-10">
+  <% if current_user.admin %><%= link_to 'Delete Product', product_path, method: :delete, data: { confirm: "Are you sure? This can not be undone." }, :class=>"btn btn-danger btn-sm pull-right" %><% end %>
+</div>
+</div>

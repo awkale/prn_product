@@ -1,20 +1,29 @@
 <%= simple_form_for @product do |form| %>
-  <%= form.error_notification %>
+<%= form.error_notification %>
+<div class="row">
   <div class="col-sm-6">
-  <%= form.input :product_name, placeholder: 'Product' %>
-  <%= form.input :description, placeholder: 'Description'%>
-  <%= form.input :code, placeholder: 'Code'%>
+    <%= form.input :product_name, placeholder: 'Product' %>
+    <%= form.input :description, placeholder: 'Description'%>
   </div>
   <div class="col-sm-6">
-  <%= form.input :base_price, placeholder: 'Base Price ($)', label: 'Base Price ($)', input_html: {value: form.object.base_price || '0'}%>
-  <%= form.input :length_price, placeholder: 'Length Price ($)', label: 'Length Price ($)', input_html: {value: form.object.length_price || '0'} %>
-  <div class="form-group">
-    <label for="recipient_product_ids">Associated Recipients</label>
-    <%= form.collection_select :recipient_ids, Recipient.order(:recipient_name), :id, :recipient_name, {prompt: 'Choose a recipient'}, {class: "form-control chosen-select", :multiple => true } %>
+    <%= form.input :code, placeholder: 'Code'%>
+    <%= form.input :base_price, placeholder: 'Base Price ($)', label: 'Base Price ($)', input_html: {value: form.object.base_price || '0'}%>
+    <%= form.input :length_price, placeholder: 'Length Price ($)', label: 'Length Price ($)', input_html: {value: form.object.length_price || '0'} %>
   </div>
-  </div>
+</div>
+<div class="row">
   <div class="col-sm-12">
-  <%= form.button :submit %>
-  <%= link_to "Cancel", :back, {:class=>"btn btn-default pull-right mr-sm"} %>
+  <h2 class="section-header h4">Related <%= 'Recipient'.pluralize(@product.recipients.count) %></h2>
+    <div class="form-group">
+      <label for="recipient_product_ids">Associated Recipients</label>
+      <%= form.collection_select :recipient_ids, Recipient.order(:recipient_name), :id, :recipient_name, {prompt: 'Choose a recipient'}, {class: "form-control chosen-select", :multiple => true } %>
+    </div>
   </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <%= form.button :submit %>
+    <%= link_to "Cancel", :back, {:class=>"btn btn-default pull-right mr-sm"} %>
+  </div>
+</div>
 <% end %>

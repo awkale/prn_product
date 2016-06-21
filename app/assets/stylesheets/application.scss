@@ -16,6 +16,7 @@
 *= require sortable_tree
 *= require nested_options
 *= require industries
+*= require recipients
 */
 
 
@@ -58,4 +59,16 @@
  background-color: #fff;
 }
 
+.recipient {
+  .dl-horizontal {
+    @media (min-width: $grid-float-breakpoint) {
+      dt {
+        width: (60px);
+      }
+      dd {
+        margin-left: 80px;
+      }
+    }
+  }
+}
 
