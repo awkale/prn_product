@@ -1,33 +1,49 @@
 <%= simple_form_for @recipient do |form| %>
 <%= form.error_notification %>
-<div class="col-sm-6">
-  <%= form.input :recipient_name, placeholder: 'Recipient', label: 'Recipient Name' %>
-  <%= form.input :alternate_name, placeholder: 'Alternate Name' %>
-  <div class="form-group">
-    <label for="recipient_category_id">Category</label>
-    <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: 'Choose a category'}, {class: "form-control chosen-select"}%>
+<div class="row">
+  <div class="col-sm-6">
+    <%= form.input :recipient_name, placeholder: 'Recipient', label: 'Recipient Name' %>
+    <%= form.input :alternate_name, placeholder: 'Alternate Name' %>
+    <%= form.input :city, placeholder: 'City'%>
+    <%= form.input :state, placeholder: 'State' %>
+    <%= form.input :country, as: :country, priority: ['US', 'CA'] %>
   </div>
-  <div class="form-group">
-    <label for="recipient_subject_ids">Subject</label>
-    <%= form.collection_select :subject_ids, Subject.order(:subject_name), :id, :subject_name, {prompt: 'Choose a subject'}, {class: "form-control chosen-select", :multiple => true } %>
-  </div>
-  <%= form.input :description, placeholder: 'Description'%>
-</div>
-<div class="col-sm-6">
-  <%= form.input :city, placeholder: 'City'%>
-  <%= form.input :state, placeholder: 'State' %>
-  <%= form.input :country, as: :country, priority: ['US', 'CA'] %>
-  <div class="form-group">
-    <label for="recipient_product_ids">Associated Product</label>
-    <%= form.collection_select :product_ids, Product.order(:product_name), :id, :product_name, {prompt: 'Choose a product'}, {class: "form-control chosen-select", :multiple => true } %>
-  </div>
-  <div class="form-group">
-    <label for="recipient_channel_ids">Associated Channel</label>
-    <%= form.collection_select :channel_ids, Channel.order(:channel_name), :id, :channel_name, {prompt: 'Choose a channel'}, {class: "form-control chosen-select", :multiple => true } %>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="recipient_category_id">Category</label>
+      <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: 'Choose a category'}, {class: "form-control chosen-select"}%>
+    </div>
+    <div class="form-group">
+      <label for="recipient_industry_ids">Industry</label>
+      <%= form.collection_select :industry_ids, Industry.order(:industry_name), :id, :industry_name, {prompt: 'Choose an industry'}, {class: "form-control chosen-select", :multiple => true } %>
+    </div>
+    <div class="form-group">
+      <label for="recipient_subject_ids">Subject</label>
+      <%= form.collection_select :subject_ids, Subject.order(:subject_name), :id, :subject_name, {prompt: 'Choose a subject'}, {class: "form-control chosen-select", :multiple => true } %>
+    </div>
+    <%= form.input :description, placeholder: 'Description'%>
   </div>
 </div>
-<div class="col-sm-12">
-  <%= form.button :submit %>
-  <%= link_to "Cancel", :back, {:class=>"btn btn-default pull-right mr-sm"} %>
+<div class="row">
+  <div class="col-sm-6">
+    <h2 class="section-header h4">Related <%= 'Product'.pluralize(@recipient.products.count) %></h2>
+    <div class="form-group">
+      <label for="recipient_product_ids">Associated Product</label>
+      <%= form.collection_select :product_ids, Product.order(:product_name), :id, :product_name, {prompt: 'Choose a product'}, {class: "form-control chosen-select", :multiple => true } %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <h2 class="section-header h4"><%= 'Channel'.pluralize(@recipient.channels.count) %></h2>
+    <div class="form-group">
+      <label for="recipient_channel_ids">Associated Channel</label>
+      <%= form.collection_select :channel_ids, Channel.order(:channel_name), :id, :channel_name, {prompt: 'Choose a channel'}, {class: "form-control chosen-select", :multiple => true } %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <%= form.button :submit %>
+    <%= link_to "Cancel", :back, {:class=>"btn btn-default pull-right mr-sm"} %>
+  </div>
 </div>
 <% end %>

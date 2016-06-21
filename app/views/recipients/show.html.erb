@@ -1,8 +1,11 @@
-<h1><%= @recipient.recipient_name %></h1>
+<h1>
+  <%= @recipient.recipient_name %>
+  <% unless @recipient.alternate_name.blank? %><small><em>(<%= @recipient.alternate_name %>)</em></small><% end %>
+</h1>
 <div class="row">
   <div class="col-sm-8">
     <h2 class="section-header h4">Recipient details <% if current_user.admin %><%= link_to 'Edit Recipient', edit_recipient_path, { :class=>"btn btn-sm btn-link pull-right" } %><% end %>
-      <% unless @recipient.alternate_name.blank? %><small><em>(<%= @recipient.alternate_name %>)</em></small><% end %>
+
     </h2>
     <div class="row">
       <div class="col-sm-6">
@@ -28,7 +31,9 @@
       <div class="col-sm-6">
         <dl class="dl-horizontal">
           <dt>Industry:</dt>
-          <dd></dd>
+          <% @recipient.industries.each do |ind| %>
+          <dd><%= link_to(ind.industry_name, ind) %></dd>
+          <% end %>
         </dl>
       </div>
       <div class="col-sm-6">
