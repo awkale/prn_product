@@ -10,6 +10,8 @@
     <div class="row">
       <div class="col-sm-6">
         <dl class="">
+          <dt>Category:</dt>
+          <dd><%= @recipient.category.present? ? link_to(@recipient.category.name, @recipient.category) : "" %></dd>
           <dt>Description:</dt>
           <dd><%= @recipient.description %></dd>
         </dl>
@@ -28,8 +30,6 @@
     <div class="row">
       <div class="col-sm-6">
         <dl class="">
-          <dt>Category:</dt>
-          <dd><%= @recipient.category.present? ? link_to(@recipient.category.name, @recipient.category) : "" %></dd>
           <dt>Industry:</dt>
           <% @recipient.industries.each do |ind| %>
           <dd><%= link_to(ind.industry_name, ind) %></dd>
