@@ -14,11 +14,15 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save
-      redirect_to products_path, notice: "Successfully created product."
+    if current_user.admin?
+      @product = Product.new(product_params)
+      if @product.save
+        redirect_to products_path, notice: "Successfully created product."
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to products_path, alert: "You do not have permission."
     end
   end
 
@@ -26,17 +30,25 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update_attributes(product_params)
-      redirect_to product_path(id: @product.id), notice: "Successfully updated product."
+    if current_user.admin?
+      if @product.update_attributes(product_params)
+        redirect_to product_path(id: @product.id), notice: "Successfully updated product."
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to products_path, alert: "You do not have permission."
     end
   end
 
   def destroy
-    @product.destroy
+    if current_user.admin?
+      @product.destroy
 
-    redirect_to products_path, notice: "Successfully deleted product."
+      redirect_to products_path, notice: "Successfully deleted product."
+    else
+      redirect_to products_path, alert: "You do not have permission."
+    end
   end
 
   private
@@ -55,7 +67,7 @@ class ProductsController < ApplicationController
       recipient_attributes: [
         :id,
         :recipient_name]
-    )
+        )
   end
 
 end

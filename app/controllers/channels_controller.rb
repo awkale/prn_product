@@ -15,11 +15,15 @@ class ChannelsController < ApplicationController
   end
 
   def create
-    @channel = Channel.new(channel_params)
-    if @channel.save
-      redirect_to channels_path
+    if current_user.admin?
+      @channel = Channel.new(channel_params)
+      if @channel.save
+        redirect_to channels_path
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to channels_path, alert: "You do not have permission."
     end
   end
 
@@ -27,15 +31,25 @@ class ChannelsController < ApplicationController
   end
 
   def update
-    @channel.update_attributes(channel_params)
-
-    redirect_to channel_path(id: @channel.id)
+    if current_user.admin?
+      if @channel.update_attributes(channel_params)
+        redirect_to channel_path(id: @channel.id), notice: "Successfully updated channel."
+      else
+        render :edit
+      end
+    else
+      redirect_to channels_path, alert: "You do not have permission."
+    end
   end
 
   def destroy
-    @channel.destroy
+    if current_user.admin?
+      @channel.destroy
 
-    redirect_to channels_path
+      redirect_to channels_path
+    else
+      redirect_to channels_path, alert: "You do not have permission."
+    end
   end
 
   private
@@ -49,7 +63,7 @@ class ChannelsController < ApplicationController
       recipient_attributes: [
         :id,
         :recipient_name]
-    )
+        )
   end
 
 end

@@ -15,11 +15,15 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
-    if @category.save
-      redirect_to categories_path
+    if current_user.admin?
+      @category = Category.new(category_params)
+      if @category.save
+        redirect_to categories_path
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to categories_path, alert: "You do not have permission."
     end
   end
 
@@ -28,15 +32,25 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    @category.update_attributes(category_params)
-
-    redirect_to categories_path
+    if current_user.admin?
+      if @category.update_attributes(category_params)
+        redirect_to categories_path, notice: "Successfully updated category."
+      else
+        render :edit
+      end
+    else
+      redirect_to categories_path, alert: "You do not have permission."
+    end
   end
 
   def destroy
-    @category.destroy
+    if current_user.admin?
+      @category.destroy
 
-    redirect_to categories_path
+      redirect_to categories_path
+    else
+      redirect_to categories_path, alert: "You do not have permission."
+    end
   end
 
   private

@@ -13,17 +13,25 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
-      redirect_to user_path(id: @user.id), notice: "Successfully updated user."
+    if current_user.admin?
+      if @user.update_attributes(user_params)
+        redirect_to user_path(id: @user.id), notice: "Successfully updated user."
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to users_path, alert: "You do not have permission."
     end
   end
 
   def destroy
-    @user.destroy
+    if current_user.admin?
+      @user.destroy
 
-    redirect_to users_path, notice: "Successfully deleted user."
+      redirect_to users_path, notice: "Successfully deleted user."
+    else
+      redirect_to users_path, alert: "You do not have permission."
+    end
   end
 
   private
@@ -31,7 +39,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def user_params
-    params.require(:user).permit(:first_name, :last_name)
+    params.require(:user).permit(:first_name, :last_name, :admin, :remember_me)
   end
 
 end

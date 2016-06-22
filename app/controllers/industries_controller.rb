@@ -16,11 +16,15 @@ class IndustriesController < ApplicationController
   end
 
   def create
-    @industry = Industry.new(industry_params)
-    if @industry.save
-      redirect_to manage_industries_path
+    if current_user.admin?
+      @industry = Industry.new(industry_params)
+      if @industry.save
+        redirect_to manage_industries_path
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to manage_industries_path, alert: "You do not have permission."
     end
   end
 
@@ -29,19 +33,33 @@ class IndustriesController < ApplicationController
   end
 
   def update
-    @industry.update_attributes(industry_params)
-
-    redirect_to manage_industries_path
+    if current_user.admin?
+      if @industry.update_attributes(industry_params)
+        redirect_to manage_industries_path, notice: "Successfully updated industry."
+      else
+        render :edit
+      end
+    else
+      redirect_to manage_industries_path, alert: "You do not have permission."
+    end
   end
 
   def destroy
-    @industry.destroy
+    if current_user.admin?
+      @industry.destroy
 
-    redirect_to manage_industries_path
+      redirect_to manage_industries_path
+    else
+      redirect_to manage_industries_path, alert: "You do not have permission."
+    end
   end
 
   def manage
-    @industries = Industry.nested_set.select('id, industry_name, parent_id').all
+    if current_user.admin?
+      @industries = Industry.nested_set.select('id, industry_name, parent_id').all
+    else
+      redirect_to manage_industries_path, alert: "You do not have permission."
+    end
   end
 
   private
@@ -56,6 +74,6 @@ class IndustriesController < ApplicationController
       recipient_attributes: [
         :id,
         :recipient_name]
-    )
+        )
   end
 end
