@@ -1,3 +1,4 @@
+<% title @user.email %>
 <h1><%= @user.email %></h1>
 <div class="row">
   <div class="col-sm-12">
@@ -17,7 +18,7 @@
     </dl>
   </div>
   <div class="col-sm-6">
-    <dl>
+    <dl class="dl-horizontal">
       <dt>Created:</dt>
       <dd><%= @user.created_at %></dd>
       <dt>Last sign in:</dt>
