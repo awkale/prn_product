@@ -2,7 +2,14 @@
 <h1><%= @product.product_name %></h1>
 <div class="row product show">
   <div class="col-sm-8">
-    <h2 class="section-header h4">Product details <% if current_user.admin %><%= link_to 'Edit Product', edit_product_path, { :class=>"btn btn-sm btn-link pull-right" } %><% end %></h2>
+    <h2 class="section-header h4">Product details
+      <% if current_user.admin %>
+          <%= link_to 'Edit Product',
+                      edit_product_path,
+                      { :class=>"btn btn-sm btn-link pull-right" }
+          %>
+      <% end %>
+    </h2>
     <div class="row">
       <div class="col-sm-8">
         <dl class="">
@@ -27,8 +34,14 @@
     <ol>
       <% @product.recipients.each do |p_mp| %>
       <li>
-        <%= link_to p_mp.recipient_name, recipient_path(p_mp) %> <% if current_user.admin %>/
-        <%= link_to 'Edit', edit_recipient_path(p_mp) %><% end %>
+        <%= link_to p_mp.recipient_name,
+                    recipient_path(p_mp)
+        %>
+        <% if current_user.admin %>/
+          <%= link_to 'Edit',
+                      edit_recipient_path(p_mp)
+          %>
+        <% end %>
       </li>
       <% end %>
     </ol>
@@ -37,6 +50,13 @@
 <hr>
 <div class="row">
  <div class="col-sm-2 col-sm-offset-10">
-  <% if current_user.admin %><%= link_to 'Delete Product', product_path, method: :delete, data: { confirm: "Are you sure? This can not be undone." }, :class=>"btn btn-danger btn-sm pull-right" %><% end %>
+  <% if current_user.admin %>
+       <%= link_to 'Delete Product',
+                   product_path,
+                   method: :delete,
+                   data: { confirm: "Are you sure? This can not be undone." },
+                   :class=>"btn btn-danger btn-sm pull-right"
+       %>
+   <% end %>
 </div>
 </div>

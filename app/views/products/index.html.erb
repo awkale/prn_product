@@ -1,10 +1,28 @@
 <div class="row products index">
   <div class="col-sm-8">
-    <h2 class="section-header">Products <% if current_user.admin %><%= link_to 'New Product', new_product_path, { :class => "btn btn-sm btn-link pull-right"}  %><% end %></h2>
-    <%= paginate @products, :theme => 'bootstrap' %>
+    <h2 class="section-header">Products
+      <% if current_user.admin %>
+          <%= link_to 'New Product',
+                      new_product_path,
+                      { :class => "btn btn-sm btn-link pull-right"}
+          %>
+      <% end %>
+    </h2>
+    <%= paginate @products,
+                 :theme => 'bootstrap'
+    %>
     <ol>
       <% @products.each do |product| %>
-      <li><%= link_to product.product_name, product %> <% if current_user.admin %>/ <%= link_to 'edit', edit_product_path(product) %><% end %> </li>
+      <li>
+        <%= link_to product.product_name,
+                    product
+        %>
+        <% if current_user.admin %>/
+            <%= link_to 'edit',
+                        edit_product_path(product)
+            %>
+        <% end %>
+      </li>
       <% end %>
     </ol>
     <%= paginate @products, :theme => 'bootstrap' %>
