@@ -3,7 +3,7 @@ class RecipientsController < ApplicationController
   layout 'page'
 
   def index
-    @recipients = Kaminari.paginate_array(Recipient.all.sort_by{|t| t.recipient_name.sub(/^the /i,"")}).page(params[:page])
+    @recipients = Kaminari.paginate_array(Recipient.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
   end
 
   def new
