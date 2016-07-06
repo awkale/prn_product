@@ -17,5 +17,5 @@ class Recipient < ActiveRecord::Base
   validates_uniqueness_of :recipient_name
 
   accepts_nested_attributes_for :products, reject_if: proc { |attributes| attributes['product_name'].blank? }
-  default_scope { order('recipient_name') }
+  # default_scope { order('recipient_name') }
 end
