@@ -11,6 +11,9 @@ class Recipient < ActiveRecord::Base
   has_many :recipient_industries, dependent: :destroy
   has_many :industries, through: :recipient_industries
 
+  has_many :renderings, dependent: :destroy
+  has_many :multimedia, through: :renderings
+
   belongs_to :category
 
   validates :recipient_name, presence: true

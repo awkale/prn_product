@@ -84,6 +84,10 @@ class RecipientsController < ApplicationController
       industry_attributes: [
         :id,
         :industry_name],
+      multimedium_ids: [],
+      multimedium_attributes: [
+        :id,
+        :media_type],
     )
   end
 

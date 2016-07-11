@@ -13,6 +13,10 @@
     <div class="row">
       <div class="col-sm-6">
         <dl class="">
+          <dt>Multimedia:</dt>
+          <% @recipient.multimedia.each do |multi| %>
+          <dd><%= link_to(multi.media_type, multi) %></dd>
+          <% end %>
           <dt>Category:</dt>
           <dd><%= @recipient.category.present? ? link_to(@recipient.category.name, @recipient.category) : "" %></dd>
           <dt>Description:</dt>
