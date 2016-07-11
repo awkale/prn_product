@@ -4,7 +4,7 @@
   <div class="col-sm-8">
     <h2 class="section-header h4">Related recipients <% if current_user.admin %><%= link_to 'Edit Channel', edit_channel_path, {:class => "btn btn-sm btn-link pull-right"} %><% end %></h2>
     <ol>
-    <% @channel.recipients.each do |c_p| %>
+    <% @channel.recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}.each do |c_p| %>
       <li><%= link_to c_p.recipient_name, recipient_path(c_p) %></li>
     <% end %>
     </ol>

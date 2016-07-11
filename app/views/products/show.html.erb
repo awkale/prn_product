@@ -32,7 +32,7 @@
   <div class="col-sm-4">
     <h2 class="section-header h4">Related <%= 'Recipient'.pluralize(@product.recipients.count) %> </h2>
     <ol>
-      <% @product.recipients.each do |p_mp| %>
+      <% @product.recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}.each do |p_mp| %>
       <li>
         <%= link_to p_mp.recipient_name,
                     recipient_path(p_mp)
