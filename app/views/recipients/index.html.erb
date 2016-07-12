@@ -20,7 +20,13 @@
           <% @recipients.each do |mp| %>
         <tr>
           <td><%= link_to mp.recipient_name, mp %></td>
-          <td>photo</td>
+          <td>
+            <% mp.multimedia.each do |multi| %>
+              <%= link_to(multi) do%>
+                <i class="bts <%= multi.icon %>"></i>
+              <% end %>
+            <% end %>
+          </td>
           <td><% if current_user.admin %>
             <%= link_to 'Edit', edit_recipient_path(mp) %>
             <% end %></td>
