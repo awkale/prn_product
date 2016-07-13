@@ -11,11 +11,6 @@
             <%= link_to 'Edit', edit_subject_path(sub) %>
             <% end %>
           </td>
-          <td>
-            <% if current_user.admin %>
-            <%= link_to 'Delete', subject_path(sub), method: :delete, data: { confirm: "Are you sure? This con not be undone."} %>
-            <% end %>
-          </td>
         </tr>
         <% end %>
       </tbody>

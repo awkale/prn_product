@@ -7,7 +7,6 @@
         <tr>
           <td><%= link_to multi.media_type, multi%></td>
           <td><% if current_user.admin %><%= link_to 'Edit', edit_multimedium_path(multi) %><% end %></td>
-          <td><% if current_user.admin %><%= link_to 'Delete', multimedium_path(multi), method: :delete, data: { confirm: "Are you sure? This con not be undone."} %><% end %></td>
         </tr>
         <% end %>
       </tbody>

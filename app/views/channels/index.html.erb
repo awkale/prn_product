@@ -11,11 +11,6 @@
             <%= link_to  'Edit', edit_channel_path(c)%>
             <% end %>
           </td>
-          <td>
-            <% if current_user.admin %>
-            <%= link_to  'Delete', channel_path(c), method: :delete, data: {confirm: "Are you sure? This con not be undone."} %>
-            <% end %>
-          </td>
         </tr>
         <% end %>
       </tbody>
