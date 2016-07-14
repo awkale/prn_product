@@ -11,7 +11,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-
+    @recipients = @category.recipients
+    @related_recipients = Kaminari.paginate_array(@recipients.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
   end
 
   def create
