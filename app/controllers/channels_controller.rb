@@ -12,7 +12,6 @@ class ChannelsController < ApplicationController
 
   def show
     @recipients = @channel.recipients
-    # @recipients = @channel.recipients.page(params[:page]).per(50)
     @related_recipients = Kaminari.paginate_array(@recipients.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
   end
 

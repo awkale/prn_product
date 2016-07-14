@@ -16,7 +16,7 @@
 # ])
 #
 #
-RecipientIndustry([
+RecipientIndustry.create([
 {recipient_id:5741 , industry_id: 38},
 {recipient_id:5743 , industry_id: 38},
 {recipient_id:5745 , industry_id: 38},
