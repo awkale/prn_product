@@ -6,7 +6,7 @@
       <%= link_to 'Manage Industries', manage_industries_path, :class => "btn btn-sm btn-link pull-right" %>
     <% end %>
     </h2>
-    <%= sorted_nested_ol(@industries, :industry_name) do |ind| %>
+    <%= sorted_nested_ul(@industries, :industry_name) do |ind| %>
       <%= link_to ind.industry_name, ind %>
     <% end %>
   </div>
