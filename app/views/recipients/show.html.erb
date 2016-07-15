@@ -1,7 +1,7 @@
 <% title @recipient.recipient_name %>
 <div>
   <% if current_user.admin %>
-  <%= link_to 'Edit Recipient', edit_recipient_path, { :class=>"btn btn-sm btn-default pull-right" } %>
+  <%= link_to 'Edit Recipient', edit_recipient_path, { :class=>"btn btn-sm btn-default pull-right mt-xs btn--edit" } %>
   <% end %>
   <h1 class="section-header">
     <%= @recipient.recipient_name %>

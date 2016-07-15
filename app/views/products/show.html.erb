@@ -1,28 +1,34 @@
 <% title @product.product_name %>
-<h1><%= @product.product_name %></h1>
+<% if current_user.admin %>
+    <%= link_to 'Edit Product',
+                edit_product_path,
+                { :class=>"btn btn-sm btn-default pull-right mt-xs btn--edit" }
+    %>
+<% end %>
+<h1 class="section-header"><%= @product.product_name %></h1>
 <div class="row product show">
   <div class="col-sm-8">
-    <h2 class="section-header h4">Product details
-      <% if current_user.admin %>
-          <%= link_to 'Edit Product',
-                      edit_product_path,
-                      { :class=>"btn btn-sm btn-link pull-right" }
-          %>
-      <% end %>
-    </h2>
     <div class="row">
-      <div class="col-sm-8">
+      <div class="col-sm-12">
         <dl class="">
           <dt>Description:</dt>
           <dd><%= simple_format(@product.description) %></dd>
         </dl>
       </div>
       <div class="col-sm-4">
-        <dl class="dl-horizontal">
+        <dl>
           <dt>Code:</dt>
           <dd><%= @product.code %></dd>
+        </dl>
+      </div>
+      <div class="col-sm-4">
+        <dl>
           <dt>Base Price ($):</dt>
           <dd><%= @product.base_price %></dd>
+        </dl>
+      </div>
+      <div class="col-sm-4">
+        <dl>
           <dt>Length Price ($):</dt>
           <dd><%= @product.length_price %></dd>
         </dl>
