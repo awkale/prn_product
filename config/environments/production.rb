@@ -89,6 +89,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.timeout_in = 30.minutes
+  # config.timeout_in = 30.minutes
 
 end
