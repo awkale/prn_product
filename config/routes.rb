@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root to: 'home#index'
+  concern :paginatable do
+    get '(page/:page)', :action => :index, :on => :collection, :as => ''
+  end
   resources :products
   resources :channels
-  resources :recipients
+  resources :recipients, :concerns => :paginatable
   resources :distributions
   resources :categories
   resources :subjects
