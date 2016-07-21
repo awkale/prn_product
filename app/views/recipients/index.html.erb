@@ -15,29 +15,33 @@
           <th>Location</th>
           <th>Category</th>
           <th>Multimedia</th>
-          <th></th>
+          <% if current_user.admin %>
+          <th>Actions</th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
-          <% @recipients.each do |mp| %>
+        <% @recipients.each do |mp| %>
         <tr>
           <td><%= link_to mp.recipient_name, mp %></td>
           <td><%= mp.city.present? ? mp.city + ', ' : "" %><%= mp.state %></td>
           <td><%= mp.category.present? ? mp.category.name : "" %></td>
           <td>
-            <% mp.multimedia.each do |multi| %>
-              <%= link_to(multi) do%>
-                <i class="bts <%= multi.icon %>"></i>
-              <% end %>
+          <% mp.multimedia.each do |multi| %>
+            <%= link_to(multi) do%>
+              <i class="bts <%= multi.icon %>"></i>
             <% end %>
+          <% end %>
           </td>
-          <td><% if current_user.admin %>
+          <% if current_user.admin %>
+          <td>
             <%= link_to 'Edit', edit_recipient_path(mp) %>
-            <% end %></td>
-          </tr>
-            <% end %>
-        </tbody>
-      </table>
-      <%= paginate @recipients, :theme => 'bootstrap' %>
-    </div>
+          </td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @recipients, :theme => 'bootstrap' %>
   </div>
+</div>
