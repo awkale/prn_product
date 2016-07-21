@@ -19,11 +19,11 @@
           <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to 'Products', products_path %></li>
           <li class="<%= 'active' if params[:controller] == 'recipients' %>"><%= link_to 'Recipients',recipients_path %></li>
           <li class="<%= 'active' if params[:controller] == 'channels' %>"><%= link_to 'Channels',channels_path %></li>
+          <li class="<%= 'active' if params[:controller] == 'industries' %>"><%= link_to 'Industries', industries_path %></li>
+          <li class="<%= 'active' if params[:controller] == 'subjects' %>"><%= link_to 'Subjects', subjects_path %></li>
           <% if user_signed_in? %>
           <% if current_user.admin %>
-          <li class="<%= 'active' if params[:controller] == 'industries' %>"><%= link_to 'Industries', industries_path %></li>
           <li class="<%= 'active' if params[:controller] == 'categories' %>"><%= link_to 'Categories', categories_path %></li>
-          <li class="<%= 'active' if params[:controller] == 'subjects' %>"><%= link_to 'Subjects', subjects_path %></li>
           <li class="<%= 'active' if params[:controller] == 'multimedia' %>"><%= link_to 'Multimedia', multimedia_path %></li>
           <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to 'Users', users_path %></li>
           <% end %>
