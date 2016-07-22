@@ -60,7 +60,7 @@
       <div class="col-sm-6">
         <dl class="">
           <dt>Industry:</dt>
-          <%= sorted_nested_ul(@recipient.industries, :industry_name) do |ind| %>
+          <% @recipient.industries.each do |ind| %>
           <dd><%= link_to ind.industry_name, ind %></dd>
           <% end %>
         </dl>
