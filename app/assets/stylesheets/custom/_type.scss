@@ -224,6 +224,18 @@ a.resource {
   }
 }
 
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+dl > {
+  ul,
+  ol {
+    padding-left: 0;
+    list-style: none;
+  }
+}
+
 // see more release categories
 
 .list-inline.inline-links {

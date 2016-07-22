@@ -1,7 +1,16 @@
 <% title @recipient.recipient_name %>
 <div>
   <% if current_user.admin %>
-  <%= link_to 'Edit Recipient', edit_recipient_path, { :class=>"btn btn-sm btn-default pull-right mt-xs btn--edit" } %>
+  <%= link_to 'Delete Recipient',
+    recipient_path,
+    method: :delete,
+    data: { confirm: "Are you sure? This can not be undone." },
+    :class=>"btn btn-danger btn-sm pull-right mt-xs btn--header"
+  %>
+  <%= link_to 'Edit Recipient',
+    edit_recipient_path,
+    { :class=>"btn btn-sm btn-default pull-right mt-xs mr-sm btn--header" }
+  %>
   <% end %>
   <h1 class="section-header">
     <%= @recipient.recipient_name %>
@@ -87,15 +96,3 @@
   </div>
 </div>
 <hr>
-<div class="row">
-  <div class="col-sm-2 col-sm-offset-10">
-    <% if current_user.admin %>
-    <%= link_to 'Delete Recipient',
-    recipient_path,
-    method: :delete,
-    data: { confirm: "Are you sure? This can not be undone." },
-    :class=>"btn btn-danger btn-sm pull-right"
-    %>
-    <% end %>
-  </div>
-</div>

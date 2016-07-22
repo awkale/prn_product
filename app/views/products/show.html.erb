@@ -2,7 +2,7 @@
 <% if current_user.admin %>
     <%= link_to 'Edit Product',
                 edit_product_path,
-                { :class=>"btn btn-sm btn-default pull-right mt-xs btn--edit" }
+                { :class=>"btn btn-sm btn-default pull-right mt-xs btn--header" }
     %>
 <% end %>
 <h1 class="section-header"><%= @product.product_name %></h1>
