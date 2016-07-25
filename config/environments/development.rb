@@ -43,4 +43,6 @@ Rails.application.configure do
 
   # config.action_mailer.perform_deliveries = true
 
+  # config.timeout_in = 480.minutes
+
 end

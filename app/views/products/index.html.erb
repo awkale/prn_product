@@ -11,20 +11,22 @@
     <%= paginate @products,
                  :theme => 'bootstrap'
     %>
-    <ol>
+    <table class="table table-striped">
+      <tbody>
       <% @products.each do |product| %>
-      <li>
-        <%= link_to product.product_name,
+        <tr>
+          <td><%= link_to product.product_name,
                     product
-        %>
-        <% if current_user.admin %>/
+        %></td>
+          <td><% if current_user.admin %>
             <%= link_to 'edit',
                         edit_product_path(product)
             %>
-        <% end %>
-      </li>
+        <% end %></td>
+        </tr>
       <% end %>
-    </ol>
+      </tbody>
+    </table>
     <%= paginate @products, :theme => 'bootstrap' %>
   </div>
 </div>

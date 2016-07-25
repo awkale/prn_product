@@ -11,7 +11,8 @@ class ChannelsController < ApplicationController
   end
 
   def show
-    # @recipients = @channel.recipients.page(params[:page]).per(10)
+    @recipients = @channel.recipients
+    @related_recipients = Kaminari.paginate_array(@recipients.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
   end
 
   def create

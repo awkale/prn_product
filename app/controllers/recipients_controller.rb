@@ -3,7 +3,7 @@ class RecipientsController < ApplicationController
   layout 'page'
 
   def index
-    @recipients = Recipient.order(:recipient_name).page(params[:page])
+    @recipients = Kaminari.paginate_array(Recipient.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
   end
 
   def new
@@ -84,6 +84,10 @@ class RecipientsController < ApplicationController
       industry_attributes: [
         :id,
         :industry_name],
+      multimedium_ids: [],
+      multimedium_attributes: [
+        :id,
+        :media_type],
     )
   end
 

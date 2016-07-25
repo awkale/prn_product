@@ -1,10 +1,10 @@
 module IndustriesHelper
-  def nested_ol(objects, &block)
+  def nested_ul(objects, &block)
     objects = objects.order(:lft) if objects.is_a? Class
 
     return '' if objects.size == 0
 
-    output = '<ol><li>'
+    output = '<ul><li>'
     path = [nil]
 
     objects.each_with_index do |o, i|
@@ -14,12 +14,12 @@ module IndustriesHelper
           # Remove the wrong trailing path elements
           while path.last != o.parent_id
             path.pop
-            output << '</li></ol>'
+            output << '</li></ul>'
           end
           output << '</li><li>'
         else
           path << o.parent_id
-          output << '<ol><li>'
+          output << '<ul><li>'
         end
       elsif i != 0
         output << '</li><li>'
@@ -27,12 +27,12 @@ module IndustriesHelper
       output << capture(o, path.size - 1, &block)
     end
 
-    output << '</li></ol>' * path.length
+    output << '</li></ul>' * path.length
     output.html_safe
   end
 
-  def sorted_nested_ol(objects, order, &block)
-    nested_ol sort_list(objects, order), &block
+  def sorted_nested_ul(objects, order, &block)
+    nested_ul sort_list(objects, order), &block
   end
 
   private

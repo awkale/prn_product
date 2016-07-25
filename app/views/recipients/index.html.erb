@@ -1,22 +1,47 @@
 <div class="row recipients index">
-  <div class="col-sm-8">
+  <div class="col-sm-9">
     <h2 class="section-header">Recipients
       <% if current_user.admin %>
-          <%= link_to 'New Recipient',
-                      new_recipient_path,
-                      { :class => "btn btn-sm btn-link pull-right"} %>
+      <%= link_to 'New Recipient',
+      new_recipient_path,
+      { :class => "btn btn-sm btn-link pull-right"} %>
       <% end %>
     </h2>
     <%= paginate @recipients, :theme => 'bootstrap' %>
-    <ol>
-      <% @recipients.each do |mp| %>
-      <li><%= link_to mp.recipient_name, mp %>
-        <% if current_user.admin %>/
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Recipient</th>
+          <th>Location</th>
+          <th>Category</th>
+          <th>Multimedia</th>
+          <% if current_user.admin %>
+          <th>Actions</th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipients.each do |mp| %>
+        <tr>
+          <td><%= link_to mp.recipient_name, mp %></td>
+          <td><%= mp.city.present? ? mp.city + ', ' : "" %><%= mp.state %></td>
+          <td><%= mp.category.present? ? mp.category.name : "" %></td>
+          <td>
+          <% mp.multimedia.each do |multi| %>
+            <%= link_to(multi) do%>
+              <i class="bts <%= multi.icon %>"></i>
+            <% end %>
+          <% end %>
+          </td>
+          <% if current_user.admin %>
+          <td>
             <%= link_to 'Edit', edit_recipient_path(mp) %>
+          </td>
+          <% end %>
+        </tr>
         <% end %>
-      </li>
-      <% end %>
-    </ol>
+      </tbody>
+    </table>
     <%= paginate @recipients, :theme => 'bootstrap' %>
   </div>
 </div>

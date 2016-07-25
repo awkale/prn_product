@@ -1,0 +1,33 @@
+<% title @multimedium.media_type %>
+<h1><%= @multimedium.media_type %></h1>
+<div class="row">
+  <div class="col-sm-8">
+    <h2 class="section-header h4">Related recipients <% if current_user.admin %><%= link_to 'Edit Category', edit_category_path, {:class => "btn btn-sm btn-link pull-right"} %><% end %></h2>
+    <%= paginate @related_recipients, :theme => 'bootstrap' %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Recipient</th>
+          <th>Multimedia</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @related_recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}.each do |cr| %>
+        <tr>
+          <td><%= link_to cr.recipient_name, recipient_path(cr) %></td>
+          <td>
+            <% cr.multimedia.each do |multi| %>
+            <%= link_to(multi) do%>
+            <i class="bts <%= multi.icon %>"></i>
+            <% end %>
+            <% end %>
+          </td>
+          <td></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @related_recipients, :theme => 'bootstrap' %>
+  </div>
+</div>

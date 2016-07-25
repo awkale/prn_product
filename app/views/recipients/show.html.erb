@@ -1,30 +1,56 @@
 <% title @recipient.recipient_name %>
-<h1>
-  <%= @recipient.recipient_name %>
-  <% unless @recipient.alternate_name.blank? %><small><em>(<%= @recipient.alternate_name %>)</em></small><% end %>
-</h1>
+<div>
+  <% if current_user.admin %>
+  <%= link_to 'Delete Recipient',
+    recipient_path,
+    method: :delete,
+    data: { confirm: "Are you sure? This can not be undone." },
+    :class=>"btn btn-danger btn-sm pull-right mt-xs btn--header"
+  %>
+  <%= link_to 'Edit Recipient',
+    edit_recipient_path,
+    { :class=>"btn btn-sm btn-default pull-right mt-xs mr-sm btn--header" }
+  %>
+  <% end %>
+  <h1 class="section-header">
+    <%= @recipient.recipient_name %>
+    <% @recipient.multimedia.each do |multi| %>
+    <%= link_to(multi) do%>
+    <i class="bts <%= multi.icon %> bt-sm"></i>
+    <% end %>
+    <% end %>
+    <% unless @recipient.alternate_name.blank? %><small><em>(<%= @recipient.alternate_name %>)</em></small><% end %>
+  </h1>
+</div>
 <div class="row recipient show">
   <div class="col-sm-8">
-    <h2 class="section-header h4">Recipient details
-      <% if current_user.admin %>
-          <%= link_to 'Edit Recipient', edit_recipient_path, { :class=>"btn btn-sm btn-link pull-right" } %>
-      <% end %>
-    </h2>
     <div class="row">
-      <div class="col-sm-6">
-        <dl class="">
-          <dt>Category:</dt>
-          <dd><%= @recipient.category.present? ? link_to(@recipient.category.name, @recipient.category) : "" %></dd>
+      <div class="col-sm-12">
+        <dl>
           <dt>Description:</dt>
           <dd><%= @recipient.description %></dd>
         </dl>
       </div>
-      <div class="col-sm-6">
-        <dl class="dl-horizontal">
+      <div class="col-sm-3">
+        <dl>
+          <dt>Category:</dt>
+          <dd><%= @recipient.category.present? ? link_to(@recipient.category.name, @recipient.category) : "" %></dd>
+        </dl>
+      </div>
+      <div class="col-sm-3">
+        <dl>
           <dt>City:</dt>
           <dd><%= @recipient.city %></dd>
+        </dl>
+      </div>
+      <div class="col-sm-3">
+        <dl>
           <dt>State:</dt>
           <dd><%= @recipient.state %></dd>
+        </dl>
+      </div>
+      <div class="col-sm-3">
+        <dl>
           <dt>Country:</dt>
           <dd><%= @recipient.country %></dd>
         </dl>
@@ -35,7 +61,7 @@
         <dl class="">
           <dt>Industry:</dt>
           <% @recipient.industries.each do |ind| %>
-          <dd><%= link_to(ind.industry_name, ind) %></dd>
+          <dd><%= link_to ind.industry_name, ind %></dd>
           <% end %>
         </dl>
       </div>
@@ -62,7 +88,7 @@
       <li>
         <%= link_to mp_p.product_name, product_path(mp_p) %>
         <% if current_user.admin %>/
-          <%= link_to 'Edit',  edit_product_path(mp_p) %>
+        <%= link_to 'Edit',  edit_product_path(mp_p) %>
         <% end %>
       </li>
       <% end %>
@@ -70,15 +96,3 @@
   </div>
 </div>
 <hr>
-<div class="row">
-  <div class="col-sm-2 col-sm-offset-10">
-    <% if current_user.admin %>
-        <%= link_to 'Delete Recipient',
-                    recipient_path,
-                    method: :delete,
-                    data: { confirm: "Are you sure? This can not be undone." },
-                    :class=>"btn btn-danger btn-sm pull-right"
-        %>
-    <% end %>
-  </div>
-</div>

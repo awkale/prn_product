@@ -52,6 +52,17 @@
                                   :multiple => true }
       %>
     </div>
+    <div class="form-group">
+      <label for="recipient_subject_ids">Multimedia</label>
+      <%= form.collection_select :multimedium_ids,
+                                 Multimedium.order(:media_type),
+                                 :id,
+                                 :media_type,
+                                 {prompt: 'Choose a subject'},
+                                 {class: "form-control chosen-select",
+                                  :multiple => true }
+      %>
+    </div>
     <%= form.input :description,
                    placeholder: 'Description'%>
   </div>

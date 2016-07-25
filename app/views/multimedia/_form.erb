@@ -1,0 +1,7 @@
+<%= simple_form_for @multimedium do |multi| %>
+  <%= multi.error_notification %>
+  <%= multi.input :media_type, placeholder: 'Multimedium Type' %>
+  <%= multi.input :icon, placeholder: 'Black Tie Icon Class' %>
+  <%= multi.button :submit %>
+  <%= link_to "Cancel", :back, { :class => "btn btn-default pull-right mr-sm"} %>
+<% end %>

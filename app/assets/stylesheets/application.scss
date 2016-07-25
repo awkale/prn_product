@@ -46,17 +46,23 @@
     padding-top: 150px;
   }
 
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
   .index ol { padding-left: 0; }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
 }
 
 .nav-main {
  background-color: #fff;
+}
+
+.home ul {
+  font-size: floor(($font-size-base * 1.15));
 }
 
 .recipient {
@@ -70,5 +76,13 @@
       }
     }
   }
+}
+
+.zEWidget-launcher {
+  bottom: 50px !important;
+}
+
+td i {
+  margin-right: 10px;
 }
 
