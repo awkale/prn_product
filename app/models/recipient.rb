@@ -16,8 +16,7 @@ class Recipient < ActiveRecord::Base
 
   belongs_to :category
 
-  validates :recipient_name, presence: true
-  validates_uniqueness_of :recipient_name
+  validates :recipient_name, presence: true, uniqueness: true
 
   accepts_nested_attributes_for :products, reject_if: proc { |attributes| attributes['product_name'].blank? }
   # default_scope { order('recipient_name') }
