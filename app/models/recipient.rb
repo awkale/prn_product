@@ -21,4 +21,8 @@ class Recipient < ActiveRecord::Base
 
   accepts_nested_attributes_for :products, reject_if: proc { |attributes| attributes['product_name'].blank? }
   # default_scope { order('recipient_name') }
+
+  def self.search(search)
+    where("recipient_name ilike ? OR alternate_name ilike ?", "%#{search}%", "%#{search}%")
+  end
 end
