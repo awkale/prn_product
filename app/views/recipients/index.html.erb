@@ -1,6 +1,9 @@
 <div class="row recipients index">
   <div class="col-sm-9">
     <h2 class="section-header">Recipients
+    <% if params[:search].present? %>
+    search results
+    <% end %>
       <% if current_user.admin %>
       <%= link_to 'New Recipient',
       new_recipient_path,
@@ -53,6 +56,6 @@
       </div>
       <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
     <% end %>
-
+    <p class="mt-sm"><%= link_to("View all recipients", recipients_path) %></p>
   </div>
 </div>
