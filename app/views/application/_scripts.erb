@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <script>
   heap.identify('<%= current_user.email %>');
 </script>
@@ -8,3 +9,4 @@
     email: '<%= current_user.email %>'
   });
 </script>
+<% end %>
