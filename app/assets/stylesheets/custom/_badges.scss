@@ -2,6 +2,11 @@
 // Badges
 // --------------------------------------------------
 
+.badge {
+  padding-top: 4px;
+  padding-bottom: 2px;
+}
+
 .badge-number {
   @include border-radius(50%);
   border: 1px solid $gray-light;
