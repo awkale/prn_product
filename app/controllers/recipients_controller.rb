@@ -6,8 +6,15 @@ class RecipientsController < ApplicationController
     if params[:search]
       @recipients = Recipient.search(params[:search])
       @recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+    elsif params[:limit]
+      @recipients = Kaminari.paginate_array(Recipient.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page]).per(params[:limit])
     else
       @recipients = Kaminari.paginate_array(Recipient.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

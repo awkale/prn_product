@@ -11,6 +11,9 @@
       <% end %>
     </h2>
     <%= paginate @recipients, :theme => 'bootstrap' %>
+    <div class="per-page pull-right pagination">
+       <%= render 'per_page' %>
+    </div>
     <table class="table table-striped">
       <thead>
         <tr>

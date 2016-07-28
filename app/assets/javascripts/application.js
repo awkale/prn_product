@@ -23,3 +23,11 @@
 //= require turbolinks
 //= require jquery.ui.nestedSortable
 //= require sortable_tree/initializer
+
+$(function(){
+  console.log('i fired');
+  $('#limit').change(function() {
+    console.log('i changed');
+    $('#limit_form').submit();
+  });
+});

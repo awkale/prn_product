@@ -1,0 +1,20 @@
+<%= form_tag recipients_path,
+  method: :get,
+  id: 'limit_form',
+  class: 'form-inline' do %>
+  <div class="form-group">
+  <label for="exampleInputName2">Show per page: </label>
+  <%= select_tag :limit,
+    options_for_select([
+      [20, 20],
+      [50, 50],
+      [100, 100],
+      [200, 200],
+      ['All', 20000]
+      ],
+    selected: params[:limit] || 200),
+    class: "form-control"
+  %>
+  </div>
+<% end %>
+<%# TODO fix all without hardcoded number %>
