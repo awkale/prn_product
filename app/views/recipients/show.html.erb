@@ -15,11 +15,13 @@
   <h1 class="section-header">
     <%= @recipient.recipient_name %>
     <% @recipient.multimedia.each do |multi| %>
-    <%= link_to(multi) do%>
-    <i class="bts <%= multi.icon %> bt-sm"></i>
+      <%= link_to(multi) do%>
+      <i class="bts <%= multi.icon %> bt-sm"></i>
+      <% end %>
     <% end %>
+    <% unless @recipient.alternate_name.blank? %>
+      <small><em>(<%= @recipient.alternate_name %>)</em></small>
     <% end %>
-    <% unless @recipient.alternate_name.blank? %><small><em>(<%= @recipient.alternate_name %>)</em></small><% end %>
   </h1>
 </div>
 <div class="row recipient show">
@@ -30,6 +32,11 @@
           <dt>Description:</dt>
           <dd><%= @recipient.description %></dd>
         </dl>
+        <h4>
+          <% if @recipient.ap == true %>
+            <span class="label label-default"><%= ap_boolean(@recipient.ap) %></span>
+          <% end %>
+        </h4>
       </div>
       <div class="col-sm-3">
         <dl>

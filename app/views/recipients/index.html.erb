@@ -29,7 +29,9 @@
       <tbody>
         <% @recipients.each do |mp| %>
         <tr>
-          <td><%= link_to mp.recipient_name, mp %></td>
+          <td><% if mp.ap == true %>
+            <span class="label label-default"><%= ap_boolean(mp.ap) %></span>
+          <% end %> <%= link_to mp.recipient_name, mp %></td>
           <td><%= mp.city.present? ? mp.city + ', ' : "" %><%= mp.state %></td>
           <td><%= mp.category.present? ? mp.category.name : "" %></td>
           <td>

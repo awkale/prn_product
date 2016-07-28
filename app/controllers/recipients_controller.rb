@@ -77,6 +77,8 @@ class RecipientsController < ApplicationController
       :state,
       :country,
       :category_id,
+      :ap,
+      :ticker,
       subject_ids: [],
       subject_attributes: [
         :id,
