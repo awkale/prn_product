@@ -32,12 +32,21 @@
           <dt>Description:</dt>
           <dd><%= @recipient.description %></dd>
         </dl>
-        <h4>
-          <% if @recipient.ap == true %>
-            <span class="label label-default"><%= ap_boolean(@recipient.ap) %></span>
-          <% end %>
-        </h4>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 mb-md">
+        <% if @recipient.ap == true %>
+          <span class="label label-default"><%= ap_boolean(@recipient.ap) %></span>
+        <% end %>
+        <% if @recipient.ticker.present? %>
+          <%= link_to(@recipient.ticker) do%>
+          <span class="label label-success"><%= @recipient.ticker.ticker_type %></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-sm-3">
         <dl>
           <dt>Category:</dt>

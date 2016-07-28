@@ -78,7 +78,7 @@ class RecipientsController < ApplicationController
       :country,
       :category_id,
       :ap,
-      :ticker,
+      :ticker_id,
       subject_ids: [],
       subject_attributes: [
         :id,
@@ -86,6 +86,9 @@ class RecipientsController < ApplicationController
       category_attributes: [
         :id,
         :name],
+      ticker_attributes: [
+        :id,
+        :ticker_type],
       product_ids: [],
       product_attributes: [
         :id,

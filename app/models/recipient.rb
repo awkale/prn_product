@@ -15,6 +15,7 @@ class Recipient < ActiveRecord::Base
   has_many :multimedia, through: :renderings
 
   belongs_to :category
+  belongs_to :ticker
 
   validates :recipient_name, presence: true, uniqueness: true
 

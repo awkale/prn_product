@@ -1,0 +1,15 @@
+<div class="row tickers index">
+  <div class="col-sm-8">
+    <h2 class="section-header">Tickers <% if current_user.admin %><%= link_to 'New Ticker', new_ticker_path, { :class => "btn btn-sm btn-link pull-right" } %><% end %></h2>
+    <table class="table table-striped">
+      <tbody>
+        <% @tickers.each do |tick| %>
+        <tr>
+          <td><%= link_to tick.ticker_type , tick%> <span class="badge"><%= tick.recipients.size %></span></td>
+          <td><% if current_user.admin %><%= link_to 'Edit', edit_ticker_path(tick) %><% end %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -24,6 +24,16 @@
                     as: :boolean,
                     label: 'AP'
      %>
+     <div class="form-group">
+       <label for="recipient_ticker_id">Ticker Requirements</label>
+       <%= form.collection_select :ticker_id,
+                                  Ticker.all,
+                                  :id,
+                                  :ticker_type,
+                                  {prompt: 'Choose a ticker requirement'},
+                                  {class: "form-control chosen-select"}
+       %>
+     </div>
   </div>
   <div class="col-sm-6">
     <div class="form-group">

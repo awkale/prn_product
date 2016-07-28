@@ -1,0 +1,12 @@
+<div class="row ticker edit">
+  <div class="col-sm-8">
+    <h2 class="section-header">Edit <%= @ticker.ticker_type %></h2>
+
+    <%= simple_form_for @ticker do |tick| %>
+      <%= tick.error_notification %>
+      <%= tick.input :ticker_type, placeholder: 'Ticker' %>
+      <%= tick.button :submit %>
+      <%= link_to "Cancel", :back, { :class => "btn btn-default pull-right mr-sm"} %>
+    <% end %>
+  </div>
+</div>
