@@ -4,6 +4,9 @@
   <div class="col-sm-8">
     <h2 class="section-header h4">Related recipients <% if current_user.admin %><%= link_to 'Edit industry', edit_industry_path, {:class => "btn btn-sm btn-link pull-right"} %><% end %></h2>
     <%= paginate @related_recipients, :theme => 'bootstrap' %>
+    <div class="per-page pull-right pagination">
+       <%= render 'per_page'%>
+    </div>
     <table class="table table-striped">
       <thead>
         <tr>
