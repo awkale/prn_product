@@ -537,8 +537,10 @@
 // --------------------------------------------------
 // Mobile Nav
 
-.mm-page {
-  padding-top: 60px;
+@media (max-width: $screen-xs-max) {
+  .mm-page {
+    padding-top: 60px;
+  }
 }
 
 nav#nav-mobile:not(.mm-menu) {
