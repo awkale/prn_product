@@ -25,9 +25,21 @@
 //= require sortable_tree/initializer
 
 $(function(){
-  console.log('i fired');
   $('#limit').change(function() {
-    console.log('i changed');
     $('#limit_form').submit();
   });
+
+  // hide spinner
+  $(".spinner").hide();
+
+  $(document).on("page:fetch", function(){
+    console.log('i showed');
+    $(".spinner").delay(1000).show(0);
+  });
+
+  $(document).on("page:receive", function(){
+    console.log('i hid');
+    $(".spinner").delay(800).hide(0);
+  });
+
 });

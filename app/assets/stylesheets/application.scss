@@ -86,3 +86,12 @@ td i {
   margin-right: 10px;
 }
 
+.spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 5em;
+  z-index: 100;
+  color: $brand-action;
+}
+
