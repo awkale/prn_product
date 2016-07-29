@@ -5,7 +5,7 @@
       <tbody>
         <% @subjects.each do |sub| %>
         <tr>
-          <td><%= link_to(sub.subject_name, sub) %></td>
+          <td><%= link_to(sub.subject_name, sub) %> <span class="badge"><%= sub.recipients.size %></span></td>
           <td>
             <% if current_user.admin %>
             <%= link_to 'Edit', edit_subject_path(sub) %>

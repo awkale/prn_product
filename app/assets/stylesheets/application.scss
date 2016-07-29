@@ -27,10 +27,13 @@
 @import "font-awesome";
 @import "bootstrap-chosen-variables";
 @import "bootstrap-chosen";
-@import "custom";
 
 @import "prn-fonts";
 @import "black-tie";
+
+@import "jquery.custom-mmenu";
+@import "custom";
+
 
 
 @media (min-width: $screen-sm) {
@@ -84,5 +87,22 @@ footer {
 
 td i {
   margin-right: 10px;
+}
+
+.spinner {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  font-size: 5em;
+  z-index: 100;
+  color: $brand-action;
+}
+
+main {
+  position: relative;
+}
+
+.faded {
+  @include opacity(.4);
 }
 

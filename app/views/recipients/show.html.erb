@@ -15,11 +15,13 @@
   <h1 class="section-header">
     <%= @recipient.recipient_name %>
     <% @recipient.multimedia.each do |multi| %>
-    <%= link_to(multi) do%>
-    <i class="bts <%= multi.icon %> bt-sm"></i>
+      <%= link_to(multi) do%>
+      <i class="bts <%= multi.icon %> bt-sm"></i>
+      <% end %>
     <% end %>
+    <% unless @recipient.alternate_name.blank? %>
+      <small><em>(<%= @recipient.alternate_name %>)</em></small>
     <% end %>
-    <% unless @recipient.alternate_name.blank? %><small><em>(<%= @recipient.alternate_name %>)</em></small><% end %>
   </h1>
 </div>
 <div class="row recipient show">
@@ -31,6 +33,20 @@
           <dd><%= @recipient.description %></dd>
         </dl>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 mb-md">
+        <% if @recipient.ap == true %>
+          <span class="label label-default"><%= ap_boolean(@recipient.ap) %></span>
+        <% end %>
+        <% if @recipient.ticker.present? %>
+          <%= link_to(@recipient.ticker) do%>
+          <span class="label label-success"><%= @recipient.ticker.ticker_type %></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-sm-3">
         <dl>
           <dt>Category:</dt>
@@ -82,17 +98,21 @@
       <li><%= link_to c.channel_name, channel_path(c) %></li>
       <% end %>
     </ol>
-    <h2 class="section-header h4">Related <%= 'Product'.pluralize(@recipient.products.count) %></h2>
-    <ol>
+    <h2 class="section-header h4"><%= number_with_delimiter(@recipient.products.size) %> Related <%= 'Product'.pluralize(@recipient.products.count) %></h2>
+    <table class="table table-striped">
       <% @recipient.products.each do |mp_p|%>
-      <li>
-        <%= link_to mp_p.product_name, product_path(mp_p) %>
-        <% if current_user.admin %>/
-        <%= link_to 'Edit',  edit_product_path(mp_p) %>
-        <% end %>
-      </li>
+      <tr>
+        <td>
+          <%= link_to mp_p.product_name, product_path(mp_p) %>
+        </td>
+        <td>
+          <% if current_user.admin %>/
+          <%= link_to 'Edit',  edit_product_path(mp_p) %>
+          <% end %>
+        </td>
+      </tr>
       <% end %>
-    </ol>
+    </table>
   </div>
 </div>
 <hr>

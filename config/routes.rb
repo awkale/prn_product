@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :subjects
   resources :multimedia
+  resources :tickers
   resources :industries do
     collection do
       get :manage

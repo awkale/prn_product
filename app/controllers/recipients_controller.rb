@@ -3,7 +3,19 @@ class RecipientsController < ApplicationController
   layout 'page'
 
   def index
-    @recipients = Kaminari.paginate_array(Recipient.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+    if params[:search]
+      @recipients = Recipient.search(params[:search])
+      @recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+    elsif params[:limit]
+      @recipients = Kaminari.paginate_array(Recipient.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page]).per(params[:limit])
+    else
+      @recipients = Kaminari.paginate_array(Recipient.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
@@ -65,6 +77,8 @@ class RecipientsController < ApplicationController
       :state,
       :country,
       :category_id,
+      :ap,
+      :ticker_id,
       subject_ids: [],
       subject_attributes: [
         :id,
@@ -72,6 +86,9 @@ class RecipientsController < ApplicationController
       category_attributes: [
         :id,
         :name],
+      ticker_attributes: [
+        :id,
+        :ticker_type],
       product_ids: [],
       product_attributes: [
         :id,

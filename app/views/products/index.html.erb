@@ -17,7 +17,8 @@
         <tr>
           <td><%= link_to product.product_name,
                     product
-        %></td>
+              %> <span class="badge"><%= product.recipients.size %></span>
+          </td>
           <td><% if current_user.admin %>
             <%= link_to 'edit',
                         edit_product_path(product)
