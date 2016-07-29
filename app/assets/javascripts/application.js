@@ -36,12 +36,10 @@ $(function(){
   $(".spinner").hide();
 
   $(document).on("page:fetch", function(){
-    console.log('i showed');
     $(".spinner").delay(1000).show(0);
   });
 
   $(document).on("page:receive", function(){
-    console.log('i hid');
     $(".spinner").delay(800).hide(0);
   });
 
