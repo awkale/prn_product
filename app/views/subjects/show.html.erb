@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-sm-8">
     <h2 class="section-header h4">
-      Related recipients
+      <%= @related_recipients.size %> Related recipients
       <% if current_user.admin %>
         <%= link_to 'Edit Subject',
                     edit_subject_path,

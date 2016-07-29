@@ -1,9 +1,9 @@
 <% title @product.product_name %>
 <% if current_user.admin %>
-    <%= link_to 'Edit Product',
-                edit_product_path,
-                { :class=>"btn btn-sm btn-default pull-right mt-xs btn--header" }
-    %>
+<%= link_to 'Edit Product',
+edit_product_path,
+{ :class=>"btn btn-sm btn-default pull-right mt-xs btn--header" }
+%>
 <% end %>
 <h1 class="section-header"><%= @product.product_name %></h1>
 <div class="row product show">
@@ -36,33 +36,37 @@
     </div>
   </div>
   <div class="col-sm-4">
-    <h2 class="section-header h4">Related <%= 'Recipient'.pluralize(@product.recipients.count) %> </h2>
-    <ol>
-      <% @product.recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}.each do |p_mp| %>
-      <li>
-        <%= link_to p_mp.recipient_name,
-                    recipient_path(p_mp)
-        %>
-        <% if current_user.admin %>/
-          <%= link_to 'Edit',
-                      edit_recipient_path(p_mp)
-          %>
+    <h2 class="section-header h4"><%= @product.recipients.size %> Related <%= 'Recipient'.pluralize(@product.recipients.count) %> </h2>
+    <table class="table table-striped">
+      <tbody>
+        <% @product.recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}.each do |p_mp| %>
+        <tr>
+          <td><%= link_to p_mp.recipient_name,
+            recipient_path(p_mp)
+            %>
+          </td>
+          <td><% if current_user.admin %>
+            <%= link_to 'Edit',
+            edit_recipient_path(p_mp)
+            %>
+            <% end %>
+          </td>
+        </tr>
         <% end %>
-      </li>
-      <% end %>
-    </ol>
+      </tbody>
+    </table>
   </div>
 </div>
 <hr>
 <div class="row">
  <div class="col-sm-2 col-sm-offset-10">
   <% if current_user.admin %>
-       <%= link_to 'Delete Product',
-                   product_path,
-                   method: :delete,
-                   data: { confirm: "Are you sure? This can not be undone." },
-                   :class=>"btn btn-danger btn-sm pull-right"
-       %>
-   <% end %>
+  <%= link_to 'Delete Product',
+  product_path,
+  method: :delete,
+  data: { confirm: "Are you sure? This can not be undone." },
+  :class=>"btn btn-danger btn-sm pull-right"
+  %>
+  <% end %>
 </div>
 </div>
