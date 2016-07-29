@@ -16,13 +16,16 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require cocoon
 //= require chosen-jquery
 //= require scaffold
 //= require turbolinks
 //= require jquery.ui.nestedSortable
 //= require sortable_tree/initializer
+//= require jquery.mmenu.min
+//= require jquery.mmenu.navbars
+//= require jquery.mmenu.turbolinks
+//= require_tree .
 
 
 $(function(){

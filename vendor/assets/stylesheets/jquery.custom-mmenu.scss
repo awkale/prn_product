@@ -1,0 +1,34 @@
+@import "_mmenu/jquery.mmenu";
+
+@import "_mmenu/import";
+
+@import "_mmenu/menu";
+@import "_mmenu/panels";
+@import "_mmenu/vertical";
+@import "_mmenu/buttons";
+@import "_mmenu/navbars";
+@import "_mmenu/listviews";
+@import "_mmenu/inset_lists";
+@import "_mmenu/dividers";
+@import "_mmenu/spacers";
+
+@include mm_colors;
+
+$mm_fs_class  : ".mm-fullscreen";
+$mm_fs_full   : 1 !default;
+$mm_fs_min    : 140px !default;
+$mm_fs_max    : 10000px !default;
+
+@include mm_sizing( $mm_fs_class,
+  $mm_fs_full, $mm_fs_min, $mm_fs_max );
+
+@include mm_sizing_right( $mm_fs_class,
+  $mm_fs_full, $mm_fs_min, $mm_fs_max);
+
+@include mm_sizing_zposition( $mm_fs_class,
+  $mm_fs_full, $mm_fs_min, $mm_fs_max );
+
+html.mm-opened#{$mm_fs_class} .mm-page
+{
+  box-shadow: none !important;
+}
