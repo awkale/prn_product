@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= favicon_link_tag %>
   <%= render 'heap' %>
   <%= render 'segment' %>
@@ -16,7 +17,7 @@
       <section class="nav-junior no-margin">
         <%= render 'nav_junior' %>
       </section>
-      <section class="nav-main no-margin">
+      <section class="nav-main no-margin hidden-xs">
         <%= render 'nav_main' %>
       </section>
     </header><!-- /header -->

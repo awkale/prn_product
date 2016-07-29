@@ -2,7 +2,6 @@
   <nav class="navbar navbar-junior">
     <div class="" id="">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#nav-mobile">XX</a></li>
         <% if user_signed_in? %>
         <li>
           <%= link_to("Hello #{current_user.first_name}", user_path(current_user)) %>

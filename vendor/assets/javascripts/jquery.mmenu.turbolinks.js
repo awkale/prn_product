@@ -12,8 +12,7 @@
 	var ready, classnames, $html;
 
 	//	Store the HTML classnames onDocumentReady
-	$(document).on(
-		'ready',
+	$(document).ready(
 		function()
 		{
 			$html = $('html');
@@ -26,7 +25,11 @@
 		'page:change',
 		function()
 		{
-			$html.attr( 'class', classnames );
+			if (classnames) {
+				$html.attr( 'class', classnames );
+			} else {
+				$html.attr( 'class', '' );
+			}
 			$[ _PLUGIN_ ].glbl = false;
 		}
 	);

@@ -1,27 +1,37 @@
-initNav = ->
+$ ->
+
   navMobile = $('nav#nav-mobile')
   navMobile.mmenu
-    extensions: [ 'border-full' ]
-    offCanvas: zposition: 'front'
+    extensions: [ 'border-full','fullscreen' ]
     navbar:
       add: true
       title: null
     navbars: [
       {
         position: 'top',
-        content: '<p class="mmenu-header">x</p>',
+        content: '<p class="mmenu-header"><i class="btl bt-times mm-close-button"></i></p>',
         height: 1
       }
     ]
-  navMobile.css
-    "opacity": 1
 
-  console.log('lel');
+  # set api var
+  api = navMobile.data( 'mmenu' );
 
-  return
+  # create close button
+  $('.mm-close-button').click ->
+    api.close();
 
-$ ->
-  initNav()
 
-$(document).on "page:load", ->
-  initNav()
+  # Close menu if window is resized over 768 width
+  # resizeTimer
+
+  # $(window).on('resize', function(e) {
+
+  #   clearTimeout(resizeTimer);
+  #   resizeTimer = setTimeout(function() {
+  #     if ($(window).width() > 768) {
+  #       api.close();
+  #     }
+  #   }, 250);
+
+  # });  # Close resize function

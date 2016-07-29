@@ -1,3 +1,12 @@
+<nav class="header-mobile navbar navbar-default navbar-fixed-top Fixed visible-xs-block">
+  <div class="container">
+    <ul class="nav navbar-nav navbar-left">
+      <li><a class="nav-mobile-button" href="#nav-mobile"><i class="btr bt-bars"></i></a></li>
+      <li><a class="navbar-brand" href="/"><img class="mobile-logo" src="<%= image_path("logo_prn_mobile_no_pad.png") %>" /></a></li>
+    </ul>
+  </div>
+</nav>
+
 <nav id="nav-mobile">
   <ul id="mm-default">
     <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to 'Products', products_path %></li>
