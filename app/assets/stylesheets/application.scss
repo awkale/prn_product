@@ -89,9 +89,17 @@ td i {
 .spinner {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 300px;
   font-size: 5em;
   z-index: 100;
   color: $brand-action;
+}
+
+main {
+  position: relative;
+}
+
+.faded {
+  @include opacity(.4);
 }
 

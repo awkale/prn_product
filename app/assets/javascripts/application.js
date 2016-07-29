@@ -26,21 +26,43 @@
 
 
 $(function(){
+  var $table = $('table'),
+      $container = $('main .container'),
+      $spinner = $('.spinner'),
+      $limit = $('#limit'),
+      $limit_form = $('#limit_form');
   // pagination - per page select and spinner
-  $('#limit').change(function() {
-    $('#limit_form').submit();
-    $(".spinner").delay(1000).show(0);
+  $limit.change(function() {
+    $limit_form.submit();
+    loadAnimation('loading');
   });
 
+
   // hide spinner
-  $(".spinner").hide();
+  $spinner.hide();
+
+  var loadAnimation = function(speed) {
+    if (speed == 'loading') {
+      $container.addClass('faded');
+      $spinner.show();
+    } else {
+      $container.removeClass('faded');
+      $spinner.hide();
+    }
+  }
+
 
   $(document).on("page:fetch", function(){
-    $(".spinner").delay(1000).show(0);
+    setTimeout(function() {
+      loadAnimation('loading');
+      }, 1000
+    );
   });
 
   $(document).on("page:receive", function(){
-    $(".spinner").delay(800).hide(0);
+    setTimeout(function() {
+      loadAnimation('');
+      }, 1000
+    );
   });
-
 });
