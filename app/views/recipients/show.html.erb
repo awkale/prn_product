@@ -98,7 +98,7 @@
       <li><%= link_to c.channel_name, channel_path(c) %></li>
       <% end %>
     </ol>
-    <h2 class="section-header h4"><%= @recipient.products.size %> Related <%= 'Product'.pluralize(@recipient.products.count) %></h2>
+    <h2 class="section-header h4"><%= number_with_delimiter(@recipient.products.size) %> Related <%= 'Product'.pluralize(@recipient.products.count) %></h2>
     <table class="table table-striped">
       <% @recipient.products.each do |mp_p|%>
       <tr>

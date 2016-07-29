@@ -36,7 +36,7 @@ edit_product_path,
     </div>
   </div>
   <div class="col-sm-4">
-    <h2 class="section-header h4"><%= @product.recipients.size %> Related <%= 'Recipient'.pluralize(@product.recipients.count) %> </h2>
+    <h2 class="section-header h4"><%= number_with_delimiter(@product.recipients.size) %> Related <%= 'Recipient'.pluralize(@product.recipients.count) %> </h2>
     <table class="table table-striped">
       <tbody>
         <% @product.recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}.each do |p_mp| %>
