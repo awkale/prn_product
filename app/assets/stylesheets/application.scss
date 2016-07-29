@@ -87,9 +87,9 @@ td i {
 }
 
 .spinner {
-  position: absolute;
+  position: fixed;
   left: 50%;
-  top: 300px;
+  top: 50%;
   font-size: 5em;
   z-index: 100;
   color: $brand-action;

@@ -34,7 +34,10 @@ $(function(){
   // pagination - per page select and spinner
   $limit.change(function() {
     $limit_form.submit();
-    loadAnimation('loading');
+    setTimeout(function() {
+      loadAnimation('loading');
+      }, 1000
+    );
   });
 
 
