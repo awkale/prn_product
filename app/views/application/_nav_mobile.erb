@@ -1,0 +1,9 @@
+<nav id="nav-mobile">
+  <ul id="mm-default">
+    <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to 'Products', products_path %></li>
+    <li class="<%= 'active' if params[:controller] == 'recipients' %>"><%= link_to 'Recipients',recipients_path %></li>
+    <li class="<%= 'active' if params[:controller] == 'channels' %>"><%= link_to 'Channels',channels_path %></li>
+    <li class="<%= 'active' if params[:controller] == 'industries' %>"><%= link_to 'Industries', industries_path %></li>
+    <li class="<%= 'active' if params[:controller] == 'subjects' %>"><%= link_to 'Subjects', subjects_path %></li>
+  </ul>
+</nav>
