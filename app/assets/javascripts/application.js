@@ -24,9 +24,12 @@
 //= require jquery.ui.nestedSortable
 //= require sortable_tree/initializer
 
+
 $(function(){
+  // pagination - per page select and spinner
   $('#limit').change(function() {
     $('#limit_form').submit();
+    $(".spinner").delay(1000).show(0);
   });
 
   // hide spinner
