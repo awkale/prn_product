@@ -25,5 +25,6 @@ module PrnProduct
     config.active_job.queue_adapter = :delayed_job
     config.assets.enabled = true
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.middleware.use Rack::Attack
   end
 end
