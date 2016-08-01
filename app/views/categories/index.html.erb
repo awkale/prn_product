@@ -5,7 +5,7 @@
       <tbody>
         <% @categories.each do |cat| %>
         <tr>
-          <td><%= link_to cat.name , cat%> <span class="badge"><%= cat.recipients.size %></span></td>
+          <td><%= link_to cat.name , cat%> <% if current_user.admin %><span class="badge"><%= cat.recipients.size %></span><% end %></td>
           <td><% if current_user.admin %><%= link_to 'Edit', edit_category_path(cat) %><% end %></td>
         </tr>
         <% end %>
