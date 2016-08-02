@@ -91,4 +91,7 @@ Rails.application.configure do
 
   # config.timeout_in = 30.minutes
 
+  config.middleware.use Rack::Attack
+
+
 end
