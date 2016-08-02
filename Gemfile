@@ -55,6 +55,7 @@ gem "the_sortable_tree", "~> 2.5.0"
 gem 'newrelic_rpm'
 
 gem 'rack-attack'
+gem 'scout_apm', '~> 2.0.x'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
