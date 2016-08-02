@@ -4,12 +4,12 @@ class RecipientsController < ApplicationController
 
   def index
     if params[:search]
-      @recipients = Recipient.search(params[:search])
+      @recipients = Recipient.includes(:category, :multimedia).search(params[:search])
       @recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
     elsif params[:limit]
-      @recipients = Kaminari.paginate_array(Recipient.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page]).per(params[:limit])
+      @recipients = Kaminari.paginate_array(Recipient.includes(:category, :multimedia).sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page]).per(params[:limit])
     else
-      @recipients = Kaminari.paginate_array(Recipient.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+      @recipients = Kaminari.paginate_array(Recipient.includes(:category, :multimedia).sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
     end
 
     respond_to do |format|
