@@ -3,7 +3,7 @@ class RecipientsController < ApplicationController
   layout 'page'
 
   def index
-    @recipients = Recipient.includes(:category, :renderings, :multimedia).all
+    @recipients = Recipient.all.includes(:category, :renderings, :multimedia)
     if params[:search]
       @recipients = @recipients.search(params[:search])
       @recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
