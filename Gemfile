@@ -54,7 +54,6 @@ gem "the_sortable_tree", "~> 2.5.0"
 
 gem 'newrelic_rpm'
 
-gem 'rack-attack'
 gem 'scout_apm', '~> 2.0.x'
 
 # Use ActiveModel has_secure_password
@@ -86,7 +85,13 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem "bullet"
 end
+
+group :production do
+  gem 'rack-attack'
+end
+
 
 gem 'rails_12factor', group: :production
 

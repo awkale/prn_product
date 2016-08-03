@@ -5,7 +5,7 @@
       <tbody>
         <% @multimedia.each do |multi| %>
         <tr>
-          <td><%= link_to multi.media_type, multi%> <% if current_user.admin %><span class="badge"><%= multi.recipients.size %></span><% end %></td>
+          <td><%= link_to multi.media_type, multi%></td>
           <td><% if current_user.admin %><%= link_to 'Edit', edit_multimedium_path(multi) %><% end %></td>
         </tr>
         <% end %>

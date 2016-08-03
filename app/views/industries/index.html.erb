@@ -7,7 +7,7 @@
     <% end %>
     </h2>
     <%= sorted_nested_ul(@industries, :industry_name) do |ind| %>
-      <%= link_to ind.industry_name, ind %> <% if current_user.admin %><span class="badge"><%= ind.recipients.size %></span><% end %>
+      <%= link_to ind.industry_name, ind %>
     <% end %>
   </div>
 </div>
