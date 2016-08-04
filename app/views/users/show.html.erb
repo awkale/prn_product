@@ -20,11 +20,13 @@
   <div class="col-sm-6">
     <dl class="dl-horizontal">
       <dt>Created:</dt>
-      <dd><%= @user.created_at %></dd>
+      <dd><%= @user.created_at.to_formatted_s(:long) %></dd>
       <dt>Last sign in:</dt>
-      <dd><%= @user.last_sign_in_at %></dd>
+      <dd><%= @user.last_sign_in_at.to_formatted_s(:long) %></dd>
       <dt>Updated:</dt>
-      <dd><%= @user.updated_at %></dd>
+      <dd><%= @user.updated_at.to_formatted_s(:long) %></dd>
+      <dt>Confirmed:</dt>
+      <dd><%= @user.confirmed_at.to_formatted_s(:long) %></dd>
     </dl>
   </div>
 </div>

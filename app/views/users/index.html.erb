@@ -1,6 +1,6 @@
 <div class="row users index">
   <div class="col-sm-8">
-    <h2 class="section-header">Users</h2>
+    <h2 class="section-header"><%= number_with_delimiter(@users.size) %> <%= 'User'.pluralize(@users.count) %></h2>
     <table class="table table-striped">
       <thead>
         <tr>
