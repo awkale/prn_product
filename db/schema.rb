@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728203524) do
+ActiveRecord::Schema.define(version: 20160804152325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,9 @@ ActiveRecord::Schema.define(version: 20160728203524) do
     t.boolean  "ap"
     t.integer  "ticker_id"
   end
+
+  add_index "recipients", ["category_id"], name: "index_recipients_on_category_id", using: :btree
+  add_index "recipients", ["ticker_id"], name: "index_recipients_on_ticker_id", using: :btree
 
   create_table "renderings", force: :cascade do |t|
     t.integer  "recipient_id"
