@@ -3,7 +3,11 @@ class ProductsController < ApplicationController
   layout 'page'
 
   def index
-    @products = Product.order(:product_name).page(params[:page])
+    if params[:limit]
+      @products = Product.order(:product_name).page(params[:page]).per(params[:limit])
+    else
+      @products = Product.order(:product_name).page(params[:page])
+    end
   end
 
   def new
