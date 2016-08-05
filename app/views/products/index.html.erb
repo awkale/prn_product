@@ -1,6 +1,6 @@
 <div class="row products index">
   <div class="col-sm-8">
-    <h2 class="section-header">Products
+    <h2 class="section-header"><%= number_with_delimiter(@products.size) + ' of ' + number_with_delimiter(@products.total_count) %> <%= 'Product'.pluralize(@products.count) %>
       <% if current_user.admin %>
           <%= link_to 'New Product',
                       new_product_path,

@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-sm-8">
     <h2 class="section-header h4">
-      <%= number_with_delimiter(@related_recipients.size) %> Related <%= 'Recipient'.pluralize(@related_recipients.count) %>
+      <%= number_with_delimiter(@related_recipients.size) + ' of ' + number_with_delimiter(@related_recipients.total_count) %> Related <%= 'Recipient'.pluralize(@related_recipients.count) %>
       <% if current_user.admin %>
         <%= link_to 'Edit Category',
         edit_category_path,
