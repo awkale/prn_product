@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-sm-8">
     <h2 class="section-header h4">
-      <% if current_user.admin %><%= number_with_delimiter(@related_recipients.size) %><% end %> Related <%= 'Recipient'.pluralize(@subject.recipients.count) %>
+      Related <%= 'Recipient'.pluralize(@subject.recipients.count) %> <span class="text-muted small">(<% if current_user.admin %><%= number_with_delimiter(@related_recipients.size) + ' of ' + number_with_delimiter(@related_recipients.total_count) %><% end %>)</span>
       <% if current_user.admin %>
         <%= link_to 'Edit Subject',
                     edit_subject_path,

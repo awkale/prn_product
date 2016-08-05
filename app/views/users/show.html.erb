@@ -26,7 +26,7 @@
       <dt>Updated:</dt>
       <dd><%= @user.updated_at.to_formatted_s(:long) %></dd>
       <dt>Confirmed:</dt>
-      <dd><%= @user.confirmed_at.to_formatted_s(:long) %></dd>
+      <dd><%= @user.confirmed_at? ? @user.confirmed_at.to_formatted_s(:long) : "" %></dd>
     </dl>
   </div>
 </div>

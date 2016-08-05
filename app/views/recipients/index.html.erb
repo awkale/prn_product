@@ -1,6 +1,7 @@
 <div class="row recipients index">
   <div class="col-sm-9">
-    <h2 class="section-header">Recipients
+    <h2 class="section-header"><%= 'Recipient'.pluralize(@recipients.count) %>
+    <span class="text-muted small">(<%= number_with_delimiter(@recipients.size) + ' of ' + number_with_delimiter(@recipients.total_count) %>)</span>
       <% if params[:search].present? %>
       search results
       <% end %>
