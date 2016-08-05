@@ -1,6 +1,10 @@
 <div class="row users index">
   <div class="col-sm-10">
-    <h2 class="section-header"><%= number_with_delimiter(@users.size) %> <%= 'User'.pluralize(@users.count) %></h2>
+    <h2 class="section-header"><%= number_with_delimiter(@users.size) + ' of ' + number_with_delimiter(@users.total_count) %> <%= 'User'.pluralize(@users.count) %></h2>
+    <%= paginate @users, :theme => 'bootstrap'%>
+     <div class="per-page pull-right pagination">
+      <%= render 'per_page' %>
+    </div>
     <table class="table table-striped">
       <thead>
         <tr>

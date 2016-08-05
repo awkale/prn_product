@@ -4,7 +4,11 @@ class UsersController < ApplicationController
 
   def index
     if current_user.admin?
-      @users = User.all
+      if params[:limit]
+        @users = User.order(:email).page(params[:page]).per(params[:limit])
+      else
+        @users = User.order(:email).page(params[:page])
+      end
     else
       redirect_to root_path
     end
