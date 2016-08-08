@@ -6,7 +6,7 @@
   <style>
       * { box-sizing: border-box; }
       html { font-family: sans-serif; font-size: 10px; -webkit-tap-highlight-color: transparent; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-      body { margin: 0px; font-family: "Benton Sans", Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.42857; color: rgb(55, 55, 55); background-color: rgb(255, 255, 255); overflow-x: hidden; }
+      body { margin: 0px; font-family: Proxima, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.42857; color: rgb(55, 55, 55); background-color: rgb(255, 255, 255); overflow-x: hidden; }
 
       @font-face {
         font-family: "Belizio";
@@ -17,28 +17,64 @@
       }
 
       @font-face {
-        font-family: "Benton Sans";
-        src: url(/assets/benton_sans_regular/c85593d9-51de-420f-9687-215704cff13b-2-2b7525b4a3377c249c51046b0519df34c1d59c0c895e033a264527532cb467d7.eot);
-        src: url(/assets/benton_sans_regular/c85593d9-51de-420f-9687-215704cff13b-2-2b7525b4a3377c249c51046b0519df34c1d59c0c895e033a264527532cb467d7.eot?) format("embedded-opentype"),url(/assets/benton_sans_regular/c85593d9-51de-420f-9687-215704cff13b-3-5e40ae5b3dc39f57f9ab12a587de7f81a6b0cea512905b3824dd7e96ff8929d2.woff) format("woff"),url(/assets/benton_sans_regular/c85593d9-51de-420f-9687-215704cff13b-1-db704464d3785f235e8078ad3138f69a88889453e276114a364b04f06f50a411.ttf) format("truetype"),url(/assets/benton_sans_regular/c85593d9-51de-420f-9687-215704cff13b-4-5d0bf103d123aaf3cf228a12470873c04013c51a6540d5b84f30d06781120cd9.svg#web) format("svg");
+        font-family: "Proxima";
+        src: url("/assets/proxima/ProximaNovaRegular.woff2") format("woff2"),
+             url("/assets/proxima/ProximaNovaRegular.woff") format("woff"),
+             url("/assets/proxima/ProximaNovaRegular.ttf") format("truetype"),
+             url("/assets/proxima/ProximaNovaRegular.svg#web") format("svg");
         font-style: normal;
-        font-weight: normal
+        font-weight: 400;
       }
 
       @font-face {
-        font-family: "Benton Sans";
-        src: url(/assets/benton_sans_regular_italic/b3e7f5ec-dc2f-4859-b89f-77b4afceee81-2-9182477100da85dabd5460d461aa65c2b6eeb8e37b5a610356695235a1c53699.eot);
-        src: url(/assets/benton_sans_regular_italic/b3e7f5ec-dc2f-4859-b89f-77b4afceee81-2-9182477100da85dabd5460d461aa65c2b6eeb8e37b5a610356695235a1c53699.eot?) format("embedded-opentype"),url(/assets/benton_sans_regular_italic/b3e7f5ec-dc2f-4859-b89f-77b4afceee81-3-ff5c6823d687036c64c5074a2d12effca6333a79fbbd0499412d47ef4a04eae6.woff) format("woff"),url(/assets/benton_sans_regular_italic/b3e7f5ec-dc2f-4859-b89f-77b4afceee81-1-9f8b4db92fe5bf961e73e69802c451131335b513d2127064292d95b5ee0933ef.ttf) format("truetype"),url(/assets/benton_sans_regular_italic/b3e7f5ec-dc2f-4859-b89f-77b4afceee81-4-b4860dce85ecf13fac653d5e55c6d01b9105887a930fe5d469b6ead2e76d1fa7.svg#web) format("svg");
-        font-style: italic;
-        font-weight: normal
+        font-family: "Proxima";
+        src: url("/assets/proxima/ProximaNovaLight.woff2") format("woff2"),
+             url("/assets/proxima/ProximaNovaLight.woff") format("woff"),
+             url("/assets/proxima/ProximaNovaLight.ttf") format("truetype"),
+             url("/assets/proxima/ProximaNovaLight.svg#web") format("svg");
+        font-style: normal;
+        font-weight: 300;
       }
 
       @font-face {
-        font-family: "Benton Sans";
-        src: url(/assets/benton_sans_bold/5c52b78f-39db-4a80-9846-04d1f20cbb22-2-04a48a05e44adec5090543553e73af3a876ddaaeab32d545fc3b477e12bba664.eot);
-        src: url(/assets/benton_sans_bold/5c52b78f-39db-4a80-9846-04d1f20cbb22-2-04a48a05e44adec5090543553e73af3a876ddaaeab32d545fc3b477e12bba664.eot?) format("embedded-opentype"),url(/assets/benton_sans_bold/5c52b78f-39db-4a80-9846-04d1f20cbb22-3-717980116b1dbbc173ef007dc54ca9417377c168838b853e1c77a41a5e1fe7d2.woff) format("woff"),url(/assets/benton_sans_bold/5c52b78f-39db-4a80-9846-04d1f20cbb22-1-bfe742a9e48348cc2614dd13871c4f3e32f9909856c080774db1171c519e8517.ttf) format("truetype"),url(/assets/benton_sans_bold/5c52b78f-39db-4a80-9846-04d1f20cbb22-4-757d5a3bae0dfc07ec818af27d413016a8a34c493f255a1ce0c169f57d303eea.svg#web) format("svg");
+        font-family: "Proxima";
+        src: url("/assets/proxima/ProximaNovaSemibold.woff2") format("woff2"),
+             url("/assets/proxima/ProximaNovaSemibold.woff") format("woff"),
+             url("/assets/proxima/ProximaNovaSemibold.ttf") format("truetype"),
+             url("/assets/proxima/ProximaNovaSemibold.svg#web") format("svg");
         font-style: normal;
-        font-weight: bold
+        font-weight: 600;
       }
+
+      @font-face {
+        font-family: "Proxima";
+        src: url("/assets/proxima/ProximaNovaBold.woff2") format("woff2"),
+             url("/assets/proxima/ProximaNovaBold.woff") format("woff"),
+             url("/assets/proxima/ProximaNovaBold.ttf") format("truetype"),
+             url("/assets/proxima/ProximaNovaBold.svg#web") format("svg");
+        font-style: normal;
+        font-weight: 700;
+      }
+
+      @font-face {
+        font-family: "Bebas";
+        src: url("/assets/bebas/BebasNeueRegular.woff2") format("woff2"),
+             url("/assets/bebas/BebasNeueRegular.woff") format("woff"),
+             url("/assets/bebas/BebasNeueRegular.ttf") format("truetype"),
+             url("/assets/bebas/BebasNeueRegular.svg#web") format("svg");
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: "cision-font";
+        src: url("/assets/cision/cision-font.woff") format("woff"),
+             url("/assets/cision/cision-font.ttf") format("truetype"),
+             url("/assets/cision/cision-font.svg#web") format("svg");
+        font-style: normal;
+        font-weight: 400;
+      }
+
 
       /*!
        *  The Black Tie Font is commercial software. Please do not distribute.
@@ -89,31 +125,31 @@
         margin-bottom: 70px;
         min-height: 150px;
       }
-      .nav-junior { background-color: rgb(71, 83, 107); }
+      .nav-junior { background-color: #053A4F; }
       .no-margin { margin: 0px; }
       header section:not(:last-child) { margin-bottom: 0px; }
       .container { margin-right: auto; margin-left: auto; padding-left: 15px; padding-right: 15px; width: 1170px; }
       .navbar { position: relative; min-height: 90px; margin-bottom: 0px; border: 1px solid transparent; border-radius: 0px; }
-      .navbar-junior { border-color: rgb(58, 68, 87); font-size: 12px; background-color: rgb(71, 83, 107); }
+      .navbar-junior { border-color: #053A4F; font-size: 12px; background-color: #053A4F; }
       .nav-junior .navbar { min-height: 50px; margin-bottom: 0px; border: 0px; border-radius: 0px; }
       ul, ol { margin-top: 0px; margin-bottom: 10px; }
       .nav { margin-bottom: 0px; padding-left: 0px; list-style: none; }
       .navbar-nav { margin: 0px; float: left; }
       .navbar-right { margin-right: -15px; float: right !important; }
       .nav-junior .navbar-nav { margin: 0px; float: left; }
-      .bg-brand-secondary { color: rgb(255, 255, 255); background-color: rgb(49, 141, 168); }
+      .bg-brand-secondary { color: rgb(255, 255, 255); background-color: #0DA7E3; }
       .nav > li { position: relative; display: block; }
       .navbar-nav > li { float: left; }
       .nav-junior .navbar-nav > li { float: left; }
       .navbar-junior .navbar-nav > li.bg-brand-secondary { padding-left: 20px; padding-right: 20px; }
-      a { background-color: transparent; color: rgb(49, 141, 168); text-decoration: none; }
+      a { background-color: transparent; color: #0DA7E3; text-decoration: none; }
       .nav > li > a { position: relative; display: block; padding: 10px 15px; }
       .navbar-nav > li > a { padding-top: 35px; padding-bottom: 35px; line-height: 20px; }
       .nav-junior .nav > li > a { padding: 10px; }
       .nav-junior .navbar-nav > li > a { padding-top: 15px; padding-bottom: 15px; line-height: 20px; }
       .navbar-junior .navbar-nav > li > a { color: rgb(255, 255, 255); }
       .navbar-junior .navbar-nav > li.bg-brand-secondary > a { color: rgb(255, 255, 255); }
-      .nav-main { width: 100%; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: rgb(232, 232, 232); background-color: rgb(255, 255, 255); }
+      .nav-main { width: 100%; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #E4ECF0; background-color: rgb(255, 255, 255); }
       .nav-main > .container { margin-bottom: -3px; }
       .navbar-default { border-color: transparent; background-color: transparent; }
       .nav-main .navbar { border: none; }
@@ -149,7 +185,7 @@
       h1 { font-size: 2em; margin: 0.67em 0px; }
       h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: inherit; font-weight: 600; line-height: 1.2; color: inherit; }
       h1, .h1, h2, .h2, h3, .h3 { margin-top: 20px; margin-bottom: 10px; }
-      h1, .h1 { font-size: 32px; font-family: Belizio, Palatino, "Book Antiqua", Georgia, "Times New Roman", Times, serif; margin-top: 0px; }
+      h1, .h1 { font-size: 32px; font-family: Proxima, Palatino, "Book Antiqua", Georgia, "Times New Roman", Times, serif; margin-top: 0px; }
       .mt-lg { margin-top: 20px; }
       .row { margin-left: -15px; margin-right: -15px; }
       .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 { position: relative; min-height: 1px; padding-left: 15px; padding-right: 15px; }
@@ -159,43 +195,43 @@
       .col-sm-2 { width: 16.6667%; }
       .btn { display: inline-block; margin-bottom: 0px; font-weight: normal; text-align: center; vertical-align: middle; touch-action: manipulation; cursor: pointer; border: 1px solid transparent; white-space: nowrap; padding: 6px 12px; font-size: 14px; line-height: 1.42857; border-radius: 2px; -webkit-user-select: none; background-image: none; padding-top: 7px; }
       .btn-default { color: rgb(102, 102, 102); border-color: rgb(155, 155, 155); background-color: transparent; }
-      .jumbotron { padding-top: 48px; padding-bottom: 48px; margin-bottom: 0px; color: rgb(255, 255, 255); background-color: rgb(232, 232, 232); height: 550px; position: relative; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-direction: column; display: flex; text-align: center; border-bottom-style: none; -webkit-box-pack: center; justify-content: center; resize: vertical; width: 100%; }
+      .jumbotron { padding-top: 48px; padding-bottom: 48px; margin-bottom: 0px; color: rgb(255, 255, 255); background-color: #E4ECF0; height: 550px; position: relative; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-direction: column; display: flex; text-align: center; border-bottom-style: none; -webkit-box-pack: center; justify-content: center; resize: vertical; width: 100%; }
       .margin-bottom-xl, .mb-xl { margin-bottom: 30px; }
-      .overlay__color_brand-secondary { background-color: rgb(49, 141, 168); }
+      .overlay__color_brand-secondary { background-color: #0DA7E3; }
       .jumbotron .container { max-width: 100%; }
-      .page-404 .jumbotron i { color: rgb(107, 188, 212); font-size: 12em; margin-bottom: 20px; }
+      .page-404 .jumbotron i { color: #053A4F; font-size: 12em; margin-bottom: 20px; }
       h1 { font-size: 2em; margin: 0.67em 0px; }
       h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: inherit; font-weight: 600; line-height: 1.2; color: inherit; }
       h1, .h1, h2, .h2, h3, .h3 { margin-top: 20px; margin-bottom: 10px; }
-      h1, .h1 { font-size: 32px; font-family: Belizio, Palatino, "Book Antiqua", Georgia, "Times New Roman", Times, serif; margin-top: 0px; }
+      h1, .h1 { font-size: 32px; font-family: Proxima, Palatino, "Book Antiqua", Georgia, "Times New Roman", Times, serif; margin-top: 0px; }
       .jumbotron h1, .jumbotron .h1 { color: inherit; font-size: 63px; }
       .jumbotron h1 { text-transform: uppercase; font-size: 36px; margin-bottom: 20px; }
       .col-sm-8 { width: 66.6667%; }
       .col-sm-offset-2 { margin-left: 16.6667%; }
       h3, .h3 { font-size: 23px; }
       h3, .h3, .announcement p { font-size: 23px; }
-      h3, h4, h5, h6 { font-family: "Benton Sans", Helvetica, Arial, sans-serif; }
+      h3, h4, h5, h6 { font-family: Proxima, Helvetica, Arial, sans-serif; }
       .jumbotron p { margin-bottom: 15px; font-size: 21px; font-weight: 200; }
       .bts, .btb, .btr, .btl, .fab { display: inline-block; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: 1; font-family: "Black Tie"; font-size: inherit; vertical-align: -14.2857%; text-rendering: auto; -webkit-font-smoothing: antialiased; transform: translate(0px, 0px); }
       .bt-map:before {
         content: "\f0c8"; }
       .fab { font-family: "Font Awesome Brands"; }
       .page-404 .jumbotron i {
-        color: #6bbcd4;
+        color: #0E94C7;
         font-size: 12em;
         margin-bottom: 20px;
       }
-      footer { font-size: 12px; color: rgb(232, 232, 232); word-wrap: normal; position: fixed; bottom: 0px; left: 0px; right: 0px; }
+      footer { font-size: 12px; color: #E4ECF0; word-wrap: normal; position: fixed; bottom: 0px; left: 0px; right: 0px; }
       footer section { margin-bottom: 0px; }
-      footer .sub-footer { padding-top: 20px; padding-bottom: 20px; font-size: 10px; background-color: rgb(71, 83, 107); }
+      footer .sub-footer { padding-top: 20px; padding-bottom: 20px; font-size: 10px; background-color: #053A4F; }
       .col-sm-12 { width: 100%; }
       footer ul { padding: 0px; list-style: none; }
       footer .sub-footer ul { display: inline; }
       footer ul li:first-of-type { margin-bottom: 20px; font-size: 18px; }
-      footer .sub-footer ul li { display: block; float: left; padding-left: 10px; padding-right: 10px; border-right-width: 1px; border-right-style: solid; border-right-color: rgb(232, 232, 232); }
+      footer .sub-footer ul li { display: block; float: left; padding-left: 10px; padding-right: 10px; border-right-width: 1px; border-right-style: solid; border-right-color: #E4ECF0; }
       footer .sub-footer ul li:first-of-type { margin-bottom: 0px; font-size: inherit; }
       footer .sub-footer ul li:first-child { padding-left: 0px; }
-      footer a { color: rgb(232, 232, 232); }
+      footer a { color: #E4ECF0; }
       footer .sub-footer ul li:last-child { padding-right: 0px; border-right-style: none; }
       .pull-right { float: right; }
       .zEWidget-launcher {
