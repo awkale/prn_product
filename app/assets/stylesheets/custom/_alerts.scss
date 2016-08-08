@@ -6,6 +6,10 @@
 // Alternate styles
 //
 // Generate contextual modifier classes for colorizing the alert.
+//
+.alert {
+  font-weight: 600;
+}
 
 .alert-muted {
   @include alert-variant($alert-muted-bg, $alert-muted-border, $alert-muted-text);
