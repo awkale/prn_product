@@ -68,7 +68,7 @@ $border-solid: 1px solid #c1c1c1;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Benton Sans",  Helvetica, Arial, sans-serif;
+$font-family-sans-serif:  Proxima,  Helvetica, Arial, sans-serif;
 $font-family-serif:       Belizio, Palatino, Book Antiqua, Georgia, "Times New Roman", Times, serif;
 
 // Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
@@ -128,7 +128,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
 
 // By default, this inherits from the `<body>`.
 $headings-font-family:    inherit;
-$headings-font-weight:    600;
+$headings-font-weight:    700;
 $headings-line-height:    1.2;
 $headings-color:          inherit;
 

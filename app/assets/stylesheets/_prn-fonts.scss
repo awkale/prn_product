@@ -19,34 +19,60 @@ questions: http://www.webtype.com
 }
 
 @font-face {
-  font-family: "Benton Sans";
-  src: asset-url("benton_sans_regular/c85593d9-51de-420f-9687-215704cff13b-2.eot");
-  src: asset-url("benton_sans_regular/c85593d9-51de-420f-9687-215704cff13b-2.eot?") format("embedded-opentype"),
-       asset-url("benton_sans_regular/c85593d9-51de-420f-9687-215704cff13b-3.woff") format("woff"),
-       asset-url("benton_sans_regular/c85593d9-51de-420f-9687-215704cff13b-1.ttf") format("truetype"),
-       asset-url("benton_sans_regular/c85593d9-51de-420f-9687-215704cff13b-4.svg#web") format("svg");
+  font-family: "Proxima";
+  src: asset-url("proxima/ProximaNovaRegular.woff2") format("woff2"),
+       asset-url("proxima/ProximaNovaRegular.woff") format("woff"),
+       asset-url("proxima/ProximaNovaRegular.ttf") format("truetype"),
+       asset-url("proxima/ProximaNovaRegular.svg#web") format("svg");
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 @font-face {
-  font-family: "Benton Sans";
-  src: asset-url("benton_sans_regular_italic/b3e7f5ec-dc2f-4859-b89f-77b4afceee81-2.eot");
-  src: asset-url("benton_sans_regular_italic/b3e7f5ec-dc2f-4859-b89f-77b4afceee81-2.eot?") format("embedded-opentype"),
-       asset-url("benton_sans_regular_italic/b3e7f5ec-dc2f-4859-b89f-77b4afceee81-3.woff") format("woff"),
-       asset-url("benton_sans_regular_italic/b3e7f5ec-dc2f-4859-b89f-77b4afceee81-1.ttf") format("truetype"),
-       asset-url("benton_sans_regular_italic/b3e7f5ec-dc2f-4859-b89f-77b4afceee81-4.svg#web") format("svg");
-  font-style: italic;
-  font-weight: normal;
+  font-family: "Proxima";
+  src: asset-url("proxima/ProximaNovaLight.woff2") format("woff2"),
+       asset-url("proxima/ProximaNovaLight.woff") format("woff"),
+       asset-url("proxima/ProximaNovaLight.ttf") format("truetype"),
+       asset-url("proxima/ProximaNovaLight.svg#web") format("svg");
+  font-style: normal;
+  font-weight: 300;
 }
 
 @font-face {
-  font-family: "Benton Sans";
-  src: asset-url("benton_sans_bold/5c52b78f-39db-4a80-9846-04d1f20cbb22-2.eot");
-  src: asset-url("benton_sans_bold/5c52b78f-39db-4a80-9846-04d1f20cbb22-2.eot?") format("embedded-opentype"),
-       asset-url("benton_sans_bold/5c52b78f-39db-4a80-9846-04d1f20cbb22-3.woff") format("woff"),
-       asset-url("benton_sans_bold/5c52b78f-39db-4a80-9846-04d1f20cbb22-1.ttf") format("truetype"),
-       asset-url("benton_sans_bold/5c52b78f-39db-4a80-9846-04d1f20cbb22-4.svg#web") format("svg");
+  font-family: "Proxima";
+  src: asset-url("proxima/ProximaNovaSemibold.woff2") format("woff2"),
+       asset-url("proxima/ProximaNovaSemibold.woff") format("woff"),
+       asset-url("proxima/ProximaNovaSemibold.ttf") format("truetype"),
+       asset-url("proxima/ProximaNovaSemibold.svg#web") format("svg");
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Proxima";
+  src: asset-url("proxima/ProximaNovaBold.woff2") format("woff2"),
+       asset-url("proxima/ProximaNovaBold.woff") format("woff"),
+       asset-url("proxima/ProximaNovaBold.ttf") format("truetype"),
+       asset-url("proxima/ProximaNovaBold.svg#web") format("svg");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Bebas";
+  src: asset-url("bebas/BebasNeueRegular.woff2") format("woff2"),
+       asset-url("bebas/BebasNeueRegular.woff") format("woff"),
+       asset-url("bebas/BebasNeueRegular.ttf") format("truetype"),
+       asset-url("bebas/BebasNeueRegular.svg#web") format("svg");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "cision-font";
+  src: asset-url("cision/cision-font.woff") format("woff"),
+       asset-url("cision/cision-font.ttf") format("truetype"),
+       asset-url("cision/cision-font.svg#web") format("svg");
+  font-style: normal;
+  font-weight: 400;
 }
