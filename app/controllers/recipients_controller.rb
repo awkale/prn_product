@@ -4,6 +4,10 @@ class RecipientsController < ApplicationController
 
   def index
     @recipients = Recipient.all
+    @industries = Industry.order('lft ASC')
+    @categories = Category.all
+    @subjects = Subject.all
+    @multimedia = Multimedium.all
     if params[:search]
       @recipients = @recipients.search(params[:search])
       @recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
