@@ -130,3 +130,17 @@
     padding: 15px 0;
   }
 }
+
+.recipients {
+  .panel-title {
+    a {
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+  .panel-body {
+    max-height: 250px;
+    overflow: auto;
+  }
+}

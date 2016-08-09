@@ -1,10 +1,10 @@
 <div class="row recipients index">
   <div class="col-sm-12">
     <h2 class="section-header"><%= 'Recipient'.pluralize(@recipients.count) %>
-      <span class="text-muted small">(<%= number_with_delimiter(@recipients.size) + ' of ' + number_with_delimiter(@recipients.total_count) %>)</span>
       <% if params[:search].present? %>
       search results
       <% end %>
+      <span class="text-muted small">(<%= number_with_delimiter(@recipients.size) + ' of ' + number_with_delimiter(@recipients.total_count) %>)</span>
       <% if current_user.admin %>
       <%= link_to 'New Recipient',
       new_recipient_path,
@@ -20,19 +20,20 @@
         <div class="row">
           <div class="col-sm-12">
             <%= paginate @recipients, :theme => 'bootstrap' %>
-            <div class="per-page pull-right pagination">
-              <%= render 'per_page' %>
-            </div>
           </div>
         </div>
-        <%= form_tag recipients_path, method: 'get' do %>
-        <div class="form-group">
-          <label class="sr-only" for="search">Search recipient name</label>
-          <%= text_field_tag :search, params[:search], placeholder: "Search recipient name", class: "form-control" %>
+        <div class="row mb-md mt-md">
+          <div class="col-sm-12">
+            <%= form_tag recipients_path, method: 'get', class: "form-inline search" do  %>
+            <div class="form-group">
+              <label class="sr-only" for="search">Search recipient name</label>
+              <%= text_field_tag :search, params[:search], placeholder: "Search recipient name", class: "form-control" %>
+            </div>
+            <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+            <%= link_to("View all recipients", recipients_path, {class: "btn btn-link"}) %>
+            <% end %>
+          </div>
         </div>
-        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-        <% end %>
-        <p class="mt-sm"><%= link_to("View all recipients", recipients_path) %></p>
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>

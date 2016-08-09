@@ -71,4 +71,26 @@ $(function(){
       }, 1000
     );
   });
+
+  $('.collapse').on('show.bs.collapse', function(e) {
+    console.log('open');
+    if ($(this).is(e.target)) {
+      var icon = $('a[href="#'+ $(this).attr('id') + '"] i');
+      console.log(icon);
+      if (icon.hasClass('bt-angle-right')) {
+        icon.removeClass('bt-angle-right').addClass('bt-angle-down');
+      }
+    }
+  });
+
+  $('.collapse').on('hide.bs.collapse', function(e) {
+    console.log('close');
+    if ($(this).is(e.target)) {
+      var icon = $('a[href="#'+ $(this).attr('id') + '"] i');
+      if (icon.hasClass('bt-angle-down')) {
+        icon.removeClass('bt-angle-down').addClass('bt-angle-right');
+      }
+    }
+  });
+
 });

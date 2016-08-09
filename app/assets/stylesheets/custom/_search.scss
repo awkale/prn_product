@@ -219,3 +219,9 @@
   margin-top: 7px;
   margin-bottom: 7px;
 }
+
+.search.form-inline {
+  input.form-control {
+    width: 500px;
+  }
+}

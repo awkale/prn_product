@@ -10,9 +10,6 @@
       <% end %>
     </h2>
     <%= paginate @products, :theme => 'bootstrap'%>
-     <div class="per-page pull-right pagination">
-      <%= render 'per_page' %>
-    </div>
     <table class="table table-striped">
       <tbody>
       <% @products.each do |product| %>
