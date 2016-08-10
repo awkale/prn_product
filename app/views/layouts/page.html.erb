@@ -2,8 +2,8 @@
 <html>
 <head>
   <title><%= if content_for?(:title) then yield(:title) + ' | ' end %>PR Newswire Distribution</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= favicon_link_tag %>
@@ -22,7 +22,6 @@
       </section>
     </header><!-- /header -->
     <main role="main" id="main" class="">
-      <%= render 'spinner' %>
       <div class="container">
         <%= render 'alerts' %>
         <%= yield %>
