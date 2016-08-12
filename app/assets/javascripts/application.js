@@ -40,29 +40,6 @@ $(function(){
   });
 
 
-  // var loadAnimation = function(speed) {
-  //   if (speed == 'loading') {
-  //     $container.addClass('faded');
-  //     $spinner.show();
-  //   } else {
-  //     $container.removeClass('faded');
-  //     $spinner.hide();
-  //   }
-  // }
-
-  // setTimeout(function() {
-  //   loadAnimation('loading');
-  //   }, 0
-  // );
-
-  // $(window).load(function(){
-  //   setTimeout(function() {
-  //     loadAnimation('');
-  //     }, 0
-  //   );
-  // });
-
-  $('.collapse').on('show.bs.collapse', function(e) {
     if ($(this).is(e.target)) {
       var icon = $('a[href="#'+ $(this).attr('id') + '"] i');
       if (icon.hasClass('bt-angle-right')) {
