@@ -12,7 +12,7 @@ class RecipientsController < ApplicationController
 
     if params[:search]
       @recipients = @recipients.search(params[:search])
-      @recipients = Recipient.order(:sort_by_name).includes(:category, :multimedia, :renderings).page(params[:page]).per(params[:limit])
+      @recipients = @recipients.order(:sort_by_name).includes(:category, :multimedia, :renderings).page(params[:page])
     elsif params[:limit]
       @recipients = Recipient.order(:sort_by_name).includes(:category, :multimedia, :renderings).page(params[:page]).per(params[:limit])
     else

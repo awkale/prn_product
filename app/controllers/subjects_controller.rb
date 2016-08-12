@@ -14,11 +14,11 @@ class SubjectsController < ApplicationController
     @recipients = @subject.recipients
     if params[:search]
       @related_recipients = Recipient.search(params[:search])
-      @related_recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+      @related_recipients = @related_recipients.order(:sort_by_name).includes(:multimedia, :renderings).page(params[:page])
     elsif params[:limit]
-      @related_recipients = Kaminari.paginate_array(@recipients.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page]).per(params[:limit])
+      @related_recipients = @recipients.order(:sort_by_name).includes(:multimedia, :renderings).page(params[:page]).per(params[:limit])
     else
-      @related_recipients = Kaminari.paginate_array(@recipients.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+      @related_recipients = @recipients.order(:sort_by_name).includes(:multimedia, :renderings).page(params[:page])
     end
 
     respond_to do |format|
