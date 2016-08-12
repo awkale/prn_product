@@ -8,13 +8,15 @@ class RecipientsController < ApplicationController
     @categories = Category.all
     @subjects = Subject.all
     @multimedia = Multimedium.all
+
+
     if params[:search]
       @recipients = @recipients.search(params[:search])
-      @recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+      @recipients = Recipient.order(:sort_by_name).includes(:category, :multimedia, :renderings).page(params[:page]).per(params[:limit])
     elsif params[:limit]
-      @recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page]).per(params[:limit])
+      @recipients = Recipient.order(:sort_by_name).includes(:category, :multimedia, :renderings).page(params[:page]).per(params[:limit])
     else
-      @recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+      @recipients = Recipient.order(:sort_by_name).includes(:category, :multimedia, :renderings).page(params[:page])
     end
 
     respond_to do |format|
