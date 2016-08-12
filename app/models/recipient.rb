@@ -33,6 +33,6 @@ class Recipient < ActiveRecord::Base
   end
 
   def create_sort_name
-    recipient_name.downcase.sub(/^the |a |an /i,"")
+    recipient_name.downcase.sub(/^the |^a |^an /i,"")
   end
 end
