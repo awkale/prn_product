@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   resources :recipients
   resources :distributions
   resources :categories
+  resources :product_lines do
+    collection do
+      get :manage
+      post :rebuild
+    end
+  end
   resources :subjects
   resources :multimedia
   resources :tickers
@@ -16,7 +22,6 @@ Rails.application.routes.draw do
       post :rebuild
     end
   end
-  get '/listing' => "listing#index"
   devise_for :admins
   devise_for :users
   resources :users

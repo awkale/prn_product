@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811225722) do
+ActiveRecord::Schema.define(version: 20160815211745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,14 +90,30 @@ ActiveRecord::Schema.define(version: 20160811225722) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "product_lines", force: :cascade do |t|
+    t.string   "product_line"
+    t.integer  "parent_id"
+    t.integer  "lft",                        null: false
+    t.integer  "rgt",                        null: false
+    t.integer  "depth",          default: 0, null: false
+    t.integer  "children_count", default: 0, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "product_lines", ["lft"], name: "index_product_lines_on_lft", using: :btree
+  add_index "product_lines", ["parent_id"], name: "index_product_lines_on_parent_id", using: :btree
+  add_index "product_lines", ["rgt"], name: "index_product_lines_on_rgt", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "product_name"
     t.text     "description"
     t.string   "code"
     t.integer  "base_price"
     t.integer  "length_price"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "product_line_id"
   end
 
   create_table "recipient_channels", force: :cascade do |t|

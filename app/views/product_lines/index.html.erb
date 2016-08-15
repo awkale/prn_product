@@ -1,0 +1,11 @@
+<div class="row product_lines index">
+  <div class="col-sm-8">
+    <h2 class="section-header">Product Line
+    <% if current_user.admin %>
+      <%= link_to 'Manage Product Lines', manage_product_lines_path, { :class => "btn btn-sm btn-link pull-right" } %>
+    <% end %></h2>
+    <%= sorted_nested_ul(@product_lines, :product_line) do |pl| %>
+      <%= link_to pl.product_line, pl %>
+    <% end %>
+  </div>
+</div>

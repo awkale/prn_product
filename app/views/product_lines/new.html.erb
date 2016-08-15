@@ -1,0 +1,12 @@
+<div class="row product_line new">
+  <div class="col-sm-8">
+    <h2 class="section-header">New Product Line</h2>
+
+    <%= simple_form_for @product_line do |pl| %>
+      <%= pl.error_notification %>
+      <%= pl.input :product_line, placeholder: 'Product Line' %>
+      <%= pl.button :submit %>
+      <%= link_to "Cancel", :back, {:class => "btn btn-default pull-right mr-sm"} %>
+    <% end %>
+  </div>
+</div>
