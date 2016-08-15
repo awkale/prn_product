@@ -67,6 +67,10 @@ class ProductsController < ApplicationController
       :code,
       :base_price,
       :length_price,
+      :product_line_id,
+      product_line_attributes: [
+        :id,
+        :product_line],
       recipient_ids: [],
       recipient_attributes: [
         :id,

@@ -10,6 +10,16 @@
     %>
   </div>
   <div class="col-sm-6">
+    <div class="form-group">
+      <label for="product_product_line_id">Product Line</label>
+      <%= form.collection_select :product_line_id,
+                                 ProductLine.all,
+                                 :id,
+                                 :product_line,
+                                 {prompt: 'Choose a product line'},
+                                 {class: "form-control chosen-select"}
+      %>
+    </div>
     <%= form.input :code,
                    placeholder: 'Code'
     %>
