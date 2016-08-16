@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
   layout 'page'
 
   def index
+    @product_lines = ProductLine.all
+
     if params[:limit]
       @products = Product.order(:product_name).page(params[:page]).per(params[:limit])
     else

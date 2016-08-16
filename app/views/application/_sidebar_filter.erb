@@ -2,12 +2,12 @@
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="industries">
       <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseIndustries" aria-expanded="false" aria-controls="collapseIndustries">
-          <i class="btb bt-angle-right bt-sm"></i> Industries
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseIndustries" aria-expanded="true" aria-controls="collapseIndustries">
+          <i class="btb bt-angle-down bt-sm"></i> Industries
         </a>
       </h4>
     </div>
-    <div id="collapseIndustries" class="panel-collapse collapse" role="tabpanel" aria-labelledby="industries">
+    <div id="collapseIndustries" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="industries">
       <div class="panel-body">
         <%= sorted_nested_ul(@industries, :industry_name) do |ind| %>
           <%= link_to ind.industry_name, ind %>
