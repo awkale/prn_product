@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @related_recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}.each do |cr| %>
+        <% @related_recipients.each do |cr| %>
         <tr>
           <td><%= link_to cr.recipient_name, recipient_path(cr) %></td>
           <td>

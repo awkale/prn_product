@@ -49,7 +49,7 @@ edit_product_path,
     <h2 class="section-header h4"><% if current_user.admin %><%= number_with_delimiter(@product.recipients.size) %><% end %> Related <%= 'Recipient'.pluralize(@product.recipients.count) %> </h2>
     <table class="table table-striped">
       <tbody>
-        <% @product.recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}.each do |p_mp| %>
+        <% @product.recipients.order(:sort_by_name).each do |p_mp| %>
         <tr>
           <td><%= link_to p_mp.recipient_name,
             recipient_path(p_mp)
