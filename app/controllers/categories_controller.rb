@@ -12,10 +12,7 @@ class CategoriesController < ApplicationController
 
   def show
     @recipients = @category.recipients
-    if params[:search]
-      @related_recipients = Recipient.search(params[:search])
-      @related_recipients = @related_recipients.order(:sort_by_name).includes(:multimedia, :renderings).page(params[:page])
-    elsif params[:limit]
+    if params[:limit]
       @related_recipients = @recipients.order(:sort_by_name).includes(:multimedia, :renderings).page(params[:page]).per(params[:limit])
     else
       @related_recipients = @recipients.order(:sort_by_name).includes(:multimedia, :renderings).page(params[:page])

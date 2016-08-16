@@ -12,10 +12,7 @@ class ChannelsController < ApplicationController
 
   def show
     @recipients = @channel.recipients
-    if params[:search]
-      @related_recipients = Recipient.search(params[:search])
-      @related_recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
-    elsif params[:limit]
+    if params[:limit]
       @related_recipients = Kaminari.paginate_array(@recipients.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page]).per(params[:limit])
     else
       @related_recipients = Kaminari.paginate_array(@recipients.all.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
