@@ -12,7 +12,17 @@ class ProductLinesController < ApplicationController
   end
 
   def show
+    @products = @product_line.products
+    if params[:limit]
+      @related_products = @products.order(:product_name).page(params[:page]).per(params[:limit])
+    else
+      @related_products = @products.order(:product_name).page(params[:page])
+    end
 
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create

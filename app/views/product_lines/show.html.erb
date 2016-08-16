@@ -3,7 +3,31 @@
 <div class="row">
   <div class="col-sm-8">
     <h2 class="section-header h4">
-      Related Products
+      Related <%= 'Recipient'.pluralize(@related_products.count) %> <span class="text-muted small">(<%= number_with_delimiter(@related_products.size) + ' of ' + number_with_delimiter(@related_products.total_count) %>)</span>
+      <% if current_user.admin %>
+        <%= link_to 'Edit Product Line', edit_product_line_path, {:class => "btn btn-sm btn-link pull-right"} %>
+      <% end %>
     </h2>
+    <%= paginate @related_products, :theme => 'bootstrap' %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @related_products.each do |rp| %>
+        <tr>
+          <td><%= link_to rp.product_name, product_path(rp) %></td>
+          <td>
+          </td>
+          <td></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @related_products, :theme => 'bootstrap' %>
   </div>
 </div>
