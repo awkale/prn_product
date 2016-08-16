@@ -39,7 +39,7 @@ $(function(){
     );
   });
 
-
+  $('.collapse').on('show.bs.collapse', function(e) {
     if ($(this).is(e.target)) {
       var icon = $('a[href="#'+ $(this).attr('id') + '"] i');
       if (icon.hasClass('bt-angle-right')) {
