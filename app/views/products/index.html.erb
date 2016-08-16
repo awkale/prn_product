@@ -1,5 +1,5 @@
 <div class="row products index">
-  <div class="col-sm-12">
+  <div class="col-sm-8">
     <h2 class="section-header"><%= 'Product'.pluralize(@products.count) %>
     <span class="text-muted small">(<%= number_with_delimiter(@products.size) + ' of ' + number_with_delimiter(@products.total_count) %>)</span>
       <% if current_user.admin %>
@@ -9,28 +9,6 @@
           %>
       <% end %>
     </h2>
-  </div>
-  <div class="col-sm-3">
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="product_lines">
-          <h4 class="panel-title">
-            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseIndustries" aria-expanded="true" aria-controls="collapseIndustries">
-              <i class="btb bt-angle-down bt-sm"></i> Product Lines
-            </a>
-          </h4>
-        </div>
-        <div id="collapseIndustries" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="product_lines">
-          <div class="panel-body">
-            <%= sorted_nested_ul(@product_lines, :product_line) do |pl| %>
-              <%= link_to pl.product_line, pl %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-9">
     <%= paginate @products, :theme => 'bootstrap'%>
     <table class="table table-striped">
       <tbody>
