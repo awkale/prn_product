@@ -39,9 +39,10 @@
         <thead>
           <tr>
             <th><%= sortable 'sort_by_name', 'Recipient' %></th>
-            <th><%= sortable 'city', 'Location' %></th>
+            <th><%= sortable 'city' %></th>
+            <th><%= sortable 'state' %></th>
             <th><%= sortable 'category_id', 'Category' %></th>
-            <th><%= sortable 'multimedia', 'Multimedia' %></th>
+            <th>Multimedia</th>
             <% if current_user.admin %>
             <th>Actions</th>
             <% end %>
@@ -54,7 +55,8 @@
               <span class="label label-default"><%= ap_boolean(mp.ap) %></span>
               <% end %> <%= link_to mp.recipient_name, mp %>
             </td>
-            <td><%= mp.city.present? ? mp.city + ', ' : "" %><%= mp.state %></td>
+            <td><%= mp.city.present? ? mp.city : "" %></td>
+            <td><%= mp.state.present? ? mp.state : "" %></td>
             <td><%= mp.category.present? ? mp.category.name : "" %></td>
             <td>
               <% mp.multimedia.each do |multi| %>
