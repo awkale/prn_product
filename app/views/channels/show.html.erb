@@ -1,7 +1,7 @@
 <% title @channel.channel_name %>
 <h1><%= @channel.channel_name %></h1>
 <div class="row channel index">
-  <div class="col-sm-8">
+  <div class="col-sm-12">
     <h2 class="section-header h4">
       Related <%= 'Recipient'.pluralize(@channel.recipients.count) %> <span class="text-muted small">(<%= number_with_delimiter(@related_recipients.size) + ' of ' + number_with_delimiter(@related_recipients.total_count) %>)</span>
       <% if current_user.admin %>

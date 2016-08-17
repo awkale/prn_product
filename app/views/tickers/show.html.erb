@@ -1,7 +1,7 @@
 <% title @ticker.ticker_type %>
 <h1><%= @ticker.ticker_type %></h1>
 <div class="row">
-  <div class="col-sm-8">
+  <div class="col-sm-12">
     <h2 class="section-header h4">Related recipients <% if current_user.admin %><%= link_to 'Edit Ticker', edit_ticker_path, {:class => "btn btn-sm btn-link pull-right"} %><% end %></h2>
     <%= paginate @related_recipients, :theme => 'bootstrap' %>
     <%= render 'related_recip_table' %>
