@@ -58,9 +58,9 @@
             <td><%= mp.category.present? ? mp.category.name : "" %></td>
             <td>
               <% mp.multimedia.each do |multi| %>
-              <%= link_to(multi) do%>
-              <i class="bts <%= multi.icon %>"></i>
-              <% end %>
+                <%= link_to(multi) do%>
+                  <i class="bts <%= multi.icon %>"></i>
+                <% end %>
               <% end %>
             </td>
             <% if current_user.admin %>
