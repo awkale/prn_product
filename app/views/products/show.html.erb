@@ -7,37 +7,31 @@ edit_product_path,
 <% end %>
 <h1 class="section-header"><%= @product.product_name %></h1>
 <div class="row product show">
-  <div class="col-sm-8">
+  <div class="col-sm-12">
+    <dl class="">
+      <dt>Description:</dt>
+      <dd><%= simple_format(@product.description) %></dd>
+    </dl>
     <div class="row">
-      <div class="col-sm-12">
-        <dl class="">
-          <dt>Description:</dt>
-          <dd><%= simple_format(@product.description) %></dd>
-        </dl>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <dl>
           <dt>Code:</dt>
           <dd><%= @product.code %></dd>
         </dl>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <dl>
           <dt>Base Price ($):</dt>
           <dd><%= @product.base_price %></dd>
         </dl>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <dl>
           <dt>Length Price ($):</dt>
           <dd><%= @product.length_price %></dd>
         </dl>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <dl>
           <dt>Product Line:</dt>
           <dd><%= @product.product_line.present? ? link_to(@product.product_line.product_line, @product.product_line) : "" %></dd>
@@ -45,15 +39,33 @@ edit_product_path,
       </div>
     </div>
   </div>
-  <div class="col-sm-4">
+  <div class="col-sm-12">
     <h2 class="section-header h4"><% if current_user.admin %><%= number_with_delimiter(@product.recipients.size) %><% end %> Related <%= 'Recipient'.pluralize(@product.recipients.count) %> </h2>
     <table class="table table-striped">
       <tbody>
+        <tr>
+          <th>Recipient</th>
+          <th>Location</th>
+          <th>Category</th>
+          <th>Multimedia</th>
+          <% if current_user.admin %>
+          <th>Actions</th>
+          <% end %>
+        </tr>
         <% @product.recipients.order(:sort_by_name).each do |p_mp| %>
         <tr>
           <td><%= link_to p_mp.recipient_name,
             recipient_path(p_mp)
             %>
+          </td>
+          <td><%= p_mp.city.present? ? p_mp.city + ', ' : "" %><%= p_mp.state %></td>
+          <td><%= p_mp.category.present? ? p_mp.category.name : "" %></td>
+          <td>
+            <% p_mp.multimedia.each do |multi| %>
+              <%= link_to(multi) do%>
+                <i class="bts <%= multi.icon %>"></i>
+              <% end %>
+            <% end %>
           </td>
           <td><% if current_user.admin %>
             <%= link_to 'Edit',
