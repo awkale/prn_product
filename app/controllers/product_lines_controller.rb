@@ -2,6 +2,7 @@ class ProductLinesController < ApplicationController
   before_action :find_product_line, :only => [:show, :edit, :update, :destroy]
   include TheSortableTreeController::Rebuild
   layout 'page'
+  helper_method :sort_column, :sort_direction
 
   def index
     @product_lines = ProductLine.all
@@ -12,11 +13,12 @@ class ProductLinesController < ApplicationController
   end
 
   def show
-    @products = @product_line.products
+    params[:sort] ||= 'product_name'
+    @related_products = @product_line.products
     if params[:limit]
-      @related_products = @products.order(:product_name).page(params[:page]).per(params[:limit])
+      @related_products = @related_products.order(sort_column + ' ' + sort_direction).page(params[:page]).per(params[:limit])
     else
-      @related_products = @products.order(:product_name).page(params[:page])
+      @related_products = @related_products.order(sort_column + ' ' + sort_direction).page(params[:page])
     end
 
     respond_to do |format|
@@ -74,6 +76,14 @@ class ProductLinesController < ApplicationController
   private
   def find_product_line
     @product_line = ProductLine.find(params[:id])
+  end
+
+  def sort_column
+    Product.column_names.include?(params[:sort]) ? params[:sort] : 'product_name'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
   end
 
   def product_line_params

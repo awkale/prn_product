@@ -1,6 +1,7 @@
 class TickersController < ApplicationController
   before_action :find_ticker, only: [:show, :edit, :update, :destroy]
   layout 'page'
+  helper_method :sort_column, :sort_direction
 
   def index
     @tickers = Ticker.all
@@ -11,11 +12,13 @@ class TickersController < ApplicationController
   end
 
   def show
-    @recipients = @ticker.recipients
+   params[:sort] ||= 'sort_by_name'
+
+   @recipients = @ticker.recipients
     if params[:limit]
-      @related_recipients = @recipients.order(:sort_by_name).includes(:multimedia, :renderings).page(params[:page]).per(params[:limit])
+      @related_recipients = @recipients.order(sort_column + ' ' + sort_direction).includes(:multimedia, :renderings).page(params[:page]).per(params[:limit])
     else
-      @related_recipients = @recipients.order(:sort_by_name).includes(:multimedia, :renderings).page(params[:page])
+      @related_recipients = @recipients.order(sort_column + ' ' + sort_direction).includes(:multimedia, :renderings).page(params[:page])
     end
 
     respond_to do |format|
@@ -66,6 +69,14 @@ class TickersController < ApplicationController
   private
   def find_ticker
     @ticker = Ticker.find(params[:id])
+  end
+
+  def sort_column
+    Recipient.column_names.include?(params[:sort]) ? params[:sort] : 'sort_by_name'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
   end
 
   def ticker_params

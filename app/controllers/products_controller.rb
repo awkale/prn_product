@@ -21,11 +21,7 @@ class ProductsController < ApplicationController
     params[:sort] ||= 'sort_by_name'
     @related_recipients = @product.recipients
 
-    if params[:limit]
-      @related_recipients = @related_recipients.order(sort_column + ' ' + sort_direction).includes(:category, :multimedia, :renderings).page(params[:page]).per(params[:limit])
-    else
-      @related_recipients = @related_recipients.order(sort_column + ' ' + sort_direction).includes(:category, :multimedia, :renderings).page(params[:page])
-    end
+    @related_recipients = @related_recipients.order(sort_column + ' ' + sort_direction).includes(:category, :multimedia, :renderings)
   end
 
   def create
