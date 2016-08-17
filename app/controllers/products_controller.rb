@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :find_product, :only => [:show, :edit, :update, :destroy]
   layout 'page'
+  helper_method :sort_column, :sort_direction
 
   def index
     @product_lines = ProductLine.all
@@ -17,6 +18,14 @@ class ProductsController < ApplicationController
   end
 
   def show
+    params[:sort] ||= 'sort_by_name'
+    @related_recipients = @product.recipients
+
+    if params[:limit]
+      @related_recipients = @related_recipients.order(sort_column + ' ' + sort_direction).includes(:category, :multimedia, :renderings).page(params[:page]).per(params[:limit])
+    else
+      @related_recipients = @related_recipients.order(sort_column + ' ' + sort_direction).includes(:category, :multimedia, :renderings).page(params[:page])
+    end
   end
 
   def create
@@ -60,6 +69,14 @@ class ProductsController < ApplicationController
   private
   def find_product
     @product = Product.find(params[:id])
+  end
+
+  def sort_column
+    Recipient.column_names.include?(params[:sort]) ? params[:sort] : 'sort_by_name'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
   end
 
   def product_params

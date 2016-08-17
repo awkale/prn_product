@@ -44,15 +44,15 @@ edit_product_path,
     <table class="table table-striped">
       <tbody>
         <tr>
-          <th>Recipient</th>
-          <th>Location</th>
-          <th>Category</th>
-          <th>Multimedia</th>
+          <th><%= sortable 'sort_by_name', 'Recipient' %></th>
+          <th><%= sortable 'city', 'Location' %></th>
+          <th><%= sortable 'category_id', 'Category' %></th>
+          <th><%= sortable 'multimedia', 'Multimedia' %></th>
           <% if current_user.admin %>
           <th>Actions</th>
           <% end %>
         </tr>
-        <% @product.recipients.order(:sort_by_name).each do |p_mp| %>
+        <% @related_recipients.each do |p_mp| %>
         <tr>
           <td><%= link_to p_mp.recipient_name,
             recipient_path(p_mp)
