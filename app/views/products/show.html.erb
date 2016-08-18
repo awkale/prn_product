@@ -41,46 +41,7 @@ edit_product_path,
   </div>
   <div class="col-sm-12">
     <h2 class="section-header h4"><% if current_user.admin %><%= number_with_delimiter(@product.recipients.size) %><% end %> Related <%= 'Recipient'.pluralize(@product.recipients.count) %> </h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th><%= sortable 'sort_by_name', 'Recipient' %></th>
-          <th><%= sortable 'city' %></th>
-          <th><%= sortable 'state' %></th>
-          <th><%= sortable 'category_id', 'Category' %></th>
-          <th>Multimedia</th>
-          <% if current_user.admin %>
-          <th>Actions</th>
-          <% end %>
-        </tr>
-      </thead>
-      <tbody>
-        <% @related_recipients.each do |p_mp| %>
-        <tr>
-          <td><%= link_to p_mp.recipient_name,
-            recipient_path(p_mp)
-            %>
-          </td>
-          <td><%= p_mp.city.present? ? p_mp.city : "" %></td>
-          <td><%= p_mp.city.present? ? p_mp.state : "" %></td>
-          <td><%= p_mp.category.present? ? p_mp.category.name : "" %></td>
-          <td>
-            <% p_mp.multimedia.each do |multi| %>
-              <%= link_to(multi) do%>
-                <i class="bts <%= multi.icon %>"></i>
-              <% end %>
-            <% end %>
-          </td>
-          <td><% if current_user.admin %>
-            <%= link_to 'Edit',
-            edit_recipient_path(p_mp)
-            %>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render 'related_recip_table' %>
   </div>
 </div>
 <hr>

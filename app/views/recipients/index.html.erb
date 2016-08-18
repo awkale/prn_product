@@ -57,7 +57,7 @@
             </td>
             <td><%= mp.city.present? ? mp.city : "" %></td>
             <td><%= mp.state.present? ? mp.state : "" %></td>
-            <td><%= mp.category.present? ? mp.category.name : "" %></td>
+            <td><%= mp.category.present? ? link_to(mp.category.name, mp.category) : "" %></td>
             <td>
               <% mp.multimedia.each do |multi| %>
                 <%= link_to(multi) do%>
