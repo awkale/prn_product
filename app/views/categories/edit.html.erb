@@ -1,6 +1,6 @@
 <div class="row category edit">
   <div class="col-sm-8">
-    <h2 class="section-header">Edit <%= @category.name %></h2>
+    <h2 class="section-header"><span class="text-muted fw-normal">Edit</span> <%= @category.name %></h2>
 
     <%= simple_form_for @category do |cat| %>
       <%= cat.error_notification %>
