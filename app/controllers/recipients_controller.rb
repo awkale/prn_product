@@ -1,16 +1,23 @@
 class RecipientsController < ApplicationController
   before_action :find_recipient, :only => [:show, :edit, :update, :destroy]
   layout 'page'
+  helper_method :sort_column, :sort_direction
 
   def index
     @recipients = Recipient.all
+    @industries = Industry.order('lft ASC')
+    @categories = Category.all
+    @subjects = Subject.all
+    @multimedia = Multimedium.all
+    params[:sort] ||= 'sort_by_name'
+
     if params[:search]
       @recipients = @recipients.search(params[:search])
-      @recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+      @recipients = @recipients.order(sort_column + ' ' + sort_direction).includes(:category, :multimedia, :renderings).page(params[:page])
     elsif params[:limit]
-      @recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page]).per(params[:limit])
+      @recipients = Recipient.order(sort_column + ' ' + sort_direction).includes(:category, :multimedia, :renderings).page(params[:page]).per(params[:limit])
     else
-      @recipients = Kaminari.paginate_array(@recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}).page(params[:page])
+      @recipients = Recipient.order(sort_column + ' ' + sort_direction).includes(:category, :multimedia, :renderings).page(params[:page])
     end
 
     respond_to do |format|
@@ -67,6 +74,14 @@ class RecipientsController < ApplicationController
   private
   def find_recipient
     @recipient = Recipient.find(params[:id])
+  end
+
+  def sort_column
+    Recipient.column_names.include?(params[:sort]) ? params[:sort] : 'sort_by_name'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
   end
 
   def recipient_params

@@ -2,9 +2,6 @@
   <div class="col-sm-10">
     <h2 class="section-header"><%= 'User'.pluralize(@users.count) %> <span class="text-muted small"><%= number_with_delimiter(@users.size) + ' of ' + number_with_delimiter(@users.total_count) %></span></h2>
     <%= paginate @users, :theme => 'bootstrap'%>
-     <div class="per-page pull-right pagination">
-      <%= render 'per_page' %>
-    </div>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -23,7 +20,7 @@
           <td><%= link_to user.last_name.present? ? user.last_name : "", user %></td>
           <td><%= link_to user.email, user %></td>
           <td><%= user.sign_in_count %></td>
-          <td><%= user.confirmed_at.to_formatted_s(:long) %></td>
+          <td><%= user.confirmed_at.present? ? user.confirmed_at.to_formatted_s(:long) : "" %></td>
           <td><%= user.admin.present? ? user.admin : "" %></td>
         </tr>
         <% end %>

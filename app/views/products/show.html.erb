@@ -7,54 +7,41 @@ edit_product_path,
 <% end %>
 <h1 class="section-header"><%= @product.product_name %></h1>
 <div class="row product show">
-  <div class="col-sm-8">
+  <div class="col-sm-12">
+    <dl class="">
+      <dt>Description:</dt>
+      <dd><%= simple_format(@product.description) %></dd>
+    </dl>
     <div class="row">
-      <div class="col-sm-12">
-        <dl class="">
-          <dt>Description:</dt>
-          <dd><%= simple_format(@product.description) %></dd>
-        </dl>
-      </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <dl>
           <dt>Code:</dt>
           <dd><%= @product.code %></dd>
         </dl>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <dl>
           <dt>Base Price ($):</dt>
           <dd><%= @product.base_price %></dd>
         </dl>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <dl>
           <dt>Length Price ($):</dt>
           <dd><%= @product.length_price %></dd>
         </dl>
       </div>
+      <div class="col-sm-3">
+        <dl>
+          <dt>Product Line:</dt>
+          <dd><%= @product.product_line.present? ? link_to(@product.product_line.product_line, @product.product_line) : "" %></dd>
+        </dl>
+      </div>
     </div>
   </div>
-  <div class="col-sm-4">
+  <div class="col-sm-12">
     <h2 class="section-header h4"><% if current_user.admin %><%= number_with_delimiter(@product.recipients.size) %><% end %> Related <%= 'Recipient'.pluralize(@product.recipients.count) %> </h2>
-    <table class="table table-striped">
-      <tbody>
-        <% @product.recipients.sort_by{|t| t.recipient_name.downcase.sub(/^the |a |an /i,"")}.each do |p_mp| %>
-        <tr>
-          <td><%= link_to p_mp.recipient_name,
-            recipient_path(p_mp)
-            %>
-          </td>
-          <td><% if current_user.admin %>
-            <%= link_to 'Edit',
-            edit_recipient_path(p_mp)
-            %>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render 'related_recip_table' %>
   </div>
 </div>
 <hr>

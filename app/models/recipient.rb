@@ -22,7 +22,17 @@ class Recipient < ActiveRecord::Base
   accepts_nested_attributes_for :products, reject_if: proc { |attributes| attributes['product_name'].blank? }
   # default_scope { order('recipient_name') }
 
+  after_validation :add_sort_name
+
   def self.search(search)
     where("recipient_name ilike ? OR alternate_name ilike ?", "%#{search}%", "%#{search}%")
+  end
+
+  def add_sort_name
+    self.sort_by_name = self.create_sort_name
+  end
+
+  def create_sort_name
+    recipient_name.downcase.sub(/^the |^a |^an |^ /i,"")
   end
 end

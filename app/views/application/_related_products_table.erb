@@ -1,0 +1,30 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sortable 'product_name', 'Product' %></th>
+      <th><%= sortable 'code' %></th>
+      <th><%= sortable 'base_price' %></th>
+      <th><%= sortable 'length_price' %></th>
+      <% if current_user.admin %>
+      <th>Actions</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @related_products.each do |rp| %>
+    <tr>
+      <td><%= link_to rp.product_name, product_path(rp) %></td>
+      <td><%= rp.code %></td>
+      <td><%= rp.base_price  %></td>
+      <td><%= rp.length_price %></td>
+      <td>
+        <% if current_user.admin %>
+        <%= link_to 'Edit',
+        edit_recipient_path(rp)
+        %>
+        <% end %>
+        </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
