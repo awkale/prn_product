@@ -537,8 +537,20 @@
 // --------------------------------------------------
 // Mobile Nav
 
-nav#nav-mobile {
+@media (max-width: $screen-xs-max) {
+  .mm-page {
+    padding-top: 60px;
+  }
+}
+
+nav#nav-mobile:not(.mm-menu) {
   opacity: 0;
+}
+
+nav#nav-mobile {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 .mm-menu {
@@ -547,12 +559,19 @@ nav#nav-mobile {
     color: $gray-lighter;
   }
   .mmenu-header {
-    background: $gray-base;
+    height: 60px;
     text-align: left;
-    a {margin-left: 58px;}
+    border-bottom: 1px solid $gray-lighter;
+    a {
+      margin-left: 58px;
+      i {
+        color: $gray-base;
+      }
+    }
   }
   .mm-navbar {
     height: 60px;
+    padding: 0;
     & > * {
       padding: 20px 0;
     }
@@ -600,6 +619,7 @@ nav#nav-mobile {
   .mm-prev:before, .mm-next:after, .mm-arrow:after {
     width: 10px;
     height: 10px;
+    border-width: 1px;
   }
   .mm-navbar .mm-title {
     color: $brand-secondary;
@@ -622,39 +642,22 @@ nav#nav-mobile {
   height: 20px;
 }
 
-.mm-footer-block {
-  display: table!important;
+.mm-listview > li.mm-footer {
+  border-color: transparent;
+  a {
+    color: $link-color;
+  }
+}
+
+.mm-social a {
   float: left;
-  width:50%!important;
-  height: 60px;
-  .inner {
-    display: table-cell;
-    vertical-align: middle;
-    color: $brand-secondary;
-    i {
-      color: $brand-secondary;
-    }
-  }
 }
 
-.mm-footer-block:nth-child(-n+2) {
-  border-bottom: 1px solid $gray-lighter;
-}
-
-.mm-social-footer,
-.mm-footer-block--left {
-  border-right: 1px solid $gray-lighter;
-}
-.mm-social-footer i {
-  width:20%;
-}
-
-.mm-close {
-  &.fa {
-    font-size: 1.5em;
-  }
+.mm-close-button {
+  font-size: 1.5em;
+  color: $gray-base;
   position: fixed;
-  top: 22px;
+  top: 19px;
   left: 16px;
   cursor: pointer;
   &:after {
@@ -667,14 +670,19 @@ nav#nav-mobile {
 }
 
 .mm-panels > .mm-panel.mm-hasnavbar {
-    padding-top: 60px;
+  padding-top: 0px;
+}
+
+.mm-hasnavbar-top-1 .mm-panels {
+  top: 60px;
 }
 
 .mm-hasnavbar-top-2 .mm-panels {
   top: 120px;
 }
 
-.mm-hasnavbar-bottom-2 .mm-panels {
+.mm-hasnavbar-bottom-2 .mm-panels,
+.mm-hasnavbar-bottom-4 .mm-panels {
   bottom: 120px;
 }
 
@@ -686,6 +694,20 @@ nav#nav-mobile {
 .mm-navbar .mm-btn {
   width: 60px;
   height: 60px;
+}
+
+// Mobile only nav
+
+@media screen and (min-width: $screen-sm) {
+
+  .mobile-only-nav.mm-menu.mm-current {
+    display: none;
+
+    ~ #mm-blocker {
+      display: none;
+    }
+  }
+
 }
 
 // Custom Section Navs

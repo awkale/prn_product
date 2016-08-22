@@ -27,10 +27,13 @@
 @import "font-awesome";
 @import "bootstrap-chosen-variables";
 @import "bootstrap-chosen";
-@import "custom";
 
 @import "prn-fonts";
 @import "black-tie";
+
+@import "jquery.custom-mmenu";
+@import "custom";
+
 
 
 @media (min-width: $screen-sm) {
@@ -44,17 +47,10 @@
   main {
     padding-bottom: 100px;
     padding-top: 150px;
+    min-height: 1200px;
   }
 
   .index ol { padding-left: 0; }
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;
 }
 
 .nav-main {
@@ -78,16 +74,12 @@ footer {
   }
 }
 
-.zEWidget-launcher {
-  bottom: 50px !important;
-}
-
 td i {
   margin-right: 10px;
 }
 
 .spinner {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   font-size: 5em;
@@ -95,3 +87,18 @@ td i {
   color: $brand-action;
 }
 
+main {
+  position: relative;
+}
+
+.faded {
+  @include opacity(.4);
+}
+
+.filters ul {
+  list-style: none;
+  padding-left: 16px;
+  ul {
+    padding-left: 10px;
+  }
+}

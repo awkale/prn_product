@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
 
   has_many :distributions, dependent: :destroy
   has_many :recipients, through: :distributions
+  belongs_to :product_line
 
   validates :product_name, presence: true, uniqueness: true
   validates :base_price, numericality: true

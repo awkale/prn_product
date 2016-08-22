@@ -5,7 +5,7 @@
       <tbody>
         <% @channels.each do |c| %>
         <tr>
-          <td><%= link_to c.channel_name, c %> <span class="badge"><%= c.recipients.size %></span></td>
+          <td><%= link_to c.channel_name, c %></td>
           <td>
             <% if current_user.admin %>
             <%= link_to  'Edit', edit_channel_path(c)%>

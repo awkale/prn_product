@@ -1,0 +1,11 @@
+<div class="row product_lines index">
+  <div class="col-sm-8">
+    <h2 class="section-header">Product Lines
+    <% if current_user.admin %>
+      <%= link_to 'New Product Line', new_product_line_path, { :class => "btn btn-sm btn-link pull-right" } %>
+    <% end %></h2>
+    <ol class="sortable_tree" data-rebuild_url="<%= rebuild_product_lines_path %>"">
+      <%= sortable_tree @product_lines, :type => :sortable, :title => :product_line, :max_levels => 5 %>
+    </ol>
+  </div>
+</div>

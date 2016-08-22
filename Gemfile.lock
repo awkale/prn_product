@@ -54,6 +54,9 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
     builder (3.2.2)
+    bullet (5.2.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     byebug (8.2.0)
     capybara (2.7.1)
       addressable
@@ -156,6 +159,10 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.4.1)
       launchy (~> 2.2)
+    lol_dba (2.0.3)
+      actionpack (>= 3.0, < 5.0)
+      activerecord (>= 3.0, < 5.0)
+      railties (>= 3.0, < 5.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -165,6 +172,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.8.3)
     multi_json (1.11.2)
+    newrelic_rpm (3.16.0.318)
     nokogiri (1.6.6.4)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -178,6 +186,8 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     rack (1.6.4)
+    rack-attack (4.4.1)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.4)
@@ -235,6 +245,7 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    rusage (0.2.0)
     sass (3.4.19)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -242,6 +253,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    scout_apm (2.0.0.pre8)
+      rusage (~> 0.2.0)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -274,6 +287,7 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unicode_utils (1.4.0)
+    uniform_notifier (1.10.0)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -291,6 +305,7 @@ DEPENDENCIES
   awesome_nested_set
   better_errors
   bootstrap-sass (~> 3.3.5)
+  bullet
   byebug
   capybara-webkit
   chosen-rails
@@ -311,22 +326,25 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   letter_opener
+  lol_dba
+  newrelic_rpm
   pg
   pry
   pry-nav
   pry-rails (~> 0.3.2)
+  rack-attack
   rails (= 4.2.4)
   rails_12factor
   recaptcha
   rspec-rails
   sass-rails (~> 5.0)
+  scout_apm (~> 2.0.x)
   sdoc (~> 0.4.0)
   shoulda-matchers
   simple_bdd
   simple_form
   spring
   the_sortable_tree (~> 2.5.0)
-  turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
 

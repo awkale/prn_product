@@ -5,7 +5,7 @@
       <tbody>
         <% @tickers.each do |tick| %>
         <tr>
-          <td><%= link_to tick.ticker_type , tick%> <span class="badge"><%= tick.recipients.size %></span></td>
+          <td><%= link_to tick.ticker_type , tick%></td>
           <td><% if current_user.admin %><%= link_to 'Edit', edit_ticker_path(tick) %><% end %></td>
         </tr>
         <% end %>

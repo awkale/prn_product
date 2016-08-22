@@ -8,13 +8,7 @@ body {
   overflow-x: hidden;
   @media (max-width: $screen-xs-max) {
     .mm-page {
-      padding-top: 80px;
       background-color: #fff;
-    }
-    &.solutions .mm-page,
-    &.home-page .mm-page,
-    &.page-404 .mm-page {
-      padding-top: 60px;
     }
   }
 }

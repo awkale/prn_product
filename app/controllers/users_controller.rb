@@ -3,7 +3,15 @@ class UsersController < ApplicationController
   layout 'page'
 
   def index
-    @users = User.all
+    if current_user.admin?
+      if params[:limit]
+        @users = User.order(:email).page(params[:page]).per(params[:limit])
+      else
+        @users = User.order(:email).page(params[:page])
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def show
