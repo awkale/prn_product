@@ -15,9 +15,9 @@ class MultimediaController < ApplicationController
     params[:sort] ||= 'sort_by_name'
     @recipients = @multimedium.recipients
     if params[:limit]
-      @related_recipients = @recipients.order(sort_column + ' ' + sort_direction).includes(:multimedia, :renderings).page(params[:page]).per(params[:limit])
+      @related_recipients = @recipients.order(sort_column + ' ' + sort_direction).includes(:category, :multimedia, :renderings).page(params[:page]).per(params[:limit])
     else
-      @related_recipients = @recipients.order(sort_column + ' ' + sort_direction).includes(:multimedia, :renderings).page(params[:page])
+      @related_recipients = @recipients.order(sort_column + ' ' + sort_direction).includes(:category, :multimedia, :renderings).page(params[:page])
     end
 
     respond_to do |format|
