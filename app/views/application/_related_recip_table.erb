@@ -18,7 +18,7 @@
             <span class="label label-default"><%= ap_boolean(rr.ap) %></span>
           <% end %> <%= link_to rr.recipient_name, recipient_path(rr) %></td>
       <td><%= rr.city.present? ? rr.city : "" %></td>
-      <td><%= rr.city.present? ? rr.state : "" %></td>
+      <td><%= rr.state.present? ? rr.state : "" %></td>
       <td><%= rr.category.present? ? link_to(rr.category.name, rr.category) : "" %></td>
       <td>
         <% rr.multimedia.each do |multi| %>
