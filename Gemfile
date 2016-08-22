@@ -53,6 +53,7 @@ gem 'awesome_nested_set'
 gem "the_sortable_tree", "~> 2.5.0"
 
 gem 'newrelic_rpm'
+gem 'scout_apm', '~> 2.0.x'
 
 
 # Use ActiveModel has_secure_password
@@ -86,7 +87,6 @@ group :development do
   gem 'spring'
   gem 'bullet'
   gem 'lol_dba'
-  gem 'scout_apm', '~> 2.0.x'
 end
 
 group :production do
