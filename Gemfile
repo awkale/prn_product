@@ -51,6 +51,8 @@ gem 'jquery-turbolinks'
 
 gem 'awesome_nested_set'
 gem "the_sortable_tree", "~> 2.5.0"
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
+gem "recaptcha", require: "recaptcha/rails"
 
 gem 'newrelic_rpm'
 gem 'scout_apm', '~> 2.0.x'
