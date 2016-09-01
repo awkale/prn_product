@@ -58,6 +58,8 @@ gem 'scout_apm', '~> 2.0.x'
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem "recaptcha", require: "recaptcha/rails"
 
+gem 'ransack'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

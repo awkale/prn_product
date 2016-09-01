@@ -1,17 +1,33 @@
+<%= search_form_for @search do |f| %>
 <div class="panel-group filters" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="industries">
+    <div class="panel-heading" role="tab" id="recipientName">
       <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseIndustries" aria-expanded="true" aria-controls="collapseIndustries">
-          <i class="btb bt-angle-down bt-sm"></i> Industries
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseRecipientName" aria-expanded="true" aria-controls="collapseRecipientName">
+          <i class="btb bt-angle-down bt-sm"></i> Recipient Name
         </a>
       </h4>
     </div>
-    <div id="collapseIndustries" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="industries">
+    <div id="collapseRecipientName" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="recipientName">
       <div class="panel-body">
-        <%= sorted_nested_ul(@industries, :industry_name) do |ind| %>
-          <%= link_to ind.industry_name, ind %>
-        <% end %>
+        <div class="form-group">
+          <%= f.label :recipient_name_or_alternate_name_cont, "Recipient Name" %>
+          <%= f.text_field :recipient_name_or_alternate_name_cont, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="industries">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseIndustries" aria-expanded="false" aria-controls="collapseIndustries">
+          <i class="btb bt-angle-right bt-sm"></i> Industries
+        </a>
+      </h4>
+    </div>
+    <div id="collapseIndustries" class="panel-collapse collapse" role="tabpanel" aria-labelledby="industries">
+      <div class="panel-body">
+
       </div>
     </div>
   </div>
@@ -25,11 +41,7 @@
     </div>
     <div id="collapseSubjects" class="panel-collapse collapse" role="tabpanel" aria-labelledby="subjects">
       <div class="panel-body">
-        <% @subjects.each do |sub| %>
-        <ul>
-          <li><%= link_to(sub.subject_name, sub) %></li>
-        </ul>
-        <% end %>
+
       </div>
     </div>
   </div>
@@ -43,11 +55,7 @@
     </div>
     <div id="collapseCategories" class="panel-collapse collapse" role="tabpanel" aria-labelledby="categories">
       <div class="panel-body">
-        <% @categories.each do |cat| %>
-        <ul>
-          <li><%= link_to cat.name , cat%></li>
-        </ul>
-        <% end %>
+
       </div>
     </div>
   </div>
@@ -61,12 +69,10 @@
     </div>
     <div id="collapseMultimedia" class="panel-collapse collapse" role="tabpanel" aria-labelledby="multimedia">
       <div class="panel-body">
-        <% @multimedia.each do |multi| %>
-        <ul>
-          <li><%= link_to multi.media_type , multi%></li>
-        </ul>
-        <% end %>
+
       </div>
     </div>
   </div>
 </div>
+<%= f.submit "Search", class: "btn btn-default" %>
+<% end %>
