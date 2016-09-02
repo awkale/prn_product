@@ -22,26 +22,14 @@
         <%= paginate @recipients, :theme => 'bootstrap' %>
       </div>
     </div>
-    <div class="row mb-md mt-md">
-      <div class="col-sm-12">
-        <%= form_tag recipients_path, method: 'get', class: "form-inline search" do  %>
-        <div class="form-group">
-          <label class="sr-only" for="search">Search recipient name</label>
-          <%= text_field_tag :search, params[:search], placeholder: "Search recipient name", class: "form-control" %>
-        </div>
-        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-        <%= link_to("View all recipients", recipients_path, {class: "btn btn-link"}) %>
-        <% end %>
-      </div>
-    </div>
     <div class="table-responsive">
-      <table class="table table-striped">
+      <table class="table table-hover table-condensed">
         <thead>
           <tr>
-            <th><%= sortable 'sort_by_name', 'Recipient' %></th>
-            <th><%= sortable 'city' %></th>
-            <th><%= sortable 'state' %></th>
-            <th><%= sortable 'category_id', 'Category' %></th>
+            <th><%= sort_link(@search, 'sort_by_name', 'Recipient') %></th>
+            <th><%= sort_link(@search, 'city') %></th>
+            <th><%= sort_link(@search, 'state') %></th>
+            <th><%= sort_link(@search, 'category_id', 'Category') %></th>
             <th>Multimedia</th>
             <% if current_user.admin %>
             <th>Actions</th>

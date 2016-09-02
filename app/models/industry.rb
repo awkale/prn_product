@@ -8,4 +8,8 @@ class Industry < ActiveRecord::Base
   validates :industry_name, presence: true, uniqueness: true
 
   default_scope { order('industry_name')}
+
+  # def self.ransackable_attributes(auth_object = nil)
+  #   ['industry_name']
+  # end
 end

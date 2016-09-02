@@ -20,13 +20,9 @@ class Recipient < ActiveRecord::Base
   validates :recipient_name, presence: true, uniqueness: true
 
   accepts_nested_attributes_for :products, reject_if: proc { |attributes| attributes['product_name'].blank? }
-  # default_scope { order('recipient_name') }
+  # default_scope { order('sort_by_name') }
 
   after_validation :add_sort_name
-
-  def self.search(search)
-    where("recipient_name ilike ? OR alternate_name ilike ?", "%#{search}%", "%#{search}%")
-  end
 
   def add_sort_name
     self.sort_by_name = self.create_sort_name
@@ -35,4 +31,8 @@ class Recipient < ActiveRecord::Base
   def create_sort_name
     recipient_name.downcase.sub(/^the |^a |^an |^ /i,"")
   end
+
+  # def self.ransackable_attributes(auth_object = nil)
+  #   ['recipient_name', 'alternate_name', 'description', 'city', 'state']
+  # end
 end
