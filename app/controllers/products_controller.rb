@@ -16,6 +16,11 @@ class ProductsController < ApplicationController
 
   def show
     @related_recipients = @product.recipients
+    @search = @related_recipients.ransack(params[:q])
+    @search.sorts = 'sort_by_name asc' if @search.sorts.empty?
+    @related_recipients = @search.result(distinct: true)
+                         .includes(:category, :multimedia)
+                         .page(params[:page]).per(params[:limit])
   end
 
   def create
