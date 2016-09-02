@@ -54,7 +54,7 @@
         :id,
         :subject_name,
         {include_blank: true},
-        {class: "form-control"}
+        {class: "form-control", :multiple => true}
       ) %>
       </div>
     </div>
@@ -70,12 +70,12 @@
     <div id="collapseCategories" class="panel-collapse collapse" role="tabpanel" aria-labelledby="categories">
       <div class="panel-body">
       <%= f.collection_select(
-        :category_id_eq,
+        :category_id_in,
         Category.all,
         :id,
         :name,
         {include_blank: true},
-        {class: "form-control"}
+        {class: "form-control", :multiple => true}
       ) %>
       </div>
     </div>
@@ -96,7 +96,7 @@
         :id,
         :media_type,
         {include_blank: true},
-        {class: "form-control"}
+        {class: "form-control", :multiple => true}
       ) %>
       </div>
     </div>
