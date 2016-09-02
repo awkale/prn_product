@@ -5,9 +5,9 @@ class RecipientsController < ApplicationController
   def index
     @search = Recipient.ransack(params[:q])
     @search.sorts = 'sort_by_name asc' if @search.sorts.empty?
-    @recipients = @search.result
+    @recipients = @search.result(distinct: true)
                          .includes(:category, :multimedia)
-                         .page(params[:page])
+                         .page(params[:page]).per(params[:limit])
   end
 
   def new

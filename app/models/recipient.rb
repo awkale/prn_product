@@ -32,7 +32,7 @@ class Recipient < ActiveRecord::Base
     recipient_name.downcase.sub(/^the |^a |^an |^ /i,"")
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    ['recipient_name', 'alternate_name', 'description', 'city', 'state']
-  end
+  # def self.ransackable_attributes(auth_object = nil)
+  #   ['recipient_name', 'alternate_name', 'description', 'city', 'state']
+  # end
 end

@@ -9,7 +9,7 @@ class Industry < ActiveRecord::Base
 
   default_scope { order('industry_name')}
 
-  def self.ransackable_attributes(auth_object = nil)
-    ['industry_name']
-  end
+  # def self.ransackable_attributes(auth_object = nil)
+  #   ['industry_name']
+  # end
 end

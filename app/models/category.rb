@@ -4,7 +4,7 @@ class Category < ActiveRecord::Base
 
   default_scope { order('name')}
 
-  def self.ransackable_attributes(auth_object = nil)
-    ['name']
-  end
+  # def self.ransackable_attributes(auth_object = nil)
+  #   ['name']
+  # end
 end
