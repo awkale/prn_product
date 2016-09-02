@@ -1,10 +1,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= sortable 'product_name', 'Product' %></th>
-      <th><%= sortable 'code' %></th>
-      <th><%= sortable 'base_price' %></th>
-      <th><%= sortable 'length_price' %></th>
       <% if current_user.admin %>
       <th>Actions</th>
       <% end %>
