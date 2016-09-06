@@ -32,6 +32,11 @@ class Recipient < ActiveRecord::Base
     recipient_name.downcase.sub(/^the |^a |^an |^ /i,"")
   end
 
+  def country_name
+    country = ISO3166::Country[self.country]
+    country.translations[I18n.locale.to_s] || country.name
+  end
+
   # def self.ransackable_attributes(auth_object = nil)
   #   ['recipient_name', 'alternate_name', 'description', 'city', 'state']
   # end
