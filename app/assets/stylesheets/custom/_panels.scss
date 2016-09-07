@@ -131,16 +131,12 @@
   }
 }
 
-.recipients {
+.recipients, .products {
   .panel-title {
     a {
       &:hover, &:focus {
         text-decoration: none;
       }
     }
-  }
-  .panel-body {
-    max-height: 250px;
-    overflow: auto;
   }
 }

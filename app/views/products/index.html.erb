@@ -45,8 +45,8 @@
               ProductLine.all,
               :id,
               :product_line,
-              {include_blank: 'All'},
-              {class: "form-control", :multiple => true}
+              {prompt: 'Choose a product line'},
+              {class: "form-control chosen-select", :multiple => true}
             ) %>
           </div>
         </div>
