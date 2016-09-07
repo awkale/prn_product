@@ -11,17 +11,13 @@ class Product < ActiveRecord::Base
   default_scope { order('product_name') }
 
   def self.to_csv
-    attributes = %w{recipient_name description city state category_name}
+    attributes = %w{recipient_name description city state}
     CSV.generate(headers: true) do |csv|
       csv << attributes
       all.each do |recip|
         csv << attributes.map{|attr| recip.send(attr)}
       end
     end
-  end
-
-  def category_name
-    "#{category.name}"
   end
 
 end
