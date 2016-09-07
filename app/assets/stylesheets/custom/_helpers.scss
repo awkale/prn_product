@@ -42,6 +42,12 @@
 .mr-lg { margin-right: 20px;}
 .mr-xl { margin-right: 30px;}
 
+.ml-xs { margin-left: 5px;}
+.ml-sm { margin-left: 10px;}
+.ml-md { margin-left: 15px;}
+.ml-lg { margin-left: 20px;}
+.ml-xl { margin-left: 30px;}
+
 .section-header-match {
   @media (min-width: $screen-sm-min) {
     margin-top: 60px;
