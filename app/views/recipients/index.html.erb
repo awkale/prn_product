@@ -1,13 +1,13 @@
 <div class="row recipients index">
   <div class="col-sm-12">
     <% if current_user.admin %>
-    <%= link_to '<i class="btr bt-plus"></i>'.html_safe,
+    <%= link_to '<i class="btb bt-plus"></i>'.html_safe,
       new_recipient_path,
       { class: "btn btn-default mt-lg btn-sm pull-right ml-sm btn--header", title: "New Recipient"}
     %>
     <% end %>
     <% if params[:q].present? %>
-    <%= link_to '<i class="btr bt-download"></i>'.html_safe,
+    <%= link_to '<i class="btb bt-download"></i>'.html_safe,
       recipients_path(params.merge(format: "csv")),
       { class: "btn btn-default mt-lg btn-sm pull-right btn--header", title: "Download Results"}
     %>

@@ -2,7 +2,7 @@
 <h1 class="section-header">
   <%= @product.product_name %>
   <% if current_user.admin %>
-  <%= link_to '<i class="btr bt-edit"></i>'.html_safe,
+  <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
   edit_product_path,
   { class: "base-text", title: "Edit Product"}
   %>
@@ -42,7 +42,7 @@
     </div>
   </div>
   <div class="col-sm-12">
-    <%= link_to '<i class="btr bt-download"></i>'.html_safe,
+    <%= link_to '<i class="btb bt-download"></i>'.html_safe,
       product_path(format: "csv"),
       { class: "btn btn-default btn-sm pull-right btn--header", title: "Download Results"}
     %>

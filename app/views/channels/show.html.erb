@@ -2,7 +2,7 @@
 <h1>
   <%= @channel.channel_name %>
   <% if current_user.admin %>
-    <%= link_to '<i class="btr bt-edit"></i>'.html_safe,
+    <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
         edit_channel_path,
         {:class => "btn btn-lg btn-link"}
     %>
