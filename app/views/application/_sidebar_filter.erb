@@ -34,7 +34,7 @@
           Industry.all,
           :id,
           :industry_name,
-          {prompt: 'Choose an industry'},
+          {},
           {class: "form-control chosen-select", :multiple => true}
         ) %>
       </div>
@@ -55,7 +55,7 @@
         Subject.all,
         :id,
         :subject_name,
-        {prompt: 'Choose a subject'},
+        {},
         {class: "form-control chosen-select", :multiple => true}
       ) %>
       </div>
@@ -76,7 +76,7 @@
         Category.all,
         :id,
         :name,
-        {prompt: 'Choose a category'},
+        {},
         {class: "form-control chosen-select", :multiple => true}
       ) %>
       </div>
@@ -97,7 +97,7 @@
         Multimedium.all,
         :id,
         :media_type,
-        {prompt: 'Choose media type'},
+        {},
         {class: "form-control chosen-select", :multiple => true}
       ) %>
       </div>

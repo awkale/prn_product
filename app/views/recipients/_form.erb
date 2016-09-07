@@ -33,7 +33,7 @@
                                   Ticker.all,
                                   :id,
                                   :ticker_type,
-                                  {prompt: 'Choose a ticker requirement'},
+                                  {include_blank: true},
                                   {class: "form-control chosen-select"}
        %>
      </div>
@@ -45,7 +45,7 @@
                                  Category.all,
                                  :id,
                                  :name,
-                                 {prompt: 'Choose a category'},
+                                 {include_blank: true},
                                  {class: "form-control chosen-select"}
       %>
     </div>
@@ -54,7 +54,7 @@
       <%= form.collection_select :industry_ids,
                                  Industry.order(:industry_name),
                                  :id, :industry_name,
-                                 {prompt: 'Choose an industry'},
+                                 {},
                                  {class: "form-control chosen-select",
                                   :multiple => true }
       %>
@@ -65,7 +65,7 @@
                                  Subject.order(:subject_name),
                                  :id,
                                  :subject_name,
-                                 {prompt: 'Choose a subject'},
+                                 {},
                                  {class: "form-control chosen-select",
                                   :multiple => true }
       %>
@@ -76,7 +76,7 @@
                                  Multimedium.order(:media_type),
                                  :id,
                                  :media_type,
-                                 {prompt: 'Choose a subject'},
+                                 {},
                                  {class: "form-control chosen-select",
                                   :multiple => true }
       %>
@@ -94,7 +94,7 @@
                                  Channel.order(:channel_name),
                                  :id,
                                  :channel_name,
-                                 {prompt: 'Choose a channel'},
+                                 {},
                                  {class: "form-control chosen-select",
                                   :multiple => true }
       %>
@@ -108,7 +108,7 @@
                                  Product.order(:product_name),
                                  :id,
                                  :product_name,
-                                 {prompt: 'Choose a product'},
+                                 {},
                                  {class: "form-control chosen-select",
                                   :multiple => true }
       %>
