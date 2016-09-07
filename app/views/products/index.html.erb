@@ -24,7 +24,9 @@
         <div id="collapseProducts" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="products">
           <div class="panel-body">
             <%= f.text_field :product_name_cont,
-              class: "form-control" %>
+              class: "form-control",
+              placeholder: "Search product name"
+               %>
           </div>
         </div>
       </div>
@@ -43,7 +45,7 @@
               ProductLine.all,
               :id,
               :product_line,
-              {include_blank: true},
+              {include_blank: 'All'},
               {class: "form-control", :multiple => true}
             ) %>
           </div>

@@ -43,7 +43,7 @@
   </div>
   <div class="col-sm-12">
     <%= link_to '<i class="btr bt-download"></i>'.html_safe,
-      product_path(params.merge(format: "csv")),
+      product_path(format: "csv"),
       { class: "btn btn-default btn-sm pull-right btn--header", title: "Download Results"}
     %>
     <h2 class="section-header h4">
