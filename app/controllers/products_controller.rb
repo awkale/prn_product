@@ -18,9 +18,16 @@ class ProductsController < ApplicationController
     @related_recipients = @product.recipients
     @search = @related_recipients.ransack(params[:q])
     @search.sorts = 'sort_by_name asc' if @search.sorts.empty?
-    @related_recipients = @search.result(distinct: true)
+    @csv_related_recipients = @search.result(distinct: true)
                          .includes(:category, :multimedia)
-                         .page(params[:page]).per(params[:limit])
+    @related_recipients = @csv_related_recipients.page(params[:page]).per(params[:limit])
+    respond_to do |format|
+      format.html
+      format.csv {
+        send_data @csv_related_recipients.to_csv,
+        filename: "recipients-#{Date.today}.csv"
+      }
+    end
   end
 
   def create

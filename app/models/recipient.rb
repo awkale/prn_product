@@ -46,6 +46,7 @@ class Recipient < ActiveRecord::Base
       end
     end
   end
+
   def category_name
     "#{category.name}"
   end
