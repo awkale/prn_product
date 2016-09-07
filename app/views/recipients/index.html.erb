@@ -6,10 +6,15 @@
       <% end %>
       <span class="text-muted small">(<%= number_with_delimiter(@recipients.size) + ' of ' + number_with_delimiter(@recipients.total_count) %>)</span>
       <% if current_user.admin %>
-      <%= link_to 'New Recipient',
-      new_recipient_path,
-      { :class => "btn btn-sm btn-link pull-right"} %>
+      <%= link_to '<i class="btr bt-plus-square"></i>'.html_safe,
+        new_recipient_path,
+        { class: "mt-xs ml-sm pull-right", title: "New Recipient"}
+      %>
       <% end %>
+      <%= link_to '<i class="btr bt-download"></i>'.html_safe,
+        recipients_path(params.merge(format: "csv")),
+        { class: "mt-xs ml-sm pull-right", title: "Download Results"}
+      %>
     </h2>
   </div>
   <div class="col-sm-3">

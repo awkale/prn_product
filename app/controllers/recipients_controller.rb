@@ -5,9 +5,16 @@ class RecipientsController < ApplicationController
   def index
     @search = Recipient.ransack(params[:q])
     @search.sorts = 'sort_by_name asc' if @search.sorts.empty?
-    @recipients = @search.result(distinct: true)
-                         .includes(:category, :multimedia)
-                         .page(params[:page]).per(params[:limit])
+    @csv_recipients = @search.result(distinct: true).includes(:category, :multimedia)
+    @recipients = @csv_recipients.page(params[:page]).per(params[:limit])
+
+    respond_to do |format|
+      format.html
+      format.csv {
+        send_data @csv_recipients.to_csv,
+        filename: "recipients-#{Date.today}.csv"
+      }
+    end
   end
 
   def new
