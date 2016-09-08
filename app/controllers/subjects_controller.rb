@@ -60,7 +60,7 @@ class SubjectsController < ApplicationController
 
   private
   def find_subject
-    @subject = Subject.find(params[:id])
+    @subject = Subject.friendly.find(params[:id])
   end
 
   def subject_params

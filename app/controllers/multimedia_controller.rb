@@ -58,7 +58,7 @@ class MultimediaController < ApplicationController
 
   private
   def find_multimedium
-    @multimedium = Multimedium.find(params[:id])
+    @multimedium = Multimedium.friendly.find(params[:id])
   end
 
   def multimedium_params

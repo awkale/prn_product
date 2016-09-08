@@ -60,7 +60,7 @@ class TickersController < ApplicationController
 
   private
   def find_ticker
-    @ticker = Ticker.find(params[:id])
+    @ticker = Ticker.friendly.find(params[:id])
   end
 
   def ticker_params

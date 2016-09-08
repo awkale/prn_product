@@ -1,4 +1,7 @@
 class Industry < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :industry_name, use: :slugged
+
   acts_as_nested_set
   include TheSortableTree::Scopes
 

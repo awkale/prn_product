@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908215540) do
+ActiveRecord::Schema.define(version: 20160908222658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,13 +34,19 @@ ActiveRecord::Schema.define(version: 20160908215540) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
   end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
   create_table "channels", force: :cascade do |t|
     t.string   "channel_name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "slug"
   end
+
+  add_index "channels", ["slug"], name: "index_channels_on_slug", unique: true, using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -90,18 +96,23 @@ ActiveRecord::Schema.define(version: 20160908215540) do
     t.integer  "children_count", default: 0, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "slug"
   end
 
   add_index "industries", ["lft"], name: "index_industries_on_lft", using: :btree
   add_index "industries", ["parent_id"], name: "index_industries_on_parent_id", using: :btree
   add_index "industries", ["rgt"], name: "index_industries_on_rgt", using: :btree
+  add_index "industries", ["slug"], name: "index_industries_on_slug", unique: true, using: :btree
 
   create_table "multimedia", force: :cascade do |t|
     t.string   "media_type"
     t.string   "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
   end
+
+  add_index "multimedia", ["slug"], name: "index_multimedia_on_slug", unique: true, using: :btree
 
   create_table "product_lines", force: :cascade do |t|
     t.string   "product_line"
@@ -112,11 +123,13 @@ ActiveRecord::Schema.define(version: 20160908215540) do
     t.integer  "children_count", default: 0, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "slug"
   end
 
   add_index "product_lines", ["lft"], name: "index_product_lines_on_lft", using: :btree
   add_index "product_lines", ["parent_id"], name: "index_product_lines_on_parent_id", using: :btree
   add_index "product_lines", ["rgt"], name: "index_product_lines_on_rgt", using: :btree
+  add_index "product_lines", ["slug"], name: "index_product_lines_on_slug", unique: true, using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "product_name"
@@ -196,13 +209,19 @@ ActiveRecord::Schema.define(version: 20160908215540) do
     t.string   "subject_name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "slug"
   end
+
+  add_index "subjects", ["slug"], name: "index_subjects_on_slug", unique: true, using: :btree
 
   create_table "tickers", force: :cascade do |t|
     t.string   "ticker_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "slug"
   end
+
+  add_index "tickers", ["slug"], name: "index_tickers_on_slug", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -226,11 +245,13 @@ ActiveRecord::Schema.define(version: 20160908215540) do
     t.integer  "failed_attempts",        default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.string   "slug"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
   add_foreign_key "distributions", "products"
   add_foreign_key "distributions", "recipients"

@@ -59,7 +59,7 @@ class ChannelsController < ApplicationController
 
   private
   def find_channel
-    @channel = Channel.find(params[:id])
+    @channel = Channel.friendly.find(params[:id])
   end
 
   def channel_params

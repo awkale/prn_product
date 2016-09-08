@@ -1,4 +1,6 @@
 class Channel < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :channel_name, use: :slugged
 
   has_many :recipient_channels, dependent: :destroy
   has_many :recipients, through: :recipient_channels

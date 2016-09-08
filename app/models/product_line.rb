@@ -1,4 +1,7 @@
 class ProductLine < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :product_line, use: :slugged
+
   acts_as_nested_set
   include TheSortableTree::Scopes
 

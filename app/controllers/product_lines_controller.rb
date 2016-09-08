@@ -67,7 +67,7 @@ class ProductLinesController < ApplicationController
 
   private
   def find_product_line
-    @product_line = ProductLine.find(params[:id])
+    @product_line = ProductLine.friendly.find(params[:id])
   end
 
   def product_line_params

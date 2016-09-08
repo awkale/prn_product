@@ -69,7 +69,7 @@ class IndustriesController < ApplicationController
 
   private
   def find_industry
-    @industry = Industry.find(params[:id])
+    @industry = Industry.friendly.find(params[:id])
   end
 
   def industry_params

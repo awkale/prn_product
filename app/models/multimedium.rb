@@ -1,4 +1,7 @@
 class Multimedium < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :media_type, use: :slugged
+
   has_many :renderings, dependent: :destroy
   has_many :recipients, through: :renderings
 
