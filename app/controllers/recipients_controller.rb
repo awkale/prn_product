@@ -64,7 +64,7 @@ class RecipientsController < ApplicationController
 
   private
   def find_recipient
-    @recipient = Recipient.find(params[:id])
+    @recipient = Recipient.friendly.find(params[:id])
   end
 
   def recipient_params

@@ -1,4 +1,14 @@
 class Recipient < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :recipient_name, use: :slugged
+
+  def slug_candidates
+     [
+       :recipient_name,
+       [:recipient_name, :city]
+     ]
+  end
+
   has_many :distributions, dependent: :destroy
   has_many :products, through: :distributions
 
