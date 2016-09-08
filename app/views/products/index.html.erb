@@ -62,6 +62,7 @@
       <thead>
         <tr>
           <th><%= sort_link(@search, 'product_name') %></th>
+          <th><%= sort_link(@search, 'product_line_id', 'Product Line') %></th>
           <% if current_user.admin %>
           <th>Actions</th>
           <% end %>
@@ -70,15 +71,15 @@
       <tbody>
       <% @products.each do |product| %>
         <tr>
-          <td><%= link_to product.product_name,
-                    product
+          <td><%= link_to product.product_name, product %></td>
+          <td><%= product.product_line.present? ? link_to(product.product_line.product_line, product.product_line) : "" %></td>
+          <td>
+            <% if current_user.admin %>
+              <%= link_to 'edit',
+                          edit_product_path(product)
               %>
+            <% end %>
           </td>
-          <td><% if current_user.admin %>
-            <%= link_to 'edit',
-                        edit_product_path(product)
-            %>
-        <% end %></td>
         </tr>
       <% end %>
       </tbody>
