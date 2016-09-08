@@ -30,7 +30,7 @@ class Product < ActiveRecord::Base
   end
 
   def category_name
-    "#{category.name}"
+    "#{recipient.category.name}"
   end
 
 end

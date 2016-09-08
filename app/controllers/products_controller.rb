@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
       format.html
       format.csv {
         send_data @csv_related_recipients.to_csv,
-        filename: "recipients-#{product_path}-#{Date.today}.csv"
+        filename: "#{@product.product_name}-recipients-#{Date.today}.csv"
       }
     end
   end
