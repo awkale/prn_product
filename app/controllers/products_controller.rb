@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
       format.html
       format.csv {
         send_data @csv_related_recipients.to_csv,
-        filename: "recipients-#{Date.today}.csv"
+        filename: "recipients-#{product_path}-#{Date.today}.csv"
       }
     end
   end
@@ -70,7 +70,7 @@ class ProductsController < ApplicationController
 
   private
   def find_product
-    @product = Product.find(params[:id])
+    @product = Product.friendly.find(params[:id])
   end
 
   def product_params

@@ -1,4 +1,13 @@
 class Product < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :product_name, use: :slugged
+
+  def slug_candidates
+     [
+       :product_name,
+       [:product_name, :code]
+     ]
+  end
 
   has_many :distributions, dependent: :destroy
   has_many :recipients, through: :distributions
