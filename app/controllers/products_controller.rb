@@ -18,9 +18,9 @@ class ProductsController < ApplicationController
     @related_recipients = @product.recipients
     @search = @related_recipients.ransack(params[:q])
     @search.sorts = 'sort_by_name asc' if @search.sorts.empty?
-    @csv_related_recipients = @search.result(distinct: true)
-                         .includes(:category, :multimedia)
+    @csv_related_recipients = @search.result(distinct: true).includes(:category, :multimedia)
     @related_recipients = @csv_related_recipients.page(params[:page]).per(params[:limit])
+
     respond_to do |format|
       format.html
       format.csv {
