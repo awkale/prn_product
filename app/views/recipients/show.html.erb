@@ -99,7 +99,7 @@
       <% end %>
     </ol>
     <h2 class="section-header h4"><%= number_with_delimiter(@recipient.products.size) %> Related <%= 'Product'.pluralize(@recipient.products.count) %></h2>
-    <table class="table table-striped">
+    <table class="table table-hover table-condensed">
       <% @recipient.products.each do |mp_p|%>
       <tr>
         <td>

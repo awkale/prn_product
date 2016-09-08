@@ -1,7 +1,7 @@
 <div class="row multimedia index">
   <div class="col-sm-8">
     <h2 class="section-header">Multimedia <% if current_user.admin %><%= link_to 'New Multimedium', new_multimedium_path, { :class => "btn btn-sm btn-link pull-right" } %><% end %></h2>
-    <table class="table table-striped">
+    <table class="table table-hover table-condensed">
       <tbody>
         <% @multimedia.each do |multi| %>
         <tr>

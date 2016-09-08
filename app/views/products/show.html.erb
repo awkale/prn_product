@@ -50,7 +50,9 @@
       <%= number_with_delimiter(@product.recipients.size) %> Related <%= 'Recipient'.pluralize(@product.recipients.count) %>
 
     </h2>
+    <%= paginate @related_recipients, :theme => 'bootstrap' %>
     <%= render 'related_recip_table' %>
+    <%= paginate @related_recipients, :theme => 'bootstrap' %>
   </div>
 </div>
 <hr>
