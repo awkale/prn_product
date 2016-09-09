@@ -1,6 +1,6 @@
 class Ticker < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :ticker_type, use: :slugged
+  friendly_id :ticker_type, use: [:slugged, :finders]
 
   has_many :recipients
   validates :ticker_type, presence: true, uniqueness: true

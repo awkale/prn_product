@@ -1,6 +1,6 @@
 class Subject < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :subject_name, use: :slugged
+  friendly_id :subject_name, use: [:slugged, :finders]
 
   has_many :recipient_subjects, dependent: :destroy
   has_many :recipients, through: :recipient_subjects
