@@ -12,12 +12,21 @@
     <%= form.input :sort_by_name,
                    placeholder: 'Sort by Name'
     %>
-    <%= form.input :city,
-                   placeholder: 'City'
+    <%= form.input :slug,
+                   placeholder: 'Slug'
     %>
-    <%= form.input :state,
-                   placeholder: 'State'
-    %>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= form.input :city,
+                       placeholder: 'City'
+        %>
+      </div>
+      <div class="col-sm-6">
+        <%= form.input :state,
+                       placeholder: 'State'
+        %>
+      </div>
+    </div>
     <%= form.input :country,
                    as: :country,
                    priority: ['US', 'CA']
@@ -27,18 +36,18 @@
                     as: :boolean,
                     label: 'AP'
      %>
-     <div class="form-group">
-       <label for="recipient_ticker_id">Ticker Requirements</label>
-       <%= form.collection_select :ticker_id,
-                                  Ticker.all,
-                                  :id,
-                                  :ticker_type,
-                                  {include_blank: true},
-                                  {class: "form-control chosen-select"}
-       %>
-     </div>
   </div>
   <div class="col-sm-6">
+    <div class="form-group">
+      <label for="recipient_ticker_id">Ticker Requirements</label>
+      <%= form.collection_select :ticker_id,
+                                Ticker.all,
+                                :id,
+                                :ticker_type,
+                                {include_blank: true},
+                                {class: "form-control chosen-select"}
+      %>
+    </div>
     <div class="form-group">
       <label for="recipient_category_id">Category</label>
       <%= form.collection_select :category_id,
@@ -82,7 +91,9 @@
       %>
     </div>
     <%= form.input :description,
-                   placeholder: 'Description'%>
+                   placeholder: 'Description',
+                   input_html: {rows: 5}
+    %>
   </div>
 </div>
 <div class="row">
