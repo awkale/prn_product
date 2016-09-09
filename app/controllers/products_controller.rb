@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv {
-        send_data @csv_related_recipients.to_csv,
+        send_data build_csv,
         filename: "#{@product.product_name}-recipients-#{Date.today}.csv"
       }
     end
@@ -71,6 +71,13 @@ class ProductsController < ApplicationController
   private
   def find_product
     @product = Product.friendly.find(params[:id])
+  end
+
+  def build_csv
+    CSV.generate do |csv|
+      csv << Recipient.csv_columns
+      @csv_related_recipients.each { |record| csv << record.to_csv }
+    end
   end
 
   def product_params

@@ -11,7 +11,7 @@ class RecipientsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv {
-        send_data @csv_recipients.to_csv,
+        send_data build_csv,
         filename: "recipients-#{Date.today}.csv"
       }
     end
@@ -65,6 +65,13 @@ class RecipientsController < ApplicationController
   private
   def find_recipient
     @recipient = Recipient.friendly.find(params[:id])
+  end
+
+  def build_csv
+    CSV.generate do |csv|
+      csv << Recipient.csv_columns
+      @csv_recipients.each { |record| csv << record.to_csv }
+    end
   end
 
   def recipient_params

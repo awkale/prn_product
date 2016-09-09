@@ -19,14 +19,8 @@ class Product < ActiveRecord::Base
 
   default_scope { order('product_name') }
 
-  def self.to_csv
-    attributes = %w{recipient_name  city state}
-    CSV.generate(headers: true) do |csv|
-      csv << attributes
-      all.each do |recip|
-        csv << attributes.map{|attr| recip.send(attr)}
-      end
-    end
+  def self.filter_names
+    ['id', 'category_id', 'alternate_name', 'description', 'country', 'created_at', 'updated_at', 'ap', 'ticker_id', 'sort_by_name', 'slug', "distributions.count", 'products.count', 'recipient_channels.count', 'channels.count', 'recipient_subjects.count', 'subjects.count', 'recipient_industries.count', 'industries.count', 'renderings.count', 'multimedia.count']
   end
 
 end
