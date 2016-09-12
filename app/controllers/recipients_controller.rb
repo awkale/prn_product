@@ -10,10 +10,10 @@ class RecipientsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv {
-        send_data build_csv,
-        filename: "recipients-#{Date.today}.csv"
-      }
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"recipient-list.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
     end
   end
 
