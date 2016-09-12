@@ -62,8 +62,6 @@ gem 'ransack'
 
 gem 'friendly_id', '~> 5.1.0'
 
-gem 'acts_as_csv'
-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
