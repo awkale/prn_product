@@ -1,0 +1,5 @@
+<%- headers = ['Recipient Name', 'City', 'State', 'Category'] -%>
+<%= CSV.generate_line headers %>
+<%- @csv_recipients.each do |recip| -%>
+<%= CSV.generate_line([recip.recipient_name, recip.city, recip.state, recip.category.name]) -%>
+<%- end -%>

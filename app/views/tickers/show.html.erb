@@ -1,8 +1,16 @@
 <% title @ticker.ticker_type %>
-<h1><%= @ticker.ticker_type %></h1>
+<h1>
+  <%= @ticker.ticker_type %>
+  <% if current_user.admin %>
+    <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
+        edit_ticker_path,
+        {:class => "btn btn-lg btn-link"}
+    %>
+  <% end %>
+</h1>
 <div class="row">
   <div class="col-sm-12">
-    <h2 class="section-header h4">Related recipients <% if current_user.admin %><%= link_to 'Edit Ticker', edit_ticker_path, {:class => "btn btn-sm btn-link pull-right"} %><% end %></h2>
+    <h2 class="section-header h4">Related recipients</h2>
     <%= paginate @related_recipients, :theme => 'bootstrap' %>
     <%= render 'related_recip_table' %>
     <%= paginate @related_recipients, :theme => 'bootstrap' %>

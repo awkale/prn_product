@@ -1,11 +1,13 @@
 <% title @product.product_name %>
-<% if current_user.admin %>
-<%= link_to 'Edit Product',
-edit_product_path,
-{ :class=>"btn btn-sm btn-default pull-right mt-xs btn--header" }
-%>
-<% end %>
-<h1 class="section-header"><%= @product.product_name %></h1>
+<h1 class="section-header">
+  <%= @product.product_name %>
+  <% if current_user.admin %>
+  <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
+  edit_product_path,
+  { class: "base-text", title: "Edit Product"}
+  %>
+  <% end %>
+</h1>
 <div class="row product show">
   <div class="col-sm-12">
     <dl class="">
@@ -40,8 +42,17 @@ edit_product_path,
     </div>
   </div>
   <div class="col-sm-12">
-    <h2 class="section-header h4"><% if current_user.admin %><%= number_with_delimiter(@product.recipients.size) %><% end %> Related <%= 'Recipient'.pluralize(@product.recipients.count) %> </h2>
+    <%= link_to '<i class="btb bt-download"></i>'.html_safe,
+      product_path(format: "csv"),
+      { class: "btn btn-default btn-sm pull-right btn--header", title: "Download Results"}
+    %>
+    <h2 class="section-header h4">
+      <%= number_with_delimiter(@product.recipients.size) %> Related <%= 'Recipient'.pluralize(@product.recipients.count) %>
+
+    </h2>
+    <%= paginate @related_recipients, :theme => 'bootstrap' %>
     <%= render 'related_recip_table' %>
+    <%= paginate @related_recipients, :theme => 'bootstrap' %>
   </div>
 </div>
 <hr>

@@ -1,12 +1,17 @@
 <% title @product_line.product_line %>
-<h1><%= @product_line.product_line %></h1>
+<h1>
+  <%= @product_line.product_line %>
+  <% if current_user.admin %>
+    <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
+        edit_product_line_path,
+        {:class => "btn btn-lg btn-link"}
+    %>
+  <% end %>
+</h1>
 <div class="row">
   <div class="col-sm-12">
     <h2 class="section-header h4">
       Related <%= 'Recipient'.pluralize(@related_products.count) %> <span class="text-muted small">(<%= number_with_delimiter(@related_products.size) + ' of ' + number_with_delimiter(@related_products.total_count) %>)</span>
-      <% if current_user.admin %>
-        <%= link_to 'Edit Product Line', edit_product_line_path, {:class => "btn btn-sm btn-link pull-right"} %>
-      <% end %>
     </h2>
     <%= paginate @related_products, :theme => 'bootstrap' %>
     <%= render 'related_products_table' %>

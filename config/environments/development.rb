@@ -41,6 +41,9 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: '127.0.0.1', port: 3000 }
 
+  # To re-enable asset logging:
+  # config.quiet_assets = false
+
   # config.action_mailer.perform_deliveries = true
 
   # config.timeout_in = 480.minutes

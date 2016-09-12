@@ -3,13 +3,6 @@ module ApplicationHelper
     content_for(:title) {page_title}
   end
 
-  def sortable(column, title = nil)
-    title ||= column.titleize
-    css_class = column == sort_column ? "current #{sort_direction}" : nil
-    direction = column == sort_column && sort_direction == 'asc' ? 'desc' : 'asc'
-    link_to "#{title} <i class='#{css_class == "current asc" ? "bts bt-caret-up" : ""} #{css_class == "current desc" ? "bts bt-caret-down" : ""}'></i>".html_safe, {:sort => column, :direction => direction, :search => params[:search], :limit => params[:limit]}, {:class => css_class}
-  end
-
   def ap_boolean(boolean)
     boolean ? 'AP' : 'not AP'
   end

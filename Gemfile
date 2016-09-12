@@ -55,6 +55,15 @@ gem "the_sortable_tree", "~> 2.5.0"
 gem 'newrelic_rpm'
 gem 'scout_apm', '~> 2.0.x'
 
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
+gem "recaptcha", require: "recaptcha/rails"
+
+gem 'ransack'
+
+gem 'friendly_id', '~> 5.1.0'
+
+gem 'acts_as_csv'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -87,6 +96,7 @@ group :development do
   gem 'spring'
   gem 'bullet'
   gem 'lol_dba'
+  gem 'quiet_assets'
 end
 
 group :production do

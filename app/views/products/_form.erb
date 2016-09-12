@@ -6,7 +6,8 @@
                    placeholder: 'Product'
     %>
     <%= form.input :description,
-                   placeholder: 'Description'
+                   placeholder: 'Description',
+                   input_html: {rows: 5}
     %>
   </div>
   <div class="col-sm-6">
@@ -16,7 +17,7 @@
                                  ProductLine.all,
                                  :id,
                                  :product_line,
-                                 {prompt: 'Choose a product line'},
+                                 {include_blank: true},
                                  {class: "form-control chosen-select"}
       %>
     </div>
@@ -44,7 +45,7 @@
                                  Recipient.order(:recipient_name),
                                  :id,
                                  :recipient_name,
-                                 {prompt: 'Choose a recipient'},
+                                 {},
                                  {class: "form-control chosen-select",
                                   :multiple => true }
       %>

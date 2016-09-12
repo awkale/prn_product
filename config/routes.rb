@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     end
   end
   devise_for :admins
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   resources :users
 end

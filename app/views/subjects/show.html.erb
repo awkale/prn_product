@@ -1,15 +1,17 @@
 <% title @subject.subject_name %>
-<h1><%= @subject.subject_name %></h1>
+<h1>
+  <%= @subject.subject_name %>
+  <% if current_user.admin %>
+    <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
+        edit_subject_path,
+        {:class => "btn btn-lg btn-link"}
+    %>
+  <% end %>
+</h1>
 <div class="row">
   <div class="col-sm-12">
     <h2 class="section-header h4">
       Related <%= 'Recipient'.pluralize(@subject.recipients.count) %> <span class="text-muted small">(<% if current_user.admin %><%= number_with_delimiter(@related_recipients.size) + ' of ' + number_with_delimiter(@related_recipients.total_count) %><% end %>)</span>
-      <% if current_user.admin %>
-        <%= link_to 'Edit Subject',
-                    edit_subject_path,
-                    {:class => "btn btn-sm btn-link pull-right"}
-        %>
-      <% end %>
     </h2>
     <%= paginate @related_recipients, :theme => 'bootstrap' %>
     <%= render 'related_recip_table' %>

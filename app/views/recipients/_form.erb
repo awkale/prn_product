@@ -12,12 +12,21 @@
     <%= form.input :sort_by_name,
                    placeholder: 'Sort by Name'
     %>
-    <%= form.input :city,
-                   placeholder: 'City'
+    <%= form.input :slug,
+                   placeholder: 'Slug'
     %>
-    <%= form.input :state,
-                   placeholder: 'State'
-    %>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= form.input :city,
+                       placeholder: 'City'
+        %>
+      </div>
+      <div class="col-sm-6">
+        <%= form.input :state,
+                       placeholder: 'State'
+        %>
+      </div>
+    </div>
     <%= form.input :country,
                    as: :country,
                    priority: ['US', 'CA']
@@ -27,25 +36,25 @@
                     as: :boolean,
                     label: 'AP'
      %>
-     <div class="form-group">
-       <label for="recipient_ticker_id">Ticker Requirements</label>
-       <%= form.collection_select :ticker_id,
-                                  Ticker.all,
-                                  :id,
-                                  :ticker_type,
-                                  {prompt: 'Choose a ticker requirement'},
-                                  {class: "form-control chosen-select"}
-       %>
-     </div>
   </div>
   <div class="col-sm-6">
+    <div class="form-group">
+      <label for="recipient_ticker_id">Ticker Requirements</label>
+      <%= form.collection_select :ticker_id,
+                                Ticker.all,
+                                :id,
+                                :ticker_type,
+                                {include_blank: true},
+                                {class: "form-control chosen-select"}
+      %>
+    </div>
     <div class="form-group">
       <label for="recipient_category_id">Category</label>
       <%= form.collection_select :category_id,
                                  Category.all,
                                  :id,
                                  :name,
-                                 {prompt: 'Choose a category'},
+                                 {include_blank: true},
                                  {class: "form-control chosen-select"}
       %>
     </div>
@@ -54,7 +63,7 @@
       <%= form.collection_select :industry_ids,
                                  Industry.order(:industry_name),
                                  :id, :industry_name,
-                                 {prompt: 'Choose an industry'},
+                                 {},
                                  {class: "form-control chosen-select",
                                   :multiple => true }
       %>
@@ -65,7 +74,7 @@
                                  Subject.order(:subject_name),
                                  :id,
                                  :subject_name,
-                                 {prompt: 'Choose a subject'},
+                                 {},
                                  {class: "form-control chosen-select",
                                   :multiple => true }
       %>
@@ -76,13 +85,15 @@
                                  Multimedium.order(:media_type),
                                  :id,
                                  :media_type,
-                                 {prompt: 'Choose a subject'},
+                                 {},
                                  {class: "form-control chosen-select",
                                   :multiple => true }
       %>
     </div>
     <%= form.input :description,
-                   placeholder: 'Description'%>
+                   placeholder: 'Description',
+                   input_html: {rows: 5}
+    %>
   </div>
 </div>
 <div class="row">
@@ -94,7 +105,7 @@
                                  Channel.order(:channel_name),
                                  :id,
                                  :channel_name,
-                                 {prompt: 'Choose a channel'},
+                                 {},
                                  {class: "form-control chosen-select",
                                   :multiple => true }
       %>
@@ -108,7 +119,7 @@
                                  Product.order(:product_name),
                                  :id,
                                  :product_name,
-                                 {prompt: 'Choose a product'},
+                                 {},
                                  {class: "form-control chosen-select",
                                   :multiple => true }
       %>
