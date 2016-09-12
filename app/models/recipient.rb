@@ -1,6 +1,6 @@
 class Recipient < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :slug_candidates, use: [:slugged, :finders]
+  friendly_id :recipient_name, use: :slugged
 
   def slug_candidates
      [
@@ -46,6 +46,11 @@ class Recipient < ActiveRecord::Base
     country = ISO3166::Country[self.country]
     country.translations[I18n.locale.to_s] || country.name
   end
+
+  def self.filter_names
+      ['id', 'category_id', 'alternate_name', 'description', 'country', 'created_at', 'updated_at', 'ap', 'ticker_id', 'sort_by_name', 'slug', "distributions.count", 'products.count', 'recipient_channels.count', 'channels.count', 'recipient_subjects.count', 'subjects.count', 'recipient_industries.count', 'industries.count', 'renderings.count', 'multimedia.count']
+  end
+
 
   # def self.ransackable_attributes(auth_object = nil)
   #   ['recipient_name', 'alternate_name', 'description', 'city', 'state']
