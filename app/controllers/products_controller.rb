@@ -23,10 +23,10 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv {
-        send_data build_csv,
-        filename: "#{@product.product_name}-recipients-#{Date.today}.csv"
-      }
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"#{@product.product_name}-recipients-#{Date.today}.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
     end
   end
 
