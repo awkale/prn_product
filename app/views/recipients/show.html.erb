@@ -68,7 +68,7 @@
       <div class="col-sm-3">
         <dl>
           <dt>Country:</dt>
-          <dd><%= @recipient.country_name %></dd>
+          <dd><%= @recipient.country.present? ? @recipient.country_name : "" %></dd>
         </dl>
       </div>
     </div>
