@@ -1,5 +1,7 @@
 == README
 
+[![Build Status](https://travis-ci.org/awkale/prn_product.svg?branch=feature%2FPRND-18%2Fuser_roles)](https://travis-ci.org/awkale/prn_product)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
