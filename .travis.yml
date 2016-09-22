@@ -1,10 +1,17 @@
 language: ruby
 rvm:
-  - 2.2.2
+- 2.2.2
 services:
-  - postgresql
+- postgresql
 before_script:
-  - psql -c 'create database prn_product_2_test;' -U postgres
+- psql -c 'create database prn_product_2_test;' -U postgres
 script:
-  - bin/rake db:migrate RAILS_ENV=test
-  - bin/rake
+- bin/rake db:migrate RAILS_ENV=test
+- bin/rake
+notifications:
+  slack:
+    rooms:
+    - prnewswire:ksmLYn9x7Dhyku0uxEdw4qVc#prnd-commits
+    - prnewswire:ksmLYn9x7Dhyku0uxEdw4qVc#travis-ci
+  slac:
+    secure: gjzItJbm4pkDMN7cL/P0F+z/kBwgUMLIKQSftbD97Lf3LCTGsxGIB8MEc0S0CzCf6Ta4UXgOFfR8uZXwCzl1tjAWR+3kA+dynIswLt/yqpzxJwWT6iln9BRBPvxgBZdSTmnsZGJ7lohiA0IelY4dLcngMHeA9BqkEqv4Guu1udcZeYk9iTi8SiysaosSzBqTGYzgDMzAKtLaRwsuE4jiw6O9ccGFzBSjrhsSF8GpoOU1EQRjaGUSb9T9Llc6WsmnAmHNLDX3gijGwg5G17Lkt+zaexYbcUuPH0IXoeZmUO2shyhjqrbG42PxzwRvAW4oHpe+EJKMy+k2Jx3qOBG7oxKEuWjVAwnednu1qpaoLOCJhA7wb1zBpZpMnze21HTAQiQi6WPJiVVVibltLp5S04e7gnRHoyAb0n7AwQF/M+O7LdvHZw6GrrDxVYB6qV3QCXkHd6OFesBtB8BlWgl5S7TFUn5UJpzWRY4KNQgD6rPfJBBJWcIh66KjOmGtgjOk1XSYfma2xVlHoEEh3bGkxrw1D6NYSKT/hB6h+NzG1Ti0cyrmftsCHeGhDYFNzjQbgvMun2cJClfou03faLSoSMxwS4R/QHX8ySLD3Hfw9Eu6kTOBzr4B+2a500UIzPMFqypgsN9RcbWQxa0BqMR0z79jp01piKH6Z6EjRUueol8=
