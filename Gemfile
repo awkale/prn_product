@@ -84,11 +84,10 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'ffaker'
-  gem 'database_cleaner'
   gem 'letter_opener'
   gem 'rspec-rails'
   gem 'simple_bdd'
-  gem 'shoulda-matchers'
+  gem 'spring'
 end
 
 group :development do
@@ -96,10 +95,15 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   gem 'bullet'
   gem 'lol_dba'
   gem 'quiet_assets'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+
 end
 
 group :production do
