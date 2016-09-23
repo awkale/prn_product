@@ -3,11 +3,13 @@ class UsersController < ApplicationController
   layout 'page'
 
   def index
-      if params[:limit]
-        @users = User.order(:email).page(params[:page]).per(params[:limit])
-      else
-        @users = User.order(:email).page(params[:page])
-      end
+    if params[:limit]
+      @users = User.order(:email).page(params[:page]).per(params[:limit])
+    authorize User
+    else
+      @users = User.order(:email).page(params[:page])
+    authorize User
+    end
   end
 
   def show
