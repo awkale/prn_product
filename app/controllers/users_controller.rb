@@ -1,35 +1,39 @@
 class UsersController < ApplicationController
   before_action :find_user, :only => [:show, :edit, :update, :destroy]
+  after_action :verify_authorized
   layout 'page'
 
   def index
     if params[:limit]
       @users = User.order(:email).page(params[:page]).per(params[:limit])
-    authorize User
     else
       @users = User.order(:email).page(params[:page])
-    authorize User
     end
+    authorize User
   end
 
   def show
+    authorize @user
   end
 
   def edit
+    authorize @user
   end
 
   def update
-      if @user.update_attributes(user_params)
-        redirect_to user_path(id: @user.id), notice: "Successfully updated user."
-      else
-        render :edit
-      end
+    authorize @user
+    if @user.update_attributes(user_params)
+      redirect_to user_path(id: @user.id), notice: "Successfully updated user."
+    else
+      render :edit, alert: "Unable to update user."
+    end
   end
 
   def destroy
-      @user.destroy
+    authorize @user
+    @user.destroy
 
-      redirect_to users_path, notice: "Successfully deleted user."
+    redirect_to users_path, notice: "Successfully deleted user."
   end
 
   private

@@ -6,7 +6,7 @@
       <%= form.error_notification %>
       <%= form.input :first_name, placeholder: 'First Name' %>
       <%= form.input :last_name, placeholder: 'Last Name' %>
-      <%= form.input :admin, boolean_style: :inline, as: :boolean, placeholder: 'Admin rights' %>
+      <%= form.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
       <%= form.button :submit %>
       <%= link_to "Cancel", :back, {class: "btn btn-default pull-right mr-sm"} %>
     <% end %>

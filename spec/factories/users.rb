@@ -4,8 +4,8 @@ FactoryGirl.define do
     password 'Password1!'
     confirmed_at          Time.now
 
-    trait :customer_adv do
-      role 'customer_adv'
+    trait :admin do
+      role 'admin'
     end
 
   end
