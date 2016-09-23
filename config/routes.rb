@@ -22,7 +22,6 @@ Rails.application.routes.draw do
       post :rebuild
     end
   end
-  devise_for :admins
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }

@@ -1,12 +1,10 @@
 <% title @channel.channel_name %>
 <h1>
   <%= @channel.channel_name %>
-  <% if current_user.admin %>
     <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
         edit_channel_path,
         {:class => "btn btn-lg btn-link"}
     %>
-  <% end %>
 </h1>
 <div class="row channel index">
   <div class="col-sm-12">

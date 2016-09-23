@@ -2,9 +2,7 @@
   <div class="col-sm-8">
     <h2 class="section-header">
     Industries
-    <% if current_user.admin %>
       <%= link_to 'Manage Industries', manage_industries_path, :class => "btn btn-sm btn-link pull-right" %>
-    <% end %>
     </h2>
     <%= sorted_nested_ul(@industries, :industry_name) do |ind| %>
       <%= link_to ind.industry_name, ind %>

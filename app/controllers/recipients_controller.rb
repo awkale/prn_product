@@ -26,41 +26,29 @@ class RecipientsController < ApplicationController
   end
 
   def create
-    if current_user.admin?
       @recipient = Recipient.new(recipient_params)
       if @recipient.save
         redirect_to recipients_path, notice: "Successfully created recipient."
       else
         render :new
       end
-    else
-      redirect_to recipients_path, alert: "You do not have permission."
-    end
   end
 
   def edit
   end
 
   def update
-    if current_user.admin?
       if @recipient.update_attributes(recipient_params)
         redirect_to recipient_path(id: @recipient.id), notice: "Successfully updated recipient."
       else
         render :edit
       end
-    else
-      redirect_to recipients_path, alert: "You do not have permission."
-    end
   end
 
   def destroy
-    if current_user.admin?
       @recipient.destroy
 
       redirect_to recipients_path, notice: "Successfully deleted recipient."
-    else
-      redirect_to recipients_path, alert: "You do not have permission."
-    end
   end
 
   private

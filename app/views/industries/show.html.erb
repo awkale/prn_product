@@ -1,17 +1,15 @@
 <% title @industry.industry_name %>
 <h1>
   <%= @industry.industry_name %>
-  <% if current_user.admin %>
     <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
         edit_industry_path,
         {:class => "btn btn-lg btn-link"}
     %>
-  <% end %>
 </h1>
 <div class="row">
   <div class="col-sm-12">
     <h2 class="section-header h4">
-      Related <%= 'Recipient'.pluralize(@related_recipients.count) %> <span class="text-muted small">(<% if current_user.admin %><%= number_with_delimiter(@related_recipients.size) + ' of ' + number_with_delimiter(@related_recipients.total_count) %><% end %>)</span>
+      Related <%= 'Recipient'.pluralize(@related_recipients.count) %> <span class="text-muted small">(<%= number_with_delimiter(@related_recipients.size) + ' of ' + number_with_delimiter(@related_recipients.total_count) %>)</span>
     </h2>
     <%= paginate @related_recipients, :theme => 'bootstrap' %>
     <%= render 'related_recip_table' %>

@@ -20,16 +20,12 @@ class SubjectsController < ApplicationController
   end
 
   def create
-    if current_user.admin?
       @subject = Subject.new(subject_params)
       if @subject.save
         redirect_to subjects_path
       else
         render :new
       end
-    else
-      redirect_to recipients_path, alert: "You do not have permission."
-    end
   end
 
   def edit
@@ -37,25 +33,17 @@ class SubjectsController < ApplicationController
   end
 
   def update
-    if current_user.admin?
       if @subject.update_attributes(subject_params)
         redirect_to subjects_path, notice: "Successfully updated subject."
       else
         render :edit
       end
-    else
-      redirect_to recipients_path, alert: "You do not have permission."
-    end
   end
 
   def destroy
-    if current_user.admin?
       @subject.destroy
 
       redirect_to subjects_path
-    else
-      redirect_to recipients_path, alert: "You do not have permission."
-    end
   end
 
   private

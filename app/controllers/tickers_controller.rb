@@ -20,16 +20,12 @@ class TickersController < ApplicationController
   end
 
   def create
-    if current_user.admin?
       @ticker = Ticker.new(ticker_params)
       if @ticker.save
         redirect_to tickers_path
       else
         render :new
       end
-    else
-      redirect_to tickers_path, alert: "You do not have permission."
-    end
   end
 
   def edit
@@ -37,25 +33,17 @@ class TickersController < ApplicationController
   end
 
   def update
-    if current_user.admin?
       if @ticker.update_attributes(ticker_params)
         redirect_to tickers_path, notice: "Successfully updated category."
       else
         render :edit
       end
-    else
-      redirect_to tickers_path, alert: "You do not have permission."
-    end
   end
 
   def destroy
-    if current_user.admin?
       @ticker.destroy
 
       redirect_to tickers_path
-    else
-      redirect_to tickers_path, alert: "You do not have permission."
-    end
   end
 
   private

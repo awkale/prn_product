@@ -1,12 +1,10 @@
 <% title @product.product_name %>
 <h1 class="section-header">
   <%= @product.product_name %>
-  <% if current_user.admin %>
   <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
   edit_product_path,
   { class: "base-text", title: "Edit Product"}
   %>
-  <% end %>
 </h1>
 <div class="row product show">
   <div class="col-sm-12">
@@ -58,13 +56,11 @@
 <hr>
 <div class="row">
  <div class="col-sm-2 col-sm-offset-10">
-  <% if current_user.admin %>
   <%= link_to 'Delete Product',
   product_path,
   method: :delete,
   data: { confirm: "Are you sure? This can not be undone." },
   :class=>"btn btn-danger btn-sm pull-right"
   %>
-  <% end %>
 </div>
 </div>

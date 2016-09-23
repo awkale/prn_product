@@ -12,7 +12,7 @@
           <th>Current sign in at</th>
           <th>Confirmed at</th>
           <th>Locked at</th>
-          <th>Admin</th>
+          <th>Role</th>
         </tr>
       </thead>
       <tbody>
@@ -25,7 +25,7 @@
           <td><%= user.current_sign_in_at.present? ? user.current_sign_in_at.to_formatted_s(:long) : "" %></td>
           <td><%= user.confirmed_at.present? ? user.confirmed_at.to_formatted_s(:long) : "" %></td>
           <td><%= user.locked_at.present? ? user.locked_at.to_formatted_s(:long) : "" %></td>
-          <td><%= user.admin.present? ? user.admin : "" %></td>
+          <td><%= user.role.present? ? user.role : "" %></td>
         </tr>
         <% end %>
       </tbody>
