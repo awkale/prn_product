@@ -5,14 +5,45 @@ describe UserPolicy do
 
   let (:current_user) { FactoryGirl.build_stubbed :user }
   let (:other_user) { FactoryGirl.build_stubbed :user }
-  let (:admin) { FactoryGirl.build_stubbed :user, :admin }
+  let (:admin_adv) { FactoryGirl.build_stubbed :user, :admin_adv }
 
   permissions :index? do
-    it 'denies access if not an admin' do
+    it 'denies access if not an admin_adv' do
       expect(UserPolicy).not_to permit(current_user)
     end
-    it 'allows access for an admin' do
-      expect(UserPolicy).to permit(admin)
+    it 'allows access for an admin_adv' do
+      expect(UserPolicy).to permit(admin_adv)
     end
   end
+
+  permissions :show? do
+    it "prevents other users from seeing your profile" do
+      expect(subject).not_to permit(current_user, other_user)
+    end
+    it "allows you to see your own profile" do
+      expect(subject).to permit(current_user, current_user)
+    end
+    it "allows an admin_adv to see any profile" do
+      expect(subject).to permit(admin_adv)
+    end
+  end
+
+  permissions :update? do
+    it "prevents updates if not an admin_adv" do
+      expect(subject).not_to permit(current_user)
+    end
+    it "allows an admin_adv to make updates" do
+      expect(subject).to permit(admin_adv)
+    end
+  end
+
+  permissions :destroy? do
+    it "prevents deleting yourself" do
+      expect(subject).not_to permit(current_user, current_user)
+    end
+    it "allows an admin_adv to delete any user" do
+      expect(subject).to permit(admin_adv, other_user)
+    end
+  end
+
 end
