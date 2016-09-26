@@ -1,10 +1,12 @@
 <% title @product.product_name %>
 <h1 class="section-header">
   <%= @product.product_name %>
+  <% if user_signed_in? %>
   <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
   edit_product_path,
   { class: "base-text", title: "Edit Product"} if policy(@product).edit?
   %>
+  <% end %>
 </h1>
 <div class="row product show">
   <div class="col-sm-12">
@@ -38,16 +40,24 @@
       <div class="col-sm-3">
         <dl>
           <dt>Product Line:</dt>
-          <dd><%= @product.product_line.present? ? link_to(@product.product_line.product_line, @product.product_line) : "" %></dd>
+          <dd>
+          <% if user_signed_in? %>
+          <%= link_to(@product.product_line.product_line, @product.product_line) if @product.product_line %>
+            <% else %>
+            <%= @product.product_line.product_line if @product.product_line %>
+            <% end %>
+          </dd>
         </dl>
       </div>
     </div>
   </div>
   <div class="col-sm-12">
+  <% if user_signed_in? %>
     <%= link_to '<i class="btb bt-download"></i>'.html_safe,
       product_path(format: "csv"),
       { class: "btn btn-default btn-sm pull-right btn--header", title: "Download Results"}
     %>
+    <% end %>
     <h2 class="section-header h4">
       <%= number_with_delimiter(@product.recipients.size) %> Related <%= 'Recipient'.pluralize(@product.recipients.count) %>
 
@@ -60,11 +70,13 @@
 <hr>
 <div class="row">
  <div class="col-sm-2 col-sm-offset-10">
+ <% if user_signed_in? %>
   <%= link_to 'Delete Product',
   product_path,
   method: :delete,
   data: { confirm: "Are you sure? This can not be undone." },
   :class=>"btn btn-danger btn-sm pull-right" if policy(@product).destroy?
   %>
+  <% end %>
 </div>
 </div>

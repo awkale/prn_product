@@ -6,7 +6,12 @@
       <th><%= sort_link(@search, 'state') %></th>
       <th><%= sort_link(@search, 'category_id', 'Category') %></th>
       <th>Multimedia</th>
-      <th><% if user_signed_in? %><% if policy(Recipient).edit? %>Actions<% end %><% end %></th>
+      <th>
+      <% if user_signed_in? %>
+      <% if policy(Recipient).edit? %>Actions<% end %>
+      <% end %>
+
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -14,16 +19,34 @@
     <tr>
       <td><% if rr.ap == true %>
         <span class="label label-default"><%= ap_boolean(rr.ap) %></span>
-        <% end %> <%= link_to rr.recipient_name, recipient_path(rr) %></td>
-        <td><%= rr.city.present? ? rr.city : "" %></td>
-        <td><%= rr.state.present? ? rr.state : "" %></td>
-        <td><%= rr.category.present? ? link_to(rr.category.name, rr.category) : "" %></td>
+        <% end %>
+        <% if user_signed_in? %>
+        <%= link_to rr.recipient_name, recipient_path(rr) %>
+        <% else %>
+        <%= rr.recipient_name %>
+        <% end %>
+        </td>
+        <td><%= rr.city if rr.city %></td>
+        <td><%= rr.state if rr.state %></td>
         <td>
+        <% if user_signed_in? %>
+        <%= link_to(rr.category.name, rr.category) if rr.category %>
+        <% else %>
+        <%= rr.category.name if rr.category %>
+        <% end %>
+        </td>
+        <td>
+        <% if user_signed_in? %>
           <% rr.multimedia.each do |multi| %>
-          <%= link_to(multi) do%>
-          <i class="bts <%= multi.icon %>"></i>
+            <%= link_to(multi) do%>
+            <i class="bts <%= multi.icon %>"></i>
+            <% end %>
           <% end %>
+        <% else %>
+          <% rr.multimedia.each do |multi| %>
+            <i class="bts <%= multi.icon %>"></i>
           <% end %>
+        <% end %>
         </td>
         <td>
         <% if user_signed_in? %>
