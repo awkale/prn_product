@@ -4,10 +4,12 @@ class ChannelsController < ApplicationController
 
   def index
     @channels = Channel.all
+    authorize Channel
   end
 
   def new
     @channel = Channel.new
+    authorize @channel
   end
 
   def show
@@ -20,46 +22,35 @@ class ChannelsController < ApplicationController
   end
 
   def create
-    if current_user.admin?
       @channel = Channel.new(channel_params)
       if @channel.save
         redirect_to channels_path
       else
         render :new
       end
-    else
-      redirect_to channels_path, alert: "You do not have permission."
-    end
   end
 
   def edit
   end
 
   def update
-    if current_user.admin?
       if @channel.update_attributes(channel_params)
         redirect_to channel_path(id: @channel.id), notice: "Successfully updated channel."
       else
         render :edit
       end
-    else
-      redirect_to channels_path, alert: "You do not have permission."
-    end
   end
 
   def destroy
-    if current_user.admin?
       @channel.destroy
 
       redirect_to channels_path
-    else
-      redirect_to channels_path, alert: "You do not have permission."
-    end
   end
 
   private
   def find_channel
     @channel = Channel.friendly.find(params[:id])
+    authorize @channel
   end
 
   def channel_params

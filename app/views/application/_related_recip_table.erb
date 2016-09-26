@@ -6,9 +6,7 @@
       <th><%= sort_link(@search, 'state') %></th>
       <th><%= sort_link(@search, 'category_id', 'Category') %></th>
       <th>Multimedia</th>
-      <% if current_user.admin %>
-      <th>Actions</th>
-      <% end %>
+      <th><% if user_signed_in? %><% if policy(Recipient).edit? %>Actions<% end %><% end %></th>
     </tr>
   </thead>
   <tbody>
@@ -28,9 +26,9 @@
           <% end %>
         </td>
         <td>
-          <% if current_user.admin %>
+        <% if user_signed_in? %>
           <%= link_to 'Edit',
-          edit_recipient_path(rr)
+          edit_recipient_path(rr) if policy(Recipient).edit?
           %>
           <% end %>
         </td>

@@ -1,12 +1,10 @@
 <% title @channel.channel_name %>
 <h1>
   <%= @channel.channel_name %>
-  <% if current_user.admin %>
     <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
         edit_channel_path,
-        {:class => "btn btn-lg btn-link"}
+        {:class => "btn btn-lg btn-link"} if policy(@channel).edit?
     %>
-  <% end %>
 </h1>
 <div class="row channel index">
   <div class="col-sm-12">
@@ -21,6 +19,6 @@
 <hr>
 <div class="row">
   <div class="col-sm-2 col-sm-offset-10">
-    <%= link_to 'Delete Channel', channel_path, method: :delete, data: { confirm: "Are you sure? This can not be undone."}, :class => "btn btn-danger btn-sm pull-right" %>
+    <%= link_to 'Delete Channel', channel_path, method: :delete, data: { confirm: "Are you sure? This can not be undone."}, :class => "btn btn-danger btn-sm pull-right" if policy(@channel).destroy? %>
   </div>
 </div>

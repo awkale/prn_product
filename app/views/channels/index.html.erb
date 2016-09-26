@@ -1,15 +1,13 @@
 <div class="row channels index">
   <div class="col-sm-8">
-    <h2 class="section-header">Channels <% if current_user.admin %> <%= link_to 'New Channel', new_channel_path, { :class => "btn btn-sm btn-link pull-right"} %><% end %></h2>
+    <h2 class="section-header">Channels <%= link_to 'New Channel', new_channel_path, { :class => "btn btn-sm btn-link pull-right"} if policy(Channel).new? %></h2>
     <table class="table table-hover table-condensed">
       <tbody>
         <% @channels.each do |c| %>
         <tr>
           <td><%= link_to c.channel_name, c %></td>
           <td>
-            <% if current_user.admin %>
-            <%= link_to  'Edit', edit_channel_path(c)%>
-            <% end %>
+            <%= link_to 'Edit', edit_channel_path(c) if policy(Channel).edit? %>
           </td>
         </tr>
         <% end %>

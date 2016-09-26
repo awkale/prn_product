@@ -1,15 +1,13 @@
 <div class="row subjects index">
   <div class="col-sm-8">
-    <h2 class="section-header">Subjects <% if current_user.admin %><%= link_to 'New Subject', new_subject_path, { :class => "btn btn-sm btn-link pull-right" } %><% end %></h2>
+    <h2 class="section-header">Subjects <%= link_to 'New Subject', new_subject_path, { :class => "btn btn-sm btn-link pull-right" } if policy(Subject).new? %></h2>
     <table class="table table-hover table-condensed">
       <tbody>
         <% @subjects.each do |sub| %>
         <tr>
           <td><%= link_to(sub.subject_name, sub) %></td>
           <td>
-            <% if current_user.admin %>
-            <%= link_to 'Edit', edit_subject_path(sub) %>
-            <% end %>
+            <%= link_to 'Edit', edit_subject_path(sub) if policy(Subject).edit? %>
           </td>
         </tr>
         <% end %>

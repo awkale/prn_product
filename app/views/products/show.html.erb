@@ -1,12 +1,10 @@
 <% title @product.product_name %>
 <h1 class="section-header">
   <%= @product.product_name %>
-  <% if current_user.admin %>
   <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
   edit_product_path,
-  { class: "base-text", title: "Edit Product"}
+  { class: "base-text", title: "Edit Product"} if policy(@product).edit?
   %>
-  <% end %>
 </h1>
 <div class="row product show">
   <div class="col-sm-12">
@@ -15,6 +13,8 @@
       <dd><%= simple_format(@product.description) %></dd>
     </dl>
     <div class="row">
+    <% if user_signed_in? %>
+      <% if current_user.role == 'admin_super' || current_user.role == 'admin_adv' || current_user.role == 'admin' || current_user.role == 'user_internal' %>
       <div class="col-sm-3">
         <dl>
           <dt>Code:</dt>
@@ -33,6 +33,8 @@
           <dd><%= @product.length_price %></dd>
         </dl>
       </div>
+      <% end %>
+      <% end %>
       <div class="col-sm-3">
         <dl>
           <dt>Product Line:</dt>
@@ -58,13 +60,11 @@
 <hr>
 <div class="row">
  <div class="col-sm-2 col-sm-offset-10">
-  <% if current_user.admin %>
   <%= link_to 'Delete Product',
   product_path,
   method: :delete,
   data: { confirm: "Are you sure? This can not be undone." },
-  :class=>"btn btn-danger btn-sm pull-right"
+  :class=>"btn btn-danger btn-sm pull-right" if policy(@product).destroy?
   %>
-  <% end %>
 </div>
 </div>
