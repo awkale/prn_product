@@ -1,5 +1,6 @@
 class RecipientsController < ApplicationController
   before_action :find_recipient, :only => [:show, :edit, :update, :destroy]
+
   layout 'page'
 
   def index
@@ -14,24 +15,26 @@ class RecipientsController < ApplicationController
        send_data build_csv,
        filename: "recipients-#{Date.today}.csv"
      }
-
     end
+    authorize Recipient
   end
 
   def new
     @recipient = Recipient.new
+    authorize @recipient
   end
 
   def show
   end
 
   def create
-      @recipient = Recipient.new(recipient_params)
-      if @recipient.save
-        redirect_to recipients_path, notice: "Successfully created recipient."
-      else
-        render :new
-      end
+    @recipient = Recipient.new(recipient_params)
+    authorize @recipient
+    if @recipient.save
+      redirect_to recipients_path, notice: "Successfully created recipient."
+    else
+      render :new
+    end
   end
 
   def edit
@@ -54,6 +57,7 @@ class RecipientsController < ApplicationController
   private
   def find_recipient
     @recipient = Recipient.friendly.find(params[:id])
+    authorize @recipient
   end
 
   def build_csv
@@ -74,6 +78,9 @@ class RecipientsController < ApplicationController
       :category_id,
       :ap,
       :ticker_id,
+      user_attributes: [
+        :role
+      ],
       subject_ids: [],
       subject_attributes: [
         :id,

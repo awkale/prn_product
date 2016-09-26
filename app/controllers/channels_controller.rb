@@ -4,10 +4,12 @@ class ChannelsController < ApplicationController
 
   def index
     @channels = Channel.all
+    authorize Channel
   end
 
   def new
     @channel = Channel.new
+    authorize @channel
   end
 
   def show
@@ -48,6 +50,7 @@ class ChannelsController < ApplicationController
   private
   def find_channel
     @channel = Channel.friendly.find(params[:id])
+    authorize @channel
   end
 
   def channel_params

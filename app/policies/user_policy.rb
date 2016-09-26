@@ -1,73 +1,30 @@
-class UserPolicy < ApplicationPolicy
+class UserPolicy
+  attr_reader :current_user, :model
 
-  def index?
-    user.admin?
+  def initialize(current_user, model)
+    @current_user = current_user
+    @user = model
   end
 
-  def show
-    @current_user.admin? or @current_user == @user
+  def index?
+    @current_user.admin_super? || @current_user.admin_adv? || @current_user.admin?
+  end
+
+  def show?
+    @current_user.admin_super? || @current_user.admin_adv? || @current_user.admin? || @current_user == @user
   end
 
   def update?
-    return true if user.present? && user.admin?
+    @current_user.admin_super? || @current_user.admin_adv?
+  end
+
+  def edit?
+    update?
   end
 
   def destroy?
     return false if @current_user == @user
-    user.present? && user.admin?
+    @current_user.admin_super? || @current_user.admin_adv? || @current_user.admin?
   end
 
 end
-# class ApplicationPolicy
-#   attr_reader :user, :record
-
-#   def initialize(user, record)
-#     @user = user
-#     @record = record
-#   end
-
-#   def index?
-#     false
-#   end
-
-#   def show?
-#     scope.where(:id => record.id).exists?
-#   end
-
-#   def create?
-#     false
-#   end
-
-#   def new?
-#     create?
-#   end
-
-#   def update?
-#     false
-#   end
-
-#   def edit?
-#     update?
-#   end
-
-#   def destroy?
-#     false
-#   end
-
-#   def scope
-#     Pundit.policy_scope!(user, record.class)
-#   end
-
-#   class Scope
-#     attr_reader :user, :scope
-
-#     def initialize(user, scope)
-#       @user = user
-#       @scope = scope
-#     end
-
-#     def resolve
-#       scope
-#     end
-#   end
-# end

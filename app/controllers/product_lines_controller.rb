@@ -5,10 +5,12 @@ class ProductLinesController < ApplicationController
 
   def index
     @product_lines = ProductLine.all
+    authorize ProductLine
   end
 
   def new
     @product_line = ProductLine.new
+    authorize @product_line
   end
 
   def show
@@ -52,6 +54,7 @@ class ProductLinesController < ApplicationController
   private
   def find_product_line
     @product_line = ProductLine.friendly.find(params[:id])
+    authorize @product_line
   end
 
   def product_line_params

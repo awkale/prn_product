@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :find_product, :only => [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show]
+
   layout 'page'
 
   def index
@@ -8,10 +10,12 @@ class ProductsController < ApplicationController
     @products = @search.result(distinct: true)
                        .includes(:product_line)
                        .page(params[:page]).per(params[:limit])
+    authorize Product
   end
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def show
@@ -60,6 +64,7 @@ class ProductsController < ApplicationController
   private
   def find_product
     @product = Product.friendly.find(params[:id])
+    authorize @product
   end
 
   def build_csv

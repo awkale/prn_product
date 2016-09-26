@@ -4,10 +4,12 @@ class TickersController < ApplicationController
 
   def index
     @tickers = Ticker.all
+    authorize Ticker
   end
 
   def new
     @ticker = Ticker.new
+    authorize @ticker
   end
 
   def show
@@ -49,6 +51,7 @@ class TickersController < ApplicationController
   private
   def find_ticker
     @ticker = Ticker.friendly.find(params[:id])
+    authorize @ticker
   end
 
   def ticker_params

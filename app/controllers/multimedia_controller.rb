@@ -4,10 +4,12 @@ class MultimediaController < ApplicationController
 
   def index
     @multimedia = Multimedium.all
+    authorize Multimedium
   end
 
   def new
     @multimedium = Multimedium.new
+    authorize @multimedium
   end
 
   def show
@@ -47,6 +49,7 @@ class MultimediaController < ApplicationController
   private
   def find_multimedium
     @multimedium = Multimedium.friendly.find(params[:id])
+    authorize @multimedium
   end
 
   def multimedium_params

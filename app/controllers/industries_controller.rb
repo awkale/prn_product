@@ -5,10 +5,12 @@ class IndustriesController < ApplicationController
 
   def index
     @industries = Industry.all
+    authorize Industry
   end
 
   def new
     @industry = Industry.new
+    authorize @industry
   end
 
   def show
@@ -54,6 +56,7 @@ class IndustriesController < ApplicationController
   private
   def find_industry
     @industry = Industry.friendly.find(params[:id])
+    authorize @industry
   end
 
   def industry_params

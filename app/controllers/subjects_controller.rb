@@ -4,10 +4,12 @@ class SubjectsController < ApplicationController
 
   def index
     @subjects = Subject.all
+    authorize Subject
   end
 
   def new
     @subject = Subject.new
+    authorize @subject
   end
 
   def show
@@ -49,6 +51,7 @@ class SubjectsController < ApplicationController
   private
   def find_subject
     @subject = Subject.friendly.find(params[:id])
+    authorize @subject
   end
 
   def subject_params

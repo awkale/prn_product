@@ -4,10 +4,12 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    authorize Category
   end
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def show
@@ -49,6 +51,7 @@ class CategoriesController < ApplicationController
   private
   def find_category
     @category = Category.friendly.find(params[:id])
+    authorize @category
   end
 
   def category_params

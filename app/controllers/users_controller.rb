@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, :only => [:show, :edit, :update, :destroy]
-  after_action :verify_authorized
+
   layout 'page'
 
   def index
@@ -13,15 +13,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    authorize @user
   end
 
   def edit
-    authorize @user
   end
 
   def update
-    authorize @user
     if @user.update_attributes(user_params)
       redirect_to user_path(id: @user.id), notice: "Successfully updated user."
     else
@@ -30,7 +27,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    authorize @user
     @user.destroy
 
     redirect_to users_path, notice: "Successfully deleted user."
@@ -40,6 +36,7 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.friendly.find(params[:id])
+    authorize @user
   end
 
   def user_params

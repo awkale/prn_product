@@ -2,8 +2,17 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   before_action :authenticate_user!
+  # after_action :verify_authorized, except: [:index]
 
+  # Includes Authorization mechanism
   include Pundit
+
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+
+  # Globally rescue Authorization Errors in controller.
+  # Returning 403 Forbidden if permission is denied
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   before_action :ensure_domain
@@ -13,7 +22,6 @@ class ApplicationController < ActionController::Base
       redirect_to "https://distribution.prnewswire.com#{request.env['REQUEST_PATH']}", status: 301
     end
   end
-  protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
@@ -26,7 +34,7 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    flash[:alert] = 'Access denised.'
+    flash[:alert] = 'Access denied.'
     redirect_to (request.referrer || root_path)
   end
 end
