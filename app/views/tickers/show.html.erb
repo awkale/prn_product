@@ -3,7 +3,7 @@
   <%= @ticker.ticker_type %>
     <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
         edit_ticker_path,
-        {:class => "btn btn-lg btn-link"}
+        {:class => "btn btn-lg btn-link"} if policy(@ticker).edit?
     %>
 </h1>
 <div class="row">

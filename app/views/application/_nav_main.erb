@@ -18,12 +18,10 @@
         <ul class="nav navbar-nav">
           <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to 'Products', products_path %></li>
           <li class="<%= 'active' if params[:controller] == 'recipients' %>"><%= link_to 'Recipients',recipients_path %></li>
-          <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to 'Users', users_path %></li>
+          <% if user_signed_in? %>
+          <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to 'Users', users_path if current_user.role == 'admin_super' || current_user.role == 'admin_adv' || current_user.role == 'admin' %></li>
+          <% end %>
         </ul>
-        <!-- <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Search</a></li>
-          <li><a href="#" title=""><i class="fa fa-search fa-lg text-muted"></i></a></li>
-        </ul> -->
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>

@@ -3,7 +3,7 @@
   <%= @category.name %>
     <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
         edit_category_path,
-        {:class => "btn btn-lg btn-link"}
+        {:class => "btn btn-lg btn-link"} if policy(@category).edit?
     %>
 </h1>
 <div class="row">

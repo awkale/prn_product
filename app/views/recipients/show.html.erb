@@ -1,14 +1,14 @@
 <% title @recipient.recipient_name %>
 <div>
-  <%= link_to 'Delete Recipient',
+  <%= link_to('Delete Recipient',
     recipient_path,
     method: :delete,
     data: { confirm: "Are you sure? This can not be undone." },
-    :class=>"btn btn-danger btn-sm pull-right mt-xs btn--header"
+    :class=>"btn btn-danger btn-sm pull-right mt-xs btn--header") if policy(@recipient).destroy?
   %>
-  <%= link_to 'Edit Recipient',
+  <%= link_to('Edit Recipient',
     edit_recipient_path,
-    { :class=>"btn btn-sm btn-default pull-right mt-xs mr-sm btn--header" }
+    { :class=>"btn btn-sm btn-default pull-right mt-xs mr-sm btn--header" }) if policy(@recipient).edit?
   %>
   <h1 class="section-header">
     <%= @recipient.recipient_name %>
@@ -90,12 +90,14 @@
     </div>
   </div>
   <div class="col-sm-4">
+    <% if current_user.role == 'admin_super' || current_user.role == 'admin_adv' || current_user.role == 'admin' || current_user.role == 'user_internal' %>
     <h2 class="section-header h4"><%= 'Channel'.pluralize(@recipient.channels.count) %></h2>
     <ol>
       <% @recipient.channels.each do |c|  %>
       <li><%= link_to c.channel_name, channel_path(c) %></li>
       <% end %>
     </ol>
+    <% end %>
     <h2 class="section-header h4"><%= number_with_delimiter(@recipient.products.size) %> Related <%= 'Product'.pluralize(@recipient.products.count) %></h2>
     <table class="table table-hover table-condensed">
       <% @recipient.products.each do |mp_p|%>
@@ -104,7 +106,7 @@
           <%= link_to mp_p.product_name, product_path(mp_p) %>
         </td>
         <td>
-          <%= link_to 'Edit',  edit_product_path(mp_p) %>
+          <%= link_to 'Edit',  edit_product_path(mp_p) if policy(@recipient).edit? %>
         </td>
       </tr>
       <% end %>

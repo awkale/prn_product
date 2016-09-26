@@ -2,9 +2,9 @@
   <div class="col-sm-12">
     <h2 class="section-header"><%= 'Product'.pluralize(@products.count) %>
     <span class="text-muted small">(<%= number_with_delimiter(@products.size) + ' of ' + number_with_delimiter(@products.total_count) %>)</span>
-          <%= link_to 'New Product',
+          <%= link_to('New Product',
                       new_product_path,
-                      { :class => "btn btn-sm btn-link pull-right"}
+                      { :class => "btn btn-sm btn-link pull-right"}) if policy(Product).new?
           %>
     </h2>
   </div>
@@ -61,7 +61,7 @@
         <tr>
           <th><%= sort_link(@search, 'product_name') %></th>
           <th><%= sort_link(@search, 'product_line_id', 'Product Line') %></th>
-          <th>Actions</th>
+          <th><% if policy(Product).edit? %>Actions<% end %></th>
         </tr>
       </thead>
       <tbody>
@@ -71,7 +71,7 @@
           <td><%= product.product_line.present? ? link_to(product.product_line.product_line, product.product_line) : "" %></td>
           <td>
               <%= link_to 'edit',
-                          edit_product_path(product)
+                          edit_product_path(product) if policy(Product).edit?
               %>
           </td>
         </tr>

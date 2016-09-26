@@ -6,7 +6,9 @@
       <%= form.error_notification %>
       <%= form.input :first_name, placeholder: 'First Name' %>
       <%= form.input :last_name, placeholder: 'Last Name' %>
-      <%= form.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
+      <div class="form-group">
+      <%= form.select(:role, User.roles.keys.map {|role| [role.titleize,role]}, {}, {class: "form-control"}) if current_user.role == 'admin_super' || current_user.role == 'admin_adv' %>
+      </div>
       <%= form.button :submit %>
       <%= link_to "Cancel", :back, {class: "btn btn-default pull-right mr-sm"} %>
     <% end %>

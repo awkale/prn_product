@@ -3,7 +3,7 @@
   <%= @product_line.product_line %>
     <%= link_to '<i class="btb bt-edit"></i>'.html_safe,
         edit_product_line_path,
-        {:class => "btn btn-lg btn-link"}
+        {:class => "btn btn-lg btn-link"} if policy(@product_line).edit?
     %>
 </h1>
 <div class="row">
