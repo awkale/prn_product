@@ -15,7 +15,7 @@ class UserPolicy
   end
 
   def update?
-    @current_user.admin_super? || @current_user.admin_adv?
+    @current_user.admin_super?
   end
 
   def edit?
@@ -24,7 +24,7 @@ class UserPolicy
 
   def destroy?
     return false if @current_user == @user
-    @current_user.admin_super? || @current_user.admin_adv?
+    @current_user.admin_super?
   end
 
 end
