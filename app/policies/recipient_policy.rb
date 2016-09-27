@@ -8,6 +8,6 @@ class RecipientPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin_super? || user.admin_adv? || user.admin? || user.user_internal?
+    user.admin_super? || user.admin_adv? || user.admin?
   end
 end
