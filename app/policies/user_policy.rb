@@ -26,5 +26,4 @@ class UserPolicy
     return false if @current_user == @user
     @current_user.admin_super?
   end
-
 end
