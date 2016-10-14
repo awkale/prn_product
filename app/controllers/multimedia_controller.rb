@@ -4,10 +4,12 @@ class MultimediaController < ApplicationController
 
   def index
     @multimedia = Multimedium.all
+    authorize Multimedium
   end
 
   def new
     @multimedium = Multimedium.new
+    authorize @multimedium
   end
 
   def show
@@ -20,45 +22,34 @@ class MultimediaController < ApplicationController
   end
 
   def create
-    if current_user.admin?
       @multimedium = Multimedium.new(multimedium_params)
       if @multimedium.save
         redirect_to multimedia_path
       else
         render :new
       end
-    else
-      redirect_to multimedia_path, alert: "You do not have permission."
-    end
   end
 
   def edit
   end
 
   def update
-    if current_user.admin?
       if @multimedium.update_attributes(multimedium_params)
         redirect_to multimedia_path, notice: "Successfully updated category."
       else
         render :edit
       end
-    else
-      redirect_to multimedia_path, alert: "You do not have permission."
-    end
   end
 
   def destroy
-    if current_user.admin?
       @multimedium.destroy
       redirect_to multimedia_path
-    else
-      redirect_to multimedia_path, alert: "You do not have permission."
-    end
   end
 
   private
   def find_multimedium
     @multimedium = Multimedium.friendly.find(params[:id])
+    authorize @multimedium
   end
 
   def multimedium_params

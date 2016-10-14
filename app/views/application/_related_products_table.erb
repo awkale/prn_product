@@ -1,7 +1,11 @@
 <table class="table table-hover table-condensed">
   <thead>
     <tr>
-      <% if current_user.admin %>
+      <th>Product</th>
+      <% if current_user.role == 'admin_super' || current_user.role == 'admin_adv' || current_user.role == 'admin' || current_user.role == 'user_internal' %>
+      <th>Code</th>
+      <th>Base Price ($)</th>
+      <th>Length Price ($)</th>
       <th>Actions</th>
       <% end %>
     </tr>
@@ -10,16 +14,16 @@
     <% @related_products.each do |rp| %>
     <tr>
       <td><%= link_to rp.product_name, product_path(rp) %></td>
+      <% if current_user.role == 'admin_super' || current_user.role == 'admin_adv' || current_user.role == 'admin' || current_user.role == 'user_internal' %>
       <td><%= rp.code %></td>
       <td><%= rp.base_price  %></td>
       <td><%= rp.length_price %></td>
       <td>
-        <% if current_user.admin %>
         <%= link_to 'Edit',
-        edit_recipient_path(rp)
+        edit_recipient_path(rp) if policy(Recipient).edit?
         %>
-        <% end %>
         </td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

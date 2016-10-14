@@ -64,6 +64,8 @@ gem 'friendly_id', '~> 5.1.0'
 
 gem 'acts_as_csv'
 
+gem 'pundit'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -78,14 +80,14 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'better_errors'
+  gem 'capybara'
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'ffaker'
-  gem 'database_cleaner'
   gem 'letter_opener'
   gem 'rspec-rails'
   gem 'simple_bdd'
-  gem 'shoulda-matchers'
+  gem 'spring'
 end
 
 group :development do
@@ -93,10 +95,15 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   gem 'bullet'
   gem 'lol_dba'
   gem 'quiet_assets'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+
 end
 
 group :production do

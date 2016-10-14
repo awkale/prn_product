@@ -9,8 +9,6 @@
                    placeholder: 'Description',
                    input_html: {rows: 5}
     %>
-  </div>
-  <div class="col-sm-6">
     <div class="form-group">
       <label for="product_product_line_id">Product Line</label>
       <%= form.collection_select :product_line_id,
@@ -21,6 +19,8 @@
                                  {class: "form-control chosen-select"}
       %>
     </div>
+  </div>
+  <div class="col-sm-6">
     <%= form.input :code,
                    placeholder: 'Code'
     %>
@@ -34,6 +34,10 @@
                    label: 'Length Price ($)',
                    input_html: {value: form.object.length_price || '0'}
     %>
+    <%= form.input :data_feature,
+                    placeholder: 'Data feature code',
+                    label: 'Data Feature'
+     %>
   </div>
 </div>
 <div class="row">

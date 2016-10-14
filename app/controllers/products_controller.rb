@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :find_product, :only => [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show]
+
   layout 'page'
 
   def index
@@ -8,10 +10,12 @@ class ProductsController < ApplicationController
     @products = @search.result(distinct: true)
                        .includes(:product_line)
                        .page(params[:page]).per(params[:limit])
+    authorize Product
   end
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def show
@@ -32,46 +36,35 @@ class ProductsController < ApplicationController
   end
 
   def create
-    if current_user.admin?
       @product = Product.new(product_params)
       if @product.save
         redirect_to products_path, notice: "Successfully created product."
       else
         render :new
       end
-    else
-      redirect_to products_path, alert: "You do not have permission."
-    end
   end
 
   def edit
   end
 
   def update
-    if current_user.admin?
       if @product.update_attributes(product_params)
         redirect_to product_path(id: @product.id), notice: "Successfully updated product."
       else
         render :edit
       end
-    else
-      redirect_to products_path, alert: "You do not have permission."
-    end
   end
 
   def destroy
-    if current_user.admin?
       @product.destroy
 
       redirect_to products_path, notice: "Successfully deleted product."
-    else
-      redirect_to products_path, alert: "You do not have permission."
-    end
   end
 
   private
   def find_product
     @product = Product.friendly.find(params[:id])
+    authorize @product
   end
 
   def build_csv
@@ -88,6 +81,7 @@ class ProductsController < ApplicationController
       :code,
       :base_price,
       :length_price,
+      :data_feature,
       :product_line_id,
       product_line_attributes: [
         :id,

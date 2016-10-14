@@ -1,6 +1,6 @@
 <div class="row industries index">
   <div class="col-sm-8">
-    <h2 class="section-header">Industries <% if current_user.admin %><%= link_to 'New Industry', new_industry_path, { :class => "btn btn-sm btn-link pull-right" } %><% end %></h2>
+    <h2 class="section-header">Industries <%= link_to 'New Industry', new_industry_path, { :class => "btn btn-sm btn-link pull-right" } %></h2>
     <ol class="sortable_tree" data-rebuild_url="<%= rebuild_industries_url %>"">
       <%= sortable_tree @industries, :type => :sortable, :title => :industry_name, :max_levels => 5 %>
     </ol>

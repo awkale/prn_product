@@ -6,6 +6,9 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/webkit/matchers'
 require 'simple_bdd'
+require 'shoulda/matchers'
+require 'database_cleaner'
+require "pundit/rspec"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -15,7 +18,8 @@ require 'simple_bdd'
 # run twice. It is recommended that you do not name files matching this glob to
 # end with _spec.rb. You can configure this pattern with the --pattern
 # option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
-#
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
 # The following line is provided for convenience purposes. It has the downside
 # of increasing the boot-up time by auto-requiring all files in the support
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
@@ -37,8 +41,19 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  config.include FactoryGirl::Syntax::Methods
+
   config.include SimpleBdd, type: :feature
   config.include Devise::TestHelpers, :type => :controller
+
+  config.include Features, :type => :feature
+  config.include Features::SessionHelpers, type: :feature
+
+  config.include Warden::Test::Helpers
+    config.before :suite do
+      Warden.test_mode!
+    end
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with(:truncation)

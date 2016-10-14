@@ -1,12 +1,12 @@
 <div class="row multimedia index">
   <div class="col-sm-8">
-    <h2 class="section-header">Multimedia <% if current_user.admin %><%= link_to 'New Multimedium', new_multimedium_path, { :class => "btn btn-sm btn-link pull-right" } %><% end %></h2>
+    <h2 class="section-header">Multimedia <%= link_to 'New Multimedium', new_multimedium_path, { :class => "btn btn-sm btn-link pull-right" } if policy(Multimedium).new? %></h2>
     <table class="table table-hover table-condensed">
       <tbody>
         <% @multimedia.each do |multi| %>
         <tr>
           <td><%= link_to multi.media_type, multi%></td>
-          <td><% if current_user.admin %><%= link_to 'Edit', edit_multimedium_path(multi) %><% end %></td>
+          <td><%= link_to 'Edit', edit_multimedium_path(multi) if policy(Multimedium).edit? %></td>
         </tr>
         <% end %>
       </tbody>
