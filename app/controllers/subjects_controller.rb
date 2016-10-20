@@ -57,6 +57,7 @@ class SubjectsController < ApplicationController
   def subject_params
     params.require(:subject).permit(
       :subject_name,
+      :description,
       recipient_ids: [],
       recipient_attributes: [
         :id,

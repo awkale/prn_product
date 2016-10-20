@@ -1,10 +1,14 @@
 <div class="row subject new">
-  <div class="col-sm-8">
+  <div class="col-sm-6">
     <h2 class="section-header">New subject</h2>
-    <%= simple_form_for @subject do |cat| %>
-      <%= cat.error_notification %>
-      <%= cat.input :subject_name, placeholder: 'subject' %>
-      <%= cat.button :submit %>
+    <%= simple_form_for @subject do |sub| %>
+      <%= sub.error_notification %>
+      <%= sub.input :subject_name, placeholder: 'subject' %>
+      <%= sub.input :description,
+                    placeholder: 'Description',
+                    input_html: {rows: 5}
+       %>
+      <%= sub.button :submit %>
       <%= link_to "Cancel", :back, {:class => "btn btn-default pull-right mr-sm"} %>
     <% end %>
   </div>

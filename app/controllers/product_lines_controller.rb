@@ -48,7 +48,7 @@ class ProductLinesController < ApplicationController
   end
 
   def manage
-      @product_lines = ProductLine.nested_set.select('id, product_line, parent_id').all
+      @product_lines = ProductLine.nested_set.select('slug, product_line, parent_id').all
   end
 
   private

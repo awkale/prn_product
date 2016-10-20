@@ -1,10 +1,14 @@
 <div class="row industry new">
-  <div class="col-sm-8">
+  <div class="col-sm-6">
     <h2 class="section-header">New Industry</h2>
 
     <%= simple_form_for @industry do |ind| %>
       <%= ind.error_notification %>
       <%= ind.input :industry_name, placeholder: 'Industry' %>
+      <%= ind.input :description,
+                    placeholder: 'Description',
+                    input_html: {rows: 5}
+      %>
       <%= ind.button :submit %>
       <%= link_to "Cancel", :back, {:class => "btn btn-default pull-right mr-sm"} %>
     <% end %>

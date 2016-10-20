@@ -50,7 +50,7 @@ class IndustriesController < ApplicationController
   end
 
   def manage
-      @industries = Industry.nested_set.select('id, industry_name, parent_id').all
+      @industries = Industry.nested_set.select('slug, industry_name, parent_id').all
   end
 
   private
@@ -62,6 +62,7 @@ class IndustriesController < ApplicationController
   def industry_params
     params.require(:industry).permit(
       :industry_name,
+      :description,
       :parent_id,
       recipient_ids: [],
       recipient_attributes: [
