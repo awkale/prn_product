@@ -26,4 +26,5 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :users
+  resources :graphs, via: [:post, :options]
 end

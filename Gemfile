@@ -66,6 +66,9 @@ gem 'acts_as_csv'
 
 gem 'pundit'
 
+gem 'graphql'
+gem 'graphiql-rails'
+gem 'rack-cors', :require => 'rack/cors'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

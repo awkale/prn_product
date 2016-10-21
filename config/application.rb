@@ -26,5 +26,13 @@ module PrnProduct
     config.active_job.queue_adapter = :delayed_job
     config.assets.enabled = true
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.autoload_paths << Rails.root.join('app', 'graph', 'types')
+
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
   end
 end
