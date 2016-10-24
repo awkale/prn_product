@@ -117,6 +117,6 @@ Industry.update(
     {description: "Companies providing green or environmental technologies; alternative or sustainable energies, such as wind, solar and hydro power; also include alternative energy research."},
     {description: "Regulated public utilities supplying electric, hydroelectric, solar and nuclear energy, makers of equipment for utilities, builders and operators of power plants and other utility facilities, news from public utilities regulators. "},
     {description: "Regulated public utilities supplying natural gas, makers of equipment for utilities, builders and operators of utility facilities. "},
-    {description: "Companies involved in the exploration for, extraction, refining, supply and marketing of oil, petroleum and natural gas, drilling equipment, wells, rigs, exploration and field services, co-generation and waste-to-energy facilities, makers of oil and gas field machinery and equipment, builders and operators of pipelines and gas transmission systems".},
+    {description: "Companies involved in the exploration for, extraction, refining, supply and marketing of oil, petroleum and natural gas, drilling equipment, wells, rigs, exploration and field services, co-generation and waste-to-energy facilities, makers of oil and gas field machinery and equipment, builders and operators of pipelines and gas transmission systems."},
     {description: "Regulated water utilities, including the makers of equipment, builders and operators."}]
     )
