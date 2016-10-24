@@ -49,34 +49,6 @@
   background: #E5E5E5;
 }
 
-//jump-to
-.jump-to {
-  background: $gray-lighter;
-  padding: 11px 20px;
-  margin-bottom:-1px;
-  .form-control {
-    display: inline-block;
-    width: 100px;
-  }
-  label,
-  input,
-  select {
-    font-weight: normal;
-    margin-right:20px;
-    @media (max-width: $screen-sm) {
-      margin-right: 0;
-    }
-  }
-  .datepicker {
-    @media (max-width: $screen-xs) {
-      margin-bottom: 10px;
-    }
-  }
-  button {
-    text-transform: uppercase;
-  }
-}
-
 // Search
 .search-panels {
   .panel {
@@ -118,25 +90,13 @@
   }
 }
 
-// Contact Us
+// Contact us
 .contact-us {
-  .tab-content {
+  .tab-pane#worldwide > .tab-content {
     padding: 20px 0;
-  }
-  .panel-heading {
-    padding: 10px 0;
-  }
-  .panel-body {
-    padding: 15px 0;
   }
 }
 
-.recipients, .products {
-  .panel-title {
-    a {
-      &:hover, &:focus {
-        text-decoration: none;
-      }
-    }
-  }
+.tab-pane td+td {
+  width: 40px;
 }

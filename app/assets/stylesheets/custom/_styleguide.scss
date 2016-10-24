@@ -1,20 +1,248 @@
-// styleguide specific styles here
-#sg-colors pre,
-#sg-buttons-links pre {
-  margin-top: 0;
-}
-.locate-code {
-  border: solid 1px $brand-secondary;
-  margin-top: -40px;
+body {
+  background-color: #f9f9fb;
 }
 
-#sg-nav {
+main {
+    padding-top: 120px;
+}
+
+.styleguide .navbar {
+  background-color: #fff;
+  border-bottom: 3px solid $gray-lighter;
+}
+
+.styleguide .navbar-brand {
+  padding: 0 20px;
+  margin-top: -5px;
+
+}
+
+.navbar-brand img {
+  width: 160px;
+}
+
+.sidebar-styleguide  {
+  display: none;
   position: fixed;
-  top: 5%;
-  border: 1px solid $brand-primary;
-  a:hover {
-    color: $brand-primary;
+  z-index: 10;
+  background-color: #fff;
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+  top: 92px;
+  height: calc(100% - 92px);
+  transition: all;
+  transition-duration: 300ms;
+  &.toggled {
+    width: 100%;
+  }
+  .nav > li > a {
+    padding-top: 14px;
+    padding-bottom: 13px;
+  }
+  .nav > li > ul > li a {
+    padding-top: 9px;
+    padding-bottom: 8px;
+  }
+
+}
+
+.sidebar-container {
+  overflow: auto;
+  height: 100%;
+}
+
+.sidebar-menu {
+  a {
+    color: #7e7e7e;
+    border-bottom: 1px solid $gray-lighter;
+  }
+  > li.active {
+
+     > a {
+      background-color: $brand-secondary;
+     }
+
   }
 }
 
-.row {margin-bottom: 20px;}
+.sub-menu .nav {
+  a {
+    padding-left: 25px;
+    background-color: #f9f9fb;
+    font-size: 13px;
+
+  }
+}
+
+.sub-menu > a:before,
+.sub-menu > a:after {
+  position: absolute;
+  top: 15px;
+  color: #575757;
+  font-family: 'Black Tie';
+  font-size: 11px;
+  right: 15px;
+  transition: all;
+  transition-duration: 250ms;
+}
+
+.sub-menu > a:before {
+  content: "\f01b";
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.sub-menu > a:after {
+  content: "\f021";
+  transform: scale(0);
+}
+
+.sidebar-menu > li.active > a {
+  background: $brand-secondary;
+  color: #fff;
+  font-weight: bold;
+}
+
+.sub-menu.toggled > a:before {
+  content: "\f01b";
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+.sub-menu.toggled > a:after {
+  content: "\f021";
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.sub-menu ul {
+  list-style: none;
+  display: none;
+  padding: 0;
+  border-right: 1px solid $gray-lighter;
+
+}
+
+.sub-menu ul > li > a:hover {
+  color: $gray-dark;
+  background-color: #fff;
+  border-right: 3px solid $brand-accent;
+}
+
+.sub-menu ul > li > a.active {
+  color: $gray-dark;
+  font-weight: bold;
+  border-right: 3px solid $brand-accent;
+}
+
+.grid-sizer, .tile {
+  width: 10%;
+}
+
+.tile {
+  margin-bottom: 20px;
+  &.full {
+    width: 100%;
+    border: none;
+  }
+}
+
+.bt-hover {
+  padding: 10px;
+  text-align: center;
+}
+
+.icon-name {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.icon-details {
+  font-weight: light;
+  color: $gray-light;
+}
+
+.gutter-sizer {
+  width: 2%
+}
+
+@media screen and (max-width: $screen-xs) {
+
+  main {
+    width: 100%;
+    transition: all;
+    transition-duration: 300ms;
+    &.toggled {
+      width: 0%;
+      float: right;
+    }
+  }
+
+  .sidebar-styleguide  {
+    width: 0%;
+    &.toggled {
+      width: 100%;
+    }
+  }
+
+}
+
+@media screen and (min-width: $screen-xs) {
+
+  main {
+    &.toggled{
+      width: 70%;
+      float: right;
+    }
+  }
+
+  .sidebar-styleguide {
+    display: block;
+    
+    &.toggled {
+      width: 30%;
+    }
+  }
+
+}
+
+@media screen and (min-width: $screen-sm) {
+
+  .styleguide_patterns {
+    .container {
+      max-width: 100%;
+    }
+    main,
+    main.toggled {
+      width: 80%;
+      float: right;
+    }
+  }
+
+  .sidebar-styleguide,
+  .sidebar-styleguide.toggled  {
+    width: 20%;
+  }
+
+  .navbar-styleguide-toggle {
+    display: none;
+  }
+
+  .sidebar-menu {
+
+    > li.active {
+
+      .nav {
+        display: block;
+      }
+    }
+  }
+
+}

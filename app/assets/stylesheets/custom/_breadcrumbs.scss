@@ -29,4 +29,12 @@
       font-size: 18px;
     }
   }
+  &.previous {
+    > li:before {
+      font: $breadcrumb-font;
+      content: $breadcrumb-back-separator;
+      color: $gray-light;
+      padding-right: 10px;
+    }
+  }
 }

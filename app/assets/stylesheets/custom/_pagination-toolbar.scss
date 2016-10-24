@@ -1,7 +1,14 @@
 
 .pagination-bar {
   height:60px;
-  border-top: solid 1px #d7d7d7;
+  border-top: solid 2px $gray-lighter;
+  button:hover,
+  button:focus {
+    text-decoration: none;
+  }
+  .filter-option {
+    color: $text-color;
+  }
   @media (max-width: $screen-xs-max) {
     height: auto;
   }

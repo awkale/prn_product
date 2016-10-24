@@ -1,6 +1,7 @@
 //
 // Buttons
 // --------------------------------------------------
+
 .btn-lg, .btn-group-lg > .btn,
 .btn-xs, .btn-group-xs > .btn {
   border-radius: $border-radius-base;
@@ -24,6 +25,33 @@
   @include button-variant($btn-secondary-fill-color, $btn-secondary-fill-bg, $btn-secondary-fill-border);
 }
 
+// buttons in hero area
+.btn-hero {
+  @include button-variant($btn-hero-color, $btn-hero-bg, $btn-hero-border);
+}
+
+.btn-hero-secondary {
+  @include button-variant($btn-hero-secondary-color, $btn-hero-secondary-bg, $btn-hero-secondary-border);
+}
+
+
+.btn-hero {
+  text-transform: uppercase;
+  font-weight: 300;
+  .jumbotron-b &.matrix-submit {
+    margin-left: $padding-large-horizontal;
+  }
+}
+
+.btn-wide {
+  padding-left: $padding-large-horizontal * 6;
+  padding-right: $padding-large-horizontal * 6;
+  @media (max-width: $screen-sm-max) {
+    padding-left: $padding-large-horizontal * 4;
+    padding-right: $padding-large-horizontal * 4;
+  }
+}
+
 .btn-view-larger-table {
   i {
     margin-right: 10px;
@@ -37,7 +65,7 @@
 .stacking-card-btn {
   display: block;
   font-size: $font-size-medium;
-  margin: -20px auto 20px;
+  // margin: -20px auto 20px;
 }
 
 .trending-category-btn {
@@ -85,6 +113,7 @@
 
 .lang-switch {
   display: inline-block;
+  font-family: $font-family-sans-serif;
 }
 
 .btn.btn-matrix {
@@ -101,29 +130,6 @@
 
 .option-buttons {
   text-align: center;
-}
-
-.btn-hero {
-  color: $gray-base;
-  background-color: #fff;
-  border-color: #fff;
-  &:hover {
-    color: $gray-base;
-    background-color: darken(#fff,5%);
-    border-color: darken(#fff,5%);
-  }
-  .jumbotron-b &.matrix-submit {
-    margin-left: $padding-large-horizontal;
-  }
-  &.btn-secondary {
-    color: #fff;
-    background: transparent;
-    &:hover,
-    &:focus {
-      background: rgba($gray-lightest, .1);
-      border-color: #fff;
-    }
-  }
 }
 
 .submit-form-container {
@@ -166,9 +172,4 @@
 .btn--refine-search {
   padding-top: 15px !important;
   padding-bottom: 14px;
-}
-
-.btn--header, {
-  z-index: 10;
-  position: relative;
 }

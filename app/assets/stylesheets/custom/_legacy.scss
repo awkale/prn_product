@@ -16,6 +16,10 @@
 .gallery-legacy {
   .modal-dialog div.modal-social {
     margin-bottom: 10px;
+    .modal-social__view-full-wrap {
+      text-align: right;
+      padding-top: $padding-small-vertical;
+    }
     .gallery-social {
       display: inline-block;
       margin: 0;
@@ -23,6 +27,13 @@
   }
 }
 
+.flexbox-slider .slide-img-wrap img.pdf {
+  max-width: 160px;
+  margin: 0 auto ($padding-large-vertical * 2);
+  @media (max-width: $screen-sm-max) {
+    max-width: 76px;
+  }
+}
 .flexbox-slider .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -166,6 +177,18 @@
       &:before {
         background: rgba(black, 0.7);
       }
+    }
+  }
+  a.pdf {
+    img {
+      display: block;
+      width: 90px;
+      margin-bottom: $padding-large-vertical;
+      border: none;
+    }
+    .btn {
+      padding-left: ($padding-large-horizontal * 2);
+      padding-right: ($padding-large-horizontal * 2);
     }
   }
   .articalcont-wrap {

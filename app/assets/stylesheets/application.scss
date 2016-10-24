@@ -31,22 +31,15 @@
 @import "prn-fonts";
 @import "black-tie";
 
-@import "jquery.custom-mmenu";
+@import "jquery.mmenu.all.css";
 @import "custom";
 
 
 
 @media (min-width: $screen-sm) {
-  header {
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 100;
-  }
 
   main {
     padding-bottom: 100px;
-    padding-top: 150px;
     min-height: 1200px;
   }
 

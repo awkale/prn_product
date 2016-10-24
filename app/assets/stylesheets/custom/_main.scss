@@ -5,6 +5,9 @@ main:focus {
 .section-divider {
   border-top: $border-dash;
   padding-top: 14px;
+  &.section-divider--border-solid {
+    border-top: $border-solid;
+  }
 }
 
 section {
@@ -98,7 +101,6 @@ iframe {
 
 /*----- Shared marketing styles ----*/
 .marketing-promo {
-  display: none;
   .alert {
     position: fixed;
     bottom: 0;
@@ -107,18 +109,19 @@ iframe {
     width: 282px;
     margin-right: 20px;
     background-color: #fff;
-    @include box-shadow(2px 2px 4px 1px $gray-lighter);
+    border: 1px solid $gray-light;
+    h5,
+    p:not(:last-child),
+    a.btn {
+      margin-bottom: ($padding-large-vertical * 1.5);
+    }
   }
   .alert-dismissible {
     padding-right: 15px;
     .close {
-      top: -9px;
-      right: 1px;
+      top: -6px;
+      right: -3px;
     }
-  }
-  figure {
-    width: 250px;
-    margin-right: 0;
   }
 }
 
@@ -133,7 +136,6 @@ iframe {
 }
 .illustration-promos {
   h2 {
-    font-family: $font-family-sans-serif;
     min-height: 70px;
     margin-top: 0;
     @media (max-width: $screen-md) {
@@ -266,6 +268,9 @@ iframe {
         }
       }
     }
+  }
+  span.label {
+    border-radius: 0;
   }
 }
 

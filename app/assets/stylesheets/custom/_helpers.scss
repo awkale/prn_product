@@ -11,11 +11,11 @@
 .mt-md { margin-top: 15px;}
 .mt-lg { margin-top: 20px;}
 .mt-xl { margin-top: 30px;}
+.mt-xxl { margin-top: 50px;}
 
 .no-margin-bottom, // adding because it exists somewhere in prod..
 .margin-bottom-none,
 .mb-no { margin-bottom: 0px!important; }
-.mb-xs {margin-bottom: 5px;}
 .margin-bottom-sm,
 .mb-sm { margin-bottom: 10px; }
 .margin-bottom-md,
@@ -37,19 +37,17 @@
   }
 }
 
-.mr-xs { margin-right: 5px;}
-.mr-sm { margin-right: 10px;}
-.mr-md { margin-right: 15px;}
-.mr-lg { margin-right: 20px;}
-.mr-xl { margin-right: 30px;}
-
 .ml-xs { margin-left: 5px;}
 .ml-sm { margin-left: 10px;}
 .ml-md { margin-left: 15px;}
 .ml-lg { margin-left: 20px;}
 .ml-xl { margin-left: 30px;}
 
-.base-text {vertical-align: text-bottom;}
+.mr-xs { margin-right: 5px;}
+.mr-sm { margin-right: 10px;}
+.mr-md { margin-right: 15px;}
+.mr-lg { margin-right: 20px;}
+.mr-xl { margin-right: 30px;}
 
 .section-header-match {
   @media (min-width: $screen-sm-min) {
@@ -65,11 +63,25 @@
 
 .clear { clear: both; }
 
+.inline-block {
+  display: inline-block;
+}
+
 .pull-none-xs {
   @media(max-width: $screen-xs-max) {
     float: none!important;
   }
 }
+
+@media(max-width: $screen-xs-max) {
+  .text-left-xs {
+    text-align: left!important;
+  }
+  .text-center-xs {
+    text-align: center!important;
+  }
+}
+
 
 .btn-wrap {
   white-space: normal;
@@ -79,6 +91,8 @@ a:hover.no-hover-underline {
   text-decoration: none;
 }
 
-.fw-normal {
-  font-weight: normal;
+#maincontent, #main {
+  &:focus { outline: none; }
 }
+
+.jw-tab-focus:focus {outline: none !important;}
