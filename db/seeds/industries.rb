@@ -1,9 +1,6 @@
 Industry.update(
-  [
-    15,16,17,18,119,120,121,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,51,52,53,54,55,56,58,59,60,61,62,63,64,65,66,67,68,69,71,72,73,74,75,77,76,78,79,1,2,3,4,5,6,8,7,9,10,11,12,13,14,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,45,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,50,115,116,117,118
-    ],
-  [
-    {description: "News from banks, savings and loans, thrifts, pawn shops, mortgage lenders, brokers, investment houses, pension funds, stock and bond traders, credit unions, nondeposit trust facilities, credit agencies."},
+  [15,16,17,18,119,120,121,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,51,52,53,54,55,56,58,59,60,61,62,63,64,65,66,67,68,69,71,72,73,74,75,77,76,78,79,1,2,3,4,5,6,8,7,9,10,11,12,13,14,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,45,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,50,115,116,117,118],
+  [{description: "News from banks, savings and loans, thrifts, pawn shops, mortgage lenders, brokers, investment houses, pension funds, stock and bond traders, credit unions, nondeposit trust facilities, credit agencies."},
     {description: "Health and medical insurers, insurance agents and carriers, insurance brokers and services, insurance rating agencies."},
     {description: "Property/Casualty, life, medical insurers, insurance agents and carriers, insurance brokers and services, insurance rating agencies."},
     {description: "News from mutual fund firms, banks, investment houses and asset management organizations about mutual funds."},
@@ -67,7 +64,7 @@ Industry.update(
     {description: "Makers of industrial and commercial machinery, including steam, gas and hydraulic turbines, internal combustion engines, conveyors, cranes, hoists, tractors, stackers, machine tools and accessories, pumps, bearings, compressors."},
     {description: "News from not only precious metals mining companies but also producers of coal, iron ore concentrate."},
     {description: "Gold, silver, platinum, diamonds, rubies, emeralds, etc."},
-{description: ""},
+    {description: ""},
     {description: "Use for all information about advertising and public relations firms, for other types of companies’ releases about their advertising accounts, campaigns and advertising personnel, advertising policy, volume or rates. "},
     {description: "Makers of aerospace products and components, weapons, military equipment, defense contractors, suppliers and components for missiles, satellites, rockets, space systems."},
     {description: "Use for agricultural firms, livestock, dairy farmers, food growers (but not processors [FOD] or retailers [REA]), makers of farm equipment and machinery, supplies, fertilizer, agriculture-related pesticides, seeds, farm management, farm bureaus, farm-product raw materials, farm product warehousing and storage, farm worker unions (also give LBR subject code) and organizations."},
@@ -120,7 +117,6 @@ Industry.update(
     {description: "Companies providing green or environmental technologies; alternative or sustainable energies, such as wind, solar and hydro power; also include alternative energy research."},
     {description: "Regulated public utilities supplying electric, hydroelectric, solar and nuclear energy, makers of equipment for utilities, builders and operators of power plants and other utility facilities, news from public utilities regulators. "},
     {description: "Regulated public utilities supplying natural gas, makers of equipment for utilities, builders and operators of utility facilities. "},
-    {description: "Companies involved in the exploration for, extraction, refining, supply and marketing of oil, petroleum and natural gas, drilling equipment, wells, rigs, exploration and field services, co-generation and waste-to-energy facilities, makers of oil and gas field machinery and equipment, builders and operators of pipelines and gas transmission systems".}
-    {description: "Regulated water utilities, including the makers of equipment, builders and operators."}
-  ]
-)
+    {description: "Companies involved in the exploration for, extraction, refining, supply and marketing of oil, petroleum and natural gas, drilling equipment, wells, rigs, exploration and field services, co-generation and waste-to-energy facilities, makers of oil and gas field machinery and equipment, builders and operators of pipelines and gas transmission systems".},
+    {description: "Regulated water utilities, including the makers of equipment, builders and operators."}]
+    )
