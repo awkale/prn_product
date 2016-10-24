@@ -2,8 +2,6 @@ class ProductsController < ApplicationController
   before_action :find_product, :only => [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
 
-  layout 'page'
-
   def index
     @search = Product.ransack(params[:q])
     @search.sorts = 'product_name asc' if @search.sorts.empty?

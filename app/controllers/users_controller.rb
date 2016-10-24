@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, :only => [:show, :edit, :update, :destroy]
 
-  layout 'page'
-
   def index
     if params[:limit]
       @users = User.order(:email).page(params[:page]).per(params[:limit])

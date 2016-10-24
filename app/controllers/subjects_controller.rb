@@ -1,6 +1,5 @@
 class SubjectsController < ApplicationController
   before_action :find_subject, :only => [:show, :edit, :update, :destroy]
-  layout 'page'
 
   def index
     @subjects = Subject.all

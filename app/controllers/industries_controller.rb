@@ -1,7 +1,6 @@
 class IndustriesController < ApplicationController
   before_action :find_industry, :only => [:show, :edit, :update, :destroy]
   include TheSortableTreeController::Rebuild
-  layout 'page'
 
   def index
     @industries = Industry.all

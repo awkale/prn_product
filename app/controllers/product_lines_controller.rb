@@ -1,7 +1,6 @@
 class ProductLinesController < ApplicationController
   before_action :find_product_line, :only => [:show, :edit, :update, :destroy]
   include TheSortableTreeController::Rebuild
-  layout 'page'
 
   def index
     @product_lines = ProductLine.all

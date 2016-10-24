@@ -1,6 +1,5 @@
 class TickersController < ApplicationController
   before_action :find_ticker, only: [:show, :edit, :update, :destroy]
-  layout 'page'
 
   def index
     @tickers = Ticker.all
