@@ -15,6 +15,7 @@
   .close {
     opacity: 1;
     text-shadow: none;
+
     &:hover,
     &:focus {
       color: inherit;
@@ -28,5 +29,5 @@
 }
 
 .alert-link {
-	text-decoration: underline;
+  text-decoration: underline;
 }

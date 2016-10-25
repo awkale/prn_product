@@ -8,26 +8,26 @@
 
 h1,
 .h1 {
-  font-family: $font-family-condensed;
-  margin-top: 0;
   @include headline('h1');
+  margin-top: 0;
+  font-family: $font-family-condensed;
   font-weight: 300;
   small {
     display: block;
+    padding-top: 5px;
     font-family: $font-family-sans-serif;
     font-size: 40%;
-    line-height: 1.3em;
-    padding-top: 5px;
-    color: $gray;
     hyphens: manual;
+    line-height: 1.3em;
+    color: $gray;
     @media (max-width: $screen-xs-max) {
       font-size: $font-size-h3-xs;
     }
   }
   &.home {
+    margin-top: 25px;
     font-family: $font-family-sans-serif;
     font-size: ($font-size-base * 4.25);
-    margin-top: 25px;
     line-height: 1.2;
     @media (max-width: $screen-sm) {
       font-size: ($font-size-base * 1.75);
@@ -37,9 +37,9 @@ h1,
 
 h2,
 .h2 {
+  @include headline('h2');
   font-family: $font-family-condensed;
   font-weight: 300;
-  @include headline('h2');
   small {
     display: block;
     color: $gray;
@@ -47,7 +47,7 @@ h2,
       font-size: 65%;
     }
   }
-  & + .sub {
+  + .sub {
     margin-top: ($padding-large-vertical * 1.5);
     margin-bottom: ($padding-large-vertical * 2);
     font-size: $font-size-h4;
@@ -80,7 +80,11 @@ h6,
   @include headline('h6');
 }
 
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   a {
     color: $text-color;
     &:hover {
@@ -93,7 +97,10 @@ h2, h3, h4, h5, h6 {
   }
 }
 
-h3, h4, h5, h6 {
+h3,
+h4,
+h5,
+h6 {
   font-family: $font-family-sans-serif;
 }
 
@@ -108,9 +115,9 @@ h3, h4, h5, h6 {
     margin-bottom: 0;
     font-size: $font-size-base;
     small {
+      margin-bottom: $padding-small-vertical;
       font-size: 85%;
       line-height: 1;
-      margin-bottom: $padding-small-vertical;
     }
   }
 }
@@ -218,8 +225,8 @@ article {
 p.release-details {
   font-size: 18px;
   .just-read & {
-    font-size: $font-size-base;
     margin-top: ($padding-small-vertical * 1.4);
+    font-size: $font-size-base;
   }
 }
 

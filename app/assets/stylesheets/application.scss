@@ -16,23 +16,22 @@
 *= require sortable_tree
 *= require nested_options
 *= require industries
-*= require recipients
 */
 
 
-@import "bootstrap-sprockets";
-@import "custom/variables";
-@import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "bootstrap-chosen-variables";
-@import "bootstrap-chosen";
+@import 'bootstrap-sprockets';
+@import 'custom/variables';
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import 'bootstrap-chosen-variables';
+@import 'bootstrap-chosen';
+@import 'jquery.mmenu.all';
 
-@import "prn-fonts";
-@import "black-tie";
+@import 'prn-fonts';
+@import 'black-tie';
 
-@import "jquery.mmenu.all.css";
-@import "custom";
+@import 'custom';
 
 
 
@@ -47,7 +46,7 @@
 }
 
 .nav-main {
- background-color: #fff;
+  background-color: #fff;
 }
 
 .home ul {
