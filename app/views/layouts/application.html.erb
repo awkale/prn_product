@@ -20,7 +20,7 @@
       <section class="nav-main hidden-xs">
         <%= render 'nav_main' %>
       </section>
-      <% unless params[:controller] == 'products' || params[:controller] == 'users' %>
+      <% unless params[:controller] == 'products' || params[:controller] == 'users' || params[:controller] == 'home' || params[:controller] == 'users/sessions' %>
       <section class="nav-subnav hidden-xs">
         <%= render 'nav_sub' %>
       </section>
