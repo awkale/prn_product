@@ -1,0 +1,13 @@
+<%= simple_form_for @industry do |form| %>
+  <%= form.error_notification %>
+  <%= form.input :industry_name, placeholder: 'Industry' %>
+  <div class="form-group fr-view">
+    <label for="recipient_description">Description</label>
+    <%= form.text_area :description,
+                   placeholder: 'Description',
+                   class: "wysiwyg"
+    %>
+  </div>
+  <%= form.button :submit %>
+  <%= link_to "Cancel", :back, { :class => "btn btn-default pull-right mr-sm"} %>
+<% end %>

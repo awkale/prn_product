@@ -21,21 +21,47 @@
 //= require sortable_tree/initializer
 //= require jquery.mmenu.min
 //= require jquery.mmenu.navbars
+//= require froala_editor.min.js
+//= require plugins/code_view.min.js
+//= require plugins/link.min.js
+//= require plugins/url.min.js
 //= require_tree .
 
 $(function(){
   var $table = $('table'),
-      $container = $('main .container'),
-      $spinner = $('.spinner'),
-      $limit = $('#limit'),
-      $limit_form = $('#limit_form');
+  $container = $('main .container'),
+  $spinner = $('.spinner'),
+  $limit = $('#limit'),
+  $limit_form = $('#limit_form'),
+  $wysiwyg = $('.wysiwyg');
+
+  $wysiwyg.froalaEditor({
+    toolbarInline: false,
+    heightMin: 200,
+    tabSpaces: 2,
+    toolbarButtons: [
+    'bold',
+    'italic',
+    'underline',
+    'strikeThrough',
+    'subscript',
+    'superscript',
+    'insertHR',
+    'insertLink',
+    '|',
+    'undo',
+    'redo',
+    'clearFormatting',
+    'html'
+    ]
+  });
 
   // pagination - per page select and spinner
   $limit.change(function() {
     $limit_form.submit();
     setTimeout(function() {
       loadAnimation('loading');
-      }, 0
+    }, 0
     );
   });
 

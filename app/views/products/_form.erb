@@ -5,10 +5,13 @@
     <%= form.input :product_name,
                    placeholder: 'Product'
     %>
-    <%= form.input :description,
-                   placeholder: 'Description',
-                   input_html: {rows: 5}
-    %>
+    <div class="form-group fr-view">
+      <label for="recipient_description">Description</label>
+      <%= form.text_area :description,
+                     placeholder: 'Description',
+                     class: "wysiwyg"
+      %>
+    </div>
     <div class="form-group">
       <label for="product_product_line_id">Product Line</label>
       <%= form.collection_select :product_line_id,
