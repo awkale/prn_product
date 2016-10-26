@@ -39,6 +39,11 @@ $(function(){
     toolbarInline: false,
     heightMin: 200,
     tabSpaces: 2,
+    linkAlwaysBlank: true,
+    linkInsertButtons: ['linkBack'],
+    linkStyles: {
+      'fr-strong': 'Thick'
+    },
     toolbarButtons: [
     'bold',
     'italic',
