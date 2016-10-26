@@ -23,6 +23,7 @@
 //= require jquery.mmenu.navbars
 //= require froala_editor.min.js
 //= require plugins/code_view.min.js
+//= require plugins/lists.min.js
 //= require plugins/link.min.js
 //= require plugins/url.min.js
 //= require_tree .
@@ -41,8 +42,14 @@ $(function(){
     tabSpaces: 2,
     linkAlwaysBlank: true,
     linkInsertButtons: ['linkBack'],
+    linkMultipleStyles: false,
     linkStyles: {
-      'fr-strong': 'Thick'
+      'text-muted': 'Muted',
+      'text-primary': 'Primary',
+      'text-success': 'Success',
+      'text-info': 'Info',
+      'text-warning': 'Warning',
+      'text-danger': 'Danger'
     },
     toolbarButtons: [
     'bold',
@@ -51,6 +58,10 @@ $(function(){
     'strikeThrough',
     'subscript',
     'superscript',
+    '|',
+    'formatOL',
+    'formatUL',
+    '|',
     'insertHR',
     'insertLink',
     '|',
