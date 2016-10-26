@@ -6,7 +6,7 @@
         {:class => "btn btn-lg btn-link"} if policy(@industry).edit?
     %>
 </h1>
-<p><%= @industry.description %></p>
+<p><%= simple_format(@industry.description) %></p>
 <div class="row">
   <div class="col-sm-12">
     <h2 class="section-header h4">

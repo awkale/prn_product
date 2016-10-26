@@ -24,7 +24,7 @@ class IndustriesController < ApplicationController
   def create
       @industry = Industry.new(industry_params)
       if @industry.save
-        redirect_to manage_industries_path
+        redirect_to industries_path
       else
         render :new
       end
