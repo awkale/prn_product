@@ -102,3 +102,8 @@ main {
 dd > p:first-child {
   margin-bottom: 0;
 }
+
+.fr-wrapper + div {
+  display: none;
+}
+
