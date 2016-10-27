@@ -36,7 +36,7 @@ class IndustriesController < ApplicationController
 
   def update
       if @industry.update_attributes(industry_params)
-        redirect_to manage_industries_path, notice: "Successfully updated industry."
+        redirect_to industries_path, notice: "Successfully updated industry."
       else
         render :edit
       end
@@ -45,7 +45,7 @@ class IndustriesController < ApplicationController
   def destroy
       @industry.destroy
 
-      redirect_to manage_industries_path
+      redirect_to industries_path
   end
 
   def manage
