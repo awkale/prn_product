@@ -1,13 +1,16 @@
 //
 // Buttons
 // --------------------------------------------------
-.btn-lg, .btn-group-lg > .btn,
-.btn-xs, .btn-group-xs > .btn {
+
+.btn-lg,
+.btn-group-lg > .btn,
+.btn-xs,
+.btn-group-xs > .btn {
   border-radius: $border-radius-base;
 }
 
-.btn:active, .btn.active {
-  -webkit-box-shadow: none;
+.btn:active,
+.btn.active {
   box-shadow: none;
 }
 
@@ -24,6 +27,31 @@
   @include button-variant($btn-secondary-fill-color, $btn-secondary-fill-bg, $btn-secondary-fill-border);
 }
 
+// buttons in hero area
+.btn-hero {
+  @include button-variant($btn-hero-color, $btn-hero-bg, $btn-hero-border);
+  font-weight: 300;
+  text-transform: uppercase;
+
+  .jumbotron-b &.matrix-submit {
+    margin-left: $padding-large-horizontal;
+  }
+}
+
+.btn-hero-secondary {
+  @include button-variant($btn-hero-secondary-color, $btn-hero-secondary-bg, $btn-hero-secondary-border);
+}
+
+.btn-wide {
+  padding-right: $padding-large-horizontal * 6;
+  padding-left: $padding-large-horizontal * 6;
+
+  @media (max-width: $screen-sm-max) {
+    padding-right: $padding-large-horizontal * 4;
+    padding-left: $padding-large-horizontal * 4;
+  }
+}
+
 .btn-view-larger-table {
   i {
     margin-right: 10px;
@@ -37,26 +65,27 @@
 .stacking-card-btn {
   display: block;
   font-size: $font-size-medium;
-  margin: -20px auto 20px;
+  // margin: -20px auto 20px;
 }
 
 .trending-category-btn {
+  @include button-variant($gray-darker, $white, $gray-light);
   float: left;
   padding-top: $padding-large-horizontal;
   padding-bottom: $padding-large-horizontal;
   margin-right: 10px;
   margin-bottom: 10px;
-  @include button-variant($gray-darker, #fff, $gray-light);
   font-size: $font-size-base;
 }
 
 .illustration-promos .btn {
   display: block;
+  padding-right: $padding-large-horizontal * 2;
+  padding-left: $padding-large-horizontal * 2;
   margin: $line-height-computed auto;
-  padding-right:$padding-large-horizontal * 2;
-  padding-left:$padding-large-horizontal * 2;
-  color: #fff;
-  border-color: #fff;
+  color: $white;
+  border-color: $white;
+
   @media (max-width: $screen-md) {
     padding-right: $padding-large-horizontal;
     padding-left: $padding-large-horizontal;
@@ -85,12 +114,13 @@
 
 .lang-switch {
   display: inline-block;
+  font-family: $font-family-sans-serif;
 }
 
 .btn.btn-matrix {
+  padding: 0;
   background: transparent;
   border-radius: 0;
-  padding: 0;
   font-size: 1em;
   line-height: 1;
   &:hover,
@@ -103,29 +133,6 @@
   text-align: center;
 }
 
-.btn-hero {
-  color: $gray-base;
-  background-color: #fff;
-  border-color: #fff;
-  &:hover {
-    color: $gray-base;
-    background-color: darken(#fff,5%);
-    border-color: darken(#fff,5%);
-  }
-  .jumbotron-b &.matrix-submit {
-    margin-left: $padding-large-horizontal;
-  }
-  &.btn-secondary {
-    color: #fff;
-    background: transparent;
-    &:hover,
-    &:focus {
-      background: rgba($gray-lightest, .1);
-      border-color: #fff;
-    }
-  }
-}
-
 .submit-form-container {
   border-top: 1px solid #e8e8e8;
   text-align: right;
@@ -133,8 +140,8 @@
 }
 
 .btn-submit {
-	padding-left: 4em;
-	padding-right: 4em;
+  padding-right: 4em;
+  padding-left: 4em;
 }
 
 .filters {
@@ -142,10 +149,10 @@
     @media (max-width: $screen-xs-max) {
       width: 100% !important;
       .btn {
-        border-radius: 0;
-        border-left: 0;
         border-right: 0;
         border-bottom: 0;
+        border-left: 0;
+        border-radius: 0;
         border-color: $gray-lightest;
       }
       &.open .dropdown-toggle {

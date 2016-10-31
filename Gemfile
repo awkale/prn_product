@@ -66,6 +66,8 @@ gem 'acts_as_csv'
 
 gem 'pundit'
 
+gem "wysiwyg-rails"
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

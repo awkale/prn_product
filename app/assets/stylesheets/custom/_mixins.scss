@@ -52,6 +52,23 @@
   @return mix($color, black, $percentage);
 }
 
+@mixin placeholder($color: $input-color-placeholder) {
+  // Firefox
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+    text-overflow: ellipsis!important;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    text-overflow: ellipsis!important;
+  } // Internet Explorer 10+
+  &::-webkit-input-placeholder  {
+    color: $color;
+    text-overflow: ellipsis!important;
+  } // Safari and Chrome
+}
+
 @mixin word-wrap() {
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -61,9 +78,6 @@
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
-  @media screen {
-    word-break: keep-all;
-  }
 }
 
 @mixin word-wrap-reset() {

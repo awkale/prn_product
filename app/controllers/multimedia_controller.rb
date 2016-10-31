@@ -1,6 +1,5 @@
 class MultimediaController < ApplicationController
   before_action :find_multimedium, :only => [:show, :edit, :update, :destroy]
-  layout 'page'
 
   def index
     @multimedia = Multimedium.all

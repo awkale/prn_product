@@ -9,7 +9,7 @@ $ ->
     navbars: [
       {
         position: 'top',
-        content: '<p class="mmenu-header"><i class="btl bt-times mm-close-button"></i></p>',
+        content: '<p class="mmenu-header"><i class="btl bt-times mm-close"></i></p>',
         height: 1
       }
     ]
@@ -18,7 +18,7 @@ $ ->
   api = navMobile.data( 'mmenu' );
 
   # create close button
-  $('.mm-close-button').click ->
+  $('.mm-close').click ->
     api.close();
 
 

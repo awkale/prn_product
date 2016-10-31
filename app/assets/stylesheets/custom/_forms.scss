@@ -1,5 +1,6 @@
 .form-control {
   color: #373737;
+  @include placeholder();
 }
 
 .has-warning {
@@ -27,36 +28,12 @@
   }
 }
 
+.radio,
 .checkbox {
   label {
-    padding-left: $padding-large-horizontal;
+    padding-left: $padding-small-horizontal;
     &.small {
       padding-left: $padding-small-horizontal;
-    }
-  }
-  label:before {
-    top: -3px;
-    border-color: $gray-light;
-    border-radius: 0;
-    width: 22px;
-    height: 22px;
-  }
-  input[type="checkbox"] {
-    &:checked + label {
-      &::after {
-        top: -3px;
-        width: 21px;
-        height: 21px;
-        font-size: 15px;
-        font-weight: bold;
-        color: $brand-secondary;
-      }
-      &.small::after {
-        top: 0;
-        width: 16px;
-        height: 16px;
-        font-size: 11px;
-      }
     }
   }
   label.small:before {
@@ -112,13 +89,6 @@
   border-bottom-right-radius: 0;
 }
 
-// .as-checklist {
-//   min-height: 34px;
-//   padding: 6px 12px;
-//   background-color: $gray-lightest;
-//   border: 1px solid $gray-light;
-//   border-top: none;
-// }
 
 .as-checklist__parent {
   display: block;
@@ -186,55 +156,6 @@
 
 
 
-// old
-
-.cb {
-  display: block;
-  font-weight: normal;
-  color: $text-color;
-  text-decoration: none;
-  margin-bottom: 5px;
-  &:focus {
-    color: $text-color;
-    text-decoration: none;
-  }
-  a,
-  a:focus {
-    color: $text-color;
-    text-decoration: none;
-  }
-  input[type="checkbox"] {
-    margin-right: 3px;
-  }
-}
-
-.cb-level-one {
-  margin-left: ($padding-large-horizontal);
-  input[type="checkbox"] {
-    margin-left: -($padding-large-horizontal);
-  }
-}
-
-.cb-level-two {
-  margin-left: ($padding-large-horizontal * 2);
-  input[type="checkbox"] {
-    margin-left: -($padding-large-horizontal);
-  }
-}
-
-.cb-level-three {
-  margin-left: ($padding-large-horizontal * 4);
-  input[type="checkbox"] {
-    margin-left: -($padding-large-horizontal * 2);
-  }
-}
-
-.cb-level-four {
-  margin-left: ($padding-large-horizontal * 6);
-  input[type="checkbox"] {
-    margin-left: -($padding-large-horizontal * 3);
-  }
-}
 
 // Datepicker
 .datepicker,
@@ -246,10 +167,42 @@
 
 
 // Prevent iOS Zoom on form focus
-@media screen and (-webkit-min-device-pixel-ratio:0) and (max-width: $screen-xs-max) { 
+@media screen and (-webkit-min-device-pixel-ratio:0) and (max-width: $screen-xs-max) {
   select,
   textarea,
   input {
     font-size: 16px;
+  }
+}
+
+.to-clipboard {
+  .form-control[readonly] {
+    background: $input-bg;
+    color: $input-color-placeholder;
+    font-size: 16px;
+  }
+}
+
+//jump-to
+.jump-to {
+  background: $gray-lighter;
+  padding: 11px 12px;
+  margin-bottom:-1px;
+  label {
+    font-weight: normal;
+  }
+  @media (min-width: $screen-sm) {
+    & > *:not(:first-child),
+    .date {
+      margin-left: $padding-large-horizontal!important;
+    }
+  }
+  @media (max-width: $screen-xs-max) {
+    .date {
+      display: block;
+    }
+  }
+  .btn-default {
+    background: #fff;
   }
 }

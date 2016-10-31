@@ -2,16 +2,51 @@
 //
 // Social links
 // --------------------------------------
+.social-share-circle {
+  @media (min-width: $screen-sm-min) {
+    display: inline-block;
+    float: right;
+  }
+  @media (max-width: $screen-xs-max) {
+    margin-top: ($padding-large-vertical * 2);
+  }
+}
 .social-links {
   ul {
     padding: 0;
     margin-left: 0;
+    li {
+      display: inline-block;
+    }
+    .just-read & {
+      text-align: right;
+      @media (max-width: $screen-xs-max) {
+        text-align: left;
+      }
+    }
+  }
+  a {
+    .social-share-circle & {
+      @media (min-width: $screen-md-min) {
+        margin-right: 6px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
   }
   li {
     width: 75px;
     margin-right: 5px;
     padding: 0;
     text-align: center;
+    .social-share-circle & {
+      margin-bottom: 5px;
+      padding: 6px;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+    }
     &:last-child {
       margin-right: 0;
     }
@@ -46,9 +81,17 @@
     font-size: 20px;
     padding: 0 26px;
     display: inline-block;
+    .social-share-circle & {
+      padding: 0px;
+      font-size: 12px;
+    }
     @media (max-width: $screen-xs-max) {
       font-size: 14px;
       padding: 6px 18px;
+      .social-share-circle & {
+        padding: 0px;
+        font-size: 12px;
+      }
     }
     &:hover {
       text-decoration: none;
@@ -58,6 +101,9 @@
     line-height: 1.85;
     @media (max-width: $screen-xs-max) {
       line-height: 2.25;
+      .social-share-circle & {
+        line-height: 1.85;
+      }
     }
   }
 }

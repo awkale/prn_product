@@ -1,8 +1,6 @@
 class RecipientsController < ApplicationController
   before_action :find_recipient, :only => [:show, :edit, :update, :destroy]
 
-  layout 'page'
-
   def index
     @search = Recipient.ransack(params[:q])
     @search.sorts = 'sort_by_name asc' if @search.sorts.empty?

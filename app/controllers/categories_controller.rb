@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
   before_action :find_category, :only => [:show, :edit, :update, :destroy]
-  layout 'page'
 
   def index
     @categories = Category.all

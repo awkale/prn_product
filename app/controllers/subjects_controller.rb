@@ -1,6 +1,5 @@
 class SubjectsController < ApplicationController
   before_action :find_subject, :only => [:show, :edit, :update, :destroy]
-  layout 'page'
 
   def index
     @subjects = Subject.all
@@ -57,6 +56,7 @@ class SubjectsController < ApplicationController
   def subject_params
     params.require(:subject).permit(
       :subject_name,
+      :description,
       recipient_ids: [],
       recipient_attributes: [
         :id,

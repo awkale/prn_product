@@ -1,7 +1,6 @@
 class IndustriesController < ApplicationController
   before_action :find_industry, :only => [:show, :edit, :update, :destroy]
   include TheSortableTreeController::Rebuild
-  layout 'page'
 
   def index
     @industries = Industry.all
@@ -25,7 +24,7 @@ class IndustriesController < ApplicationController
   def create
       @industry = Industry.new(industry_params)
       if @industry.save
-        redirect_to manage_industries_path
+        redirect_to industries_path
       else
         render :new
       end
@@ -37,7 +36,7 @@ class IndustriesController < ApplicationController
 
   def update
       if @industry.update_attributes(industry_params)
-        redirect_to manage_industries_path, notice: "Successfully updated industry."
+        redirect_to industries_path, notice: "Successfully updated industry."
       else
         render :edit
       end
@@ -46,11 +45,11 @@ class IndustriesController < ApplicationController
   def destroy
       @industry.destroy
 
-      redirect_to manage_industries_path
+      redirect_to industries_path
   end
 
   def manage
-      @industries = Industry.nested_set.select('id, industry_name, parent_id').all
+      @industries = Industry.nested_set.select('slug, industry_name, parent_id').all
   end
 
   private
@@ -62,6 +61,7 @@ class IndustriesController < ApplicationController
   def industry_params
     params.require(:industry).permit(
       :industry_name,
+      :description,
       :parent_id,
       recipient_ids: [],
       recipient_attributes: [

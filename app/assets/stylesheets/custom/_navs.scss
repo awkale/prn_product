@@ -100,12 +100,11 @@
         padding-left: 6px;
         padding-right: 6px;
       }
-      .news-releases & {
-        cursor: default;
-      }
+      // .news-releases & {
+      //   cursor: default;
+      // }
     }
 
-    .tier-two > li > a:active,
     .tier-two > li.active > a,
     .tier-two > li.active > a:hover,
     .tier-two > li.active > a:focus {
@@ -116,6 +115,7 @@
 
     .nav-subnav--no-dropdown .tier-two > li > a:hover,
     .nav-subnav--no-dropdown .tier-two > li > a:focus,
+    .tier-two > li > a:hover,
     .tier-two > li.open > a {
       background: none;
       border-color: $brand-secondary;
@@ -260,7 +260,7 @@
       padding-left: 12px;
     }
     @media (max-width: $screen-sm-max) {
-      font-size: 11px;
+      font-size: 10px;
     }
   }
 }
@@ -326,7 +326,10 @@
           min-width: 110px;
         }
         @media (max-width: $screen-sm-max) {
-          min-width: 95px;
+          min-width: 60px;
+          i {
+            margin-left: 6px;
+          }
         }
       }
       li a {
@@ -398,10 +401,25 @@
     // share/contact/search menu right
     &.navbar-right {
       padding-right: 15px;
-      & > li > a {
+      & > li:not(.btn-sar) > a {
         width: 50px;
         text-align: center;
         color: $brand-primary;
+        @media (min-width: $screen-md-max) and (max-width: ($screen-md-max + 15)) {
+          width: 40px;
+          padding-left: 13px;
+          padding-right: 13px;
+        }
+        @media (min-width: $screen-sm-max) and (max-width: ($screen-sm-max + 15)) {
+          width: 40px;
+          padding-left: 13px;
+          padding-right: 13px;
+        }
+        @media (max-width: ($screen-xs-max + 15)) {
+          width: 40px;
+          padding-left: 13px;
+          padding-right: 13px;
+        }
         &:hover {
           color: $brand-secondary;
           background: $navbar-sticky-link-active-bg;
@@ -416,6 +434,18 @@
         background: $navbar-sticky-link-active-bg;
         border-bottom: 3px solid $brand-secondary;
       }
+      & > li.btn-sar > a {
+        color: #fff;
+        &:hover,
+        &:focus {
+          background: $navbar-junior-link-secondary-hover;
+        }
+        @media (max-width: $screen-md-max) {
+          font-size: 12px;
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+      }
       .dropdown-menu {
         padding: 20px;
         color: $brand-primary;
@@ -428,35 +458,7 @@
           margin-bottom:10px;
           padding-top:10px;
         }
-        &.share {
-          width:242px;
-          li {
-            float:left;
-            font-size:2em;
-            a {
-              height:50px;
-              padding: 0;
-              line-height: 2em;
-              &:hover {
-                background: inherit;
-                i {
-                  color: $brand-secondary;
-                }
-              }
-              i {
-                width:50px;
-                color: $brand-primary;
-                text-align: center;
-
-              }
-            }
-            &.open > a > i {
-              color:$brand-secondary;
-            }
-          }
-        }
         &.contact {
-          width:273px;
           & > li > a {
             padding: 0;
             &:hover {
@@ -464,9 +466,6 @@
               color: $brand-secondary;
             }
           }
-        }
-        &.search {
-          width: 300px;
         }
       }
     }
@@ -491,18 +490,18 @@
       color: $brand-primary;
       line-height: 1;
       @media (max-width: $screen-md-max) {
-        font-size: 13px;
-        padding-top: 19px;
+        font-size: 12px;
+        padding-top: 20px;
         padding-bottom: 16px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 7px;
+        padding-right: 7px;
       }
       @media (max-width: $screen-sm-max) {
         font-size: 10px;
         padding-top: 20px;
         padding-bottom: 18px;
-        padding-left: 6px;
-        padding-right: 6px;
+        padding-left: 4px;
+        padding-right: 5px;
       }
     }
     .tier-two > li:first-of-type > a {
@@ -525,7 +524,7 @@
     .tier-four {
       width: 571px;
       @media (max-width: $screen-md-max) {
-        width: 501px;
+        width: 446px;
       }
       @media (max-width: $screen-sm-max) {
         width: 373px;
@@ -537,20 +536,13 @@
 // --------------------------------------------------
 // Mobile Nav
 
-@media (max-width: $screen-xs-max) {
-  .mm-page {
-    padding-top: 60px;
-  }
-}
-
-nav#nav-mobile:not(.mm-menu) {
-  opacity: 0;
-}
-
 nav#nav-mobile {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  &:not(.mm-menu) {
+    opacity: 0;
+  }
 }
 
 .mm-menu {
@@ -571,7 +563,6 @@ nav#nav-mobile {
   }
   .mm-navbar {
     height: 60px;
-    padding: 0;
     & > * {
       padding: 20px 0;
     }
@@ -653,7 +644,7 @@ nav#nav-mobile {
   float: left;
 }
 
-.mm-close-button {
+.mm-close {
   font-size: 1.5em;
   color: $gray-base;
   position: fixed;
@@ -670,11 +661,7 @@ nav#nav-mobile {
 }
 
 .mm-panels > .mm-panel.mm-hasnavbar {
-  padding-top: 0px;
-}
-
-.mm-hasnavbar-top-1 .mm-panels {
-  top: 60px;
+    padding-top: 60px;
 }
 
 .mm-hasnavbar-top-2 .mm-panels {
@@ -696,6 +683,16 @@ nav#nav-mobile {
   height: 60px;
 }
 
+.mm-menu.mm-front {
+  z-index: 2;
+}
+
+#mm-blocker {
+  background-color: $modal-backdrop-bg;
+  @include opacity($modal-backdrop-opacity);
+  z-index: 1!important;
+}
+
 // Mobile only nav
 
 @media screen and (min-width: $screen-sm) {
@@ -708,6 +705,12 @@ nav#nav-mobile {
     }
   }
 
+}
+
+// Mobile Styleguide nav
+
+.mobile-styleguide-nav {
+  top: 90px;
 }
 
 // Custom Section Navs
@@ -736,4 +739,49 @@ nav#nav-mobile {
   a {
     border-left: 0;
   }
+}
+
+.nav-stacked {
+  > li {
+    > a {
+      color: #000;
+    }
+    &.active {
+      background: $gray-lightest;
+      > a {
+        color: $link-color;
+      }
+    }
+    i {
+      margin-right: $padding-large-horizontal;
+    }
+    + li {
+      margin-top: 0px;
+      border-top: 1px solid $gray-lightest;
+    }
+  }
+}
+
+.tab-nav {
+  button {
+    position: relative;
+    margin-bottom: ($padding-large-vertical * 2);
+    &:after {
+      content: "\f000";
+      position: absolute;
+      top: 50%;
+      right: $padding-small-horizontal;
+      font-family: 'Black Tie';
+      font-size: 18px;
+      color: $brand-secondary;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  }
+  .bs-caret {
+    display: none;
+  }
+}
+.tab-nav.tab-nav--down-arrow button:after {
+  content: "\f091";
 }

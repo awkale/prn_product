@@ -175,6 +175,12 @@
   text-overflow: ellipsis;
 }
 
+.bootstrap-select {
+  button:hover,
+  button:focus {
+    text-decoration: none;
+  }
+}
 .filters {
   border-bottom: 2px solid $gray-lighter;
   @media (max-width: $screen-xs-max) {
@@ -213,15 +219,4 @@
   visibility: hidden;
   position: relative;
   top: -50px;
-}
-
-.navbar-form {
-  margin-top: 7px;
-  margin-bottom: 7px;
-}
-
-.search.form-inline {
-  input.form-control {
-    width: 500px;
-  }
 }

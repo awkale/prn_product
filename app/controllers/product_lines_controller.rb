@@ -1,7 +1,6 @@
 class ProductLinesController < ApplicationController
   before_action :find_product_line, :only => [:show, :edit, :update, :destroy]
   include TheSortableTreeController::Rebuild
-  layout 'page'
 
   def index
     @product_lines = ProductLine.all
@@ -48,7 +47,7 @@ class ProductLinesController < ApplicationController
   end
 
   def manage
-      @product_lines = ProductLine.nested_set.select('id, product_line, parent_id').all
+      @product_lines = ProductLine.nested_set.select('slug, product_line, parent_id').all
   end
 
   private

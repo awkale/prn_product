@@ -84,6 +84,7 @@ $check-icon: $fa-var-check !default;
 
     &:checked + label::after{
       font-family: $font-family-icon;
+      font-weight: 900;
       content: $check-icon;
     }
 
@@ -118,14 +119,14 @@ $check-icon: $fa-var-check !default;
   }
 }
 
-@include checkbox-variant('.checkbox-primary', $brand-primary);
+@include checkbox-variant('.checkbox-primary', $brand-secondary);
 @include checkbox-variant('.checkbox-danger', $brand-danger);
 @include checkbox-variant('.checkbox-info', $brand-info);
 @include checkbox-variant('.checkbox-warning', $brand-warning);
 @include checkbox-variant('.checkbox-success', $brand-success);
 
 
-@include checkbox-variant-indeterminate('.checkbox-primary', $brand-primary);
+@include checkbox-variant-indeterminate('.checkbox-primary', $brand-secondary);
 @include checkbox-variant-indeterminate('.checkbox-danger', $brand-danger);
 @include checkbox-variant-indeterminate('.checkbox-info', $brand-info);
 @include checkbox-variant-indeterminate('.checkbox-warning', $brand-warning);
@@ -221,7 +222,7 @@ $check-icon: $fa-var-check !default;
   }
 }
 
-@include radio-variant('.radio-primary', $brand-primary);
+@include radio-variant('.radio-primary', $brand-secondary);
 @include radio-variant('.radio-danger', $brand-danger);
 @include radio-variant('.radio-info', $brand-info);
 @include radio-variant('.radio-warning', $brand-warning);
@@ -232,6 +233,7 @@ input[type="checkbox"],
 input[type="radio"] {
   &.styled:checked + label:after {
     font-family: $font-family-icon;
+    font-weight: 900;
     content: $check-icon;
   }
   .styled:checked + label {

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PR Newswire Distribution</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <title><%= if content_for?(:title) then yield(:title) + ' | ' end %>PR Newswire Distribution</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,22 +13,26 @@
 </head>
 <body>
   <div class="page-wrap">
-    <header class="main-header Fixed">
-      <section class="nav-junior no-margin">
-        <%= render "nav_junior" %>
+    <header class="main-header">
+      <section class="nav-junior">
+        <%= render 'nav_junior' %>
       </section>
-      <section class="nav-main no-margin hidden-xs">
-        <%= render "nav_main" %>
+      <section class="nav-main hidden-xs">
+        <%= render 'nav_main' %>
       </section>
+      <% unless params[:controller] == 'products' || params[:controller] == 'users' || params[:controller] == 'home' || params[:controller] == 'users/sessions' %>
+      <section class="nav-subnav hidden-xs">
+        <%= render 'nav_sub' %>
+      </section>
+      <% end %>
     </header><!-- /header -->
     <main role="main" id="main" class="">
       <div class="container">
-      <h1 class="mt-lg">PR Newswire U.S. Distribution</h1>
         <%= render 'alerts' %>
         <%= yield %>
       </div>
     </main><!-- /main -->
-    <%= render "footer" %>
+    <%= render 'footer' %>
     <%= render 'nav_mobile' %>
   </div>
   <%= render 'scripts' %>

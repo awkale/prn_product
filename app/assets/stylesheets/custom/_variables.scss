@@ -6,56 +6,46 @@ $bootstrap-sass-asset-helper: false;
 
 //== Colors
 //
-//## Gray and brand colors for use across Bootstrap.
-
-// $gray-base:              #000;
-// $gray-darker:            lighten($gray-base, 13.5%); // #222
-// $gray-dark:              lighten($gray-base, 20%);   // #333
-// $gray:                   lighten($gray-base, 33.5%); // #555
-// $gray-light:             lighten($gray-base, 46.7%); // #777
-// $gray-lighter:           lighten($gray-base, 93.5%); // #eee
-// $gray-lightest:          #fafafa;
-
-$brightRed:               #d21D06;
-$cisionOrange100:         #F15D22;
-$digitalOrange:           #FAA837;
-$yellowGreen:             #C6DA65;
-$lime:                    #94D93F;
+$brightRed:               #d21d06;
+$cisionOrange100:         #f15d22;
+$digitalOrange:           #faa837;
+$yellowGreen:             #c6da65;
+$lime:                    #94d93f;
 $kellyGreen100:           #4cbb17;
-$digitalAqua:             #4CBC8C;
-$cisionBlue:              #0C6389;
-$brightCisionBlue:        #0DA7E3;
-$lightCisionBlue:         #0E94C7;
-$cisionNavy:              #053A4F;
+$digitalAqua:             #4cbc8c;
+$cisionBlue:              #0c6389;
+$brightCisionBlue:        #0da7e3;
+$lightCisionBlue:         #0e94c7;
+$cisionNavy:              #053a4f;
 $purple100:               #563689;
-$purple65:                #917CB2;
-$digitalMagenta:          #AB4F7E;
+$purple65:                #917cb2;
+$digitalMagenta:          #ab4f7e;
 
 $charcoal100:             #101112;
 $charcoal80:              #404142;
 $charcoal70:              #585859;
 $charcoal60:              #707171;
 $charcoal50:              #888889;
-$cisionNavy35:            #A8BAC2;
-$onahau100:               #C1D2D9;
-$onahau75:                #D1DFE5;
-$onahau60:                #DBE6EB;
-$onahau45:                #E4ECF0;
-$onahau30:                #EDF3F5;
-$onahau20:                #F6F9FA;
+$cisionNavy35:            #a8bac2;
+$onahau100:               #c1d2d9;
+$onahau75:                #d1dfe5;
+$onahau60:                #dbe6eb;
+$onahau45:                #e4ecf0;
+$onahau30:                #edf3f5;
+$onahau20:                #f6f9fa;
 
-$digitalAqua:             #4CBC8C;
-$digitalOrange:           #FAA837;
-$cisionBlue:              #0C6389;
-$yellowBlue:              #C6DA65;
-$brightCisionBlue:        #0DA7E3;
-$cisionOrange100:         #F15D22;
-$purple65:                #917CB2;
-$cisionNavy35:            #A8BAC2;
-$digitalMagenta:          #AB4F7E;
-$lime:                    #94D93F;
+$digitalAqua:             #4cbc8c;
+$digitalOrange:           #faa837;
+$cisionBlue:              #0c6389;
+$yellowBlue:              #c6da65;
+$brightCisionBlue:        #0da7e3;
+$cisionOrange100:         #f15d22;
+$purple65:                #917cb2;
+$cisionNavy35:            #a8bac2;
+$digitalMagenta:          #ab4f7e;
+$lime:                    #94d93f;
 $charcoal60:              #707171;
-$brightRed:               #d21D06;
+$brightRed:               #d21d06;
 
 $prwebRed:                #a3130c;
 $prnewswireBlue:          #47536b;
@@ -73,6 +63,7 @@ $gray:                    $charcoal50; // sub-headline
 $gray-light:              $cisionNavy35;
 $gray-lighter:            $onahau45; // vertical separator in nav
 $gray-lightest:           $onahau20; // background gray
+$white:                   #fff;
 
 $brand-primary:           $cisionNavy;
 $brand-primary-light:     $lightCisionBlue;
@@ -88,6 +79,8 @@ $brand-success:           $digitalAqua;
 $brand-info:              $brightCisionBlue;
 $brand-warning:           $cisionOrange100;
 $brand-danger:            $brightRed;
+
+
 
 
 //== Scaffolding
@@ -119,8 +112,8 @@ $border-solid: 1px solid #c1c1c1;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  Proxima,  Helvetica, Arial, sans-serif;
-$font-family-serif:       Belizio, Palatino, Book Antiqua, Georgia, "Times New Roman", Times, serif;
+$font-family-sans-serif:  "Proxima Nova",  Helvetica, Arial, sans-serif;
+$font-family-condensed:  "Proxima Nova Condensed",  Helvetica, Arial, sans-serif;
 
 // Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -132,31 +125,31 @@ $font-size-medium:        ceil(($font-size-base * 1.1));  // ~16px
 $font-size-small:         ceil(($font-size-base * 0.85)); // ~12px
 
 
-$font-size-h1:            32px;
-$font-size-h2:            26px;
+$font-size-h1:            48px;
+$font-size-h2:            36px;
 $font-size-h3:            23px;
 $font-size-h4:            18px;
 $font-size-h5:            16px;
 $font-size-h6:            $font-size-base;
 
-$font-size-h1-md:  29px;
-$font-size-h2-md:  23px;
+$font-size-h1-md:  43px;
+$font-size-h2-md:  32px;
 $font-size-h3-md:  21px;
 $font-size-h4-md:  18px;
 $font-size-h5-md:  16px;
 $font-size-h6-md:  $font-size-base;
 
 //tablet
-$font-size-h1-sm:  26px;
-$font-size-h2-sm:  21px;
+$font-size-h1-sm:  35px;
+$font-size-h2-sm:  29px;
 $font-size-h3-sm:  19px;
 $font-size-h4-sm:  17px;
 $font-size-h5-sm:  15px;
 $font-size-h6-sm:  $font-size-base;
 
 //mobile
-$font-size-h1-xs:  24px;
-$font-size-h2-xs:  20px;
+$font-size-h1-xs:  32px;
+$font-size-h2-xs:  28px;
 $font-size-h3-xs:  18px;
 $font-size-h4-xs:  16px;
 $font-size-h5-xs:  15px;
@@ -179,7 +172,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
 
 // By default, this inherits from the `<body>`.
 $headings-font-family:    inherit;
-$headings-font-weight:    700;
+$headings-font-weight:    600;
 $headings-line-height:    1.2;
 $headings-color:          inherit;
 
@@ -259,7 +252,7 @@ $table-border-color:            #ddd;
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-$btn-font-weight:                600;
+$btn-font-weight:                normal;
 
 $btn-default-color:              #666;
 $btn-default-bg:                 transparent;
@@ -292,6 +285,14 @@ $btn-warning-border:             darken($btn-warning-bg, 5%);
 $btn-danger-color:               #fff;
 $btn-danger-bg:                  $brand-danger;
 $btn-danger-border:              darken($btn-danger-bg, 5%);
+
+$btn-hero-color:                 $gray-base;
+$btn-hero-bg:                    #fff;
+$btn-hero-border:                #fff;
+
+$btn-hero-secondary-color:       #fff;
+$btn-hero-secondary-bg:          rgba($brand-secondary,.7);
+$btn-hero-secondary-border:      #fff;
 
 $btn-link-disabled-color:        $gray-light;
 
@@ -614,7 +615,7 @@ $navbar-inverse-toggle-border-color:        #333;
 //=== Shared nav styles
 $nav-link-padding:                          10px 15px;
 $nav-junior-link-padding:                   10px 10px;
-$nav-link-hover-bg:                         $gray-lighter;
+$nav-link-hover-bg:                         $gray-lightest;
 
 $nav-disabled-link-color:                   $gray-light;
 $nav-disabled-link-hover-color:             $gray-light;
@@ -698,9 +699,9 @@ $state-info-text:                $brand-secondary;
 $state-info-bg:                  $brand-secondary;
 $state-info-border:              $brand-secondary;
 
-$state-warning-text:             $brand-accent;
-$state-warning-bg:               $brand-accent;
-$state-warning-border:           $brand-accent;
+$state-warning-text:             $brand-warning;
+$state-warning-bg:               $brand-warning;
+$state-warning-border:           $brand-warning;
 
 $state-danger-text:              $brand-danger;
 $state-danger-bg:                $brand-danger;
@@ -783,7 +784,7 @@ $popover-arrow-outer-fallback-color:  darken($popover-fallback-border-color, 20%
 // Default label background color
 $label-default-bg:            $gray-light;
 // Primary label background color
-$label-primary-bg:            $brand-primary;
+$label-primary-bg:            $brand-action;
 // Success label background color
 $label-success-bg:            $brand-success;
 // Info label background color
@@ -948,7 +949,7 @@ $panel-info-text:             #fff;
 $panel-info-border:           $state-info-border;
 $panel-info-heading-bg:       $state-info-bg;
 
-$panel-warning-text:          #fff;
+$panel-warning-text:          $gray-dark;
 $panel-warning-border:        $state-warning-border;
 $panel-warning-heading-bg:    $state-warning-bg;
 
@@ -1010,7 +1011,7 @@ $badge-border-radius:         10px;
 $breadcrumb-padding-vertical:   20px;
 $breadcrumb-padding-horizontal: 0px;
 // Breadcrumb background color
-$breadcrumb-bg:                 #fff;
+$breadcrumb-bg:                 transparent;
 // Breadcrumb text color
 $breadcrumb-color:              $gray;
 // Text color of current page in the breadcrumb
@@ -1018,6 +1019,7 @@ $breadcrumb-active-color:       #000;
 // Textual separator for between breadcrumb elements
 $breadcrumb-font:               normal bold normal 11px/1 'Black Tie';
 $breadcrumb-separator:          "\f093";
+$breadcrumb-back-separator:     "\f092";
 
 
 //== Carousel
@@ -1067,7 +1069,7 @@ $pre-scrollable-max-height:   340px;
 //##
 
 // Horizontal offset for forms and lists.
-$component-offset-horizontal: 140px;
+$component-offset-horizontal: 180px;
 // Text muted color
 $text-muted:                  $gray-light;
 // Abbreviations and acronyms border color
@@ -1086,3 +1088,7 @@ $page-header-border-color:    $gray-lighter;
 $dl-horizontal-offset:        $component-offset-horizontal;
 // Horizontal line color.
 $hr-border:                   $gray-lighter;
+
+// loading indicator
+$zindex-loading: 1040 - 1; //1040 is $zindex-modal-background
+$loading-indicator-color: $cisionOrange100;

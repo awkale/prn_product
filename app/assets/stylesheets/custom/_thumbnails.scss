@@ -134,6 +134,9 @@
       max-height: 400px;
       margin-bottom: 10px;
       overflow: hidden;
+      .img-thumbnail {
+        margin-bottom: 0;
+      }
       .info-overlay {
         position: absolute;
         width: 100%;
@@ -270,4 +273,3 @@
 .stamp-full {
   width: 100%;
 }
-

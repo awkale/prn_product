@@ -3,10 +3,14 @@
   min-height: 60px;
   font-size: 1.5em;
   color: #fff;
-  background: $gray-base;
+  background: $brand-primary;
   border-bottom: 0;
   .container {
     position: relative;
+    transition: opacity 500ms ease-in-out;
+  }
+  &:not(.mm-slideout) > .container {
+    opacity: 0;
   }
   .nav > li {
     float: left;

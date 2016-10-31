@@ -16,45 +16,41 @@
 *= require sortable_tree
 *= require nested_options
 *= require industries
-*= require recipients
+*= require froala_editor.min.css
+*= require froala_style.min.css
+*= require plugins/code_view.min.css
+*= require font-awesome
 */
 
 
-@import "bootstrap-sprockets";
-@import "custom/variables";
-@import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "bootstrap-chosen-variables";
-@import "bootstrap-chosen";
+@import 'bootstrap-sprockets';
+@import 'custom/variables';
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import 'bootstrap-chosen-variables';
+@import 'bootstrap-chosen';
+@import 'jquery.mmenu.all';
 
-@import "prn-fonts";
-@import "black-tie";
+@import 'prn-fonts';
+@import 'black-tie';
 
-@import "jquery.custom-mmenu";
-@import "custom";
+@import 'custom';
 
 
 
 @media (min-width: $screen-sm) {
-  header {
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 100;
-  }
 
   main {
-    padding-bottom: 100px;
-    padding-top: 150px;
     min-height: 1200px;
+    padding-bottom: 100px;
   }
 
   .index ol { padding-left: 0; }
 }
 
 .nav-main {
- background-color: #fff;
+  background-color: $white;
 }
 
 .home ul {
@@ -80,10 +76,10 @@ td i {
 
 .spinner {
   position: fixed;
-  left: 50%;
   top: 50%;
-  font-size: 5em;
+  left: 50%;
   z-index: 100;
+  font-size: 5em;
   color: $brand-action;
 }
 
@@ -96,9 +92,18 @@ main {
 }
 
 .filters ul {
-  list-style: none;
   padding-left: 16px;
+  list-style: none;
   ul {
     padding-left: 10px;
   }
 }
+
+dd > p:first-child {
+  margin-bottom: 0;
+}
+
+.fr-wrapper + div {
+  display: none;
+}
+

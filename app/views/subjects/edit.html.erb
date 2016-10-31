@@ -1,12 +1,6 @@
 <div class="row subject edit">
-  <div class="col-sm-8">
+  <div class="col-sm-6">
     <h2 class="section-header"><span class="text-muted fw-normal">Edit</span> <%= @subject.subject_name %></h2>
-
-    <%= simple_form_for @subject do |cat| %>
-      <%= cat.error_notification %>
-      <%= cat.input :subject_name, placeholder: 'subject' %>
-      <%= cat.button :submit %>
-      <%= link_to "Cancel", :back, { :class => "btn btn-default pull-right mr-sm"} %>
-    <% end %>
+    <%= render 'form' %>
   </div>
 </div>
