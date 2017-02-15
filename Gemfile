@@ -66,7 +66,13 @@ gem 'acts_as_csv'
 
 gem 'pundit'
 
-gem "wysiwyg-rails"
+gem 'wysiwyg-rails'
+
+gem 'active_hash_relation'
+
+gem 'active_model_serializers', '0.9.2'
+
+gem 'rack-cors'
 
 
 # Use ActiveModel has_secure_password
