@@ -23,8 +23,10 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-`git push heroku develop`
-`git push heroku master`
+Automatic deploys are enabled for a GitHub branc, Heroku will build and deploy all pushes to that branch. For example, the development(stage) app on Heroku,  pushes to your GitHub `development` branch will be automatically built and deployed to that app. Travis CI is active, so all deploys will wait for all tests to pass before deploying.
+
+`git push origin develop`
+`git push origin master`
 * ...
 
 
